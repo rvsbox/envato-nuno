@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>nuno</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+            integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<svg width="1050" height="1050" viewBox="0 0 1050 1050" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <circle id="black-1" cx="520" cy="520" r="440" fill="black" fill-opacity="0.3" filter="url(#filter0_f-882713)"/>
+    <circle id="white-1" cx="515" cy="515" r="440" fill="white"/>
+    <circle id="black-2" cx="520" cy="520" r="320" fill="black" fill-opacity="0.3" filter="url(#filter1_f-804026)"/>
+    <circle id="white-2" cx="515" cy="515" r="320" fill="white"/>
+    <circle id="black-3" cx="520" cy="520" r="200" fill="black" fill-opacity="0.3" filter="url(#filter2_f-640898)"/>
+    <circle id="white-3" cx="515" cy="515" r="200" fill="white"/>
+
+    <defs>
+        <filter id="filter0_f-882713" x="0" y="0" width="1050" height="1050" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="15" result="effect1_foregroundBlur"/>
+        </filter>
+        <filter id="filter1_f-804026" x="0" y="0" width="940" height="940" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur"/>
+        </filter>
+        <filter id="filter2_f-640898" x="0" y="0" width="940" height="940" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur"/>
+        </filter>
+    </defs>
+</svg>
+<script>
+    let lava1 = () => {
+        let tl = anime.timeline({
+            easing: 'easeInOutQuad', duration: 2000, loop: true, direction: 'alternate',
+            complete: function (anim) {
+                completeLogEl.value = "completed : " + anim.completed;
+            }
+        })
+        tl.add({targets: '#white-3', r: 242})
+            .add({targets: '#black-3', r: 242}, '-=2000')
+    }
+
+    setTimeout(() => {
+        let tl = anime.timeline({
+            easing: 'easeInOutQuad', duration: 2000, loop: true, direction: 'alternate'
+        })
+        tl.add({targets: '#white-2', r: 360})
+            .add({targets: '#black-2', r: 360}, '-=2000')
+    }, 600)
+
+
+    setTimeout(() => {
+        let tl = anime.timeline({
+            easing: 'easeInOutQuad', duration: 2000, loop: true, direction: 'alternate'
+        })
+        tl.add({targets: '#white-1', r: 490})
+            .add({targets: '#black-1', r: 490}, '-=2000')
+    }, 1200)
+
+    lava1()
+    // setTimeout(lava2, 600)
+    // setTimeout(lava3, 1200)
+</script>
+</body>
+</html>

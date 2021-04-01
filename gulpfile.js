@@ -45,10 +45,10 @@ function cleanDist() {
 
 function htmlCopy() {
     return src([
-        'draft/index.html',
-        // 'draft/*.html',
-        'draft/**/*.html',
-    ], {base: 'draft'}) // base сохраняет структуру проекта, те такие же папки и файлы в директории 'app/'
+        'source/index.html',
+        // 'source/*.html',
+        'source/**/*.html',
+    ], {base: 'source'}) // base сохраняет структуру проекта, те такие же папки и файлы в директории 'app/'
         .pipe(dest('build'))
 }
 
@@ -56,7 +56,7 @@ function startWatch() {
     // watch(['app/**/*.js', '!app/**/*.min.js']) // ! - исключение файла для watch
     // watch('app/**/*.scss', styles)
     // watch('app/**/*.js', scripts)
-    watch(['draft/index.html', /*'draft/!*.html', */'draft/**/*.html'], htmlCopy).on('change', browserSync.reload)
+    watch(['source/index.html', /*'source/!*.html', */'source/**/*.html'], htmlCopy).on('change', browserSync.reload)
 }
 
 exports.browserSyncMy = browserSyncMy

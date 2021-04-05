@@ -1,0 +1,29 @@
+@import 'style_1.scss';
+@import 'style_2.scss';
+
+
+
+/*
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+*/
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  height: 0;
+  display: flex;
+  background: linear-gradient(#e98a00, #f5aa2f);
+}
+
+.test {
+  //display: none;
+  //display: flex;
+  background-color: green;
+}
+
+p {
+  //background-color: red;
+  color: blue;
+}

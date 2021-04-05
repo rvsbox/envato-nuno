@@ -12,6 +12,7 @@ const strip = require('gulp-strip-comments') // удалить коммента�
 const panini = require("panini") // html шаблонизатор
 
 
+
 const srcPath = 'source/'
 const buildPath = 'build/'
 
@@ -136,7 +137,7 @@ function myImages() {
 
 
 function myLibCss() {
-    return src('source/assets/lib_css/*.css')
+    return src('source/assets/lib-css/*.css')
         .pipe(dest(path.build.css))
         .pipe(browserSync.reload({stream: true}))
 }
@@ -144,7 +145,7 @@ function myLibCss() {
 
 
 function myLibJs() {
-    return src('source/assets/lib_js/*.js')
+    return src('source/assets/lib-js/*.js')
         .pipe(dest(path.build.js))
         .pipe(browserSync.reload({stream: true}))
 }
@@ -177,14 +178,14 @@ exports.myClear = myClear             // > yarn gulp myClear
 exports.myFonts = myFonts             // > yarn gulp myFonts
 exports.myImages = myImages           // > yarn gulp myImages
 exports.myLibCss = myLibCss           // > yarn gulp myLibCss
-exports.myLibJs = myLibJs             // > yarn gulp myLibJs
+exports.myLibJs = myLibJs             // > yarn gulp myLibJso
 
 
 
 // последовательное выполенение задач
 // > yarn gulp build
-exports.build = series(myClear, myJs, myCss, myHtml, myFonts, myImages)
+exports.build = series(myClear, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs)
 
 //  параллельное выполнение задач
 //  > yarn gulp
-exports.default = parallel(myJs, myServer, myHtml, myFonts, myImages, myLibCss, myLibJs, myWatch)
+exports.default = parallel(myServer, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs, myWatch)

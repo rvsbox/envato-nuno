@@ -37,7 +37,7 @@ const path = {
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
     },
-    clean: "./" + buildPath
+    clear: "./" + buildPath
 }
 
 
@@ -60,7 +60,7 @@ function myJs() {
         'source/assets/js/script_2.js',
     ])
         .pipe(plumber()) // обработка ошибок
-        .pipe(concat('app.js'))
+        .pipe(concat('main.js'))
         //.pipe(strip()) // удалить комметарии
         .pipe(dest(path.build.js))
 
@@ -82,7 +82,7 @@ function myCss() {
         .pipe(plumber())
 
         .pipe(sass.sync().on('error', sass.logError))
-        .pipe(concat('style.css'))
+        .pipe(concat('main.css'))
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 10 versions'],
             grid: true
@@ -135,8 +135,24 @@ function myImages() {
 
 
 
+function myLibCss() {
+    return src('source/assets/lib_css/*.css')
+        .pipe(dest(path.build.css))
+        .pipe(browserSync.reload({stream: true}))
+}
+
+
+
+function myLibJs() {
+    return src('source/assets/lib_js/*.js')
+        .pipe(dest(path.build.js))
+        .pipe(browserSync.reload({stream: true}))
+}
+
+
+
 function myClear() {
-    return del(path.clean, {force: true})
+    return del(path.clear, {force: true})
 }
 
 
@@ -148,7 +164,7 @@ function myWatch() {
     watch([path.watch.fonts], myFonts)
     watch([path.watch.images], myImages)
     // watch(['source/**/*.js', '!source/**/*.min.js']) // ! - исключение файла для watch
-    //watch(['source/_index.html', 'source/**/*.html'], htmlCopy).on('change', browserSync.reload)
+    // watch(['source/_index.html', 'source/**/*.html'], htmlCopy).on('change', browserSync.reload)
 }
 
 
@@ -160,6 +176,8 @@ exports.myHtml = myHtml               // > yarn gulp myHtml
 exports.myClear = myClear             // > yarn gulp myClear
 exports.myFonts = myFonts             // > yarn gulp myFonts
 exports.myImages = myImages           // > yarn gulp myImages
+exports.myLibCss = myLibCss           // > yarn gulp myLibCss
+exports.myLibJs = myLibJs             // > yarn gulp myLibJs
 
 
 
@@ -169,4 +187,4 @@ exports.build = series(myClear, myJs, myCss, myHtml, myFonts, myImages)
 
 //  параллельное выполнение задач
 //  > yarn gulp
-exports.default = parallel(myJs, myServer, myHtml, myFonts, myImages, myWatch)
+exports.default = parallel(myJs, myServer, myHtml, myFonts, myImages, myLibCss, myLibJs, myWatch)

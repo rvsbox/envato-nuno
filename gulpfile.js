@@ -109,10 +109,10 @@ function myHtml() {
         .pipe(plumber())
         .pipe(panini({
             root:       srcPath,
-            layouts:    srcPath + 'layouts/',
-            partials:   srcPath + 'partials/',
-            helpers:    srcPath + 'helpers/',
-            data:       srcPath + 'data/'
+            layouts:    srcPath + 'tpl/layouts/',
+            partials:   srcPath + 'tpl/partials/',
+            helpers:    srcPath + 'tpl/helpers/',
+            data:       srcPath + 'tpl/data/'
         }))
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
@@ -152,6 +152,14 @@ function myLibJs() {
 
 
 
+function myDraft() {
+    return src('source/draft/**/*.html')
+        .pipe(dest(buildPath + "draft",))
+        .pipe(browserSync.reload({stream: true}))
+}
+
+
+
 function myClear() {
     return del(path.clear, {force: true})
 }
@@ -179,6 +187,7 @@ exports.myFonts = myFonts             // > yarn gulp myFonts
 exports.myImages = myImages           // > yarn gulp myImages
 exports.myLibCss = myLibCss           // > yarn gulp myLibCss
 exports.myLibJs = myLibJs             // > yarn gulp myLibJso
+exports.myDraft = myDraft             // > yarn gulp myDraft
 
 
 
@@ -188,4 +197,4 @@ exports.build = series(myClear, myJs, myCss, myHtml, myFonts, myImages, myLibCss
 
 //  параллельное выполнение задач
 //  > yarn gulp
-exports.default = parallel(myServer, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs, myWatch)
+exports.default = parallel(myServer, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs, myDraft, myWatch)

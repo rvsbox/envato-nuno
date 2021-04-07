@@ -1,0 +1,44 @@
+header
+    container
+        row
+            col
+        row
+            col
+
+section
+    container
+        zalupa
+            row
+                col
+        dildo
+            row
+                col
+
+footer
+    container
+        row
+            col
+        row
+            col
+
+<article>
+<aside>
+<details>
+<figcaption>
+<figure>
+<footer>
+<header>
+<main>
+<mark>
+<nav>
+<section>
+<summary>
+<time>
+
+Home
+About
+Service
+Portfolio
+Client
+Blog
+Contact

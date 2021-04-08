@@ -1,13 +1,66 @@
 .header-top {
     background-color: $clrA3;
-    display: block;
 }
 
-
 .header-top__sub {
+    display: block;
     max-width: 1800px;
+    height: 64px;
     margin: auto;
+    font-family: "Poppins SemiBold";
+}
 
-    // test
-    border: 1px black solid;
+.logo {
+    display: inline-block;
+    margin: 32px 0 0 14px;
+}
+
+.contact-info {
+    display: inline-block;
+    margin-left: 190px;
+    color: $clrA4;
+    font-size: 14px;
+}
+
+.contact-info ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info ul li a {
+    color: $clrA4;
+    text-decoration: none;
+}
+
+.contact-info ul li:last-child {
+    margin-left: 70px;
+}
+
+.nav {
+    display: inline-block;
+    float: right;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav__item {
+    display: block;
+    height: 64px;
+    font-size: 14px;
+    color: $clrA4;
+    padding: 34px 14px 0 14px;
+}
+
+.nav__item:hover {
+    color: $clrA1;
+    background-color: $clrA4;
+    text-decoration: none;
+    border-radius: 0 0 10px 10px;
 }

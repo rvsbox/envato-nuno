@@ -1,12 +1,76 @@
 .header-base {
     background-color: $clrA3;
+    height: calc(100vh - 64px);
 }
-
 
 .header-base__sub {
     max-width: 1800px;
     margin: auto;
+}
 
-    // test
-    border: 1px black solid;
+.human-info {
+    position: relative;
+    z-index: 30;
+}
+
+.human-info ul {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.human-name {
+    display: inline-block;
+    font-family: "Poppins Bold";
+    font-size: 46px;
+    color: $clrA1;
+    background-color: $clrA4;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    padding: 2px 20px 0 20px;
+}
+
+.human-specialty {
+    display: inline-block;
+    font-family: "Poppins Bold";
+    font-size: 24px;
+    color: $clrA5;
+    background-color: $clrA1;
+    padding: 5px 20px 5px 20px;
+}
+
+.human-about {
+    display: inline-block;
+    font-family: "Poppins Regular";
+    font-size: 14px;
+    color: $clrA6;
+    background-color: $clrA1;
+    border-radius: 0 0 10px 10px;
+    margin-top: 6px;
+    padding: 10px 20px 12px 20px;
+    line-height: 23px;
+}
+
+.human-img {
+    width: 626px;
+    height: 1008px;
+    display: block;
+    top: -200px;
+    position: relative;
+    z-index: 20;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.circles {
+    display: block;
+    width: 920px;
+    height: 920px;
+    top: -1200px;
+    position: relative;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
 }

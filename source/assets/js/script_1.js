@@ -1,19 +1,22 @@
-// Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-// doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+window.onload = function () {
 
-var functionBasedParameters = function () {
-    anime({
-        targets: '#function-based-params-demo .el',
-        translateX: 270,
-        direction: 'alternate',
-        loop: true,
-        delay: function (el, i, l) {
-            return i * 100;
-        },
-        endDelay: function (el, i, l) {
-            return (l - i) * 100;
+    // START HEADER
+    function setWidthHuman(){
+        const nameWidth = document.getElementById('humanName').offsetWidth
+        const specWidth = document.getElementById('humanSpecialty').offsetWidth
+
+        console.log(nameWidth)
+        console.log(specWidth)
+
+        if (nameWidth > specWidth) {
+            document.getElementById('humanSpecialty').style.width = nameWidth + "px"
+            document.getElementById('humanAbout').style.width = nameWidth + "px"
+        } else {
+            document.getElementById('humanName').style.width = specWidth + "px"
+            document.getElementById('humanAbout').style.width = specWidth + "px"
         }
-    });
-};
+    }
 
-functionBasedParameters();
+    setWidthHuman()
+    // END HEADER
+}

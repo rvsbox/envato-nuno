@@ -1,11 +1,11 @@
 .header-base {
     background-color: $clrA3;
-    // header-top - 64px
-    // footer - ?px
-    height: calc(100vh - 64px);
 }
 
 .header-base__sub {
+    // header-top - 64px
+    // footer - 48px
+    min-height: calc(100vh - 64px - 48px);
     max-width: 1800px;
     margin: auto;
 }
@@ -22,7 +22,7 @@
     margin: 0;
 }
 
-.human-name {
+.human-info__name {
     display: inline-block;
     font-family: "Poppins Bold";
     font-size: 46px;
@@ -34,7 +34,7 @@
     padding: 2px 20px 0 20px;
 }
 
-.human-specialty {
+.human-info__specialty {
     display: inline-block;
     font-family: "Poppins Bold";
     font-size: 24px;
@@ -43,7 +43,7 @@
     padding: 5px 20px 5px 20px;
 }
 
-.human-about {
+.human-info__about {
     display: inline-block;
     font-family: "Poppins Regular";
     font-size: 14px;

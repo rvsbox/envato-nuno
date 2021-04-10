@@ -5,7 +5,8 @@
 .header-base__sub {
     // .header-top: {height: 64px}
     min-height: calc(100vh - 64px);
-    max-width: 1800px;
+
+    //max-width: 1800px;
     margin: auto;
 }
 
@@ -16,14 +17,24 @@
 .human-info {
     display: block;
     z-index: 30;
-    position: absolute;
-    width: 1800px;
+    position: relative;
+    //width: 100%;
+
+
 }
 
 
 .human-info__sub {
     display: block;
     position: relative;
+    width: 1800px;
+    //top: 300px;
+    //left: 400px;
+
+
+    // середина по горизонтали
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .human-info__sub ul {
@@ -76,7 +87,7 @@
     display: block;
     z-index: 20;
     position: absolute;
-    width: 1800px;
+    width: 100%;
 
     // выравнивание по вертикали
     top: calc(100vh - 760px);
@@ -110,7 +121,7 @@
     display: block;
     z-index: 10;
     position: absolute;
-    width: 1800px;
+    width: 100%;
 
     // выравнивание по вертикали
     top: calc((100vh - 920px)/2);
@@ -137,7 +148,7 @@
     display: block;
     z-index: 40;
     position: absolute;
-    width: 1800px;
+    width: 100%;
 
     // выравнивание по вертикали
     // .footer-top__sub: {height: 48px}
@@ -145,10 +156,15 @@
 }
 
 .footer-top__sub {
+    width: 1800px;
     height: 48px;
     position: relative;
     display: flex;
     justify-content: space-between;
+
+    // середина по горизонтали
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .copyright {

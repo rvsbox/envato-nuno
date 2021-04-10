@@ -22,21 +22,24 @@ const path = {
         js: buildPath + "assets/js/",
         css: buildPath + "assets/css/",
         images: buildPath + "assets/images/",
-        fonts: buildPath + "assets/fonts/"
+        fonts: buildPath + "assets/fonts/",
+        draft: buildPath + "assets/draft/"
     },
     src: {
         html: srcPath + "*.html",
         js: srcPath + "assets/js/*.js",
         css: srcPath + "assets/css/*.css",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
+        fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+        draft: srcPath + "assets/draft/**/*.html"
     },
     watch: {
         html: srcPath + "**/*.html",
         js: srcPath + "assets/js/**/*.js",
         css: srcPath + "assets/css/**/*.css",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
+        fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+        draft: srcPath + "assets/draft/**/*.html"
     },
     clear: "./" + buildPath
 }
@@ -172,6 +175,7 @@ function myWatch() {
     watch([path.watch.html], myHtml)
     watch([path.watch.fonts], myFonts)
     watch([path.watch.images], myImages)
+    watch([path.watch.images], myDraft)
     // watch(['source/**/*.js', '!source/**/*.min.js']) // ! - исключение файла для watch
     // watch(['source/_index.html', 'source/**/*.html'], htmlCopy).on('change', browserSync.reload)
 }

@@ -1,12 +1,11 @@
 window.onload = function () {
 
-    // START HEADER
-    function setWidthHuman(){
+    function setWidthHumanInfo(){
         const nameWidth = document.getElementById('hmnName').offsetWidth
         const specWidth = document.getElementById('hmnSpec').offsetWidth
 
-        console.log(nameWidth)
-        console.log(specWidth)
+        // console.log(nameWidth)
+        // console.log(specWidth)
 
         if (nameWidth > specWidth) {
             document.getElementById('hmnSpec').style.width = nameWidth + "px"
@@ -17,6 +16,31 @@ window.onload = function () {
         }
     }
 
-    setWidthHuman()
-    // END HEADER
+    setWidthHumanInfo()
+
+
+
+    function setSizeCircles() {
+        const circlesWidth = document.getElementById('crlSb').offsetWidth
+        const circlesHeight = document.getElementById('crlSb').offsetHeight
+
+
+
+
+
+        window.addEventListener('resize', event => {
+            const bodyWidth = document.body.offsetWidth
+            const bodyHeight = document.body.offsetHeight
+
+            console.log(bodyWidth)
+            console.log(bodyHeight)
+
+
+        })
+
+
+    }
+
+    setSizeCircles()
+
 }

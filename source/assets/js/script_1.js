@@ -8,11 +8,11 @@ window.onload = function () {
         // console.log(specWidth)
 
         if (nameWidth > specWidth) {
-            document.getElementById('hmnSpec').style.width = nameWidth + "px"
-            document.getElementById('hmnAbout').style.width = nameWidth + "px"
+            document.getElementById('hmnSpec').style.width = nameWidth + 'px'
+            document.getElementById('hmnAbout').style.width = nameWidth + 'px'
         } else {
-            document.getElementById('hmnName').style.width = specWidth + "px"
-            document.getElementById('hmnAbout').style.width = specWidth + "px"
+            document.getElementById('hmnName').style.width = specWidth + 'px'
+            document.getElementById('hmnAbout').style.width = specWidth + 'px'
         }
     }
 
@@ -21,24 +21,54 @@ window.onload = function () {
 
 
     function setSizeCircles() {
-        const circlesWidth = document.getElementById('crlSb').offsetWidth
-        const circlesHeight = document.getElementById('crlSb').offsetHeight
+        let cirWidth = document.getElementById('cirSb').offsetWidth
+        let cirHeight = document.getElementById('cirSb').offsetHeight
 
 
 
 
 
         window.addEventListener('resize', event => {
-            const bodyWidth = document.body.offsetWidth
-            const bodyHeight = document.body.offsetHeight
+            // let windowWidth = document.body.offsetWidth
+            let windowHeight = document.body.offsetHeight
 
-            console.log(bodyWidth)
-            console.log(bodyHeight)
+            // let changeCirWidth = Math.round((920*windowHeight)/1060)
+            let changeCirSize = Math.round((920*windowHeight)/1060)
+
+
+            // let cirTop = document.getElementById('cir').offsetTop
+
+            let changeCirTop = Math.round((windowHeight - )
+
+            document.getElementById('cir').style.top = changeCirTop + 'px'
+
+
+            console.log(windowHeight)
+
+            if (windowHeight <= 1060) {
+                document.getElementById('cirSb').style.width = changeCirSize + 'px'
+                document.getElementById('cirSb').style.height = changeCirSize + 'px'
+
+
+                // console.log(cirTop)
+                // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
+
+
+
+
+                console.log(changeCirTop)
+            } else {
+                document.getElementById('cirSb').style.width = 920 + 'px'
+                document.getElementById('cirSb').style.height = 920 + 'px'
+            }
+
+
+            // console.log(changeCirTop)
+            // console.log(windowWidth)
+            // console.log(windowHeight)
 
 
         })
-
-
     }
 
     setSizeCircles()

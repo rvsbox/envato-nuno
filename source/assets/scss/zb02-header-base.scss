@@ -123,8 +123,7 @@ START - header-base
   width: 100%;
   display: block;
   position: absolute;
-  padding: 0;
-  top: calc((100vh - 920px) / 2);
+  //top: calc((100vh - 920px) / 2);
   z-index: 10;
 
 }

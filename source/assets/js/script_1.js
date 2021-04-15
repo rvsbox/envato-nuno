@@ -72,16 +72,17 @@ window.onload = function () {
     // }
 
     function setSizePosCircles() {
-        let bodyW = document.body.offsetWidth
-        let bodyH = document.body.offsetHeight
+        let headerW = document.getElementById('headBasSub').offsetWidth
+        let headerH = document.getElementById('headBasSub').offsetHeight
 
         let cirW = document.getElementById('cir').offsetWidth
         let cirH = document.getElementById('cir').offsetHeight
 
-        document.getElementById('cir').style.marginLeft = ((bodyW - cirW)/2) + 'px'
-        document.getElementById('cir').style.marginTop = ((bodyH - cirH)/2) + 'px'
+        document.getElementById('cir').style.marginLeft = ((headerW - cirW)/2) + 'px'
+        document.getElementById('cir').style.marginTop = ((headerH - cirH - 64)/2) + 'px' // header-top - height: 64px
 
         // console.log(cirW, cirH)
+        console.log(bodyW, bodyH)
 
     }
 

@@ -1,23 +1,21 @@
 window.onload = function () {
 
-    function setWidthHumanInfo(){
-        const nameWidth = document.getElementById('hmnName').offsetWidth
-        const specWidth = document.getElementById('hmnSpec').offsetWidth
-
-        // console.log(nameWidth)
-        // console.log(specWidth)
-
-        if (nameWidth > specWidth) {
-            document.getElementById('hmnSpec').style.width = nameWidth + 'px'
-            document.getElementById('hmnAbout').style.width = nameWidth + 'px'
-        } else {
-            document.getElementById('hmnName').style.width = specWidth + 'px'
-            document.getElementById('hmnAbout').style.width = specWidth + 'px'
-        }
+    function GetSizeHumanInfo(){
+        this.hmnNameW = document.getElementById('hmnName').offsetWidth // .human-name / #hmnName
+        this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth // .human-specialty / #hmnSpec
     }
 
-    setWidthHumanInfo()
+    (function setSizeHumanInfo() {
+        let getSHI = new GetSizeHumanInfo()
 
+        if (getSHI.hmnNameW > getSHI.hmnSpecW) {
+            document.getElementById('hmnSpec').style.width = getSHI.hmnNameW + 'px'
+            document.getElementById('hmnAbout').style.width = getSHI.hmnNameW + 'px'
+        } else {
+            document.getElementById('hmnName').style.width = getSHI.hmnSpecW + 'px'
+            document.getElementById('hmnAbout').style.width = getSHI.hmnSpecW + 'px'
+        }
+    })()
 
 
     // function setSizePosCircles() {
@@ -71,21 +69,67 @@ window.onload = function () {
     //     })
     // }
 
-    function setSizePosCircles() {
-        let headerW = document.getElementById('headBasSub').offsetWidth
-        let headerH = document.getElementById('headBasSub').offsetHeight
 
-        let cirW = document.getElementById('cir').offsetWidth
-        let cirH = document.getElementById('cir').offsetHeight
+    // функция-конструктор. При создании нового объекта получаем необходимые размеры указанных блоков
+    // Используется для компактности
+    function GetSizeCircles() {
+        // body
+        // let windowW = document.body.offsetWidth
+        // let windowH = document.body.offsetHeight
+        this.windowW = document.body.offsetWidth
+        this.windowH = document.body.offsetHeight
 
-        document.getElementById('cir').style.marginLeft = ((headerW - cirW)/2) + 'px'
-        document.getElementById('cir').style.marginTop = ((headerH - cirH - 64)/2) + 'px' // header-top - height: 64px
+        // .header-base__sub / #headBasSub
+        // let headerW = document.getElementById('headBasSub').offsetWidth
+        // let headerH = document.getElementById('headBasSub').offsetHeight
+        this.headerW = document.getElementById('headBasSub').offsetWidth
+        this.headerH = document.getElementById('headBasSub').offsetHeight
 
-        // console.log(cirW, cirH)
-        console.log(bodyW, bodyH)
-
+        // .circles / #cir
+        // let cirW = document.getElementById('cir').offsetWidth
+        // let cirH = document.getElementById('cir').offsetHeight
+        this.cirW = document.getElementById('cir').offsetWidth
+        this.cirH = document.getElementById('cir').offsetHeight
     }
 
-    setSizePosCircles()
+
+    // установить размеры блоков при изменении размера экрана
+    (function setSizeCircles() {
+
+        // события при изменении разрешения экрана
+        window.addEventListener('resize', event => {
+
+            // получить объект с необходимыми размерами блоков
+            let getSC = new GetSizeCircles()
+
+            // позиционирование '.circles'
+            document.getElementById('cir').style.marginLeft = ((getSC.headerW - getSC.cirW) / 2) + 'px'
+            document.getElementById('cir').style.marginTop = ((getSC.headerH - getSC.cirH - 64) / 2) + 'px' // header-top - height: 64px
+
+
+
+            // if (windowHeight <= 1060) {
+            //     document.getElementById('cirSb').style.width = changeCirSize + 'px'
+            //     document.getElementById('cirSb').style.height = changeCirSize + 'px'
+            //
+            //
+            //     // console.log(cirTop)
+            //     // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
+            //
+            //
+            //     console.log(changeCirTop)
+            // } else {
+            //     document.getElementById('cirSb').style.width = 920 + 'px'
+            //     document.getElementById('cirSb').style.height = 920 + 'px'
+            // }
+
+
+            // console.log(changeCirTop)
+            // console.log(windowWidth)
+            // console.log(windowHeight)
+
+        })
+    })()
+
 
 }

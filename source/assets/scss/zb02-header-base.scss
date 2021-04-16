@@ -124,7 +124,8 @@ START - header-base
   //justify-content: space-between;
   //align-items: center;
   //margin: auto;
-  //top: calc((100vh - 920px) / 2);
+  margin-left: calc((100vw - 920px) / 2);
+  margin-top: calc((100vh - 920px - 64px) / 2);
   z-index: 10;
 
 }

@@ -4,6 +4,7 @@ START - header-top
 */
 .header-top {
   background-color: $clrA3;
+  padding: 0 60px 0 60px;
 }
 
 .header-top__sub {
@@ -23,6 +24,13 @@ START - header-top
   margin-left: 190px;
   color: $clrA4;
   font-size: 14px;
+
+}
+
+@media (max-width: 1600px) {
+  .contact-info {
+    display: none;
+  }
 }
 
 .contact-info ul {
@@ -41,10 +49,18 @@ START - header-top
   margin-left: 70px;
 }
 
+// START - nav
+//----------------------------------------------------------------------------------------------------------------------
 .nav {
   display: inline-block;
   float: right;
   margin: 0 14px 0 0;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
 }
 
 .nav ul {
@@ -68,6 +84,93 @@ START - header-top
   text-decoration: none;
   border-radius: 0 0 10px 10px;
 }
+// END - nav
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+// START - panel-right
+//----------------------------------------------------------------------------------------------------------------------
+.panel-button {
+  float: right;
+  margin: 24px 14px 0 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  .panel-button {
+    display: none;
+  }
+}
+
+.panel-button svg {
+  width: 32px;
+  height: 32px;
+  fill: $clrA4;
+}
+
+.panel-right {
+  width: 250px;
+  height: 100vh;
+
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  z-index: 50;
+
+  background-color: $clrA4;
+}
+
+.panel-right__menu {
+  margin: 200px 0 0 50px;
+}
+
+.panel-right__menu ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.panel-right__menu ul li {
+  margin-top: 14px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.panel-right__menu ul li a {
+  color: $clrA1;
+  &:hover {
+    color: red;
+  }
+}
+
+.panel-right__close {
+  float: right;
+  margin: 24px 48px 0 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.panel-right__close svg {
+  width: 32px;
+  height: 32px;
+  fill: $clrA1;
+}
+// END - panel-right
+//----------------------------------------------------------------------------------------------------------------------
+
+
 
 /*
 END - header-top

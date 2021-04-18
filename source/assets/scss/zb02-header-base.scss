@@ -4,6 +4,7 @@ START - header-base
 */
 .header-base {
   background-color: $clrA3;
+  padding: 0 60px 0 60px;
 }
 
 .header-base__sub {
@@ -111,7 +112,7 @@ START - header-base
 
 // START - circles
 //----------------------------------------------------------------------------------------------------------------------
-.circles {
+/*.circles {
   width: 920px;
   height: 920px;
 
@@ -127,8 +128,20 @@ START - header-base
   margin-left: calc((100vw - 920px) / 2);
   margin-top: calc((100vh - 920px - 64px) / 2);
   z-index: 10;
+}*/
 
+.circles {
+  width: 920px;
+  height: 920px;
+
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
+
 
 //.circles__sub {
 //  display: block;

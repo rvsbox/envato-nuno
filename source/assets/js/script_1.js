@@ -18,6 +18,30 @@ window.onload = function () {
     })()
 
 
+
+    // функция-конструктор. При создании нового объекта получаем необходимые размеры указанных блоков
+    // Используется для компактности
+    function GetSize() {
+        // body
+        // let windowW = document.body.offsetWidth
+        // let windowH = document.body.offsetHeight
+        this.windowW = document.body.offsetWidth
+        this.windowH = document.body.offsetHeight
+
+        // .header-base__sub / #headBasSub
+        // let headerW = document.getElementById('headBasSub').offsetWidth
+        // let headerH = document.getElementById('headBasSub').offsetHeight
+        this.headerW = document.getElementById('headBasSub').offsetWidth
+        this.headerH = document.getElementById('headBasSub').offsetHeight
+
+        // .circles / #cir
+        // let cirW = document.getElementById('cir').offsetWidth
+        // let cirH = document.getElementById('cir').offsetHeight
+        this.cirW = document.getElementById('cir').offsetWidth
+        this.cirH = document.getElementById('cir').offsetHeight
+    }
+
+
     // function setSizePosCircles() {
     //     let cirWidth = document.getElementById('cirSb').offsetWidth
     //     let cirHeight = document.getElementById('cirSb').offsetHeight
@@ -70,66 +94,77 @@ window.onload = function () {
     // }
 
 
-    // функция-конструктор. При создании нового объекта получаем необходимые размеры указанных блоков
-    // Используется для компактности
-    function GetSizeCircles() {
-        // body
-        // let windowW = document.body.offsetWidth
-        // let windowH = document.body.offsetHeight
-        this.windowW = document.body.offsetWidth
-        this.windowH = document.body.offsetHeight
 
-        // .header-base__sub / #headBasSub
-        // let headerW = document.getElementById('headBasSub').offsetWidth
-        // let headerH = document.getElementById('headBasSub').offsetHeight
-        this.headerW = document.getElementById('headBasSub').offsetWidth
-        this.headerH = document.getElementById('headBasSub').offsetHeight
-
-        // .circles / #cir
-        // let cirW = document.getElementById('cir').offsetWidth
-        // let cirH = document.getElementById('cir').offsetHeight
-        this.cirW = document.getElementById('cir').offsetWidth
-        this.cirH = document.getElementById('cir').offsetHeight
-    }
 
 
     // установить размеры блоков при изменении размера экрана
-    (function setSizeCircles() {
+    // (function setSizeCircles() {
+    //
+    //     // события при изменении разрешения экрана
+    //     window.addEventListener('resize', event => {
+    //
+    //         // получить объект с необходимыми размерами блоков
+    //         // let getSC = new GetSize()
+    //
+    //         // позиционирование '.circles'
+    //         // document.getElementById('cir').style.marginLeft = ((getSC.headerW - getSC.cirW) / 2) + 'px'
+    //         // document.getElementById('cir').style.marginTop = ((getSC.headerH - getSC.cirH - 64) / 2) + 'px' // header-top - height: 64px
+    //
+    //
+    //
+    //         // if (windowHeight <= 1060) {
+    //         //     document.getElementById('cirSb').style.width = changeCirSize + 'px'
+    //         //     document.getElementById('cirSb').style.height = changeCirSize + 'px'
+    //         //
+    //         //
+    //         //     // console.log(cirTop)
+    //         //     // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
+    //         //
+    //         //
+    //         //     console.log(changeCirTop)
+    //         // } else {
+    //         //     document.getElementById('cirSb').style.width = 920 + 'px'
+    //         //     document.getElementById('cirSb').style.height = 920 + 'px'
+    //         // }
+    //
+    //
+    //         // console.log(changeCirTop)
+    //         // console.log(windowWidth)
+    //         // console.log(windowHeight)
+    //
+    //     })
+    // })()
 
-        // события при изменении разрешения экрана
-        window.addEventListener('resize', event => {
 
-            // получить объект с необходимыми размерами блоков
-            let getSC = new GetSizeCircles()
+        // корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
+        (function mediaRun() {
+            window.addEventListener('resize', event => {
 
-            // позиционирование '.circles'
-            document.getElementById('cir').style.marginLeft = ((getSC.headerW - getSC.cirW) / 2) + 'px'
-            document.getElementById('cir').style.marginTop = ((getSC.headerH - getSC.cirH - 64) / 2) + 'px' // header-top - height: 64px
+                let getSC = new GetSize()
 
-
-
-            // if (windowHeight <= 1060) {
-            //     document.getElementById('cirSb').style.width = changeCirSize + 'px'
-            //     document.getElementById('cirSb').style.height = changeCirSize + 'px'
-            //
-            //
-            //     // console.log(cirTop)
-            //     // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
-            //
-            //
-            //     console.log(changeCirTop)
-            // } else {
-            //     document.getElementById('cirSb').style.width = 920 + 'px'
-            //     document.getElementById('cirSb').style.height = 920 + 'px'
-            // }
-
-
-            // console.log(changeCirTop)
-            // console.log(windowWidth)
-            // console.log(windowHeight)
-
-        })
-    })()
-
+                if (getSC.windowW > 1024) {
+                    document.getElementById('panelBut').style.display = 'none'
+                } else {
+                    document.getElementById('panelBut').style.display = 'block'
+                }
+            })
+        })()
 
 }
+
+
+// START Закрыть, открыть правую панель
+//----------------------------------------------------------------------------------------------------------------------
+function openPanelRight() {
+    document.getElementById('panelBut').style.display = 'none'
+    document.getElementById('panelRt').style.display = 'block'
+}
+
+
+
+function closePanelRight(){
+    document.getElementById('panelBut').style.display = 'block'
+    document.getElementById('panelRt').style.display = 'none'
+}
+// END
+//----------------------------------------------------------------------------------------------------------------------

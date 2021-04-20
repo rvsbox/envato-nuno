@@ -60,8 +60,8 @@ function myServer() {
 
 function myJs() {
     return src([
-        // 'source/assets/js/script_1.js',
-        'source/assets/js/script_2.js',
+        'source/assets/js/script_1.js',
+        // 'source/assets/js/script_2.js',
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))

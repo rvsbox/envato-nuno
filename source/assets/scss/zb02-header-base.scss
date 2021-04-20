@@ -39,7 +39,7 @@ START - header-base
   border-radius: 0 0 10px 10px;
 }
 
-.human-name {
+.human-info__name {
   display: inline-block;
   margin: 0 0 6px 0;
   padding: 2px 20px 0 20px;
@@ -51,7 +51,7 @@ START - header-base
   text-transform: uppercase;
 }
 
-.human-specialty {
+.human-info__specialty {
   display: inline-block;
   padding: 5px 20px 5px 20px;
 
@@ -61,7 +61,7 @@ START - header-base
   background-color: $clrA1;
 }
 
-.human-about {
+.human-info__about {
   display: inline-block;
   margin: 6px 0 0 0;
   padding: 10px 20px 12px 20px;

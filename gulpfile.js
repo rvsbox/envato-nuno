@@ -60,7 +60,7 @@ function myServer() {
 
 function myJs() {
     return src([
-        'source/assets/js/script_1.js',
+        // 'source/assets/js/script_1.js',
         'source/assets/js/script_2.js',
     ])
         .pipe(plumber()) // обработка ошибок
@@ -140,7 +140,10 @@ function myImages() {
 
 
 function myLibCss() {
-    return src('source/assets/lib-css/*.css')
+    return src([
+        'source/assets/lib-css/*.css',
+        'source/assets/lib-css/*.map'
+    ])
         .pipe(dest(path.build.css))
         .pipe(browserSync.reload({stream: true}))
 }
@@ -148,7 +151,10 @@ function myLibCss() {
 
 
 function myLibJs() {
-    return src('source/assets/lib-js/*.js')
+    return src([
+        'source/assets/lib-js/*.js',
+        'source/assets/lib-js/*.map'
+    ])
         .pipe(dest(path.build.js))
         .pipe(browserSync.reload({stream: true}))
 }

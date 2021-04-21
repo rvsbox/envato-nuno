@@ -155,20 +155,3 @@ window.onload = () => {
         })()
 
 }
-
-
-// START Закрыть, открыть правую панель
-//----------------------------------------------------------------------------------------------------------------------
-function openPanelRight() {
-    document.getElementById('panelBut').style.display = 'none'
-    document.getElementById('panelRt').style.display = 'block'
-}
-
-
-
-function closePanelRight(){
-    document.getElementById('panelBut').style.display = 'block'
-    document.getElementById('panelRt').style.display = 'none'
-}
-// END
-//----------------------------------------------------------------------------------------------------------------------

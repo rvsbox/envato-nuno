@@ -88,12 +88,77 @@ window.onload = () => {
     //     })
     // })()
 
+// END
+//----------------------------------------------------------------------------------------------------------------------
 
 
 
+    // START
+//----------------------------------------------------------------------------------------------------------------------
+
+    function GetSizeForHumanImg() {
+        // .header-base__sub / #headBasSub
+        this.headerW = document.getElementById('headBasSub').offsetWidth
+        this.headerH = document.getElementById('headBasSub').offsetHeight
+    }
+
+    (function setSizeForHumanImg() {
+
+        addEventListener('resize', event => {
+            let getHu = new GetSizeForHumanImg()
+
+            if (getHu.headerH <= 1060) {
+
+                console.log(getHu.headerH)
+
+                document.getElementById('humImg').style.width = 500 + 'px'
+                document.getElementById('humImg').style.height = 500 + 'px'
+
+                // let changeHuWidthH = Math.round((620 * getHu.headerH) / 700)
+                // let changeHuHeightH = Math.round((1000 * getHu.headerH) / 700)
+
+                // document.getElementById('humImg').style.width = changeHuWidthH + 'px'
+                // document.getElementById('humImg').style.height = changeHuHeightH + 'px'
+            }
+
+
+            // if (getHu.headerW <= 700) {
+            //
+            //     let changeHuWidth = Math.round((620 * getHu.headerW) / 700)
+            //     let changeHuHeight = Math.round((1000 * getHu.headerW) / 700)
+            //
+            //     document.getElementById('humImg').style.width = changeHuWidth + 'px'
+            //     document.getElementById('humImg').style.height = changeHuHeight + 'px'
+            //
+            //
+            // } else {
+            //
+            //     document.getElementById('humImg').style.width = 620 + 'px'
+            //     document.getElementById('humImg').style.height = 900 + 'px'
+            // }
+
+
+            // вертикаль
+            // if (getC.windowH <= 1060) {
+            //
+            //     let changeCirH = Math.round((920*getC.windowH)/1060)
+            //
+            //     document.getElementById('cir').style.width = changeCirH + 'px'
+            //     document.getElementById('cir').style.height = changeCirH + 'px'
+            //
+            //     // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
+            //
+            // } else {
+            //     document.getElementById('cir').style.width = 920 + 'px'
+            //     document.getElementById('cir').style.height = 920 + 'px'
+            // }
+
+        })
+    })()
 
 // END
 //----------------------------------------------------------------------------------------------------------------------
+
 
 
 // START

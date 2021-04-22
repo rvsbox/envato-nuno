@@ -13,6 +13,12 @@ START - header-base
   }
 }
 
+@media (max-width: 640px) {
+  .header-base {
+    padding: 0 10px;
+  }
+}
+
 .wrap-headbas {
   max-width: 1800px;
   min-height: calc(100vh - 64px); // header-top - height: 64px
@@ -85,33 +91,74 @@ START - header-base
 // START - human-img
 //----------------------------------------------------------------------------------------------------------------------
 .human-img {
+  width: 620px;
+  height: 900px;
+
   position: absolute;
-  top: calc(100vh - 760px);
-  left: calc((100vw - 620px)/2);
+  margin: auto;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  right: 0;
   z-index: 20;
 }
 
-.human-img__sub {
-  width: 620px;
-  height: 760px;
-}
+//@media (max-height: 1060px), (max-width: 1060px) {
+//  .human-img {
+//    width: 500px;
+//    height: 730px;
+//  }
+//}
+//
+//@media (max-height: 840px), (max-width: 840px) {
+//  .human-img {
+//    width: 370px;
+//    height: 540px;
+//  }
+//}
+//
+//@media (max-height: 640px), (max-width: 640px) {
+//  .human-img {
+//    width: 258px;
+//    height: 374px;
+//  }
+//}
+//
+//@media (max-height: 440px), (max-width: 440px) {
+//  .human-img {
+//    width: 310px;
+//    height: 490px;
+//  }
+//}
 
-.human-img__sub img {
+// для мобилок
+//----------------------------------------------------------------------------------------------------------------------
+//@media (max-height: 380px) and (max-width: 670px) {
+//  .human-img {
+//    width: 270px;
+//    height: 420px;
+//  }
+//}
+//
+//@media (max-height: 420px) and (max-width: 830px) {
+//  .human-img {
+//    width: 300px;
+//    height: 480px;
+//  }
+//}
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+.human-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 0 0;
 }
 
-//@media (min-height: 1060px) {
-//  .human-img {;
-//    top: calc(100vh - 860px);
-//  }
-//
-//  .human-img__sub {
-//    height: 860px;
-//  }
-//}
+
 // END - human-img
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -146,17 +193,18 @@ START - header-base
 
 @media (max-height: 640px), (max-width: 640px) {
   .circles {
-    width: 300px;
-    height: 300px;
+    //width: 300px;
+    //height: 300px;
+    display: none;
   }
 }
 
-@media (max-height: 440px), (max-width: 440px) {
-  .circles {
-    width: 250px;
-    height: 250px;
-  }
-}
+//@media (max-height: 440px), (max-width: 440px) {
+//  .circles {
+//    width: 250px;
+//    height: 250px;
+//  }
+//}
 
 //@media (max-height: 860px) {
 //  .circles {

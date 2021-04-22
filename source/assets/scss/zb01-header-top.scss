@@ -13,6 +13,12 @@ START - header-top
   }
 }
 
+@media (max-width: 640px) {
+  .header-top {
+    padding: 0 10px;
+  }
+}
+
 .header-top__sub {
   max-width: 1800px;
   height: 64px;

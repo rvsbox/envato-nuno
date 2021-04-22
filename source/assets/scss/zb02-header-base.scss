@@ -4,7 +4,13 @@ START - header-base
 */
 .header-base {
   background-color: $clrA3;
-  padding: 0 60px 0 60px;
+  padding: 0 60px;
+}
+
+@media (max-width: 1024px) {
+  .header-base {
+    padding: 0 30px;
+  }
 }
 
 .wrap-headbas {
@@ -112,24 +118,6 @@ START - header-base
 
 // START - circles
 //----------------------------------------------------------------------------------------------------------------------
-/*.circles {
-  width: 920px;
-  height: 920px;
-
-  //margin-top: 100px;
-  //margin-left: 100px;
-
-  //width: 1800px;
-  //display: block;
-  position: absolute;
-  //justify-content: space-between;
-  //align-items: center;
-  //margin: auto;
-  margin-left: calc((100vw - 920px) / 2);
-  margin-top: calc((100vh - 920px - 64px) / 2);
-  z-index: 10;
-}*/
-
 .circles {
   width: 920px;
   height: 920px;
@@ -142,34 +130,34 @@ START - header-base
   right: 0;
 }
 
-
-//.circles__sub {
-//  display: block;
-//  width: 920px;
-//  height: 920px;
-//  position: relative;
-//  margin: auto;
-//  padding: 0;
-//}
-
-.circles-svg {
-  //max-width: 920px;
-  //max-height: 920px;
-  //display: block;
-  //margin: auto;
+@media (max-height: 1060px), (max-width: 1060px) {
+  .circles {
+    width: 700px;
+    height: 700px;
+  }
 }
 
-//@media (max-height: 1060px) {
-//  .circles {
-//    top: calc((100vh - 720px) / 2);
-//  }
-//
-//  .circles__sub {
-//    width: 720px;
-//    height: 720px;
-//  }
-//}
-//
+@media (max-height: 840px), (max-width: 840px) {
+  .circles {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media (max-height: 640px), (max-width: 640px) {
+  .circles {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-height: 440px), (max-width: 440px) {
+  .circles {
+    width: 250px;
+    height: 250px;
+  }
+}
+
 //@media (max-height: 860px) {
 //  .circles {
 //    top: calc((100vh - 520px) / 2);
@@ -200,6 +188,12 @@ START - header-base
   justify-content: space-between;
 }
 
+@media (max-width: 640px) {
+  .wrap-foottop {
+    justify-content: flex-end;
+  }
+}
+
 .wrap-foottop__copyright {
   display: inline-block;
   padding: 2px 0 0 0;
@@ -208,6 +202,12 @@ START - header-base
   font-size: 14px;
   font-family: "Poppins SemiBold", serif;
   color: $clrA4;
+}
+
+@media (max-width: 640px) {
+  .wrap-foottop__copyright {
+    display: none;
+  }
 }
 
 .wrap-foottop__social-buttons {

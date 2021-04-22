@@ -4,7 +4,13 @@ START - header-top
 */
 .header-top {
   background-color: $clrA3;
-  padding: 0 60px 0 60px;
+  padding: 0 60px;
+}
+
+@media (max-width: 1024px) {
+  .header-top {
+    padding: 0 30px;
+  }
 }
 
 .header-top__sub {
@@ -16,7 +22,7 @@ START - header-top
 
 .logo {
   display: inline-block;
-  margin: 32px 0 0 14px;
+  margin: 28px 0 0 14px;
 }
 
 .contact-info {

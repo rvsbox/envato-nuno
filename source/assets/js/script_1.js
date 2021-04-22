@@ -4,28 +4,27 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
     // получить объект с размерами блоков для .human-info
-    function GetSizeForHumanInfo(){
-        // .human-name / #hmnName
-        this.hmnNameW = document.getElementById('hmnName').offsetWidth
-        // .human-specialty / #hmnSpec
-        this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
-    }
-
-    (function setSizeForHumanInfo() {
-        let getHI = new GetSizeForHumanInfo()
-
-        if (getHI.hmnNameW > getHI.hmnSpecW) {
-            document.getElementById('hmnSpec').style.width = getHI.hmnNameW + 'px'
-            document.getElementById('hmnAbout').style.width = getHI.hmnNameW + 'px'
-        } else {
-            document.getElementById('hmnName').style.width = getHI.hmnSpecW + 'px'
-            document.getElementById('hmnAbout').style.width = getHI.hmnSpecW + 'px'
-        }
-    })()
+    // function GetSizeForHumanInfo() {
+    //     // .human-name / #hmnName
+    //     this.hmnNameW = document.getElementById('hmnName').offsetWidth
+    //     // .human-specialty / #hmnSpec
+    //     this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
+    // }
+    //
+    // (function setSizeForHumanInfo() {
+    //     let getHI = new GetSizeForHumanInfo()
+    //
+    //     if (getHI.hmnNameW > getHI.hmnSpecW) {
+    //         document.getElementById('hmnSpec').style.width = getHI.hmnNameW + 'px'
+    //         document.getElementById('hmnAbout').style.width = getHI.hmnNameW + 'px'
+    //     } else {
+    //         document.getElementById('hmnName').style.width = getHI.hmnSpecW + 'px'
+    //         document.getElementById('hmnAbout').style.width = getHI.hmnSpecW + 'px'
+    //     }
+    // })()
 
 // END
 //----------------------------------------------------------------------------------------------------------------------
-
 
 
 // START
@@ -34,65 +33,67 @@ window.onload = () => {
     // получить объект с размерами блоков для .circles
     // функция-конструктор. При создании нового объекта получаем необходимые размеры указанных блоков
     // Используется для компактности
-    function GetSizeForCircles() {
-        // body
-        this.windowW = document.body.offsetWidth
-        this.windowH = document.body.offsetHeight
+    // function GetSizeForCirclesWidth() {
+    //     // body
+    //     this.windowW = document.body.offsetWidth
+    //     this.windowH = document.body.offsetHeight
+    //
+    //     // .header-base__sub / #headBasSub
+    //     this.headerW = document.getElementById('headBasSub').offsetWidth
+    //     this.headerH = document.getElementById('headBasSub').offsetHeight
+    //
+    //     // .circles / #cir
+    //     this.cirW = document.getElementById('cir').offsetWidth
+    //     this.cirH = document.getElementById('cir').offsetHeight
+    // }
+    //
+    //
+    // (function setSizeForCirclesWidth() {
+    //
+    //     addEventListener('resize', event => {
+    //         let getC = new GetSizeForCirclesWidth()
+    //
+    //
+    //         if (getC.headerW <= 1060) {
+    //
+    //             // горизонт
+    //             let changeCir = Math.round((920 * getC.headerW) / 1060)
+    //             document.getElementById('cir').style.width = changeCir + 'px'
+    //             document.getElementById('cir').style.height = changeCir + 'px'
+    //             // console.log(changeCir)
+    //             // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
+    //
+    //         } else {
+    //
+    //             document.getElementById('cir').style.width = 920 + 'px'
+    //             document.getElementById('cir').style.height = 920 + 'px'
+    //         }
+    //
+    //
+    //         // вертикаль
+    //         if (getC.windowH <= 1060) {
+    //
+    //             let changeCirH = Math.round((920*getC.windowH)/1060)
+    //
+    //             document.getElementById('cir').style.width = changeCirH + 'px'
+    //             document.getElementById('cir').style.height = changeCirH + 'px'
+    //
+    //             // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
+    //
+    //         } else {
+    //             document.getElementById('cir').style.width = 920 + 'px'
+    //             document.getElementById('cir').style.height = 920 + 'px'
+    //         }
+    //
+    //     })
+    // })()
 
-        // .header-base__sub / #headBasSub
-        this.headerW = document.getElementById('headBasSub').offsetWidth
-        this.headerH = document.getElementById('headBasSub').offsetHeight
-
-        // .circles / #cir
-        this.cirW = document.getElementById('cir').offsetWidth
-        this.cirH = document.getElementById('cir').offsetHeight
-    }
 
 
-    (function setSizeForCircles() {
 
-        addEventListener('resize', event => {
-            let getC = new GetSizeForCircles()
-
-            // горизонт
-            if (getC.windowW <= 1060) {
-
-                let changeCirW = Math.round((920*getC.windowW)/1060)
-
-                document.getElementById('cir').style.width = changeCirW + 'px'
-                document.getElementById('cir').style.height = changeCirW + 'px'
-
-                console.log(changeCir)
-
-                // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
-
-            } else {
-                document.getElementById('cir').style.width = 920 + 'px'
-                document.getElementById('cir').style.height = 920 + 'px'
-            }
-
-
-            // вертикаль
-            if (getC.windowH <= 1060) {
-
-                let changeCirH = Math.round((920*getC.windowH)/1060)
-
-                document.getElementById('cir').style.width = changeCirH + 'px'
-                document.getElementById('cir').style.height = changeCirH + 'px'
-
-                // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
-
-            } else {
-                document.getElementById('cir').style.width = 920 + 'px'
-                document.getElementById('cir').style.height = 920 + 'px'
-            }
-
-        })
-    })()
 
 // END
 //----------------------------------------------------------------------------------------------------------------------
-
 
 
 // START
@@ -126,7 +127,6 @@ window.onload = () => {
 }
 
 
-
 // START Закрыть, открыть правую панель
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -136,8 +136,7 @@ function openPanelRight() {
 }
 
 
-
-function closePanelRight(){
+function closePanelRight() {
     document.getElementById('panelBut').style.display = 'block'
     document.getElementById('panelRt').style.display = 'none'
 }

@@ -9,7 +9,7 @@ const del = require('del')
 const plumber = require('gulp-plumber')
 const rename = require('gulp-rename')
 const strip = require('gulp-strip-comments') // удалить комментарии
-const panini = require("panini") // html шаблонизатор
+const panini = require('panini') // html шаблонизатор
 
 
 
@@ -19,29 +19,29 @@ const buildPath = 'build/'
 const path = {
     build: {
         html: buildPath,
-        js: buildPath + "assets/js/",
-        css: buildPath + "assets/css/",
-        images: buildPath + "assets/images/",
-        fonts: buildPath + "assets/fonts/",
-        draft: buildPath + "draft/"
+        js: buildPath + 'assets/js/',
+        css: buildPath + 'assets/css/',
+        images: buildPath + 'assets/images/',
+        fonts: buildPath + 'assets/fonts/',
+        draft: buildPath + 'draft/'
     },
     src: {
-        html: srcPath + "*.html",
-        js: srcPath + "assets/js/*.js",
-        css: srcPath + "assets/css/*.css",
-        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
-        draft: srcPath + "draft/**/*.html"
+        html: srcPath + '*.html',
+        js: srcPath + 'assets/js/*.js',
+        scss: srcPath + 'assets/scss/main.scss',
+        images: srcPath + 'assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
+        fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
+        draft: srcPath + 'draft/**/*.{html,js}'
     },
     watch: {
-        html: srcPath + "**/*.html",
-        js: srcPath + "assets/js/**/*.js",
-        css: srcPath + "assets/css/**/*.css",
-        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
-        draft: srcPath + "draft/**/*.html"
+        html: srcPath + '**/*.html',
+        js: srcPath + 'assets/js/**/*.js',
+        scss: srcPath + 'assets/scss/**/*.scss',
+        images: srcPath + 'assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
+        fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
+        draft: srcPath + 'draft/**/*.{html,js}'
     },
-    clear: "./" + buildPath
+    clear: './' + buildPath
 }
 
 
@@ -82,7 +82,7 @@ function myJs() {
 
 
 function myCss() {
-    return src('source/assets/scss/main.scss')
+    return src(path.src.scss)
         .pipe(plumber())
 
         .pipe(sass.sync().on('error', sass.logError))
@@ -162,8 +162,8 @@ function myLibJs() {
 
 
 function myDraft() {
-    return src('source/draft/**/*.html')
-        .pipe(dest(buildPath + "draft",))
+    return src(path.src.draft)
+        .pipe(dest(path.build.draft))
         .pipe(browserSync.reload({stream: true}))
 }
 
@@ -176,7 +176,7 @@ function myClear() {
 
 
 function myWatch() {
-    watch('source/assets/**/*.scss', myCss)
+    watch([path.watch.scss], myCss)
     watch([path.watch.js], myJs)
     watch([path.watch.html], myHtml)
     watch([path.watch.fonts], myFonts)

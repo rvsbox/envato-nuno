@@ -14,14 +14,14 @@
 
 
 // var w = window,
-d = document,
-    e = d.getElementById("gir"),
-// g = d.getElementsByTagName('body')[0],
-    x = e.clientWidth || g.clientWidth;
 
-window.onresize = function(event){
-    let t =  e.clientWidth;
-    if(t !== x) {
+e = document.getElementById("gir"),
+x = e.clientWidth // ширина на старте
+
+
+window.onresize = function (event) {
+    let t = e.clientWidth //
+    if (t !== x) {
         document.location.reload(true);
         console.log('lala')
     }

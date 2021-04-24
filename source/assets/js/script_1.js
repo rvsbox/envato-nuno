@@ -92,7 +92,6 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-
     // START
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -104,7 +103,15 @@ window.onload = () => {
 
     (function setSizeForHumanImg() {
 
+        // test
+        let getHuDefault = new GetSizeForHumanImg()
+        let headerWDefault = getHuDefault.headerW
+        let headerHDefault = getHuDefault.headerH
+
+
+
         addEventListener('resize', event => {
+
             let getHu = new GetSizeForHumanImg()
 
             if (getHu.headerH <= 1060) {
@@ -158,7 +165,6 @@ window.onload = () => {
 
 // END
 //----------------------------------------------------------------------------------------------------------------------
-
 
 
 // START

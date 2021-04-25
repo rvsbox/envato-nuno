@@ -1,6 +1,7 @@
+// скрипт будет выполнен, когда вся страница, со всеми подключениями, будут загружены
 window.onload = () => {
 
-// START
+// START - .hyman-info
 //----------------------------------------------------------------------------------------------------------------------
 
     // получить объект с размерами блоков для .human-info
@@ -101,32 +102,63 @@ window.onload = () => {
         this.headerH = document.getElementById('headBasSub').offsetHeight
     }
 
-    (function setSizeForHumanImg() {
 
-        // test
-        let getHuDefault = new GetSizeForHumanImg()
-        let headerWDefault = getHuDefault.headerW
-        let headerHDefault = getHuDefault.headerH
+    let getHuDef = new GetSizeForHumanImg()
 
 
+    function setSizeForHumanImg() {
 
         addEventListener('resize', event => {
 
             let getHu = new GetSizeForHumanImg()
 
-            if (getHu.headerH <= 1060) {
+            // test
+            // console.log(getHuDefault.headerW)
+            // console.log(getHu.headerW)
 
-                console.log(getHu.headerH)
+            if ((getHuDef.headerW !== getHu.headerW)&&(getHuDef.headerH !== getHu.headerH)&&(getHu.headerW <= 1060)&&(getHu.headerH <= 1060)){
+                document.location.reload(true)
 
-                document.getElementById('humImg').style.width = 500 + 'px'
-                document.getElementById('humImg').style.height = 500 + 'px'
-
-                // let changeHuWidthH = Math.round((620 * getHu.headerH) / 700)
-                // let changeHuHeightH = Math.round((1000 * getHu.headerH) / 700)
-
-                // document.getElementById('humImg').style.width = changeHuWidthH + 'px'
-                // document.getElementById('humImg').style.height = changeHuHeightH + 'px'
+                // test
+                console.log('def' + getHuDef.headerW)
+                console.log('now' + getHu.headerW)
             }
+
+
+            if ((getHuDef.headerW !== getHu.headerW)&&(getHu.headerW <= 1060)){
+                document.location.reload(true)
+
+                // test
+                console.log('def' + getHuDef.headerW)
+                console.log('now' + getHu.headerW)
+            }
+
+
+            if ((getHuDef.headerH !== getHu.headerH)&&(getHu.headerH <= 1060)){
+                document.location.reload(true)
+
+                // test
+                console.log('def' + getHuDef.headerW)
+                console.log('now' + getHu.headerW)
+            }
+
+
+
+
+
+            // if (getHu.headerH <= 1060) {
+            //
+            //     // console.log(getHu.headerH)
+            //
+            //     document.getElementById('humImg').style.width = 500 + 'px'
+            //     document.getElementById('humImg').style.height = 500 + 'px'
+            //
+            //     // let changeHuWidthH = Math.round((620 * getHu.headerH) / 700)
+            //     // let changeHuHeightH = Math.round((1000 * getHu.headerH) / 700)
+            //
+            //     // document.getElementById('humImg').style.width = changeHuWidthH + 'px'
+            //     // document.getElementById('humImg').style.height = changeHuHeightH + 'px'
+            // }
 
 
             // if (getHu.headerW <= 700) {
@@ -161,13 +193,15 @@ window.onload = () => {
             // }
 
         })
-    })()
+    }
+
+    setSizeForHumanImg()
 
 // END
 //----------------------------------------------------------------------------------------------------------------------
 
 
-// START
+// START - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
 //----------------------------------------------------------------------------------------------------------------------
 
     function GetSizeForPanelRight() {
@@ -176,7 +210,6 @@ window.onload = () => {
         this.windowH = document.body.offsetHeight
     }
 
-    // корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
     (function mediaRun() {
         window.addEventListener('resize', event => {
 
@@ -198,7 +231,7 @@ window.onload = () => {
 }
 
 
-// START Закрыть, открыть правую панель
+// START - Закрыть, открыть правую панель
 //----------------------------------------------------------------------------------------------------------------------
 
 function openPanelRight() {

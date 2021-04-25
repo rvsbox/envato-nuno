@@ -100,6 +100,10 @@ window.onload = () => {
         // .header-base__sub / #headBasSub
         this.headerW = document.getElementById('headBasSub').offsetWidth
         this.headerH = document.getElementById('headBasSub').offsetHeight
+
+        // .human-img / #humImg
+        this.huW = document.getElementById('humImg').offsetWidth
+        this.huH = document.getElementById('humImg').offsetHeight
     }
 
 
@@ -116,30 +120,48 @@ window.onload = () => {
             // console.log(getHuDefault.headerW)
             // console.log(getHu.headerW)
 
+
             if ((getHuDef.headerW !== getHu.headerW)&&(getHuDef.headerH !== getHu.headerH)&&(getHu.headerW <= 1060)&&(getHu.headerH <= 1060)){
-                document.location.reload(true)
+                // document.location.reload(true)
 
                 // test
-                console.log('def' + getHuDef.headerW)
-                console.log('now' + getHu.headerW)
+                // console.log('def' + getHuDef.headerW)
+                // console.log('now' + getHu.headerW)
             }
 
 
             if ((getHuDef.headerW !== getHu.headerW)&&(getHu.headerW <= 1060)){
-                document.location.reload(true)
+                // document.location.reload(true)
+
+                // document.getElementById('humImg').style.width = 500 + 'px'
+                // document.getElementById('humImg').style.height = 500 + 'px'
+
+                let changeW = Math.round((620 * getHu.headerW) / 1060)
+                let changeH = Math.round((changeW * getHuDef.huH) / 620)
+
+                document.getElementById('humImg').style.width = changeW + 'px'
+                document.getElementById('humImg').style.height = changeH + 'px'
 
                 // test
-                console.log('def' + getHuDef.headerW)
-                console.log('now' + getHu.headerW)
+                // console.log('def ' + getHuDef.headerW)
+                // console.log('now ' + getHu.headerW)
+                console.log('changeW ' + changeW)
+                console.log('changeH ' + changeH)
             }
 
 
             if ((getHuDef.headerH !== getHu.headerH)&&(getHu.headerH <= 1060)){
-                document.location.reload(true)
+                // document.location.reload(true)
 
                 // test
-                console.log('def' + getHuDef.headerW)
-                console.log('now' + getHu.headerW)
+                // console.log('def' + getHuDef.headerW)
+                // console.log('now' + getHu.headerW)
+            }
+
+            // тк вычисления в соотношениях стремятся к 0, то возвращаем к изначальным значениям
+            if (getHu.headerW >= 1060) {
+                document.getElementById('humImg').style.width = 620 + 'px'
+                document.getElementById('humImg').style.height = 900 + 'px'
             }
 
 

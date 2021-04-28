@@ -28,6 +28,7 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
+
 // START
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -39,9 +40,9 @@ window.onload = () => {
     //     this.windowW = document.body.offsetWidth
     //     this.windowH = document.body.offsetHeight
     //
-    //     // .header-base__sub / #headBasSub
-    //     this.headerW = document.getElementById('headBasSub').offsetWidth
-    //     this.headerH = document.getElementById('headBasSub').offsetHeight
+    //     // .header-base__sub / #wrapHeadBas
+    //     this.headerW = document.getElementById('wrapHeadBas').offsetWidth
+    //     this.headerH = document.getElementById('wrapHeadBas').offsetHeight
     //
     //     // .circles / #cir
     //     this.cirW = document.getElementById('cir').offsetWidth
@@ -93,13 +94,20 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
+
 // START
 //----------------------------------------------------------------------------------------------------------------------
+    // 620px   - ширина картинки
+    // 900px   - высота картинки
+    // 1060px  - высота .header-base__sub
+    // 740px   - ширина .header-abse__sub
+
 
     function GetSizeForHumanImg() {
-        // .header-base__sub / #headBasSub
-        this.headerW = document.getElementById('headBasSub').offsetWidth
-        this.headerH = document.getElementById('headBasSub').offsetHeight
+
+        // .wrap-headbas / #wrapHeadBas
+        this.headerW = document.getElementById('wrapHeadBas').offsetWidth
+        this.headerH = document.getElementById('wrapHeadBas').offsetHeight
 
         // .human-img / #humImg
         this.huW = document.getElementById('humImg').offsetWidth
@@ -107,22 +115,28 @@ window.onload = () => {
     }
 
 
-    function resizeHumanWidth(a) {
+    // a - текущая ширина .wrap-headbas
+    function resizeHumImgWidth(a) {
+        let changeW = Math.round((620 * a) / 740)
+        let changeH = Math.round((changeW * 900) / 620)
 
-
+        document.getElementById('humImg').style.width = changeW + 'px'
+        document.getElementById('humImg').style.height = changeH + 'px'
     }
 
 
-    function resizeHumanHeight(a) {
+    // b - текущая высота .wrap-headbas
+    function resizeHumImgHeight(b) {
+        let changeH = Math.round((900 * b) / 1060)
+        let changeW = Math.round((changeH * 620) / 900)
 
+        document.getElementById('humImg').style.width = changeW + 'px'
+        document.getElementById('humImg').style.height = changeH + 'px'
     }
+
 
 
     // действия при изменении ширины и, или высоты экрана
-    // 620px - ширина картинки
-    // 900px - высота картинки
-    // 1060px - высота .header-base__sub
-    // 740px - ширина .header-abse__sub
     function setSizeForHumanImgResize() {
 
         addEventListener('resize', event => {
@@ -130,62 +144,20 @@ window.onload = () => {
             let getHu = new GetSizeForHumanImg() // получить текущие размеры экрана
 
             if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerW - 100)) <= getHu.huW) {
-
-                let changeW = Math.round((620 * getHu.headerW) / 740)
-                let changeH = Math.round((changeW * 900) / 620)
-
-                document.getElementById('humImg').style.width = changeW + 'px'
-                document.getElementById('humImg').style.height = changeH + 'px'
-
-                // test
-                // console.log('w+')
-                // console.log(changeW)
-                // console.log(changeH)
+                resizeHumImgWidth(getHu.headerW)
             }
-
 
             if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerH - 100)) <= getHu.huH) {
-
-                let changeH = Math.round((900 * getHu.headerH) / 1060)
-                let changeW = Math.round((changeH * 620) / 900)
-
-                document.getElementById('humImg').style.width = changeW + 'px'
-                document.getElementById('humImg').style.height = changeH + 'px'
-
-                // test
-                // console.log('h+')
+                resizeHumImgHeight(getHu.headerH)
             }
-
 
             if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
-
-                let changeW = Math.round((620 * getHu.headerW) / 740)
-                let changeH = Math.round((changeW * 900) / 620)
-
-                document.getElementById('humImg').style.width = changeW + 'px'
-                document.getElementById('humImg').style.height = changeH + 'px'
-
-                // test
-                // console.log('changeW ' + changeW)
-                // console.log('changeH ' + changeH)
-                // console.log('w')
+                resizeHumImgWidth(getHu.headerW)
             }
-
 
             if ((getHu.headerH <= 1060) && (getHu.headerW >= 740)) {
-
-                let changeH = Math.round((900 * getHu.headerH) / 1060)
-                let changeW = Math.round((changeH * 620) / 900)
-
-                document.getElementById('humImg').style.width = changeW + 'px'
-                document.getElementById('humImg').style.height = changeH + 'px'
-
-                // test
-                // console.log(changeH)
-                // console.log(changeW)
-                // console.log('h')
+                resizeHumImgHeight(getHu.headerH)
             }
-
 
             // возвращаем к изначальным значениям
             if ((getHu.headerW >= 740) && (getHu.headerH >= 1060)) {
@@ -198,62 +170,26 @@ window.onload = () => {
     setSizeForHumanImgResize()
 
 
+
     function setSizeForHumanImg() {
 
         let getHu = new GetSizeForHumanImg()
 
         if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
-
-            let changeW = Math.round((620 * getHu.headerW) / 740)
-            let changeH = Math.round((changeW * 900) / 620)
-
-            document.getElementById('humImg').style.width = changeW + 'px'
-            document.getElementById('humImg').style.height = changeH + 'px'
-
-            // test
-            console.log('w')
+            resizeHumImgWidth(getHu.headerW)
         }
-
 
         if ((getHu.headerW >= 740) && (getHu.headerH <= 1060)) {
-
-            let changeH = Math.round((900 * getHu.headerH) / 1060)
-            let changeW = Math.round((changeH * 620) / 900)
-
-            document.getElementById('humImg').style.width = changeW + 'px'
-            document.getElementById('humImg').style.height = changeH + 'px'
-
-            // test
-            console.log('h')
+            resizeHumImgHeight(getHu.headerH)
         }
 
-
-        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW <= getHu.headerH)) {
-
-            let changeW = Math.round((620 * getHu.headerW) / 740)
-            let changeH = Math.round((changeW * 900) / 620)
-
-            document.getElementById('humImg').style.width = changeW + 'px'
-            document.getElementById('humImg').style.height = changeH + 'px'
-
-            // test
-            console.log('w2')
+        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerW - 100)) <= getHu.huW) {
+            resizeHumImgWidth(getHu.headerW)
         }
 
-
-        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW > getHu.headerH)) {
-
-            let changeH = Math.round((900 * getHu.headerH) / 1060)
-            let changeW = Math.round((changeH * 620) / 900)
-
-            document.getElementById('humImg').style.width = changeW + 'px'
-            document.getElementById('humImg').style.height = changeH + 'px'
-
-            // test
-            console.log('h2')
+        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerH - 100)) <= getHu.huH) {
+            resizeHumImgHeight(getHu.headerH)
         }
-
-
     }
 
     setSizeForHumanImg()
@@ -261,6 +197,7 @@ window.onload = () => {
 
 // END
 //----------------------------------------------------------------------------------------------------------------------
+
 
 
 // START - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
@@ -289,8 +226,8 @@ window.onload = () => {
 // END
 //----------------------------------------------------------------------------------------------------------------------
 
-
 }
+
 
 
 // START - Закрыть, открыть правую панель

@@ -93,7 +93,7 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-    // START
+// START
 //----------------------------------------------------------------------------------------------------------------------
 
     function GetSizeForHumanImg() {
@@ -107,117 +107,157 @@ window.onload = () => {
     }
 
 
-    let getHuDef = new GetSizeForHumanImg()
+    function resizeHumanWidth(a) {
 
 
-    function setSizeForHumanImg() {
+    }
+
+
+    function resizeHumanHeight(a) {
+
+    }
+
+
+    // действия при изменении ширины и, или высоты экрана
+    // 620px - ширина картинки
+    // 900px - высота картинки
+    // 1060px - высота .header-base__sub
+    // 740px - ширина .header-abse__sub
+    function setSizeForHumanImgResize() {
 
         addEventListener('resize', event => {
 
-            let getHu = new GetSizeForHumanImg()
+            let getHu = new GetSizeForHumanImg() // получить текущие размеры экрана
 
-            // test
-            // console.log(getHuDefault.headerW)
-            // console.log(getHu.headerW)
+            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerW - 100)) <= getHu.huW) {
 
-
-            if ((getHuDef.headerW !== getHu.headerW)&&(getHuDef.headerH !== getHu.headerH)&&(getHu.headerW <= 1060)&&(getHu.headerH <= 1060)){
-                // document.location.reload(true)
-
-                // test
-                // console.log('def' + getHuDef.headerW)
-                // console.log('now' + getHu.headerW)
-            }
-
-
-            if ((getHuDef.headerW !== getHu.headerW)&&(getHu.headerW <= 1060)){
-                // document.location.reload(true)
-
-                // document.getElementById('humImg').style.width = 500 + 'px'
-                // document.getElementById('humImg').style.height = 500 + 'px'
-
-                let changeW = Math.round((620 * getHu.headerW) / 1060)
-                let changeH = Math.round((changeW * getHuDef.huH) / 620)
+                let changeW = Math.round((620 * getHu.headerW) / 740)
+                let changeH = Math.round((changeW * 900) / 620)
 
                 document.getElementById('humImg').style.width = changeW + 'px'
                 document.getElementById('humImg').style.height = changeH + 'px'
 
                 // test
-                // console.log('def ' + getHuDef.headerW)
-                // console.log('now ' + getHu.headerW)
-                console.log('changeW ' + changeW)
-                console.log('changeH ' + changeH)
+                // console.log('w+')
+                // console.log(changeW)
+                // console.log(changeH)
             }
 
 
-            if ((getHuDef.headerH !== getHu.headerH)&&(getHu.headerH <= 1060)){
-                // document.location.reload(true)
+            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerH - 100)) <= getHu.huH) {
+
+                let changeH = Math.round((900 * getHu.headerH) / 1060)
+                let changeW = Math.round((changeH * 620) / 900)
+
+                document.getElementById('humImg').style.width = changeW + 'px'
+                document.getElementById('humImg').style.height = changeH + 'px'
 
                 // test
-                // console.log('def' + getHuDef.headerW)
-                // console.log('now' + getHu.headerW)
+                // console.log('h+')
             }
 
-            // тк вычисления в соотношениях стремятся к 0, то возвращаем к изначальным значениям
-            if (getHu.headerW >= 1060) {
+
+            if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
+
+                let changeW = Math.round((620 * getHu.headerW) / 740)
+                let changeH = Math.round((changeW * 900) / 620)
+
+                document.getElementById('humImg').style.width = changeW + 'px'
+                document.getElementById('humImg').style.height = changeH + 'px'
+
+                // test
+                // console.log('changeW ' + changeW)
+                // console.log('changeH ' + changeH)
+                // console.log('w')
+            }
+
+
+            if ((getHu.headerH <= 1060) && (getHu.headerW >= 740)) {
+
+                let changeH = Math.round((900 * getHu.headerH) / 1060)
+                let changeW = Math.round((changeH * 620) / 900)
+
+                document.getElementById('humImg').style.width = changeW + 'px'
+                document.getElementById('humImg').style.height = changeH + 'px'
+
+                // test
+                // console.log(changeH)
+                // console.log(changeW)
+                // console.log('h')
+            }
+
+
+            // возвращаем к изначальным значениям
+            if ((getHu.headerW >= 740) && (getHu.headerH >= 1060)) {
                 document.getElementById('humImg').style.width = 620 + 'px'
                 document.getElementById('humImg').style.height = 900 + 'px'
             }
-
-
-
-
-
-            // if (getHu.headerH <= 1060) {
-            //
-            //     // console.log(getHu.headerH)
-            //
-            //     document.getElementById('humImg').style.width = 500 + 'px'
-            //     document.getElementById('humImg').style.height = 500 + 'px'
-            //
-            //     // let changeHuWidthH = Math.round((620 * getHu.headerH) / 700)
-            //     // let changeHuHeightH = Math.round((1000 * getHu.headerH) / 700)
-            //
-            //     // document.getElementById('humImg').style.width = changeHuWidthH + 'px'
-            //     // document.getElementById('humImg').style.height = changeHuHeightH + 'px'
-            // }
-
-
-            // if (getHu.headerW <= 700) {
-            //
-            //     let changeHuWidth = Math.round((620 * getHu.headerW) / 700)
-            //     let changeHuHeight = Math.round((1000 * getHu.headerW) / 700)
-            //
-            //     document.getElementById('humImg').style.width = changeHuWidth + 'px'
-            //     document.getElementById('humImg').style.height = changeHuHeight + 'px'
-            //
-            //
-            // } else {
-            //
-            //     document.getElementById('humImg').style.width = 620 + 'px'
-            //     document.getElementById('humImg').style.height = 900 + 'px'
-            // }
-
-
-            // вертикаль
-            // if (getC.windowH <= 1060) {
-            //
-            //     let changeCirH = Math.round((920*getC.windowH)/1060)
-            //
-            //     document.getElementById('cir').style.width = changeCirH + 'px'
-            //     document.getElementById('cir').style.height = changeCirH + 'px'
-            //
-            //     // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
-            //
-            // } else {
-            //     document.getElementById('cir').style.width = 920 + 'px'
-            //     document.getElementById('cir').style.height = 920 + 'px'
-            // }
-
         })
     }
 
+    setSizeForHumanImgResize()
+
+
+    function setSizeForHumanImg() {
+
+        let getHu = new GetSizeForHumanImg()
+
+        if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
+
+            let changeW = Math.round((620 * getHu.headerW) / 740)
+            let changeH = Math.round((changeW * 900) / 620)
+
+            document.getElementById('humImg').style.width = changeW + 'px'
+            document.getElementById('humImg').style.height = changeH + 'px'
+
+            // test
+            console.log('w')
+        }
+
+
+        if ((getHu.headerW >= 740) && (getHu.headerH <= 1060)) {
+
+            let changeH = Math.round((900 * getHu.headerH) / 1060)
+            let changeW = Math.round((changeH * 620) / 900)
+
+            document.getElementById('humImg').style.width = changeW + 'px'
+            document.getElementById('humImg').style.height = changeH + 'px'
+
+            // test
+            console.log('h')
+        }
+
+
+        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW <= getHu.headerH)) {
+
+            let changeW = Math.round((620 * getHu.headerW) / 740)
+            let changeH = Math.round((changeW * 900) / 620)
+
+            document.getElementById('humImg').style.width = changeW + 'px'
+            document.getElementById('humImg').style.height = changeH + 'px'
+
+            // test
+            console.log('w2')
+        }
+
+
+        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW > getHu.headerH)) {
+
+            let changeH = Math.round((900 * getHu.headerH) / 1060)
+            let changeW = Math.round((changeH * 620) / 900)
+
+            document.getElementById('humImg').style.width = changeW + 'px'
+            document.getElementById('humImg').style.height = changeH + 'px'
+
+            // test
+            console.log('h2')
+        }
+
+
+    }
+
     setSizeForHumanImg()
+
 
 // END
 //----------------------------------------------------------------------------------------------------------------------

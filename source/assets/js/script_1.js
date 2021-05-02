@@ -138,7 +138,7 @@ window.onload = () => {
         addEventListener('resize', event => {
 
             let getHu = new GetSizeForHumanImg() // получить текущие размеры экрана
-
+            let abc = getHu.headerW / getHu.headerH
 
             if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW < getHu.headerH)) {
                 resizeHumImgWidth(getHu.headerW)
@@ -148,7 +148,7 @@ window.onload = () => {
                 resizeHumImgHeight(getHu.headerH)
             }
 
-            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.huH >= getHu.headerH)) {
+            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (abc >= 0.82) && (abc <= 1)) {
                 resizeHumImgHeight(getHu.headerH)
             }
 
@@ -169,6 +169,8 @@ window.onload = () => {
 // END-23
 //----------------------------------------------------------------------------------------------------------------------
 
+            console.log(getHu.headerW / getHu.headerH)
+
         })
     }
 
@@ -179,6 +181,7 @@ window.onload = () => {
     function setSizeForHumanImg() {
 
         let getHu = new GetSizeForHumanImg()
+        let abc = getHu.headerW / getHu.headerH
 
         if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
             resizeHumImgWidth(getHu.headerW)
@@ -196,7 +199,7 @@ window.onload = () => {
             resizeHumImgHeight(getHu.headerH)
         }
 
-        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.huH >= getHu.headerH)) {
+        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (abc >= 0.82) && (abc <= 1)) {
             resizeHumImgHeight(getHu.headerH)
         }
     }

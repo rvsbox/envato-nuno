@@ -1,11 +1,26 @@
 // скрипт будет выполнен, когда вся страница, со всеми подключениями, будут загружены
 window.onload = () => {
 
+    function GetSizeBlocks() {
+
+        // .wrap-headbas, #wrapHeadBas
+        this.headerW = document.getElementById('wrapHeadBas').offsetWidth
+        this.headerH = document.getElementById('wrapHeadBas').offsetHeight
+
+        // .human-img, #humImg
+        this.huW = document.getElementById('humImg').offsetWidth
+        this.huH = document.getElementById('humImg').offsetHeight
+
+        // .circles, #cir
+        this.cirW = document.getElementById('cir').offsetWidth
+        this.cirH = document.getElementById('cir').offsetHeight
+    }
+
 // START-12 - .hyman-info
 //----------------------------------------------------------------------------------------------------------------------
 
     // получить объект с размерами блоков для .human-info
-    // function GetSizeForHumanInfo() {
+    // function GetSizeBlocksForHumanInfo() {
     //     // .human-name / #hmnName
     //     this.hmnNameW = document.getElementById('hmnName').offsetWidth
     //     // .human-specialty / #hmnSpec
@@ -13,7 +28,7 @@ window.onload = () => {
     // }
     //
     // (function setSizeForHumanInfo() {
-    //     let getHI = new GetSizeForHumanInfo()
+    //     let getHI = new GetSizeBlocksForHumanInfo()
     //
     //     if (getHI.hmnNameW > getHI.hmnSpecW) {
     //         document.getElementById('hmnSpec').style.width = getHI.hmnNameW + 'px'
@@ -28,88 +43,46 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-// START-20
+// START-20 - .circles
 //----------------------------------------------------------------------------------------------------------------------
+    // 920px   - ширина .circles
+    // 920px   - высота .circles
+    // 1060px  - высота .wrap-headbas
+    // 1060px   - ширина .wrap-headbas
 
-    // получить объект с размерами блоков для .circles
-    // функция-конструктор. При создании нового объекта получаем необходимые размеры указанных блоков
-    // Используется для компактности
-    // function GetSizeForCirclesWidth() {
-    //     // body
-    //     this.windowW = document.body.offsetWidth
-    //     this.windowH = document.body.offsetHeight
-    //
-    //     // .header-base__sub / #wrapHeadBas
-    //     this.headerW = document.getElementById('wrapHeadBas').offsetWidth
-    //     this.headerH = document.getElementById('wrapHeadBas').offsetHeight
-    //
-    //     // .circles / #cir
-    //     this.cirW = document.getElementById('cir').offsetWidth
-    //     this.cirH = document.getElementById('cir').offsetHeight
-    // }
-    //
-    //
-    // (function setSizeForCirclesWidth() {
-    //
-    //     addEventListener('resize', event => {
-    //         let getC = new GetSizeForCirclesWidth()
-    //
-    //
-    //         if (getC.headerW <= 1060) {
-    //
-    //             // горизонт
-    //             let changeCir = Math.round((920 * getC.headerW) / 1060)
-    //             document.getElementById('cir').style.width = changeCir + 'px'
-    //             document.getElementById('cir').style.height = changeCir + 'px'
-    //             // console.log(changeCir)
-    //             // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
-    //
-    //         } else {
-    //
-    //             document.getElementById('cir').style.width = 920 + 'px'
-    //             document.getElementById('cir').style.height = 920 + 'px'
-    //         }
-    //
-    //
-    //         // вертикаль
-    //         if (getC.windowH <= 1060) {
-    //
-    //             let changeCirH = Math.round((920*getC.windowH)/1060)
-    //
-    //             document.getElementById('cir').style.width = changeCirH + 'px'
-    //             document.getElementById('cir').style.height = changeCirH + 'px'
-    //
-    //             // let changeCirTop = Math.round((cirTop*windowHeight)/1060)
-    //
-    //         } else {
-    //             document.getElementById('cir').style.width = 920 + 'px'
-    //             document.getElementById('cir').style.height = 920 + 'px'
-    //         }
-    //
-    //     })
-    // })()
+    function setSizeForCirlesResize() {
+
+        addEventListener('resize', event => {
+
+            let getCir = new GetSizeBlocks()
+
+            if ((getCir.headerW <= 1060) && (getCir.headerH >= 1060)) {
+                let change = Math.round((920 * getCir.headerW) / 1060)
+
+                document.getElementById('cir').style.width = change + 'px'
+                document.getElementById('cir').style.height = change + 'px'
+
+                // test
+                console.log('test')
+            }
+
+
+        })
+    }
+
+    setSizeForCirlesResize()
+
 
 // END-20
 //----------------------------------------------------------------------------------------------------------------------
 
 
-// START-55
+// START-55 - .human-img
 //----------------------------------------------------------------------------------------------------------------------
     // 620px   - ширина .human-img
     // 900px   - высота .human-img
     // 1060px  - высота .wrap-headbas
     // 740px   - ширина .wrap-headbas
-
-    function GetSizeForHumanImg() {
-
-        // .wrap-headbas / #wrapHeadBas
-        this.headerW = document.getElementById('wrapHeadBas').offsetWidth
-        this.headerH = document.getElementById('wrapHeadBas').offsetHeight
-
-        // .human-img / #humImg
-        this.huW = document.getElementById('humImg').offsetWidth
-        this.huH = document.getElementById('humImg').offsetHeight
-    }
 
 
     // a - текущая ширина .wrap-headbas
@@ -137,8 +110,16 @@ window.onload = () => {
 
         addEventListener('resize', event => {
 
-            let getHu = new GetSizeForHumanImg() // получить текущие размеры экрана
+            let getHu = new GetSizeBlocks() // получить текущие размеры экрана
             let abc = getHu.headerW / getHu.headerH
+
+            if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
+                resizeHumImgWidth(getHu.headerW)
+            }
+
+            if ((getHu.headerH <= 1060) && (getHu.headerW >= 740)) {
+                resizeHumImgHeight(getHu.headerH)
+            }
 
             if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW < getHu.headerH)) {
                 resizeHumImgWidth(getHu.headerW)
@@ -152,14 +133,6 @@ window.onload = () => {
                 resizeHumImgHeight(getHu.headerH)
             }
 
-            if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
-                resizeHumImgWidth(getHu.headerW)
-            }
-
-            if ((getHu.headerH <= 1060) && (getHu.headerW >= 740)) {
-                resizeHumImgHeight(getHu.headerH)
-            }
-
 // START-23 - Возвращаем к изначальным значениям
 //----------------------------------------------------------------------------------------------------------------------
             if ((getHu.headerW >= 740) && (getHu.headerH >= 1060)) {
@@ -168,8 +141,8 @@ window.onload = () => {
             }
 // END-23
 //----------------------------------------------------------------------------------------------------------------------
-
-            console.log(getHu.headerW / getHu.headerH)
+            // test
+            // console.log(getHu.headerW / getHu.headerH)
 
         })
     }
@@ -180,7 +153,7 @@ window.onload = () => {
     // условия при первой загрузке сайта
     function setSizeForHumanImg() {
 
-        let getHu = new GetSizeForHumanImg()
+        let getHu = new GetSizeBlocks()
         let abc = getHu.headerW / getHu.headerH
 
         if ((getHu.headerW <= 740) && (getHu.headerH >= 1060)) {
@@ -206,15 +179,15 @@ window.onload = () => {
 
     setSizeForHumanImg()
 
-
 // END-55
 //----------------------------------------------------------------------------------------------------------------------
+
 
 
 // START-98 - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
 //----------------------------------------------------------------------------------------------------------------------
 
-    function GetSizeForPanelRight() {
+    function GetSizeBlocksForPanelRight() {
         // body
         this.windowW = document.body.offsetWidth
         this.windowH = document.body.offsetHeight
@@ -223,7 +196,7 @@ window.onload = () => {
     (function mediaRun() {
         window.addEventListener('resize', event => {
 
-            let getPR = new GetSizeForPanelRight()
+            let getPR = new GetSizeBlocksForPanelRight()
 
             if (getPR.windowW > 1024) {
                 document.getElementById('panelBut').style.display = 'none'
@@ -238,6 +211,7 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 }
+
 
 
 // START-24 - Закрыть, открыть правую панель

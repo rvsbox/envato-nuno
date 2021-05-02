@@ -28,7 +28,6 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-
 // START-20
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -94,7 +93,6 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-
 // START-55
 //----------------------------------------------------------------------------------------------------------------------
     // 620px   - ширина .human-img
@@ -134,19 +132,23 @@ window.onload = () => {
     }
 
 
-
-    // действия при изменении ширины и, или высоты экрана
+    // условия при изменении ширины и, или высоты экрана
     function setSizeForHumanImgResize() {
 
         addEventListener('resize', event => {
 
             let getHu = new GetSizeForHumanImg() // получить текущие размеры экрана
 
-            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerW - 100)) <= getHu.huW) {
+
+            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW < getHu.headerH)) {
                 resizeHumImgWidth(getHu.headerW)
             }
 
-            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && ((getHu.headerH - 100)) <= getHu.huH) {
+            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW > getHu.headerH)) {
+                resizeHumImgHeight(getHu.headerH)
+            }
+
+            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.huH >= getHu.headerH)) {
                 resizeHumImgHeight(getHu.headerH)
             }
 
@@ -158,20 +160,6 @@ window.onload = () => {
                 resizeHumImgHeight(getHu.headerH)
             }
 
-// START-56 - В момент смены альбомного режима на портретный или наоборот
-//----------------------------------------------------------------------------------------------------------------------
-            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW <= getHu.headerH)) {
-                resizeHumImgWidth(getHu.headerW)
-            }
-
-            if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW > getHu.headerH)) {
-                resizeHumImgHeight(getHu.headerH)
-            }
-// END-56
-//----------------------------------------------------------------------------------------------------------------------
-
-
-
 // START-23 - Возвращаем к изначальным значениям
 //----------------------------------------------------------------------------------------------------------------------
             if ((getHu.headerW >= 740) && (getHu.headerH >= 1060)) {
@@ -180,13 +168,14 @@ window.onload = () => {
             }
 // END-23
 //----------------------------------------------------------------------------------------------------------------------
+
         })
     }
 
     setSizeForHumanImgResize()
 
 
-
+    // условия при первой загрузке сайта
     function setSizeForHumanImg() {
 
         let getHu = new GetSizeForHumanImg()
@@ -203,7 +192,11 @@ window.onload = () => {
             resizeHumImgWidth(getHu.headerW)
         }
 
-        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW > getHu.headerH)) {
+        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.headerW >= getHu.headerH)) {
+            resizeHumImgHeight(getHu.headerH)
+        }
+
+        if ((getHu.headerW <= 740) && (getHu.headerH <= 1060) && (getHu.huH >= getHu.headerH)) {
             resizeHumImgHeight(getHu.headerH)
         }
     }
@@ -213,7 +206,6 @@ window.onload = () => {
 
 // END-55
 //----------------------------------------------------------------------------------------------------------------------
-
 
 
 // START-98 - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
@@ -243,7 +235,6 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 }
-
 
 
 // START-24 - Закрыть, открыть правую панель

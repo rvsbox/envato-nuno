@@ -1,7 +1,7 @@
 // скрипт будет выполнен, когда вся страница, со всеми подключениями, будут загружены
 window.onload = () => {
 
-// START-11 - Получить размеры блоков
+// START-01 - Получить размеры блоков
 //----------------------------------------------------------------------------------------------------------------------
     function GetSizeBlocks() {
 
@@ -27,26 +27,65 @@ window.onload = () => {
         this.bodyH = document.body.offsetHeight
     }
 
-// END-11
+// END-01
 //----------------------------------------------------------------------------------------------------------------------
 
 
-// START-12 - .human-info
+// START-02 - .human-info
 //----------------------------------------------------------------------------------------------------------------------
 
-    function setSizeForHumanInfo() {
-        let getHmnInfo = new GetSizeBlocks()
+    // START-10 - Вычислить где наибольшая длина блока, расположенного внутри .human-info
+    //----------------------------------------------------------------------------------------------------------
+    // function setSizeForHumanInfo() {
+    //     let getHmnInfo = new GetSizeBlocks()
+    //
+    //     if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
+    //         document.getElementById('hmnSpec').style.width = getHmnInfo.hmnNameW + 'px'
+    //         document.getElementById('hmnAbout').style.width = getHmnInfo.hmnNameW + 'px'
+    //     } else {
+    //         document.getElementById('hmnName').style.width = getHmnInfo.hmnSpecW + 'px'
+    //         document.getElementById('hmnAbout').style.width = getHmnInfo.hmnSpecW + 'px'
+    //     }
+    // }
+    //
+    // setSizeForHumanInfo()
 
-        if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
-            document.getElementById('hmnSpec').style.width = getHmnInfo.hmnNameW + 'px'
-            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnNameW + 'px'
-        } else {
-            document.getElementById('hmnName').style.width = getHmnInfo.hmnSpecW + 'px'
-            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnSpecW + 'px'
-        }
+    // END-10
+    //----------------------------------------------------------------------------------------------------------
+
+
+    // 1060px   - высота .wrap-headbas
+    // 1060px   - ширина .wrap-headbas
+    // 2.875em  - размер шрифта .human-info__name
+    // 120px    - нижний отступ .human-info
+    // 10px     - закругление углов блока .human-info__name
+
+    // headerWH - headerWidthHeight
+    function resizeHumanInfo(headerWH, posCenter) {
+        let changeFontSz = (2.875 * headerWH) / 1060 // без округления, тк нужны сотые доли
+        let changeBordRad = (10 * headerWH) / 1060
+        let changePosBottom = Math.round((120 * headerWH) / 1060)
+
+        document.getElementById('hmnInfo').style.left = posCenter + 'px'
+        document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
+        document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
+        document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
+        document.getElementById('hmnAbout').style.display = 'none'
+        document.getElementById('hmnSpec').style.display = 'none'
     }
 
-    setSizeForHumanInfo()
+
+    function defaultHumanInfo(posLeft){
+        document.getElementById('hmnInfo').style.left = posLeft + 'px'
+        document.getElementById('hmnInfo').style.bottom = 190 + 'px'
+        document.getElementById('hmnName').style.fontSize = 2.875 + 'em'
+        document.getElementById('hmnName').style.borderTopLeftRadius = 10 + 'px'
+        document.getElementById('hmnName').style.borderTopRightRadius = 10 + 'px'
+        document.getElementById('hmnName').style.borderBottomLeftRadius = 0 + 'px'
+        document.getElementById('hmnName').style.borderBottomRightRadius = 0 + 'px'
+        document.getElementById('hmnAbout').style.display = 'inline-block'
+        document.getElementById('hmnSpec').style.display = 'inline-block'
+    }
 
 
     function setPositionForHumanInfoResize() {
@@ -58,145 +97,109 @@ window.onload = () => {
             let posCenter = Math.round((getHmnInfo.bodyW / 2) - (getHmnInfo.hmnNameW / 2))
             let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
 
+
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
+                resizeHumanInfo(getHmnInfo.headerW, posCenter)
 
-
-                let changeFontSz = (2.875 * getHmnInfo.headerW) / 1060 // без округления, тк нужны сотые доли
-                let changeBordRad = (8 * getHmnInfo.headerW) / 1060
-                let changePosBottom = Math.round((120 * getHmnInfo.headerW) / 1060)
-
-                document.getElementById('hmnInfo').style.left = posCenter + 'px'
-                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
-                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
-                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
-                document.getElementById('hmnAbout').style.display = 'none'
-                document.getElementById('hmnSpec').style.display = 'none'
-
+                // test
+                // console.log('res: ' + getHmnInfo.bodyW)
+                // console.log('res: ' + getHmnInfo.hmnNameW)
             }
 
             if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
-
-                let changeFontSz = (2.875 * getHmnInfo.headerH) / 1060 // без округления, тк нужны сотые доли
-                let changeBordRad = (8 * getHmnInfo.headerH) / 1060
-                let changePosBottom = Math.round((120 * getHmnInfo.headerH) / 1060)
-
-                document.getElementById('hmnInfo').style.left = posCenter + 'px'
-                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
-                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
-                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
-                document.getElementById('hmnAbout').style.display = 'none'
-                document.getElementById('hmnSpec').style.display = 'none'
+                resizeHumanInfo(getHmnInfo.headerH, posCenter)
             }
-
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
-
-                let changeFontSz = (2.875 * getHmnInfo.headerW) / 1060 // без округления, тк нужны сотые доли
-                let changeBordRad = (8 * getHmnInfo.headerW) / 1060
-                let changePosBottom = Math.round((120 * getHmnInfo.headerW) / 1060)
-
-                document.getElementById('hmnInfo').style.left = posCenter + 'px'
-                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
-                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
-                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
-                document.getElementById('hmnAbout').style.display = 'none'
-                document.getElementById('hmnSpec').style.display = 'none'
+                resizeHumanInfo(getHmnInfo.headerW, posCenter)
             }
-
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
-
-                let changeFontSz = (2.875 * getHmnInfo.headerH) / 1060 // без округления, тк нужны сотые доли
-                let changeBordRad = (8 * getHmnInfo.headerH) / 1060
-                let changePosBottom = Math.round((120 * getHmnInfo.headerH) / 1060)
-
-                document.getElementById('hmnInfo').style.left = posCenter + 'px'
-                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
-                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
-                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
-                document.getElementById('hmnAbout').style.display = 'none'
-                document.getElementById('hmnSpec').style.display = 'none'
+                resizeHumanInfo(getHmnInfo.headerH, posCenter)
             }
 
-
-
-
+            // START-03 - Возврат к начальным значениям
+            //----------------------------------------------------------------------------------------------------------
             if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
-
-                document.getElementById('hmnInfo').style.left = posLeft + 'px'
-                document.getElementById('hmnInfo').style.bottom = 190 + 'px'
-                document.getElementById('hmnName').style.fontSize = 2.875 + 'em'
-                document.getElementById('hmnName').style.borderTopLeftRadius = 10 + 'px'
-                document.getElementById('hmnName').style.borderTopRightRadius = 10 + 'px'
-                document.getElementById('hmnName').style.borderBottomLeftRadius = 0 + 'px'
-                document.getElementById('hmnName').style.borderBottomRightRadius = 0 + 'px'
-                document.getElementById('hmnAbout').style.display = 'block'
-                document.getElementById('hmnSpec').style.display = 'block'
+                defaultHumanInfo(posLeft)
             }
-
-
-            // if ((getHmnInfo.headerW <= 1060) || (getHmnInfo.headerH <= 1060)) {
-            //
-            //     document.getElementById('hmnInfo').style.left = posCenter + 'px'
-            //     document.getElementById('hmnInfo').style.bottom = 120 + 'px'
-            //     document.getElementById('hmnName').style.borderBottomRightRadius = 10 + 'px'
-            //     document.getElementById('hmnName').style.borderBottomLeftRadius = 10 + 'px'
-            //     document.getElementById('hmnAbout').style.display = 'none'
-            //     document.getElementById('hmnSpec').style.display = 'none'
-            // } else {
-            //     document.getElementById('hmnInfo').style.left = posLeft + 'px'
-            //     document.getElementById('hmnName').style.borderBottomRightRadius = 0 + 'px'
-            //     document.getElementById('hmnName').style.borderBottomLeftRadius = 0 + 'px'
-            //     document.getElementById('hmnAbout').style.display = 'block'
-            //     document.getElementById('hmnSpec').style.display = 'block'
-            // }
-            //
-            // if ((getHmnInfo.headerW <= 680) && (getHmnInfo.headerW > 480) || (getHmnInfo.headerH <= 680) && (getHmnInfo.headerH > 480)) {
-            //     document.getElementById('hmnName').style.fontSize = 28 + 'px'
-            //     document.getElementById('hmnInfo').style.bottom = 78 + 'px'
-            //     document.getElementById('hmnName').style.borderRadius = 10 + 'px'
-            // } else {
-            //     document.getElementById('hmnName').style.fontSize = 46 + 'px'
-            //     document.getElementById('hmnInfo').style.bottom = 120 + 'px'
-            // }
-            //
-            // if ((getHmnInfo.headerW <= 480) || (getHmnInfo.headerH <= 480)) {
-            //     document.getElementById('hmnName').style.fontSize = 18 + 'px'
-            //     document.getElementById('hmnInfo').style.bottom = 42 + 'px'
-            //     document.getElementById('hmnName').style.borderRadius = 5 + 'px'
-            //     document.getElementById('hmnName').style.paddingLeft = 10 + 'px'
-            //     document.getElementById('hmnName').style.paddingRight = 10 + 'px'
-            // }
+            // END-03
+            //----------------------------------------------------------------------------------------------------------
         })
     }
 
     setPositionForHumanInfoResize()
 
 
-    // function setPositionForHumanInfo(){
-    //     let hmnInfoW
-    //     let getHmnInfo = new GetSizeBlocks()
-    //
-    //     // больший блок будет определять ширину .human-info
-    //     if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
-    //         hmnInfoW = getHmnInfo.hmnNameW
-    //     } else {
-    //         hmnInfoW = getHmnInfo.hmnSpecW
-    //     }
-    //
-    //     let posCenter = Math.round((getHmnInfo.bodyW / 2) - (hmnInfoW / 2))
-    //     let posLeft = Math.round(posCenter - (hmnInfoW / 2))
-    //
-    //     document.getElementById('hmnInfo').style.left = posLeft + 'px'
-    // }
-    //
-    // setPositionForHumanInfo()
+    let getHmnInfo = new GetSizeBlocks()
+    console.log('def: ' + getHmnInfo.hmnNameW)
 
-// END-12
+
+
+    function setPositionForHumanInfo() {
+
+        let posCenter = Math.round((getHmnInfo.bodyW / 2) - (getHmnInfo.hmnNameW / 2))
+        let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
+
+        // test
+        // console.log('def: ' + getHmnInfo.bodyW)
+        // console.log('def: ' + getHmnInfo.hmnNameW)
+
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
+            resizeHumanInfo(getHmnInfo.headerW, posCenter)
+
+            // test
+            console.log('test-1')
+        }
+
+        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
+            resizeHumanInfo(getHmnInfo.headerH, posCenter)
+
+            // test
+            console.log('test-2')
+        }
+
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
+            resizeHumanInfo(getHmnInfo.headerW, posCenter)
+
+            // test
+            console.log('test-3')
+        }
+
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
+            resizeHumanInfo(getHmnInfo.headerH, posCenter)
+
+            // test
+            console.log('test-4')
+        }
+
+        // START-11 - Возврат к начальным значениям
+        //----------------------------------------------------------------------------------------------------------
+        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
+            defaultHumanInfo(posLeft)
+
+            // test
+            console.log('test-5')
+        }
+        // END-11
+        //----------------------------------------------------------------------------------------------------------
+    }
+
+    setPositionForHumanInfo(getHmnInfo)
+
+    let lala = new GetSizeBlocks()
+    console.log('lala: ' + lala.hmnNameW)
+
+
+
+
+
+
+// END-02
 //----------------------------------------------------------------------------------------------------------------------
 
 
-// START-20 - .circles
+// START-04 - .circles
 //----------------------------------------------------------------------------------------------------------------------
     // 190px   - нижний отступ .circles
     // 920px   - ширина .circles
@@ -204,9 +207,10 @@ window.onload = () => {
     // 1060px  - высота .wrap-headbas
     // 1060px   - ширина .wrap-headbas
 
-    function resizeCircles(a) {
-        let change = Math.round((900 * a) / 1060)
-        let changeBottom = Math.round((190 * a) / 1060)
+    // headerWH - headerWidthHeight
+    function resizeCircles(headerWH) {
+        let change = Math.round((900 * headerWH) / 1060)
+        let changeBottom = Math.round((190 * headerWH) / 1060)
 
         document.getElementById('cir').style.width = change + 'px'
         document.getElementById('cir').style.height = change + 'px'
@@ -236,14 +240,14 @@ window.onload = () => {
                 resizeCircles(getCir.headerH)
             }
 
-            // START-27 - Возвращаем к изначальным значениям
+            // START-05 - Возврат к начальным значениям
             //----------------------------------------------------------------------------------------------------------
             if ((getCir.headerW >= 1060) && (getCir.headerH >= 1060)) {
                 document.getElementById('cir').style.width = 900 + 'px'
                 document.getElementById('cir').style.height = 900 + 'px'
                 document.getElementById('cir').style.bottom = 190 + 'px'
             }
-            // END-27 - Возвращаем к изначальным значениям
+            // END-05
             //----------------------------------------------------------------------------------------------------------
         })
     }
@@ -273,11 +277,11 @@ window.onload = () => {
     }
 
     setSizeForCircles()
-// END-20
+// END-04
 //----------------------------------------------------------------------------------------------------------------------
 
 
-// START-55 - .human-img
+// START-06 - .human-img
 //----------------------------------------------------------------------------------------------------------------------
     // 620px   - ширина .human-img
     // 900px   - высота .human-img
@@ -286,8 +290,8 @@ window.onload = () => {
 
 
     // a - текущая ширина .wrap-headbas
-    function resizeHumImgWidth(a) {
-        let changeW = Math.round((620 * a) / 1060)
+    function resizeHumImgWidth(headerW) {
+        let changeW = Math.round((620 * headerW) / 1060)
         let changeH = Math.round((changeW * 900) / 620)
 
         document.getElementById('humImg').style.width = changeW + 'px'
@@ -296,8 +300,8 @@ window.onload = () => {
 
 
     // b - текущая высота .wrap-headbas
-    function resizeHumImgHeight(b) {
-        let changeH = Math.round((900 * b) / 1060)
+    function resizeHumImgHeight(headerH) {
+        let changeH = Math.round((900 * headerH) / 1060)
         let changeW = Math.round((changeH * 620) / 900)
 
         document.getElementById('humImg').style.width = changeW + 'px'
@@ -333,13 +337,13 @@ window.onload = () => {
             //     resizeHumImgHeight(getHu.headerH)
             // }
 
-            // START-23 - Возвращаем к изначальным значениям
+            // START-07 - Возврат к начальным значениям
             //----------------------------------------------------------------------------------------------------------
             if ((getHu.headerW >= 1060) && (getHu.headerH >= 1060)) {
                 document.getElementById('humImg').style.width = 620 + 'px'
                 document.getElementById('humImg').style.height = 900 + 'px'
             }
-            // END-23
+            // END-07
             //----------------------------------------------------------------------------------------------------------
 
             // test
@@ -365,11 +369,11 @@ window.onload = () => {
             resizeHumImgHeight(getHu.headerH)
         }
 
-        if ((getHu.headerW <= 1060) && (getHu.headerH <= 1060) && (getHu.headerW <= getHu.headerH)) {
+        if ((getHu.headerW <= 1060) && (getHu.headerH <= 1060) && (getHu.headerW < getHu.headerH)) {
             resizeHumImgWidth(getHu.headerW)
         }
 
-        if ((getHu.headerW <= 1060) && (getHu.headerH <= 1060) && (getHu.headerW >= getHu.headerH)) {
+        if ((getHu.headerW <= 1060) && (getHu.headerH <= 1060) && (getHu.headerW > getHu.headerH)) {
             resizeHumImgHeight(getHu.headerH)
         }
 
@@ -379,11 +383,11 @@ window.onload = () => {
     }
 
     setSizeForHumanImg()
-// END-55
+// END-06
 //----------------------------------------------------------------------------------------------------------------------
 
 
-// START-98 - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
+// START-08 - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
 //----------------------------------------------------------------------------------------------------------------------
     function mediaRun() {
         window.addEventListener('resize', event => {
@@ -400,13 +404,13 @@ window.onload = () => {
     }
 
     mediaRun()
-// END-98
+// END-08
 //----------------------------------------------------------------------------------------------------------------------
 
 }
 
 
-// START-24 - Закрыть, открыть правую панель
+// START-09 - Закрыть, открыть правую панель
 //----------------------------------------------------------------------------------------------------------------------
 function openPanelRight() {
     document.getElementById('panelBut').style.display = 'none'
@@ -419,5 +423,5 @@ function closePanelRight() {
     document.getElementById('panelRt').style.display = 'none'
 }
 
-// END-24
+// END-09
 //----------------------------------------------------------------------------------------------------------------------

@@ -49,32 +49,148 @@ window.onload = () => {
     setSizeForHumanInfo()
 
 
-    function setPositionForHumanInfo() {
+    function setPositionForHumanInfoResize() {
 
         addEventListener('resize', event => {
-            let hmnInfoW
+
             let getHmnInfo = new GetSizeBlocks()
 
-            // больший блок будет определять ширину .human-info
-            if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
-                hmnInfoW = getHmnInfo.hmnNameW
-            } else {
-                hmnInfoW = getHmnInfo.hmnSpecW
+            let posCenter = Math.round((getHmnInfo.bodyW / 2) - (getHmnInfo.hmnNameW / 2))
+            let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
+
+            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
+
+
+                let changeFontSz = (2.875 * getHmnInfo.headerW) / 1060 // без округления, тк нужны сотые доли
+                let changeBordRad = (8 * getHmnInfo.headerW) / 1060
+                let changePosBottom = Math.round((120 * getHmnInfo.headerW) / 1060)
+
+                document.getElementById('hmnInfo').style.left = posCenter + 'px'
+                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
+                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
+                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
+                document.getElementById('hmnAbout').style.display = 'none'
+                document.getElementById('hmnSpec').style.display = 'none'
+
             }
 
-            let posCenter = (getHmnInfo.bodyW / 2) - (hmnInfoW / 2)
-            let posLeft = posCenter - (hmnInfoW / 2)
+            if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
+
+                let changeFontSz = (2.875 * getHmnInfo.headerH) / 1060 // без округления, тк нужны сотые доли
+                let changeBordRad = (8 * getHmnInfo.headerH) / 1060
+                let changePosBottom = Math.round((120 * getHmnInfo.headerH) / 1060)
+
+                document.getElementById('hmnInfo').style.left = posCenter + 'px'
+                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
+                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
+                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
+                document.getElementById('hmnAbout').style.display = 'none'
+                document.getElementById('hmnSpec').style.display = 'none'
+            }
 
 
-            document.getElementById('hmnInfo').style.left = posLeft + 'px'
+            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
 
-            // test
-            // console.log(getHmnInfo.bodyH)
-            console.log(posCenter)
+                let changeFontSz = (2.875 * getHmnInfo.headerW) / 1060 // без округления, тк нужны сотые доли
+                let changeBordRad = (8 * getHmnInfo.headerW) / 1060
+                let changePosBottom = Math.round((120 * getHmnInfo.headerW) / 1060)
+
+                document.getElementById('hmnInfo').style.left = posCenter + 'px'
+                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
+                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
+                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
+                document.getElementById('hmnAbout').style.display = 'none'
+                document.getElementById('hmnSpec').style.display = 'none'
+            }
+
+
+            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
+
+                let changeFontSz = (2.875 * getHmnInfo.headerH) / 1060 // без округления, тк нужны сотые доли
+                let changeBordRad = (8 * getHmnInfo.headerH) / 1060
+                let changePosBottom = Math.round((120 * getHmnInfo.headerH) / 1060)
+
+                document.getElementById('hmnInfo').style.left = posCenter + 'px'
+                document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
+                document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
+                document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
+                document.getElementById('hmnAbout').style.display = 'none'
+                document.getElementById('hmnSpec').style.display = 'none'
+            }
+
+
+
+
+            if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
+
+                document.getElementById('hmnInfo').style.left = posLeft + 'px'
+                document.getElementById('hmnInfo').style.bottom = 190 + 'px'
+                document.getElementById('hmnName').style.fontSize = 2.875 + 'em'
+                document.getElementById('hmnName').style.borderTopLeftRadius = 10 + 'px'
+                document.getElementById('hmnName').style.borderTopRightRadius = 10 + 'px'
+                document.getElementById('hmnName').style.borderBottomLeftRadius = 0 + 'px'
+                document.getElementById('hmnName').style.borderBottomRightRadius = 0 + 'px'
+                document.getElementById('hmnAbout').style.display = 'block'
+                document.getElementById('hmnSpec').style.display = 'block'
+            }
+
+
+            // if ((getHmnInfo.headerW <= 1060) || (getHmnInfo.headerH <= 1060)) {
+            //
+            //     document.getElementById('hmnInfo').style.left = posCenter + 'px'
+            //     document.getElementById('hmnInfo').style.bottom = 120 + 'px'
+            //     document.getElementById('hmnName').style.borderBottomRightRadius = 10 + 'px'
+            //     document.getElementById('hmnName').style.borderBottomLeftRadius = 10 + 'px'
+            //     document.getElementById('hmnAbout').style.display = 'none'
+            //     document.getElementById('hmnSpec').style.display = 'none'
+            // } else {
+            //     document.getElementById('hmnInfo').style.left = posLeft + 'px'
+            //     document.getElementById('hmnName').style.borderBottomRightRadius = 0 + 'px'
+            //     document.getElementById('hmnName').style.borderBottomLeftRadius = 0 + 'px'
+            //     document.getElementById('hmnAbout').style.display = 'block'
+            //     document.getElementById('hmnSpec').style.display = 'block'
+            // }
+            //
+            // if ((getHmnInfo.headerW <= 680) && (getHmnInfo.headerW > 480) || (getHmnInfo.headerH <= 680) && (getHmnInfo.headerH > 480)) {
+            //     document.getElementById('hmnName').style.fontSize = 28 + 'px'
+            //     document.getElementById('hmnInfo').style.bottom = 78 + 'px'
+            //     document.getElementById('hmnName').style.borderRadius = 10 + 'px'
+            // } else {
+            //     document.getElementById('hmnName').style.fontSize = 46 + 'px'
+            //     document.getElementById('hmnInfo').style.bottom = 120 + 'px'
+            // }
+            //
+            // if ((getHmnInfo.headerW <= 480) || (getHmnInfo.headerH <= 480)) {
+            //     document.getElementById('hmnName').style.fontSize = 18 + 'px'
+            //     document.getElementById('hmnInfo').style.bottom = 42 + 'px'
+            //     document.getElementById('hmnName').style.borderRadius = 5 + 'px'
+            //     document.getElementById('hmnName').style.paddingLeft = 10 + 'px'
+            //     document.getElementById('hmnName').style.paddingRight = 10 + 'px'
+            // }
         })
     }
 
-    setPositionForHumanInfo()
+    setPositionForHumanInfoResize()
+
+
+    // function setPositionForHumanInfo(){
+    //     let hmnInfoW
+    //     let getHmnInfo = new GetSizeBlocks()
+    //
+    //     // больший блок будет определять ширину .human-info
+    //     if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
+    //         hmnInfoW = getHmnInfo.hmnNameW
+    //     } else {
+    //         hmnInfoW = getHmnInfo.hmnSpecW
+    //     }
+    //
+    //     let posCenter = Math.round((getHmnInfo.bodyW / 2) - (hmnInfoW / 2))
+    //     let posLeft = Math.round(posCenter - (hmnInfoW / 2))
+    //
+    //     document.getElementById('hmnInfo').style.left = posLeft + 'px'
+    // }
+    //
+    // setPositionForHumanInfo()
 
 // END-12
 //----------------------------------------------------------------------------------------------------------------------

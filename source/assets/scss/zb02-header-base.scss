@@ -1,5 +1,5 @@
 /*
-START - header-base
+START - .header-base
 ------------------------------------------------------------------------------------------------------------------------
 */
 .header-base {
@@ -27,7 +27,7 @@ START - header-base
 
 
 
-// START - info
+// START - .human-info
 //----------------------------------------------------------------------------------------------------------------------
 .human-info {
   display: inline-block;
@@ -61,7 +61,7 @@ START - header-base
   padding: 2px 20px 0 20px;
 
   font-family: "Poppins Bold", serif;
-  font-size: 46px;
+  font-size: 2.875em; // 46px
   color: $clrA1;
   background-color: $clrA4;
   text-transform: uppercase;
@@ -88,12 +88,12 @@ START - header-base
 
   line-height: 23px;
 }
-// END - info
+// END
 //----------------------------------------------------------------------------------------------------------------------
 
 
 
-// START - human-img
+// START - .human-img
 //----------------------------------------------------------------------------------------------------------------------
 .human-img {
   width: 620px;
@@ -115,12 +115,12 @@ START - header-base
   object-position: 0 0;
 }
 
-// END - human-img
+// END
 //----------------------------------------------------------------------------------------------------------------------
 
 
 
-// START - circles
+// START - .circles
 //----------------------------------------------------------------------------------------------------------------------
 .circles {
   width: 900px;
@@ -133,12 +133,12 @@ START - header-base
   bottom: 190px;
   right: 0;
 }
-// END - circles
+// END
 //----------------------------------------------------------------------------------------------------------------------
 
 
 
-// START - footer-top
+// START - .footer-top
 //----------------------------------------------------------------------------------------------------------------------
 .footer-top {
   max-width: 1800px;
@@ -170,7 +170,7 @@ START - header-base
   color: $clrA4;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .wrap-foottop__copyright {
     display: none;
   }
@@ -180,6 +180,12 @@ START - header-base
   display: inline-block;
   float: right;
   margin: 0 14px 0 0;
+}
+
+@media (max-width: 840px) {
+  .wrap-foottop__social-buttons {
+    display: none;
+  }
 }
 
 .wrap-foottop__social-buttons ul {
@@ -201,11 +207,11 @@ START - header-base
   padding: 0;
 }
 
-// END - footer-top
+// END
 //----------------------------------------------------------------------------------------------------------------------
 
 
 /*
-END - header-base
+END
 ------------------------------------------------------------------------------------------------------------------------
 */

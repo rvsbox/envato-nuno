@@ -26,13 +26,17 @@ START - header-base
 }
 
 
+
 // START - info
 //----------------------------------------------------------------------------------------------------------------------
 .human-info {
   display: inline-block;
   position: absolute;
-  top: calc(100vh - 24%);
-  left: 24%;
+  margin: auto;
+  top: auto;
+  left: 0;
+  bottom: 190px;
+  right: 0;
   z-index: 30;
 }
 
@@ -88,6 +92,7 @@ START - header-base
 //----------------------------------------------------------------------------------------------------------------------
 
 
+
 // START - human-img
 //----------------------------------------------------------------------------------------------------------------------
 .human-img {
@@ -114,6 +119,7 @@ START - header-base
 //----------------------------------------------------------------------------------------------------------------------
 
 
+
 // START - circles
 //----------------------------------------------------------------------------------------------------------------------
 .circles {
@@ -127,48 +133,9 @@ START - header-base
   bottom: 190px;
   right: 0;
 }
-
-//@media (max-height: 1060px), (max-width: 1060px) {
-//  .circles {
-//    width: 700px;
-//    height: 700px;
-//  }
-//}
-//
-//@media (max-height: 840px), (max-width: 840px) {
-//  .circles {
-//    width: 500px;
-//    height: 500px;
-//  }
-//}
-//
-//@media (max-height: 640px), (max-width: 640px) {
-//  .circles {
-//    //width: 300px;
-//    //height: 300px;
-//    display: none;
-//  }
-//}
-
-//@media (max-height: 440px), (max-width: 440px) {
-//  .circles {
-//    width: 250px;
-//    height: 250px;
-//  }
-//}
-
-//@media (max-height: 860px) {
-//  .circles {
-//    top: calc((100vh - 520px) / 2);
-//  }
-//
-//  .circles__sub {
-//    width: 520px;
-//    height: 520px;
-//  }
-//}
 // END - circles
 //----------------------------------------------------------------------------------------------------------------------
+
 
 
 // START - footer-top

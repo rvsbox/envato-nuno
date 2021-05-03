@@ -16,38 +16,68 @@ window.onload = () => {
         // .circles, #cir
         this.cirW = document.getElementById('cir').offsetWidth
         this.cirH = document.getElementById('cir').offsetHeight
+
+        // .human-name, #hmnName
+        this.hmnNameW = document.getElementById('hmnName').offsetWidth
+        // .human-specialty, #hmnSpec
+        this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
+
+        // body
+        this.bodyW = document.body.offsetWidth
+        this.bodyH = document.body.offsetHeight
     }
+
 // END-11
 //----------------------------------------------------------------------------------------------------------------------
 
 
-
-// START-12 - .hyman-info
+// START-12 - .human-info
 //----------------------------------------------------------------------------------------------------------------------
 
-    // получить объект с размерами блоков для .human-info
-    // function GetSizeBlocksForHumanInfo() {
-    //     // .human-name / #hmnName
-    //     this.hmnNameW = document.getElementById('hmnName').offsetWidth
-    //     // .human-specialty / #hmnSpec
-    //     this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
-    // }
-    //
-    // (function setSizeForHumanInfo() {
-    //     let getHI = new GetSizeBlocksForHumanInfo()
-    //
-    //     if (getHI.hmnNameW > getHI.hmnSpecW) {
-    //         document.getElementById('hmnSpec').style.width = getHI.hmnNameW + 'px'
-    //         document.getElementById('hmnAbout').style.width = getHI.hmnNameW + 'px'
-    //     } else {
-    //         document.getElementById('hmnName').style.width = getHI.hmnSpecW + 'px'
-    //         document.getElementById('hmnAbout').style.width = getHI.hmnSpecW + 'px'
-    //     }
-    // })()
+    function setSizeForHumanInfo() {
+        let getHmnInfo = new GetSizeBlocks()
+
+        if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
+            document.getElementById('hmnSpec').style.width = getHmnInfo.hmnNameW + 'px'
+            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnNameW + 'px'
+        } else {
+            document.getElementById('hmnName').style.width = getHmnInfo.hmnSpecW + 'px'
+            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnSpecW + 'px'
+        }
+    }
+
+    setSizeForHumanInfo()
+
+
+    function setPositionForHumanInfo() {
+
+        addEventListener('resize', event => {
+            let hmnInfoW
+            let getHmnInfo = new GetSizeBlocks()
+
+            // больший блок будет определять ширину .human-info
+            if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
+                hmnInfoW = getHmnInfo.hmnNameW
+            } else {
+                hmnInfoW = getHmnInfo.hmnSpecW
+            }
+
+            let posCenter = (getHmnInfo.bodyW / 2) - (hmnInfoW / 2)
+            let posLeft = posCenter - (hmnInfoW / 2)
+
+
+            document.getElementById('hmnInfo').style.left = posLeft + 'px'
+
+            // test
+            // console.log(getHmnInfo.bodyH)
+            console.log(posCenter)
+        })
+    }
+
+    setPositionForHumanInfo()
 
 // END-12
 //----------------------------------------------------------------------------------------------------------------------
-
 
 
 // START-20 - .circles
@@ -103,7 +133,6 @@ window.onload = () => {
     }
 
     setSizeForCirclesResize()
-
 
 
     function setSizeForCircles() {
@@ -238,28 +267,23 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-
 // START-98 - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
 //----------------------------------------------------------------------------------------------------------------------
-    function GetSizeBlocksForPanelRight() {
-        // body
-        this.windowW = document.body.offsetWidth
-        this.windowH = document.body.offsetHeight
-    }
-
-    (function mediaRun() {
+    function mediaRun() {
         window.addEventListener('resize', event => {
 
-            let getPR = new GetSizeBlocksForPanelRight()
+            let getPR = new GetSizeBlocks()
 
-            if (getPR.windowW > 1024) {
+            if (getPR.bodyW > 1024) {
                 document.getElementById('panelBut').style.display = 'none'
                 document.getElementById('panelRt').style.display = 'none'
             } else {
                 document.getElementById('panelBut').style.display = 'block'
             }
         })
-    })()
+    }
+
+    mediaRun()
 // END-98
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -278,5 +302,6 @@ function closePanelRight() {
     document.getElementById('panelBut').style.display = 'block'
     document.getElementById('panelRt').style.display = 'none'
 }
+
 // END-24
 //----------------------------------------------------------------------------------------------------------------------

@@ -36,19 +36,20 @@ window.onload = () => {
 
     // START-10 - Вычислить где наибольшая длина блока, расположенного внутри .human-info
     //----------------------------------------------------------------------------------------------------------
-    // function setSizeForHumanInfo() {
-    //     let getHmnInfo = new GetSizeBlocks()
-    //
-    //     if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
-    //         document.getElementById('hmnSpec').style.width = getHmnInfo.hmnNameW + 'px'
-    //         document.getElementById('hmnAbout').style.width = getHmnInfo.hmnNameW + 'px'
-    //     } else {
-    //         document.getElementById('hmnName').style.width = getHmnInfo.hmnSpecW + 'px'
-    //         document.getElementById('hmnAbout').style.width = getHmnInfo.hmnSpecW + 'px'
-    //     }
-    // }
-    //
+    function setSizeForHumanInfo() {
+        let getHmnInfo = new GetSizeBlocks()
+
+        if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
+            document.getElementById('hmnSpec').style.width = getHmnInfo.hmnNameW + 'px'
+            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnNameW + 'px'
+        } else {
+            document.getElementById('hmnName').style.width = getHmnInfo.hmnSpecW + 'px'
+            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnSpecW + 'px'
+        }
+    }
+
     // setSizeForHumanInfo()
+
 
     // END-10
     //----------------------------------------------------------------------------------------------------------
@@ -60,22 +61,34 @@ window.onload = () => {
     // 120px    - нижний отступ .human-info
     // 10px     - закругление углов блока .human-info__name
 
+
     // headerWH - headerWidthHeight
-    function resizeHumanInfo(headerWH, posCenter) {
+    function resizeHumanInfo(headerWH) {
         let changeFontSz = (2.875 * headerWH) / 1060 // без округления, тк нужны сотые доли
         let changeBordRad = (10 * headerWH) / 1060
         let changePosBottom = Math.round((120 * headerWH) / 1060)
 
-        document.getElementById('hmnInfo').style.left = posCenter + 'px'
         document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
         document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
         document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
         document.getElementById('hmnAbout').style.display = 'none'
         document.getElementById('hmnSpec').style.display = 'none'
+
+
+        // вычисления для центрирования .human-info__name
+        let getHmnInfoUpdate = new GetSizeBlocks()
+        let posCenter = Math.round((getHmnInfoUpdate.bodyW / 2) - (getHmnInfoUpdate.hmnNameW / 2))
+
+        document.getElementById('hmnInfo').style.left = posCenter + 'px'
     }
 
 
-    function defaultHumanInfo(posLeft){
+    function defaultHumanInfo() {
+        let getHmnInfo = new GetSizeBlocks()
+
+        let posCenter = Math.round((getHmnInfo.bodyW / 2) - (getHmnInfo.hmnNameW / 2))
+        let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
+
         document.getElementById('hmnInfo').style.left = posLeft + 'px'
         document.getElementById('hmnInfo').style.bottom = 190 + 'px'
         document.getElementById('hmnName').style.fontSize = 2.875 + 'em'
@@ -88,40 +101,74 @@ window.onload = () => {
     }
 
 
+    function setPositionForHumanInfo() {
+
+        let getHmnInfo = new GetSizeBlocks()
+
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
+            resizeHumanInfo(getHmnInfo.headerW)
+        }
+
+        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
+            resizeHumanInfo(getHmnInfo.headerH)
+        }
+
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
+            resizeHumanInfo(getHmnInfo.headerW)
+        }
+
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
+            resizeHumanInfo(getHmnInfo.headerH)
+        }
+
+        // START-11 - Возврат к начальным значениям
+        //----------------------------------------------------------------------------------------------------------
+        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
+            defaultHumanInfo()
+            // setSizeForHumanInfo()
+        }
+        // END-11
+        //----------------------------------------------------------------------------------------------------------
+    }
+
+    setPositionForHumanInfo()
+
+
+    // test
+    // let lala = new GetSizeBlocks()
+    // console.log('lala: ' + lala.hmnNameW)
+
     function setPositionForHumanInfoResize() {
 
         addEventListener('resize', event => {
 
             let getHmnInfo = new GetSizeBlocks()
 
-            let posCenter = Math.round((getHmnInfo.bodyW / 2) - (getHmnInfo.hmnNameW / 2))
-            let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
+            // let posCenter = Math.round((getHmnInfo.bodyW / 2) - (getHmnInfo.hmnNameW / 2))
+            // let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
 
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
-                resizeHumanInfo(getHmnInfo.headerW, posCenter)
-
-                // test
-                // console.log('res: ' + getHmnInfo.bodyW)
-                // console.log('res: ' + getHmnInfo.hmnNameW)
+                resizeHumanInfo(getHmnInfo.headerW)
             }
 
             if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
-                resizeHumanInfo(getHmnInfo.headerH, posCenter)
+                resizeHumanInfo(getHmnInfo.headerH)
             }
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
-                resizeHumanInfo(getHmnInfo.headerW, posCenter)
+                resizeHumanInfo(getHmnInfo.headerW)
             }
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
-                resizeHumanInfo(getHmnInfo.headerH, posCenter)
+                resizeHumanInfo(getHmnInfo.headerH)
             }
 
             // START-03 - Возврат к начальным значениям
             //----------------------------------------------------------------------------------------------------------
             if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
-                defaultHumanInfo(posLeft)
+                defaultHumanInfo()
+                // setSizeForHumanInfo()
             }
             // END-03
             //----------------------------------------------------------------------------------------------------------
@@ -129,71 +176,6 @@ window.onload = () => {
     }
 
     setPositionForHumanInfoResize()
-
-
-    let getHmnInfo = new GetSizeBlocks()
-    console.log('def: ' + getHmnInfo.hmnNameW)
-
-
-
-    function setPositionForHumanInfo() {
-
-        let posCenter = Math.round((getHmnInfo.bodyW / 2) - (getHmnInfo.hmnNameW / 2))
-        let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
-
-        // test
-        // console.log('def: ' + getHmnInfo.bodyW)
-        // console.log('def: ' + getHmnInfo.hmnNameW)
-
-        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
-            resizeHumanInfo(getHmnInfo.headerW, posCenter)
-
-            // test
-            console.log('test-1')
-        }
-
-        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
-            resizeHumanInfo(getHmnInfo.headerH, posCenter)
-
-            // test
-            console.log('test-2')
-        }
-
-        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
-            resizeHumanInfo(getHmnInfo.headerW, posCenter)
-
-            // test
-            console.log('test-3')
-        }
-
-        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
-            resizeHumanInfo(getHmnInfo.headerH, posCenter)
-
-            // test
-            console.log('test-4')
-        }
-
-        // START-11 - Возврат к начальным значениям
-        //----------------------------------------------------------------------------------------------------------
-        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
-            defaultHumanInfo(posLeft)
-
-            // test
-            console.log('test-5')
-        }
-        // END-11
-        //----------------------------------------------------------------------------------------------------------
-    }
-
-    setPositionForHumanInfo(getHmnInfo)
-
-    let lala = new GetSizeBlocks()
-    console.log('lala: ' + lala.hmnNameW)
-
-
-
-
-
 
 // END-02
 //----------------------------------------------------------------------------------------------------------------------

@@ -17,10 +17,13 @@ window.onload = () => {
         this.cirW = document.getElementById('cir').offsetWidth
         this.cirH = document.getElementById('cir').offsetHeight
 
-        // .human-name, #hmnName
+        // .human-info, #hmnInfo
+        this.hmnInfoW = document.getElementById('hmnInfo').offsetWidth
+        // .human-info__name, #hmnName
         this.hmnNameW = document.getElementById('hmnName').offsetWidth
-        // .human-specialty, #hmnSpec
+        // .human-info__specialty, #hmnSpec
         this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
+
 
         // body
         this.bodyW = document.body.offsetWidth
@@ -34,74 +37,21 @@ window.onload = () => {
 // START-02 - .human-info
 //----------------------------------------------------------------------------------------------------------------------
 
-    // START-10 - Вычислить где наибольшая длина блока, расположенного внутри .human-info
-    //----------------------------------------------------------------------------------------------------------
-    function setSizeForHumanInfoItem() {
-        let getHmnInfo = new GetSizeBlocks()
-
-        if (getHmnInfo.hmnNameW > getHmnInfo.hmnSpecW) {
-            document.getElementById('hmnSpec').style.width = getHmnInfo.hmnNameW + 'px'
-            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnNameW + 'px'
-        } else {
-            document.getElementById('hmnName').style.width = getHmnInfo.hmnSpecW + 'px'
-            document.getElementById('hmnAbout').style.width = getHmnInfo.hmnSpecW + 'px'
-        }
-    }
-
-    // setSizeForHumanInfoItem()
-
-
     // END-10
     //----------------------------------------------------------------------------------------------------------
 
-
+    // 500px    - ширина .human-info, установленная в стилях
     // 1060px   - высота .wrap-headbas
     // 1060px   - ширина .wrap-headbas
     // 2.875em  - размер шрифта .human-info__name
     // 120px    - нижний отступ .human-info
     // 10px     - закругление углов блока .human-info__name
 
-
-    // headerWH - headerWidthHeight
-    function resizeHumanInfo(bodyWH) {
-
-        // вычисления для масштабирования .human-info__name
-        let changeFontSz = (2.875 * bodyWH) / 1060 // без округления, тк нужны сотые доли
-        let changeBordRad = (10 * bodyWH) / 1060
-        let changePosBottom = Math.round((120 * bodyWH) / 1060)
-
-        document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
-        document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
-        document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
-        document.getElementById('hmnAbout').style.display = 'none'
-        document.getElementById('hmnSpec').style.display = 'none'
-
-
-        // вычисления для центрирования .human-info__name
-        // используем ширину body, тк отступ по left идет от самого левого края экрана
-        let getHmnInfoUpdate = new GetSizeBlocks()
-        let posCenter = Math.round((getHmnInfoUpdate.bodyW - getHmnInfoUpdate.hmnNameW) / 2)
-
-        // test
-        console.log('upd')
-        console.log('hmnNameW: ' + getHmnInfoUpdate.hmnNameW)
-        console.log('bodyW: ' + getHmnInfoUpdate.bodyW)
-        console.log('bodyH: ' + getHmnInfoUpdate.bodyH)
-        console.log('fontSize: ' + changeFontSz)
-
-        document.getElementById('hmnInfo').style.left = posCenter + 'px'
-    }
-
-
     function defaultHumanInfo() {
         let getHmnInfo = new GetSizeBlocks()
+        let posLeft = getHmnInfo.hmnInfoW
 
-        // вычисления для центрирования .human-info__name
-        // используем ширину body, тк отступ по left идет от самого левого края экрана
-        let posCenter = Math.round((getHmnInfo.bodyW - getHmnInfo.hmnNameW) / 2)
-        let posLeft = Math.round(posCenter - (getHmnInfo.hmnNameW / 2))
-
-        document.getElementById('hmnInfo').style.left = posLeft + 'px'
+        document.getElementById('hmnInfo').style.left = '-' + posLeft + 'px'
         document.getElementById('hmnInfo').style.bottom = 190 + 'px'
         document.getElementById('hmnName').style.fontSize = 2.875 + 'em'
         document.getElementById('hmnName').style.borderTopLeftRadius = 10 + 'px'
@@ -112,30 +62,42 @@ window.onload = () => {
         document.getElementById('hmnSpec').style.display = 'inline-block'
     }
 
+    // bodyWH - bodyWidthHeight
+    function resizeHumanInfo(bodyWH) {
+
+        // вычисления для масштабирования .human-info__name
+        let changeWidth = Math.round((500 * bodyWH) / 1060)
+        let changePosBottom = Math.round((120 * bodyWH) / 1060)
+        let changeFontSz = (2.875 * bodyWH) / 1060 // без округления, тк нужны сотые доли
+        let changeBordRad = (10 * bodyWH) / 1060
+
+
+        document.getElementById('hmnInfo').style.width = changeWidth + 'px'
+        document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
+        document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
+        document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
+        document.getElementById('hmnAbout').style.display = 'none'
+        document.getElementById('hmnSpec').style.display = 'none'
+
+
+        // вычисление для центрирования .human-info
+        let getHmnInfoUpdate = new GetSizeBlocks()
+        let posCenter = getHmnInfoUpdate.hmnInfoW
+
+        // убираем вообще отступ 'left', соответственно встанет по середине, как указано в стилях
+        document.getElementById('hmnInfo').style.left = 0 + 'px'
+    }
+
 
     function setPositionForHumanInfo() {
 
         let getHmnInfo = new GetSizeBlocks()
 
         if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
-
-            // test
-            console.log('def, w<')
-            console.log('hmnNameW: ' + getHmnInfo.hmnNameW)
-            console.log('bodyW: ' + getHmnInfo.bodyW)
-            console.log('bodyH: ' + getHmnInfo.bodyH)
-
             resizeHumanInfo(getHmnInfo.bodyW)
         }
 
         if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
-
-            // test
-            console.log('def, h<')
-            console.log('hmnNameW: ' + getHmnInfo.hmnNameW)
-            console.log('bodyW: ' + getHmnInfo.bodyW)
-            console.log('bodyH: ' + getHmnInfo.bodyH)
-
             resizeHumanInfo(getHmnInfo.bodyH)
         }
 
@@ -151,7 +113,10 @@ window.onload = () => {
         //----------------------------------------------------------------------------------------------------------
         if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
             defaultHumanInfo()
-            setSizeForHumanInfoItem()
+
+            // test
+            console.log('hmnInfoW: ' + getHmnInfo.hmnInfoW)
+            console.log('bodyW: ' + getHmnInfo.bodyW)
         }
         // END-11
         //----------------------------------------------------------------------------------------------------------
@@ -173,23 +138,11 @@ window.onload = () => {
 
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
-                // test
-                // console.log('test-1')
-                // console.log('hmnNameW: ' + getHmnInfo.hmnNameW)
-
-
                 resizeHumanInfo(getHmnInfo.bodyW)
-
-                // test
-                // console.log('test-1')
-                // console.log('hmnNameW: ' + getHmnInfo.hmnNameW)
             }
 
             if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
                 resizeHumanInfo(getHmnInfo.bodyH)
-
-                // test
-                // console.log('test-2')
             }
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
@@ -204,7 +157,6 @@ window.onload = () => {
             //----------------------------------------------------------------------------------------------------------
             if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
                 defaultHumanInfo()
-                // setSizeForHumanInfoItem()
             }
             // END-03
             //----------------------------------------------------------------------------------------------------------

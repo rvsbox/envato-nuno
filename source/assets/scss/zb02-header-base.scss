@@ -30,7 +30,10 @@ START - .header-base
 // START - .human-info
 //----------------------------------------------------------------------------------------------------------------------
 .human-info {
-  display: inline-block;
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
   position: absolute;
   margin: auto;
   top: auto;
@@ -40,25 +43,21 @@ START - .header-base
   z-index: 30;
 }
 
-.human-info ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+.human-info div {
+  margin: 0 0 6px 0;
 }
 
-.human-info ul li:first-child div {
+.human-info div:first-child {
   border-radius: 10px 10px 0 0;
 }
 
-.human-info ul li:last-child div {
+.human-info div:last-child {
   border-radius: 0 0 10px 10px;
 }
 
 .human-info__name {
   display: inline-block;
-  margin: 0 0 6px 0;
   //padding: 2px 20px 0 20px;
-
   font-family: "Poppins Bold", serif;
   font-size: 2.875em; // 46px
   color: $clrA1;
@@ -68,9 +67,7 @@ START - .header-base
 
 .human-info__specialty {
   display: inline-block;
-  margin: 0 0 6px 0;
   padding: 5px 20px 5px 20px;
-
   font-family: "Poppins Bold", serif;
   font-size: 24px;
   color: $clrA5;
@@ -79,7 +76,6 @@ START - .header-base
 
 .human-info__about {
   display: inline-block;
-
   padding: 10px 20px 12px 20px;
   font-family: "Poppins Regular", serif;
   font-size: 14px;

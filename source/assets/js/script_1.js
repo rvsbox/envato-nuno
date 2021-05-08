@@ -60,15 +60,15 @@ window.onload = () => {
         document.getElementById('hmnSpec').style.display = 'inline-block'
     }
 
-    // bodyWH - bodyWidthHeight
-    function resizeHumanInfo(bodyWH) {
+    // headerWH - headerWidthHeight
+    function resizeHumanInfo(headerWH) {
 
         // вычисления для масштабирования блока .human-info__name
-        let changeWidth = Math.round((500 * bodyWH) / 1060)
-        let changePosBottom = Math.round((120 * bodyWH) / 1060)
-        let changeFontSz = (2.875 * bodyWH) / 1060 // без округления, тк нужны сотые доли
-        let changeBordRad = (10 * bodyWH) / 1060
-        let changePadding = (20 * bodyWH) / 1060
+        let changeWidth = Math.round((500 * headerWH) / 1060)
+        let changePosBottom = Math.round((120 * headerWH) / 1060)
+        let changeFontSz = (2.875 * headerWH) / 1060 // без округления, тк нужны сотые доли
+        let changeBordRad = (10 * headerWH) / 1060
+        let changePadding = (20 * headerWH) / 1060
 
 
         document.getElementById('hmnInfo').style.width = changeWidth + 'px'
@@ -80,10 +80,6 @@ window.onload = () => {
         document.getElementById('hmnAbout').style.display = 'none'
         document.getElementById('hmnSpec').style.display = 'none'
 
-        // вычисление для центрирования блока .human-info
-        let getHmnInfoUpdate = new GetSizeBlocks()
-        let posCenter = getHmnInfoUpdate.hmnInfoW
-
         // убираем вообще отступ 'left', соответственно встанет по середине, как указано в стилях
         document.getElementById('hmnInfo').style.left = 0 + 'px'
     }
@@ -94,19 +90,19 @@ window.onload = () => {
         let getHmnInfo = new GetSizeBlocks()
 
         if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
-            resizeHumanInfo(getHmnInfo.bodyW)
+            resizeHumanInfo(getHmnInfo.headerW)
         }
 
         if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
-            resizeHumanInfo(getHmnInfo.bodyH)
+            resizeHumanInfo(getHmnInfo.headerH)
         }
 
         if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
-            resizeHumanInfo(getHmnInfo.bodyW)
+            resizeHumanInfo(getHmnInfo.headerW)
         }
 
         if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
-            resizeHumanInfo(getHmnInfo.bodyH)
+            resizeHumanInfo(getHmnInfo.headerH)
         }
 
         // START-11 - Возврат к начальным значениям
@@ -129,19 +125,19 @@ window.onload = () => {
             let getHmnInfo = new GetSizeBlocks()
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
-                resizeHumanInfo(getHmnInfo.bodyW)
+                resizeHumanInfo(getHmnInfo.headerW)
             }
 
             if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
-                resizeHumanInfo(getHmnInfo.bodyH)
+                resizeHumanInfo(getHmnInfo.headerH)
             }
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
-                resizeHumanInfo(getHmnInfo.bodyW)
+                resizeHumanInfo(getHmnInfo.headerW)
             }
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
-                resizeHumanInfo(getHmnInfo.bodyH)
+                resizeHumanInfo(getHmnInfo.headerH)
             }
 
             // START-03 - Возврат к начальным значениям

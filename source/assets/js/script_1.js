@@ -24,7 +24,6 @@ window.onload = () => {
         // .human-info__specialty, #hmnSpec
         this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
 
-
         // body
         this.bodyW = document.body.offsetWidth
         this.bodyH = document.body.offsetHeight
@@ -40,12 +39,14 @@ window.onload = () => {
     // END-10
     //----------------------------------------------------------------------------------------------------------
 
-    // 500px    - ширина .human-info, установленная в стилях
-    // 1060px   - высота .wrap-headbas
-    // 1060px   - ширина .wrap-headbas
-    // 2.875em  - размер шрифта .human-info__name
-    // 120px    - нижний отступ .human-info
-    // 10px     - закругление углов блока .human-info__name
+    // размеры установленные в стилях
+    // 500px    - width блока .human-info
+    // 1060px   - height блока .wrap-headbas
+    // 1060px   - width блока .wrap-headbas
+    // 2.875em  - font-size блока .human-info__name
+    // 120px    - bottom блока .human-info
+    // 10px     - border-radius блока .human-info__name
+    // 20px     - padding-left-right блока .human-info__name
 
     function defaultHumanInfo() {
         let getHmnInfo = new GetSizeBlocks()
@@ -65,22 +66,25 @@ window.onload = () => {
     // bodyWH - bodyWidthHeight
     function resizeHumanInfo(bodyWH) {
 
-        // вычисления для масштабирования .human-info__name
+        // вычисления для масштабирования блока .human-info__name
         let changeWidth = Math.round((500 * bodyWH) / 1060)
         let changePosBottom = Math.round((120 * bodyWH) / 1060)
         let changeFontSz = (2.875 * bodyWH) / 1060 // без округления, тк нужны сотые доли
         let changeBordRad = (10 * bodyWH) / 1060
+        let changePadding = (20 * bodyWH) / 1060
 
 
         document.getElementById('hmnInfo').style.width = changeWidth + 'px'
         document.getElementById('hmnInfo').style.bottom = changePosBottom + 'px'
         document.getElementById('hmnName').style.fontSize = changeFontSz + 'em'
         document.getElementById('hmnName').style.borderRadius = changeBordRad + 'px'
+        document.getElementById('hmnName').style.paddingLeft = changePadding + 'px'
+        document.getElementById('hmnName').style.paddingRight = changePadding + 'px'
         document.getElementById('hmnAbout').style.display = 'none'
         document.getElementById('hmnSpec').style.display = 'none'
 
 
-        // вычисление для центрирования .human-info
+        // вычисление для центрирования блока .human-info
         let getHmnInfoUpdate = new GetSizeBlocks()
         let posCenter = getHmnInfoUpdate.hmnInfoW
 
@@ -115,8 +119,8 @@ window.onload = () => {
             defaultHumanInfo()
 
             // test
-            console.log('hmnInfoW: ' + getHmnInfo.hmnInfoW)
-            console.log('bodyW: ' + getHmnInfo.bodyW)
+            // console.log('hmnInfoW: ' + getHmnInfo.hmnInfoW)
+            // console.log('bodyW: ' + getHmnInfo.bodyW)
         }
         // END-11
         //----------------------------------------------------------------------------------------------------------
@@ -131,11 +135,6 @@ window.onload = () => {
         addEventListener('resize', event => {
 
             let getHmnInfo = new GetSizeBlocks()
-
-            // test
-            console.log('test-1')
-            console.log('hmnNameW: ' + getHmnInfo.hmnNameW)
-
 
             if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
                 resizeHumanInfo(getHmnInfo.bodyW)
@@ -171,11 +170,12 @@ window.onload = () => {
 
 // START-04 - .circles
 //----------------------------------------------------------------------------------------------------------------------
-    // 190px   - нижний отступ .circles
-    // 920px   - ширина .circles
-    // 920px   - высота .circles
-    // 1060px  - высота .wrap-headbas
-    // 1060px   - ширина .wrap-headbas
+    // 190px   - bottom блока .circles
+    // 920px   - width блока .circles
+    // 920px   - height блока .circles
+    // 1060px  - width блока .wrap-headbas
+    // 1060px  - height блока .wrap-headbas
+
 
     // headerWH - headerWidthHeight
     function resizeCircles(headerWH) {
@@ -253,13 +253,13 @@ window.onload = () => {
 
 // START-06 - .human-img
 //----------------------------------------------------------------------------------------------------------------------
-    // 620px   - ширина .human-img
-    // 900px   - высота .human-img
-    // 1060px  - высота .wrap-headbas
-    // 1060px   - ширина .wrap-headbas
+    // 620px   - width блока .human-img
+    // 900px   - height блока .human-img
+    // 1060px  - width блока .wrap-headbas
+    // 1060px  - height блока .wrap-headbas
 
 
-    // a - текущая ширина .wrap-headbas
+    // headerW - текущая ширина .wrap-headbas
     function resizeHumImgWidth(headerW) {
         let changeW = Math.round((620 * headerW) / 1060)
         let changeH = Math.round((changeW * 900) / 620)
@@ -269,7 +269,7 @@ window.onload = () => {
     }
 
 
-    // b - текущая высота .wrap-headbas
+    // headerH - текущая высота .wrap-headbas
     function resizeHumImgHeight(headerH) {
         let changeH = Math.round((900 * headerH) / 1060)
         let changeW = Math.round((changeH * 620) / 900)
@@ -315,10 +315,6 @@ window.onload = () => {
             }
             // END-07
             //----------------------------------------------------------------------------------------------------------
-
-            // test
-            // console.log(getHu.headerW / getHu.headerH)
-
         })
     }
 

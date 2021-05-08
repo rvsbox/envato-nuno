@@ -5,26 +5,26 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
     function GetSizeBlocks() {
 
-        // .wrap-headbas, #wrapHeadBas
+        // .wrap-headbas, #wrapHeadBas - wrapHeaderBase
         this.headerW = document.getElementById('wrapHeadBas').offsetWidth
         this.headerH = document.getElementById('wrapHeadBas').offsetHeight
 
-        // .human-img, #humImg
+        // .human-img, #humImg - humanImage
         this.huW = document.getElementById('humImg').offsetWidth
         this.huH = document.getElementById('humImg').offsetHeight
 
-        // .circles, #cir
+        // .circles, #cir - circles
         this.cirW = document.getElementById('cir').offsetWidth
         this.cirH = document.getElementById('cir').offsetHeight
 
-        // .human-info, #hmnInfo
+        // .human-info, #hmnInfo - humanInfo
         this.hmnInfoW = document.getElementById('hmnInfo').offsetWidth
-        // .human-info__name, #hmnName
+        // .human-info__name, #hmnName - humanName
         this.hmnNameW = document.getElementById('hmnName').offsetWidth
-        // .human-info__specialty, #hmnSpec
+        // .human-info__specialty, #hmnSpec - humanSpeciality
         this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
 
-        // body, bodyW - bodyWidth, bodyH - Height
+        // body, bodyW - bodyWidth, bodyH - bodyHeight
         this.bodyW = document.body.offsetWidth
         this.bodyH = document.body.offsetHeight
     }

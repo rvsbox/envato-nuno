@@ -49,6 +49,7 @@ window.onload = () => {
         let getHmnInfo = new GetSizeBlocks()
         let posLeft = getHmnInfo.hmnInfoW
 
+        document.getElementById('hmnInfo').style.width = 500 + 'px'
         document.getElementById('hmnInfo').style.left = '-' + posLeft + 'px'
         document.getElementById('hmnInfo').style.bottom = 190 + 'px'
         document.getElementById('hmnName').style.fontSize = 2.875 + 'em'
@@ -160,7 +161,7 @@ window.onload = () => {
 //----------------------------------------------------------------------------------------------------------------------
 
     // размеры установленные в стилях
-    // 190px   - bottom блока .circles
+    // 140px   - bottom блока .circles
     // 920px   - width блока .circles
     // 920px   - height блока .circles
     // 1060px  - width блока .wrap-headbas
@@ -170,7 +171,7 @@ window.onload = () => {
     // headerWH - headerWidthHeight
     function resizeCircles(headerWH) {
         let change = Math.round((920 * headerWH) / 1060)
-        let changeBottom = Math.round((190 * headerWH) / 1060)
+        let changeBottom = Math.round((140 * headerWH) / 1060)
 
         document.getElementById('cir').style.width = change + 'px'
         document.getElementById('cir').style.height = change + 'px'
@@ -205,7 +206,7 @@ window.onload = () => {
             if ((getCir.headerW >= 1060) && (getCir.headerH >= 1060)) {
                 document.getElementById('cir').style.width = 920 + 'px'
                 document.getElementById('cir').style.height = 920 + 'px'
-                document.getElementById('cir').style.bottom = 190 + 'px'
+                document.getElementById('cir').style.bottom = 140 + 'px'
             }
             // END-05
             //----------------------------------------------------------------------------------------------------------

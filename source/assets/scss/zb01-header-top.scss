@@ -5,6 +5,7 @@ START - header-top
 .header-top {
   background-color: $clrA3;
   padding: 0 60px;
+  position: relative;
 }
 
 @media (max-width: 1024px) {

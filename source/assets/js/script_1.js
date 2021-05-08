@@ -24,7 +24,7 @@ window.onload = () => {
         // .human-info__specialty, #hmnSpec
         this.hmnSpecW = document.getElementById('hmnSpec').offsetWidth
 
-        // body
+        // body, bodyW - bodyWidth, bodyH - Height
         this.bodyW = document.body.offsetWidth
         this.bodyH = document.body.offsetHeight
     }
@@ -35,9 +35,6 @@ window.onload = () => {
 
 // START-02 - .human-info
 //----------------------------------------------------------------------------------------------------------------------
-
-    // END-10
-    //----------------------------------------------------------------------------------------------------------
 
     // размеры установленные в стилях
     // 500px    - width блока .human-info
@@ -83,7 +80,6 @@ window.onload = () => {
         document.getElementById('hmnAbout').style.display = 'none'
         document.getElementById('hmnSpec').style.display = 'none'
 
-
         // вычисление для центрирования блока .human-info
         let getHmnInfoUpdate = new GetSizeBlocks()
         let posCenter = getHmnInfoUpdate.hmnInfoW
@@ -117,10 +113,6 @@ window.onload = () => {
         //----------------------------------------------------------------------------------------------------------
         if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
             defaultHumanInfo()
-
-            // test
-            // console.log('hmnInfoW: ' + getHmnInfo.hmnInfoW)
-            // console.log('bodyW: ' + getHmnInfo.bodyW)
         }
         // END-11
         //----------------------------------------------------------------------------------------------------------
@@ -355,9 +347,11 @@ window.onload = () => {
 
 // START-08 - Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
 //----------------------------------------------------------------------------------------------------------------------
+
     function mediaRun() {
         window.addEventListener('resize', event => {
 
+            // getPR - getPanelRight
             let getPR = new GetSizeBlocks()
 
             if (getPR.bodyW > 1024) {

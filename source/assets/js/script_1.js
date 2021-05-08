@@ -158,6 +158,8 @@ window.onload = () => {
 
 // START-04 - .circles
 //----------------------------------------------------------------------------------------------------------------------
+
+    // размеры установленные в стилях
     // 190px   - bottom блока .circles
     // 920px   - width блока .circles
     // 920px   - height блока .circles
@@ -167,7 +169,7 @@ window.onload = () => {
 
     // headerWH - headerWidthHeight
     function resizeCircles(headerWH) {
-        let change = Math.round((900 * headerWH) / 1060)
+        let change = Math.round((920 * headerWH) / 1060)
         let changeBottom = Math.round((190 * headerWH) / 1060)
 
         document.getElementById('cir').style.width = change + 'px'
@@ -201,8 +203,8 @@ window.onload = () => {
             // START-05 - Возврат к начальным значениям
             //----------------------------------------------------------------------------------------------------------
             if ((getCir.headerW >= 1060) && (getCir.headerH >= 1060)) {
-                document.getElementById('cir').style.width = 900 + 'px'
-                document.getElementById('cir').style.height = 900 + 'px'
+                document.getElementById('cir').style.width = 920 + 'px'
+                document.getElementById('cir').style.height = 920 + 'px'
                 document.getElementById('cir').style.bottom = 190 + 'px'
             }
             // END-05
@@ -241,6 +243,8 @@ window.onload = () => {
 
 // START-06 - .human-img
 //----------------------------------------------------------------------------------------------------------------------
+
+    // размеры установленные в стилях
     // 620px   - width блока .human-img
     // 900px   - height блока .human-img
     // 1060px  - width блока .wrap-headbas

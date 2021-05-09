@@ -1,15 +1,3 @@
-
-
-// START-12 - Закрыть, открыть правую панель
-//----------------------------------------------------------------------------------------------------------------------
-
-// #cirLgWht  - circleLargeWhite
-// #cirLgBk   - circleLargeBlack
-// #cirMedWht - circleMediumWhite
-// #cirMedBk  - circleMediumBlack
-// #cirSmWht  - circleSmallWhite
-// #cirSmBk   - circleSmallBlack
-
 let layer_1 = () => {
 
     // tl - timeLine
@@ -48,9 +36,3 @@ function runLayers() {
 }
 
 runLayers()
-
-
-
-
-// END-12
-//----------------------------------------------------------------------------------------------------------------------

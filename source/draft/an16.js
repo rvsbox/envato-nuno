@@ -29,10 +29,14 @@ let layer_3 = () => {
 // setTimeout(layer_2, 600)
 // setTimeout(layer_3, 1200)
 
-function runLayers() {
-    layer_1()
-    setTimeout(layer_2, 600)
-    setTimeout(layer_3, 1200)
+
+
+const start = ms => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), ms)
+    })
 }
 
-runLayers()
+start(0).then(layer_1)
+start(600).then(layer_2)
+start(1200).then(layer_3)

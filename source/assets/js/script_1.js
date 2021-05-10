@@ -38,8 +38,8 @@ window.onload = () => {
 
     // размеры установленные в стилях
     // 500px    - width блока .human-info
-    // 1060px   - height блока .wrap-headbas
     // 1060px   - width блока .wrap-headbas
+    // 1000px   - height блока .wrap-headbas
     // 2.875em  - font-size блока .human-info__name
     // 120px    - bottom блока .human-info
     // 10px     - border-radius блока .human-info__name
@@ -65,6 +65,7 @@ window.onload = () => {
     function resizeHumanInfo(headerWH) {
 
         // вычисления для масштабирования блока .human-info__name
+        // должно было быть для headerW - 1060, headerH - 1000, но чтобы не усложнять алгоритм оставляем как есть
         let changeWidth = Math.round((500 * headerWH) / 1060)
         let changePosBottom = Math.round((120 * headerWH) / 1060)
         let changeFontSz = (2.875 * headerWH) / 1060 // без округления, тк нужны сотые доли
@@ -90,25 +91,25 @@ window.onload = () => {
 
         let getHmnInfo = new GetSizeBlocks()
 
-        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1000)) {
             resizeHumanInfo(getHmnInfo.headerW)
         }
 
-        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
+        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1000)) {
             resizeHumanInfo(getHmnInfo.headerH)
         }
 
-        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1000) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
             resizeHumanInfo(getHmnInfo.headerW)
         }
 
-        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
+        if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1000) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
             resizeHumanInfo(getHmnInfo.headerH)
         }
 
         // START-11 - Возврат к начальным значениям
         //----------------------------------------------------------------------------------------------------------
-        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
+        if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1000)) {
             defaultHumanInfo()
         }
         // END-11
@@ -125,25 +126,25 @@ window.onload = () => {
 
             let getHmnInfo = new GetSizeBlocks()
 
-            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1060)) {
+            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH >= 1000)) {
                 resizeHumanInfo(getHmnInfo.headerW)
             }
 
-            if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1060)) {
+            if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH <= 1000)) {
                 resizeHumanInfo(getHmnInfo.headerH)
             }
 
-            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
+            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1000) && (getHmnInfo.headerW < getHmnInfo.headerH)) {
                 resizeHumanInfo(getHmnInfo.headerW)
             }
 
-            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1060) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
+            if ((getHmnInfo.headerW <= 1060) && (getHmnInfo.headerH <= 1000) && (getHmnInfo.headerW > getHmnInfo.headerH)) {
                 resizeHumanInfo(getHmnInfo.headerH)
             }
 
             // START-03 - Возврат к начальным значениям
             //----------------------------------------------------------------------------------------------------------
-            if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1060)) {
+            if ((getHmnInfo.headerW >= 1060) && (getHmnInfo.headerH >= 1000)) {
                 defaultHumanInfo()
             }
             // END-03

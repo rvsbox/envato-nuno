@@ -14,28 +14,28 @@ let layer_1 = () => {
 
     // tl - timeLine
     let tl = anime.timeline({
-        easing: 'easeInOutQuad', duration: 2000, loop: true, direction: 'alternate'
+        easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
     })
-    tl.add({targets: '#cirSmWht', r: 180})
-        .add({targets: '#cirSmBk', r: 180}, '-=2000')
+    tl.add({targets: '#cirSmWht', r: 170})
+        .add({targets: '#cirSmBk', r: 170}, '-=3000')
 }
 
 
 let layer_2 = () => {
     let tl = anime.timeline({
-        easing: 'easeInOutQuad', duration: 2000, loop: true, direction: 'alternate'
+        easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
     })
-    tl.add({targets: '#cirMedWht', r: 280})
-        .add({targets: '#cirMedBk', r: 280}, '-=2000')
+    tl.add({targets: '#cirMedWht', r: 270})
+        .add({targets: '#cirMedBk', r: 270}, '-=3000')
 }
 
 
 let layer_3 = () => {
     let tl = anime.timeline({
-        easing: 'easeInOutQuad', duration: 2000, loop: true, direction: 'alternate'
+        easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
     })
-    tl.add({targets: '#cirLgWht', r: 380})
-        .add({targets: '#cirLgBk', r: 380}, '-=2000')
+    tl.add({targets: '#cirLgWht', r: 370})
+        .add({targets: '#cirLgBk', r: 370}, '-=3000')
 }
 
 
@@ -48,8 +48,8 @@ const startLayers = ms => {
 
 // последовательность запуска слоев
 startLayers(0).then(layer_1)
-startLayers(600).then(layer_2)
-startLayers(1200).then(layer_3)
+startLayers(700).then(layer_2)
+startLayers(1400).then(layer_3)
 
 
 // test

@@ -1,6 +1,21 @@
+// START-09 - Закрыть, открыть правую панель
+//----------------------------------------------------------------------------------------------------------------------
+function openPanelRight() {
+    document.getElementById('panelBut').style.display = 'none'
+    document.getElementById('panelRt').style.display = 'block'
+}
 
 
-// START-12 - Закрыть, открыть правую панель
+function closePanelRight() {
+    document.getElementById('panelBut').style.display = 'block'
+    document.getElementById('panelRt').style.display = 'none'
+}
+
+// END-09
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// START-12 - Анимация кругов
 //----------------------------------------------------------------------------------------------------------------------
 
 // #cirLgWht  - circleLargeWhite

@@ -37,24 +37,29 @@ div {
 
 
 header
-    container
-        row
-            col
-        row
-            col
 
-section
+about
     container
-        zalupa
-            row
-                col
-        dildo
-            row
-                col
+        row
+            col
+                title-section
+        row
+            col
+                intro-ab
+                    intro-ab__title
+                    intro-ab__text
+                contact-ab
+                button-ab
+
+        row
+            col
+                title-section-sub
+        row
+            col
+                exp-ab
+        row
+            col
+                title-section-sub
+
 
 footer
-    container
-        row
-            col
-        row
-            col

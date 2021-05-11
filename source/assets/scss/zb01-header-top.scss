@@ -83,19 +83,20 @@ START - header-top
   list-style-type: none;
 }
 
-.nav__item {
+.nav__item a {
   height: 64px;
+
   display: block;
+
   padding: 34px 14px 0 14px;
   font-size: 14px;
   color: $clrA4;
+  transition: color 0.3s linear;
 }
 
-.nav__item:hover {
-  color: $clrA1;
-  background-color: $clrA4;
+.nav__item a:hover {
+  color: $clrA5;
   text-decoration: none;
-  border-radius: 0 0 10px 10px;
 }
 // END - nav
 //----------------------------------------------------------------------------------------------------------------------
@@ -159,7 +160,7 @@ START - header-top
   }
 }
 
-.panel-right__menu ul li a {
+.panel-right__item {
   color: $clrA1;
   &:hover {
     color: red;

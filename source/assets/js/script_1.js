@@ -27,6 +27,14 @@ window.onload = () => {
         // body, bodyW - bodyWidth, bodyH - bodyHeight
         this.bodyW = document.body.offsetWidth
         this.bodyH = document.body.offsetHeight
+
+        // .title-section__bg, #titleBg - titleBackground
+        this.titleTxtW = document.getElementById('titleTxt').offsetWidth
+        this.titleTxtH = document.getElementById('titleTxt').offsetHeight
+
+        // .title-section__border, #titleBord - titleBorder
+        this.titleBordW = document.getElementById('titleBord').offsetWidth
+        this.titleBordH = document.getElementById('titleBord').offsetHeight
     }
 
 // END-01
@@ -369,4 +377,25 @@ window.onload = () => {
 // END-08
 //----------------------------------------------------------------------------------------------------------------------
 
+
+// START-13 - .title-section
+//----------------------------------------------------------------------------------------------------------------------
+    function setSizeForTitleSectionBorder() {
+        let getTitleSect = new GetSizeBlocks()
+
+        if ((getTitleSect.titleTxtW > 0) && (getTitleSect.titleTxtH > 0)){
+
+            document.getElementById('titleBord').style.width = getTitleSect.titleTxtW + 'px'
+            document.getElementById('titleBord').style.height = getTitleSect.titleTxtH + 'px'
+
+            // test
+            // console.log('hi')
+        }
+    }
+
+    setSizeForTitleSectionBorder()
+
+
+// END-13
+//----------------------------------------------------------------------------------------------------------------------
 }

@@ -65,7 +65,7 @@ function myJs() {
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))
-        //.pipe(strip()) // удалить комметарии
+        .pipe(strip()) // удалить комметарии
         .pipe(dest(path.build.js))
 
         // получить второй минимизированный файл

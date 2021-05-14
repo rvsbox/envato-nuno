@@ -44,7 +44,10 @@ about
             col
                 title-section
         row
-            col
+            col-7
+                img
+        row
+            col-7
                 intro-ab
                     intro-ab__title
                     intro-ab__text
@@ -53,13 +56,30 @@ about
 
         row
             col
-                title-section-sub
+                title-sub-section
         row
             col
-                exp-ab
+                intro-ab
+                info-ab
+                button-ab
         row
             col
                 title-section-sub
+        row
+            col-6
+                timeline
+                    timeline__item
+                    timeline__date
+                    timeline__location
+                    timeline__post
+                    timeline__description
+            col-6
+                timeline
+                    timeline__item
+                    timeline__date
+                    timeline__location
+                    timeline__post
+                    timeline__description
 
 
 footer

@@ -1,0 +1,52 @@
+/*
+START - base
+------------------------------------------------------------------------------------------------------------------------
+*/
+
+.title-section {
+  margin: 140px 0 0 0;
+  height: 106px;
+}
+
+.title-section__description {
+  margin: 0 0 6px 18px;
+  font-family: "Poppins Regular", serif;
+}
+
+.title-section__description p {
+  font-size: 14px;
+  color: $clrA5;
+  margin: 0;
+}
+
+.title-section__txt {
+  display: inline-block;
+  position: absolute;
+  z-index: 20;
+  margin: 12px 0 0 0;
+  border-radius: 10px;
+  padding: 12px 22px 2px 22px;
+  background-color: $clrA4;
+}
+
+.title-section__txt h1 {
+  font-size: 38px;
+  font-family: "Poppins Bold", serif;
+  color: $clrA1;
+  text-transform: uppercase;
+}
+
+.title-section__border {
+  display: inline-block;
+  position: absolute;
+  z-index: 10;
+  margin: 0 0 0 12px;
+  border-radius: 10px;
+  border: solid 4px $clrA3;
+  padding: 12px 22px 2px 22px;
+}
+
+/*
+END
+------------------------------------------------------------------------------------------------------------------------
+*/

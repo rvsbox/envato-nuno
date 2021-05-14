@@ -3,23 +3,46 @@ START - base
 ------------------------------------------------------------------------------------------------------------------------
 */
 
-.title-section {
+.text p {
+  margin: 0;
+
+  font-family: "Poppins Regular", serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: $clrA5;
+}
+
+.title h1 {
+  font-size: 38px;
+  font-family: "Poppins Bold", serif;
+  color: $clrA1;
+  text-transform: uppercase;
+}
+
+.title-sub h2 {
+  font-size: 24px;
+  font-family: "Poppins Bold", serif;
+  color: $clrA5;
+}
+
+.title-large {
+  font-family: "Poppins Bold", serif;
+  font-size: 2.875em; // 46px
+  color: $clrA1;
+  text-transform: uppercase;
+}
+
+
+.title-blk {
   margin: 140px 0 0 0;
   height: 106px;
 }
 
-.title-section__description {
+.title-blk__description {
   margin: 0 0 6px 18px;
-  font-family: "Poppins Regular", serif;
 }
 
-.title-section__description p {
-  font-size: 14px;
-  color: $clrA5;
-  margin: 0;
-}
-
-.title-section__txt {
+.title-blk__txt {
   display: inline-block;
   position: absolute;
   z-index: 20;
@@ -29,22 +52,16 @@ START - base
   background-color: $clrA4;
 }
 
-.title-section__txt h1 {
-  font-size: 38px;
-  font-family: "Poppins Bold", serif;
-  color: $clrA1;
-  text-transform: uppercase;
-}
-
-.title-section__border {
+.title-blk__border {
   display: inline-block;
   position: absolute;
   z-index: 10;
   margin: 0 0 0 12px;
   border-radius: 10px;
-  border: solid 4px $clrA3;
+  border: solid 3px $clrA3;
   padding: 12px 22px 2px 22px;
 }
+
 
 /*
 END

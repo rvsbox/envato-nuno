@@ -58,31 +58,19 @@ START - .header-base
 .human-info__name {
   display: inline-block;
   padding: 2px 22px 0 22px;
-  font-family: "Poppins Bold", serif;
-  font-size: 2.875em; // 46px
-  color: $clrA1;
   background-color: $clrA4;
-  text-transform: uppercase;
 }
 
 .human-info__specialty {
   display: inline-block;
-  padding: 5px 22px 5px 22px;
-  font-family: "Poppins Bold", serif;
-  font-size: 24px;
-  color: $clrA5;
+  padding: 7px 22px 0 22px;
   background-color: $clrA1;
 }
 
 .human-info__about {
   display: inline-block;
   padding: 10px 22px 12px 22px;
-  font-family: "Poppins Regular", serif;
-  font-size: 14px;
-  color: $clrA6;
   background-color: $clrA1;
-
-  line-height: 23px;
 }
 // END
 //----------------------------------------------------------------------------------------------------------------------

@@ -59,6 +59,11 @@ START - .header-base
   display: inline-block;
   padding: 2px 22px 0 22px;
   background-color: $clrA4;
+
+  font-family: "Poppins Bold", serif;
+  font-size: 2.875em; // 46px - 2.875em
+  color: $clrA1;
+  text-transform: uppercase;
 }
 
 .human-info__specialty {

@@ -3,9 +3,32 @@ START - base
 ------------------------------------------------------------------------------------------------------------------------
 */
 
-.text p {
-  margin: 0;
 
+// START - Текст
+//----------------------------------------------------------------------------------------------------------------------
+
+.text p {
+  font-family: "Poppins Regular", serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: $clrA6;
+}
+
+.text ul li {
+  font-family: "Poppins Regular", serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: $clrA6;
+}
+
+.text ul li span {
+  font-family: "Poppins SemiBold", serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: $clrA4;
+}
+
+.text-title p {
   font-family: "Poppins Regular", serif;
   font-size: 14px;
   line-height: 24px;
@@ -25,21 +48,25 @@ START - base
   color: $clrA5;
 }
 
-.title-large {
-  font-family: "Poppins Bold", serif;
-  font-size: 2.875em; // 46px
-  color: $clrA1;
-  text-transform: uppercase;
-}
+// END
+//----------------------------------------------------------------------------------------------------------------------
 
 
+// START - Заголовок блока
+//----------------------------------------------------------------------------------------------------------------------
+
+// .title-blk - .title-block
 .title-blk {
   margin: 140px 0 0 0;
-  height: 106px;
+  height: 110px;
 }
 
 .title-blk__description {
   margin: 0 0 6px 18px;
+}
+
+.title-blk__description p {
+  margin: 0;
 }
 
 .title-blk__txt {
@@ -62,6 +89,46 @@ START - base
   padding: 12px 22px 2px 22px;
 }
 
+// END
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// START - Кнопки
+//----------------------------------------------------------------------------------------------------------------------
+
+.button-full {
+  padding: 8px 20px;
+
+  border-width: 0;
+  background-color: $clrA4;
+  border-radius: 10px;
+  font-family: "Poppins SemiBold", serif;
+  font-size: 14px;
+  color: $clrA1;
+
+  transition: background-color 0.3s linear;
+}
+
+.button-full:hover {
+  background-color: $clrA5;
+}
+
+.button-light {
+  padding: 8px 20px;
+
+  border: $clrA4 solid 2px;
+  border-radius: 10px;
+  font-family: "Poppins SemiBold", serif;
+  font-size: 14px;
+  color: $clrA4;
+
+  transition: color 0.3s linear, border-color 0.3s linear;
+}
+
+.button-light:hover {
+  color: $clrA5;
+  border-color: $clrA5;
+}
 
 /*
 END

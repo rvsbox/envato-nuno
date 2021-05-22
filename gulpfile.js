@@ -6,7 +6,7 @@ const sass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const del = require('del')
-const plumber = require('gulp-plumber')
+const plumber = require('gulp-plumber') // обработка ошибок
 const rename = require('gulp-rename')
 const strip = require('gulp-strip-comments') // удалить комментарии
 const panini = require('panini') // html шаблонизатор
@@ -65,7 +65,7 @@ function myJs() {
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))
-        .pipe(strip()) // удалить комметарии
+        .pipe(strip({ignore: /\/\*[\s\S]*?\*\//g})) // удалить комметарии, исключить многострочные комментарии
         .pipe(dest(path.build.js))
 
         // получить второй минимизированный файл

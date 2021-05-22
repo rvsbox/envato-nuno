@@ -1,8 +1,9 @@
-@import 'za01-vars';
-@import 'za02-fonts';
+@import 'za01-reset';
+@import 'za02-vars';
+@import 'za03-fonts';
 
-@import 'zb01-header-top';
-@import 'zb02-header-base';
-@import 'zb03-footer';
-@import 'zb04-base';
+@import 'zb01-base';
+@import 'zb02-header-top';
+@import 'zb03-header-base';
+@import 'zb04-footer';
 @import 'zb05-about';

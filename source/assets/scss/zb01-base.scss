@@ -1,6 +1,20 @@
 /* ======== START - base ============================================================================================ */
 
 // -------- START - text, title ----------------------------------------------------------------------------------------
+.title {
+  font-size: 38px;
+  font-family: "Poppins Bold", serif;
+  color: $clrA1;
+  text-transform: uppercase;
+}
+
+.text-title {
+  font-family: "Poppins Regular", serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: $clrA5;
+}
+
 .text p {
   font-family: "Poppins Regular", serif;
   font-size: 14px;
@@ -20,20 +34,6 @@
   font-size: 14px;
   line-height: 24px;
   color: $clrA4;
-}
-
-.text-title p {
-  font-family: "Poppins Regular", serif;
-  font-size: 14px;
-  line-height: 24px;
-  color: $clrA5;
-}
-
-.title h1 {
-  font-size: 38px;
-  font-family: "Poppins Bold", serif;
-  color: $clrA1;
-  text-transform: uppercase;
 }
 
 .title-sub h2 {

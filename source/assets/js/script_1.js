@@ -5,9 +5,9 @@ window.onload = () => {
 
     function GetSizeBlocks() {
 
-        // .wrap-headbas, #wrapHeadBas - wrapHeaderBase
-        this.headerW = document.getElementById('wrapHeadBas').offsetWidth
-        this.headerH = document.getElementById('wrapHeadBas').offsetHeight
+        // .header__sub, #headerSub - wrapHeaderBase
+        this.headerW = document.getElementById('headerSub').offsetWidth
+        this.headerH = document.getElementById('headerSub').offsetHeight
 
         // .human-img, #humImg - humanImage
         this.huW = document.getElementById('humImg').offsetWidth
@@ -343,16 +343,16 @@ window.onload = () => {
 
 
 
-    /* ======== START - Adjustment for media queries ================================================================ */
+    /* ======== START - .panel-button, #panelBut ===================================================================== */
 
     // Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
     function mediaRun() {
         window.addEventListener('resize', event => {
 
             // getPR - getPanelRight
-            let getPR = new GetSizeBlocks()
+            // let getPR = new GetSizeBlocks()
 
-            if (getPR.bodyW > 1024) {
+            if (window.innerWidth > 1024) {
                 document.getElementById('panelBut').style.display = 'none'
                 document.getElementById('panelRt').style.display = 'none'
             } else {
@@ -363,7 +363,7 @@ window.onload = () => {
 
     mediaRun()
 
-    /* ======== END - Adjustment for media queries ================================================================== */
+    /* ======== END -  - .panel-button, #panelBut ==================================================================== */
 
 
 

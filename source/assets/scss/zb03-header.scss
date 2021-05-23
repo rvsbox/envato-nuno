@@ -1,23 +1,23 @@
-/* ======== START - .header-base ==================================================================================== */
+/* ======== START - .header ========================================================================================= */
 
-.header-base {
+.header {
   background-color: $clrA3;
   padding: 0 60px;
 }
 
 @media (max-width: 1024px) {
-  .header-base {
+  .header {
     padding: 0 30px;
   }
 }
 
 @media (max-width: 640px) {
-  .header-base {
+  .header {
     padding: 0 10px;
   }
 }
 
-.wrap-headbas {
+.header__sub {
   max-width: 1800px;
   min-height: calc(100vh - 64px); // header-top - height: 64px
   margin: auto;
@@ -132,18 +132,18 @@
   top: calc(100vh - 48px - 64px); // header-top - height: 64px
 }
 
-.wrap-foottop {
+.footer-top__wrap {
   display: flex;
   justify-content: space-between;
 }
 
 @media (max-width: 640px) {
-  .wrap-foottop {
+  .footer-top__wrap {
     justify-content: flex-end;
   }
 }
 
-.wrap-foottop__copyright {
+.footer-top__copyright {
   display: inline-block;
   padding: 2px 0 0 0;
   margin: 0 0 0 14px;
@@ -154,30 +154,30 @@
 }
 
 @media (max-width: 840px) {
-  .wrap-foottop__copyright {
+  .footer-top__copyright {
     display: none;
   }
 }
 
-.wrap-foottop__social-buttons {
+.footer-top__social-buttons {
   display: inline-block;
   float: right;
   margin: 0 14px 0 0;
 }
 
 @media (max-width: 840px) {
-  .wrap-foottop__social-buttons {
+  .footer-top__social-buttons {
     display: none;
   }
 }
 
-.wrap-foottop__social-buttons ul {
+.footer-top__social-buttons ul {
   display: flex;
   padding: 0;
   list-style-type: none;
 }
 
-.wrap-foottop__social-buttons ul li {
+.footer-top__social-buttons ul li {
   margin-right: 8px;
 
   &:last-child {
@@ -185,10 +185,10 @@
   }
 }
 
-.wrap-foottop__social-buttons ul li img {
+.footer-top__social-buttons ul li img {
   margin: -4.8px 0 0 0;
   padding: 0;
 }
 // -------- END - .footer-top ------------------------------------------------------------------------------------------
 
-/* ======== END - .header-base ====================================================================================== */
+/* ======== END - .header ====================================================================================== */

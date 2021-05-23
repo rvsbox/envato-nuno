@@ -36,13 +36,38 @@ div {
 
 
 
+header-top
+    header-top__sub
+        logo
+        contact-info AAAAAAA
+
+        nav AAAAAAA
+        button.panel-button
+        panel-right
+            panel-right__close
+            panel-right__nav AAAAAAA
+
 header
+    header__sub
+        human-info
+            human-info__name
+            human-info__speciality
+            human-info__about
+        human-img
+        circles
+
+        footer-top
+            footer-top__wrap
+                footer-top--copyright AAAAAAA
+                footer-top__social-buttons
+
+
 
 about
     container
         row
             col
-                title-section
+                title-section AAAAAAA
         row
             col-7
                 img

@@ -99,8 +99,8 @@
 
 
 
-// -------- START - .panel-right ---------------------------------------------------------------------------------------
-.panel-button {
+// -------- START - .nav-right ---------------------------------------------------------------------------------------
+.nav-open {
   float: right;
   margin: 24px 14px 0 0;
   padding: 0;
@@ -110,18 +110,18 @@
 }
 
 @media (min-width: 1024px) {
-  .panel-button {
+  .nav-open {
     display: none;
   }
 }
 
-.panel-button svg {
+.nav-open svg {
   width: 32px;
   height: 32px;
   fill: $clrA4;
 }
 
-.panel-right {
+.nav-right {
   width: 250px;
   height: 100vh;
 
@@ -136,11 +136,11 @@
   background-color: $clrA4;
 }
 
-.panel-right__nav {
+.nav-right__item {
   margin: 200px 0 0 50px;
 }
 
-.panel-right__nav ul {
+.nav-right__item ul {
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -148,21 +148,21 @@
   list-style-type: none;
 }
 
-.panel-right__nav ul li {
+.nav-right__item ul li {
   margin-top: 14px;
   &:first-child {
     margin-top: 0;
   }
 }
 
-.panel-right__nav ul li a {
+.nav-right__item ul li a {
   color: $clrA1;
   &:hover {
     color: red;
   }
 }
 
-.panel-right__close {
+.nav-right__close {
   float: right;
   margin: 24px 48px 0 0;
   padding: 0;
@@ -171,11 +171,11 @@
   background: transparent;
 }
 
-.panel-right__close svg {
+.nav-right__close svg {
   width: 32px;
   height: 32px;
   fill: $clrA1;
 }
-// -------- END - .panel-right -----------------------------------------------------------------------------------------
+// -------- END - .nav-right -----------------------------------------------------------------------------------------
 
 /* ======== END - .header-top ======================================================================================= */

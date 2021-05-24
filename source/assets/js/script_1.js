@@ -353,10 +353,10 @@ window.onload = () => {
             // let getPR = new GetSizeBlocks()
 
             if (window.innerWidth > 1024) {
-                document.getElementById('panelBut').style.display = 'none'
-                document.getElementById('panelRt').style.display = 'none'
+                document.getElementById('navRightOpen').style.display = 'none'
+                document.getElementById('navRt').style.display = 'none'
             } else {
-                document.getElementById('panelBut').style.display = 'block'
+                document.getElementById('navRightOpen').style.display = 'block'
             }
         })
     }

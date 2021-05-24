@@ -100,7 +100,7 @@
 
 
 // -------- START - .nav-right ---------------------------------------------------------------------------------------
-.nav-open {
+.nav-right-open {
   float: right;
   margin: 24px 14px 0 0;
   padding: 0;
@@ -110,12 +110,12 @@
 }
 
 @media (min-width: 1024px) {
-  .nav-open {
+  .nav-right-open {
     display: none;
   }
 }
 
-.nav-open svg {
+.nav-right-open svg {
   width: 32px;
   height: 32px;
   fill: $clrA4;
@@ -162,7 +162,7 @@
   }
 }
 
-.nav-right__close {
+.nav-right-close {
   float: right;
   margin: 24px 48px 0 0;
   padding: 0;
@@ -171,7 +171,7 @@
   background: transparent;
 }
 
-.nav-right__close svg {
+.nav-right-close svg {
   width: 32px;
   height: 32px;
   fill: $clrA1;

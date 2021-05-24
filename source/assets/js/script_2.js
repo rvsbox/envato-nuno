@@ -1,17 +1,17 @@
-/* ======== START - .panel-right ==================================================================================== */
+/* ======== START - .nav-right ==================================================================================== */
 
-function openPanelRight() {
-    document.getElementById('panelBut').style.display = 'none'
-    document.getElementById('panelRt').style.display = 'block'
+function openNavRight() {
+    document.getElementById('navRightOpen').style.display = 'none'
+    document.getElementById('navRt').style.display = 'block'
 }
 
 
-function closePanelRight() {
-    document.getElementById('panelBut').style.display = 'block'
-    document.getElementById('panelRt').style.display = 'none'
+function closeNavRight() {
+    document.getElementById('navRightOpen').style.display = 'block'
+    document.getElementById('navRt').style.display = 'none'
 }
 
-/* ======== END - .panel-right ====================================================================================== */
+/* ======== END - .nav-right ====================================================================================== */
 
 
 

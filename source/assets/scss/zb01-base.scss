@@ -1,6 +1,6 @@
 /* ======== START - base ============================================================================================ */
 
-// -------- START - text, title ----------------------------------------------------------------------------------------
+// -------- START - headings--------------------------------------------------------------------------------------------
 .heading-xxl {
     font-family: "Poppins Bold", serif;
     font-size: 2.875em;
@@ -32,13 +32,50 @@
     font-family: "Poppins Medium", serif;
     color: var(--color-6);
 }
+// -------- END - headings ---------------------------------------------------------------------------------------------
 
+
+
+// -------- START - text------------------------------------------------------------------------------------------------
 .text p {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
     color: var(--color-6);
 }
+
+// .text-hdg - .text-heading
+.text-hdg p {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--color-6);
+}
+
+.text-light p {
+    font-family: "Poppins Light", serif;
+    font-size: 14px;
+    color: #133C55;;
+}
+
+.text-small p {
+    font-family: "Poppins Regular", serif;
+    font-size: 12px;
+    color: #133C55;
+}
+
+.text-semibold p {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: #133C55;;
+}
+
+.text-semibold-plus p {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 18px;
+    color: #133C55;
+}
+// -------- END - text--------------------------------------------------------------------------------------------------
 
 
 //-------------------------------------
@@ -84,22 +121,23 @@
 // -------- END - text, title ------------------------------------------------------------------------------------------
 
 
-// -------- START - .title-block ---------------------------------------------------------------------------------------
-// .title-blk - .title-block
-.title-blk {
+
+// -------- START - .heading-blk ---------------------------------------------------------------------------------------
+// .heading-blk - .heading-block
+.heading-blk {
     margin: 140px 0 0 0;
     height: 110px;
 }
 
-.title-blk__description {
+.heading-blk__description {
     margin: 0 0 6px 18px;
 }
 
-.title-blk__description p {
+.heading-blk__description p {
     margin: 0;
 }
 
-.title-blk__txt {
+.heading-blk__txt {
     display: inline-block;
     position: absolute;
     z-index: 20;
@@ -109,7 +147,7 @@
     background-color: var(--color-4);
 }
 
-.title-blk__border {
+.heading-blk__border {
     display: inline-block;
     position: absolute;
     z-index: 10;

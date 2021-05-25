@@ -29,12 +29,12 @@ window.onload = () => {
         this.bodyH = document.body.offsetHeight
 
         // .title-section__bg, #titleBg - titleBackground
-        this.titleTxtW = document.getElementById('titleTxt').offsetWidth
-        this.titleTxtH = document.getElementById('titleTxt').offsetHeight
+        this.headingBaseW = document.getElementById('headingBase').offsetWidth
+        this.headingBaseH = document.getElementById('headingBase').offsetHeight
 
-        // .title-section__border, #titleBord - titleBorder
-        this.titleBordW = document.getElementById('titleBord').offsetWidth
-        this.titleBordH = document.getElementById('titleBord').offsetHeight
+        // .title-section__border, #headingBord - headingBorder
+        this.headingBordW = document.getElementById('headingBord').offsetWidth
+        this.headingBordH = document.getElementById('headingBord').offsetHeight
     }
 
     /* ======== END - Get block sizes =============================================================================== */
@@ -343,7 +343,7 @@ window.onload = () => {
 
 
 
-    /* ======== START - .panel-button, #panelBut ===================================================================== */
+    /* ======== START - .nav-right-open, #navRightOpen ============================================================== */
 
     // Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
     function mediaRun() {
@@ -363,19 +363,19 @@ window.onload = () => {
 
     mediaRun()
 
-    /* ======== END -  - .panel-button, #panelBut ==================================================================== */
+    /* ======== END -  - .nav-right-open, #navRightOpen ============================================================= */
 
 
 
-    /* ======== START - .title-section ============================================================================== */
+    /* ======== START - .heading-blk ================================================================================ */
 
     function setSizeForTitleSectionBorder() {
-        let getTitleSect = new GetSizeBlocks()
+        let getHeadingBlk = new GetSizeBlocks()
 
-        if ((getTitleSect.titleTxtW > 0) && (getTitleSect.titleTxtH > 0)){
+        if ((getHeadingBlk.headingBaseW > 0) && (getHeadingBlk.headingBaseH > 0)){
 
-            document.getElementById('titleBord').style.width = getTitleSect.titleTxtW + 'px'
-            document.getElementById('titleBord').style.height = getTitleSect.titleTxtH + 'px'
+            document.getElementById('headingBord').style.width = getHeadingBlk.headingBaseW + 'px'
+            document.getElementById('headingBord').style.height = getHeadingBlk.headingBaseH + 'px'
 
             // test
             // console.log('hi')
@@ -384,5 +384,5 @@ window.onload = () => {
 
     setSizeForTitleSectionBorder()
 
-    /* ======== END - .title-section ================================================================================ */
+    /* ======== END - .heading-blk ================================================================================== */
 }

@@ -2,168 +2,160 @@
 
 // -------- START - text, title ----------------------------------------------------------------------------------------
 .heading-xxl {
-  font-family: "Poppins Bold", serif;
-  font-size: 2.875em;
-  color: #386FA4;
-  text-transform: uppercase;
+    font-family: "Poppins Bold", serif;
+    font-size: 2.875em;
+    color: #386FA4;
+    text-transform: uppercase;
 }
 
 .heading-1 h1 {
-  font-size: 38px;
-  font-family: "Poppins Bold", serif;
-  color: #386FA4;
-  text-transform: uppercase
+    font-size: 38px;
+    font-family: "Poppins Bold", serif;
+    color: #386FA4;
+    text-transform: uppercase
 }
 
 .heading-2 h2 {
-  font-size: 24px;
-  font-family: "Poppins Bold", serif;
-  color: $clrA5;
+    font-size: 24px;
+    font-family: "Poppins Bold", serif;
+    color: $clrA5;
 }
 
 .heading-3 h3 {
-  font-size: 18px;
-  font-family: "Poppins SemiBold", serif;
-  color: #59A5D8;
+    font-size: 18px;
+    font-family: "Poppins SemiBold", serif;
+    color: #59A5D8;
 }
 
 .heading-4 h4 {
-  font-size: 14px;
-  font-family: "Poppins Medium", serif;
-  color: #133C55;
+    font-size: 14px;
+    font-family: "Poppins Medium", serif;
+    color: #133C55;
 }
 
 .text p {
-  font-family: "Poppins Regular", serif;
-  font-size: 14px;
-  line-height: 24px;
-  color: $clrA6;
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: $clrA6;
 }
-
-
-
-
-
-
-
 
 
 //-------------------------------------
 .title {
-  font-size: 38px;
-  font-family: "Poppins Bold", serif;
-  color: $clrA1;
-  text-transform: uppercase;
+    font-size: 38px;
+    font-family: "Poppins Bold", serif;
+    color: $clrA1;
+    text-transform: uppercase;
 }
 
 .text-title {
-  font-family: "Poppins Regular", serif;
-  font-size: 14px;
-  line-height: 24px;
-  color: $clrA5;
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: $clrA5;
 }
-
 
 
 .text ul li {
-  font-family: "Poppins Regular", serif;
-  font-size: 14px;
-  line-height: 24px;
-  color: $clrA6;
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: $clrA6;
 }
 
 .text ul li span {
-  font-family: "Poppins SemiBold", serif;
-  font-size: 14px;
-  line-height: 24px;
-  color: $clrA4;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: $clrA4;
 }
 
 .title-sub h2 {
-  font-size: 24px;
-  font-family: "Poppins Bold", serif;
-  color: $clrA5;
+    font-size: 24px;
+    font-family: "Poppins Bold", serif;
+    color: $clrA5;
 }
 
 .title-sub--position {
-  margin: 70px 0 0 0;
+    margin: 70px 0 0 0;
 }
-// -------- END - text, title ------------------------------------------------------------------------------------------
 
+// -------- END - text, title ------------------------------------------------------------------------------------------
 
 
 // -------- START - .title-block ---------------------------------------------------------------------------------------
 // .title-blk - .title-block
 .title-blk {
-  margin: 140px 0 0 0;
-  height: 110px;
+    margin: 140px 0 0 0;
+    height: 110px;
 }
 
 .title-blk__description {
-  margin: 0 0 6px 18px;
+    margin: 0 0 6px 18px;
 }
 
 .title-blk__description p {
-  margin: 0;
+    margin: 0;
 }
 
 .title-blk__txt {
-  display: inline-block;
-  position: absolute;
-  z-index: 20;
-  margin: 12px 0 0 0;
-  border-radius: 10px;
-  padding: 12px 22px 2px 22px;
-  background-color: $clrA4;
+    display: inline-block;
+    position: absolute;
+    z-index: 20;
+    margin: 12px 0 0 0;
+    border-radius: 10px;
+    padding: 12px 22px 2px 22px;
+    background-color: $clrA4;
 }
 
 .title-blk__border {
-  display: inline-block;
-  position: absolute;
-  z-index: 10;
-  margin: 0 0 0 12px;
-  border-radius: 10px;
-  border: solid 3px $clrA3;
-  padding: 12px 22px 2px 22px;
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    margin: 0 0 0 12px;
+    border-radius: 10px;
+    border: solid 3px $clrA3;
+    padding: 12px 22px 2px 22px;
 }
-// -------- END - .title-block -----------------------------------------------------------------------------------------
 
+// -------- END - .title-block -----------------------------------------------------------------------------------------
 
 
 // -------- START - button ---------------------------------------------------------------------------------------------
 
 .button-full {
-  padding: 8px 20px;
+    padding: 8px 20px;
 
-  border-width: 0;
-  background-color: $clrA4;
-  border-radius: 10px;
-  font-family: "Poppins SemiBold", serif;
-  font-size: 14px;
-  color: $clrA1;
+    border-width: 0;
+    background-color: $clrA4;
+    border-radius: 10px;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: $clrA1;
 
-  transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
 }
 
 .button-full:hover {
-  background-color: $clrA5;
+    background-color: $clrA5;
 }
 
 .button-light {
-  padding: 8px 20px;
+    padding: 8px 20px;
 
-  border: $clrA4 solid 2px;
-  border-radius: 10px;
-  font-family: "Poppins SemiBold", serif;
-  font-size: 14px;
-  color: $clrA4;
+    border: $clrA4 solid 2px;
+    border-radius: 10px;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: $clrA4;
 
-  transition: color 0.3s linear, border-color 0.3s linear;
+    transition: color 0.3s linear, border-color 0.3s linear;
 }
 
 .button-light:hover {
-  color: $clrA5;
-  border-color: $clrA5;
+    color: $clrA5;
+    border-color: $clrA5;
 }
 
 /* ======== END - base ============================================================================================== */

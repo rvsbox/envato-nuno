@@ -1,181 +1,185 @@
 /* ======== START - .header-top ===================================================================================== */
 
 .header-top {
-  background-color: $clrA3;
-  padding: 0 60px;
-  position: relative;
+    background-color: $clrA3;
+    padding: 0 60px;
+    position: relative;
 }
 
 @media (max-width: 1024px) {
-  .header-top {
-    padding: 0 30px;
-  }
+    .header-top {
+        padding: 0 30px;
+    }
 }
 
 @media (max-width: 640px) {
-  .header-top {
-    padding: 0 10px;
-  }
+    .header-top {
+        padding: 0 10px;
+    }
 }
 
 .header-top__sub {
-  max-width: 1800px;
-  height: 64px;
-  margin: auto;
-  font-family: "Poppins SemiBold";
+    max-width: 1800px;
+    height: 64px;
+    margin: auto;
+    font-family: "Poppins SemiBold";
 }
 
 .logo {
-  display: inline-block;
-  margin: 28px 0 0 14px;
+    display: inline-block;
+    margin: 28px 0 0 14px;
 }
 
 .contact-info {
-  display: inline-block;
-  margin-left: 190px;
-  color: $clrA4;
-  font-size: 14px;
+    display: inline-block;
+    margin-left: 190px;
+    color: $clrA4;
+    font-size: 14px;
 
 }
 
 @media (max-width: 1600px) {
-  .contact-info {
-    display: none;
-  }
+    .contact-info {
+        display: none;
+    }
 }
 
 .contact-info ul {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .contact-info ul li a {
-  color: $clrA4;
-  text-decoration: none;
+    color: $clrA4;
+    text-decoration: none;
 }
 
 .contact-info ul li:last-child {
-  margin-left: 70px;
+    margin-left: 70px;
 }
 
 // -------- START - .nav -----------------------------------------------------------------------------------------------
 .nav {
-  display: inline-block;
-  float: right;
-  margin: 0 14px 0 0;
+    display: inline-block;
+    float: right;
+    margin: 0 14px 0 0;
 }
 
 @media (max-width: 1024px) {
-  .nav {
-    display: none;
-  }
+    .nav {
+        display: none;
+    }
 }
 
 .nav ul {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 .nav ul li a {
-  height: 64px;
+    height: 64px;
 
-  display: block;
+    display: block;
 
-  padding: 34px 14px 0 14px;
-  font-size: 14px;
-  color: $clrA4;
-  transition: color 0.3s linear;
-  &:hover {
-    color: $clrA5;
-    text-decoration: none;
-  }
+    padding: 34px 14px 0 14px;
+    font-size: 14px;
+    color: $clrA4;
+    transition: color 0.3s linear;
+
+    &:hover {
+        color: $clrA5;
+        text-decoration: none;
+    }
 
 }
-// -------- END - .nav -------------------------------------------------------------------------------------------------
 
+// -------- END - .nav -------------------------------------------------------------------------------------------------
 
 
 // -------- START - .nav-right ---------------------------------------------------------------------------------------
 .nav-right-open {
-  float: right;
-  margin: 24px 14px 0 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: transparent;
+    float: right;
+    margin: 24px 14px 0 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
 }
 
 @media (min-width: 1024px) {
-  .nav-right-open {
-    display: none;
-  }
+    .nav-right-open {
+        display: none;
+    }
 }
 
 .nav-right-open svg {
-  width: 32px;
-  height: 32px;
-  fill: $clrA4;
+    width: 32px;
+    height: 32px;
+    fill: $clrA4;
 }
 
 .nav-right {
-  width: 250px;
-  height: 100vh;
+    width: 250px;
+    height: 100vh;
 
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: auto;
-  z-index: 50;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    z-index: 50;
 
-  background-color: $clrA4;
+    background-color: $clrA4;
 }
 
 .nav-right__item {
-  margin: 200px 0 0 50px;
+    margin: 200px 0 0 50px;
 }
 
 .nav-right__item ul {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 .nav-right__item ul li {
-  margin-top: 14px;
-  &:first-child {
-    margin-top: 0;
-  }
+    margin-top: 14px;
+
+    &:first-child {
+        margin-top: 0;
+    }
 }
 
 .nav-right__item ul li a {
-  color: $clrA1;
-  &:hover {
-    color: red;
-  }
+    color: $clrA1;
+
+    &:hover {
+        color: red;
+    }
 }
 
 .nav-right-close {
-  float: right;
-  margin: 24px 48px 0 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: transparent;
+    float: right;
+    margin: 24px 48px 0 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
 }
 
 .nav-right-close svg {
-  width: 32px;
-  height: 32px;
-  fill: $clrA1;
+    width: 32px;
+    height: 32px;
+    fill: $clrA1;
 }
+
 // -------- END - .nav-right -----------------------------------------------------------------------------------------
 
 /* ======== END - .header-top ======================================================================================= */

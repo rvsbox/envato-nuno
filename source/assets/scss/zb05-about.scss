@@ -1,69 +1,69 @@
 /* ======== START - .about ===========================================================================================*/
 
 .about {
-  background-color: $clrA1;
+    background-color: $clrA1;
 }
 
 // .img-ab - .img-about
 .img-ab {
-  display: block;
-  margin: 70px 0 0 0;
-  border-radius: 10px;
+    display: block;
+    margin: 70px 0 0 0;
+    border-radius: 10px;
 }
 
 .intro-ab {
-  margin: 70px 0 0 0;
+    margin: 70px 0 0 0;
 }
 
 .intro-ab__text {
-  margin: 20px 0 0 0;
+    margin: 20px 0 0 0;
 }
 
 .intro-ab__text p {
-  margin: 0;
+    margin: 0;
 }
 
 .info-ab {
-  display: flex;
-  margin: 50px 0 0 0;
+    display: flex;
+    margin: 50px 0 0 0;
 }
 
 .info-ab ul {
-  padding: 0;
-  list-style: none;
+    padding: 0;
+    list-style: none;
 }
 
 .info-ab ul:first-child {
-  margin: 0;
+    margin: 0;
 }
 
 .info-ab ul:last-child {
-  margin: 0 0 0 40px;
+    margin: 0 0 0 40px;
 }
 
 .info-ab ul li {
-  margin: 0 0 10px 0;
+    margin: 0 0 10px 0;
 }
 
 .info-ab ul:first-child li:last-child {
-  margin: 0;
+    margin: 0;
 }
 
 .info-ab ul:last-child li:last-child {
-  margin: 0;
+    margin: 0;
 }
 
 .info-ab ul li span {
-  margin: 0 14px 0 0;
+    margin: 0 14px 0 0;
 }
 
 .button-ab {
-  display: flex;
-  margin: 50px 0 0 0;
+    display: flex;
+    margin: 50px 0 0 0;
 }
 
 .button-ab button:last-child {
-  margin: 0 0 0 30px;
+    margin: 0 0 0 30px;
 }
 
 /* ======== END - .about =============================================================================================*/

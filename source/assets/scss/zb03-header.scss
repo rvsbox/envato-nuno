@@ -1,7 +1,7 @@
 /* ======== START - .header ========================================================================================= */
 
 .header {
-    background-color: $clrA3;
+    background-color: var(--color-3);
     padding: 0 60px;
 }
 
@@ -54,24 +54,24 @@
 .human-info__name {
     display: inline-block;
     padding: 2px 22px 0 22px;
-    background-color: $clrA4;
+    background-color: var(--color-4);
 
     font-family: "Poppins Bold", serif;
     font-size: 2.875em; // 46px - 2.875em
-    color: $clrA1;
+    color: var(--color-1);
     text-transform: uppercase;
 }
 
 .human-info__specialty {
     display: inline-block;
     padding: 7px 22px 0 22px;
-    background-color: $clrA1;
+    background-color: var(--color-1);
 }
 
 .human-info__about {
     display: inline-block;
     padding: 10px 22px 12px 22px;
-    background-color: $clrA1;
+    background-color: var(--color-1);
 }
 
 .human-info__about p {
@@ -149,7 +149,7 @@
 
     font-size: 14px;
     font-family: "Poppins SemiBold", serif;
-    color: $clrA4;
+    color: var(--color-4);
 }
 
 @media (max-width: 840px) {

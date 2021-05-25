@@ -62,10 +62,11 @@ function myJs() {
     return src([
         'source/assets/js/script_1.js',
         'source/assets/js/script_2.js',
+        'source/assets/js/script_3.js',
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))
-        .pipe(strip({ignore: /\/\*[\s\S]*?\*\//g})) // удалить комметарии, исключить многострочные комментарии
+        .pipe(strip({ignore: /\/\*[\s\S]*?\*\//g})) // удалить комметарии, но исключить многострочные комментарии
         .pipe(dest(path.build.js))
 
         // получить второй минимизированный файл

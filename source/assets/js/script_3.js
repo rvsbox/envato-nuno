@@ -1,28 +1,27 @@
-// var w = window,
-// d = document,
-// e = d.documentElement,
-// g = d.getElementsByTagName('body')[0],
-// x = w.innerWidth || e.clientWidth || g.clientWidth;
+/* ======== START -  ================================================================================================ */
 
-// window.onresize = function(event){
-//     var t = w.innerWidth || e.clientWidth || g.clientWidth;
-//     if(t !== x) {
-//        document.location.reload(true);
-//       console.log('test')
-//     }
-// }
+function setTheme(themeName) {
+    localStorage.setItem('theme', themeName)
+    document.documentElement.className = themeName
+}
 
-
-// var w = window,
-
-e = document.getElementById("gir"),
-x = e.clientWidth // ширина на старте
-
-
-window.onresize = function (event) {
-    let t = e.clientWidth //
-    if (t !== x) {
-        document.location.reload(true);
-        console.log('lala')
+function toggleTheme() {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-blue')
+    } else {
+        setTheme('theme-dark')
     }
 }
+
+// установка темы при начальной загрузке. По умолчанию будет загружена theme-blue
+(function () {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-dark')
+        document.getElementById('slider').checked = false
+    } else {
+        setTheme('theme-blue')
+        document.getElementById('slider').checked = true
+    }
+})()
+
+/* ======== END -   ================================================================================================= */

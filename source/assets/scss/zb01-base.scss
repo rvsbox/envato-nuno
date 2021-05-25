@@ -4,40 +4,40 @@
 .heading-xxl {
     font-family: "Poppins Bold", serif;
     font-size: 2.875em;
-    color: #386FA4;
+    color: var(--color-5);
     text-transform: uppercase;
 }
 
 .heading-1 h1 {
     font-size: 38px;
     font-family: "Poppins Bold", serif;
-    color: #386FA4;
+    color: var(--color-5);
     text-transform: uppercase
 }
 
 .heading-2 h2 {
     font-size: 24px;
     font-family: "Poppins Bold", serif;
-    color: $clrA5;
+    color: var(--color-5);
 }
 
 .heading-3 h3 {
     font-size: 18px;
     font-family: "Poppins SemiBold", serif;
-    color: #59A5D8;
+    color: var(--color-4);
 }
 
 .heading-4 h4 {
     font-size: 14px;
     font-family: "Poppins Medium", serif;
-    color: #133C55;
+    color: var(--color-6);
 }
 
 .text p {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
-    color: $clrA6;
+    color: var(--color-6);
 }
 
 
@@ -45,7 +45,7 @@
 .title {
     font-size: 38px;
     font-family: "Poppins Bold", serif;
-    color: $clrA1;
+    color: var(--color-1);
     text-transform: uppercase;
 }
 
@@ -53,7 +53,7 @@
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
-    color: $clrA5;
+    color: var(--color-5);
 }
 
 
@@ -61,20 +61,20 @@
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
-    color: $clrA6;
+    color: var(--color-6);
 }
 
 .text ul li span {
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
     line-height: 24px;
-    color: $clrA4;
+    color: var(--color-4);
 }
 
 .title-sub h2 {
     font-size: 24px;
     font-family: "Poppins Bold", serif;
-    color: $clrA5;
+    color: var(--color-5);
 }
 
 .title-sub--position {
@@ -106,7 +106,7 @@
     margin: 12px 0 0 0;
     border-radius: 10px;
     padding: 12px 22px 2px 22px;
-    background-color: $clrA4;
+    background-color: var(--color-4);
 }
 
 .title-blk__border {
@@ -115,7 +115,7 @@
     z-index: 10;
     margin: 0 0 0 12px;
     border-radius: 10px;
-    border: solid 3px $clrA3;
+    border: solid 3px var(--color-3);
     padding: 12px 22px 2px 22px;
 }
 
@@ -128,34 +128,34 @@
     padding: 8px 20px;
 
     border-width: 0;
-    background-color: $clrA4;
+    background-color: var(--color-4);
     border-radius: 10px;
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
-    color: $clrA1;
+    color: var(--color-1);
 
     transition: background-color 0.3s linear;
 }
 
 .button-full:hover {
-    background-color: $clrA5;
+    background-color: var(--color-5);
 }
 
 .button-light {
     padding: 8px 20px;
 
-    border: $clrA4 solid 2px;
+    border: var(--color-4) solid 2px;
     border-radius: 10px;
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
-    color: $clrA4;
+    color: var(--color-4);
 
     transition: color 0.3s linear, border-color 0.3s linear;
 }
 
 .button-light:hover {
-    color: $clrA5;
-    border-color: $clrA5;
+    color: var(--color-5);
+    border-color: var(--color-5);
 }
 
 /* ======== END - base ============================================================================================== */

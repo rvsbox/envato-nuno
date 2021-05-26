@@ -1,5 +1,6 @@
 /* ======== START - Load and switch theme =========================================================================== */
 
+// ПРИ ТЕСТИРОВАНИИ ЗАПУСКАТЬ САЙТ ТОЛЬКО В ОДНО ВКЛАДКЕ, ДЛЯ КОРРЕКТНОЙ РАБОТЫ СКРИПТА
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName)
     document.documentElement.className = themeName
@@ -29,5 +30,10 @@ function toggleTheme() {
         // console.log(localStorage.getItem('theme'))
     }
 })()
+
+// test
+// function getInfo() {
+//     console.log(localStorage.getItem('theme'))
+// }
 
 /* ======== END - Load and switch theme ============================================================================= */

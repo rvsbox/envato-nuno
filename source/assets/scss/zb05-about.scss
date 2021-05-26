@@ -4,66 +4,65 @@
     background-color: var(--color-1);
 }
 
-// .img-ab - .img-about
-.img-ab {
+.img-about {
     display: block;
     margin: 70px 0 0 0;
     border-radius: 10px;
 }
 
-.intro-ab {
+.intro-about {
     margin: 70px 0 0 0;
 }
 
-.intro-ab__text {
+.intro-about__text {
     margin: 20px 0 0 0;
 }
 
-.intro-ab__text p {
-    margin: 0;
-}
-
-.info-ab {
+.info-about {
     display: flex;
     margin: 50px 0 0 0;
 }
 
-.info-ab ul {
+.info-about ul {
     padding: 0;
     list-style: none;
 }
 
-.info-ab ul:first-child {
+.info-about ul:first-child {
     margin: 0;
 }
 
-.info-ab ul:last-child {
+.info-about ul:last-child {
     margin: 0 0 0 40px;
 }
 
-.info-ab ul li {
+.info-about ul li {
     margin: 0 0 10px 0;
 }
 
-.info-ab ul:first-child li:last-child {
+.info-about ul:first-child li:last-child {
     margin: 0;
 }
 
-.info-ab ul:last-child li:last-child {
+.info-about ul:last-child li:last-child {
     margin: 0;
 }
 
-.info-ab ul li span {
+.info-about ul li span {
     margin: 0 14px 0 0;
 }
 
-.button-ab {
+.btn-about {
     display: flex;
     margin: 50px 0 0 0;
 }
 
-.button-ab button:last-child {
+.btn-about button:last-child {
     margin: 0 0 0 30px;
+}
+
+.title-sub--position {
+    margin: 70px 0 0 0;
 }
 
 /* ======== END - .about =============================================================================================*/

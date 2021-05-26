@@ -22,7 +22,6 @@
     max-width: 1800px;
     height: 64px;
     margin: auto;
-    font-family: "Poppins SemiBold";
 }
 
 .logo {
@@ -33,9 +32,6 @@
 .contact-info {
     display: inline-block;
     margin-left: 190px;
-    color: var(--color-4);
-    font-size: 14px;
-
 }
 
 @media (max-width: 1600px) {
@@ -84,16 +80,7 @@
     height: 64px;
 
     display: block;
-
     padding: 34px 14px 0 14px;
-    font-size: 14px;
-    color: var(--color-4);
-    transition: color 0.3s linear;
-
-    &:hover {
-        color: var(--color-5);
-        text-decoration: none;
-    }
 
 }
 
@@ -154,14 +141,6 @@
 
     &:first-child {
         margin-top: 0;
-    }
-}
-
-.nav-right__item ul li a {
-    color: var(--color-1);
-
-    &:hover {
-        color: var(--color-7);
     }
 }
 

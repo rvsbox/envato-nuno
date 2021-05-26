@@ -1,4 +1,4 @@
-/* ======== START -  ================================================================================================ */
+/* ======== START - Load and switch theme =========================================================================== */
 
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName)
@@ -8,8 +8,11 @@ function setTheme(themeName) {
 function toggleTheme() {
     if (localStorage.getItem('theme') === 'theme-dark') {
         setTheme('theme-blue')
+        console.log('blue')
     } else {
         setTheme('theme-dark')
+        console.log('dark')
+        // console.log(localStorage.getItem('theme'))
     }
 }
 
@@ -17,11 +20,14 @@ function toggleTheme() {
 (function () {
     if (localStorage.getItem('theme') === 'theme-dark') {
         setTheme('theme-dark')
-        document.getElementById('slider').checked = false
+        console.log('1')
+        // document.getElementById('slider').checked = false
     } else {
         setTheme('theme-blue')
-        document.getElementById('slider').checked = true
+        // document.getElementById('slider').checked = true
+        console.log('2')
+        // console.log(localStorage.getItem('theme'))
     }
 })()
 
-/* ======== END -   ================================================================================================= */
+/* ======== END - Load and switch theme ============================================================================= */

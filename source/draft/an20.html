@@ -126,11 +126,11 @@
 
 <div class="container">
     <h1>Theme Switcher</h1>
-    <label id="switch" class="switch">
-        <input type="checkbox" onchange="toggleTheme()" id="slider">
-        <span class="slider round"></span>
-    </label>
-<!--    <button id="switch" onclick="toggleTheme()">Switch</button>-->
+<!--    <label id="switch" class="switch">-->
+<!--        <input type="checkbox" onchange="toggleTheme()" id="slider">-->
+<!--        <span class="slider round"></span>-->
+<!--    </label>-->
+    <button id="switch" onclick="toggleTheme()">Switch</button>
 </div>
 
 
@@ -148,8 +148,11 @@
     function toggleTheme() {
         if (localStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-light');
+            console.log('light')
         } else {
             setTheme('theme-dark');
+            console.log('dark')
+
         }
     }
 
@@ -157,11 +160,11 @@
     (function () {
         if (localStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-dark');
-            document.getElementById('slider').checked = false;
+            // document.getElementById('slider').checked = false;
         } else {
             setTheme('theme-light');
-            document.getElementById('slider').checked = true;
-            console.log('test')
+            // document.getElementById('slider').checked = true;
+
         }
     })();
 

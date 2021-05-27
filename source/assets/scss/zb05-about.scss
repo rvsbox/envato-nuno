@@ -1,5 +1,4 @@
 /* ======== START - .about ===========================================================================================*/
-
 .about {
     background-color: var(--color-1);
 }
@@ -61,8 +60,40 @@
     margin: 0 0 0 30px;
 }
 
-.title-sub--position {
-    margin: 70px 0 0 0;
-}
+.timeline {
+    margin: 40px 0 0 0;
 
+    ul {
+        padding: 0;
+        list-style: none;
+
+        & li:nth-child(n+2) {
+            margin: 30px 0 0 0;
+        }
+    }
+
+    .timeline__date span {
+        display: block;
+        margin: 0;
+    }
+
+    .timeline__date small {
+        display: block;
+        margin: 0;
+    }
+
+    .timeline__content {
+        margin: 16px 0 0 0;
+    }
+
+    .timeline__content h3 {
+        display: block;
+        margin: 0;
+    }
+
+    .timeline__content p {
+        display: block;
+        margin: 0;
+    }
+}
 /* ======== END - .about =============================================================================================*/

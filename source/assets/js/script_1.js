@@ -5,9 +5,9 @@ window.onload = () => {
 
     function GetSizeBlocks() {
 
-        // .header__sub, #headerSub - wrapHeaderBase
-        this.headerW = document.getElementById('headerSub').offsetWidth
-        this.headerH = document.getElementById('headerSub').offsetHeight
+        // .header__sub, #headerWrap - wrapHeaderBase
+        this.headerW = document.getElementById('headerWrap').offsetWidth
+        this.headerH = document.getElementById('headerWrap').offsetHeight
 
         // .human-img, #humImg - humanImage
         this.huW = document.getElementById('humImg').offsetWidth

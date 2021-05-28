@@ -1,133 +1,169 @@
-/* ======== START - base ============================================================================================ */
+/* ======== START - Base ============================================================================================ */
 
-/* ======== START - headings ======================================================================================== */
-.heading-xxl {
+/* ======== START - Headings  ======================================================================================= */
+.fnt-heading-xxl {
     font-family: "Poppins Bold", serif;
     font-size: 2.875em; // 46px - 2.875em
-    color: var(--heading-xxl);
+    color: var(--fnt-heading-xxl);
     text-transform: uppercase;
 }
 
-.heading-1 h1 {
+.fnt-heading-1 h1 {
     font-size: 38px;
     font-family: "Poppins Bold", serif;
-    color: var(--heading-1);
+    color: var(--fnt-heading-1);
     text-transform: uppercase
 }
 
-.heading-2 h2 {
+.fnt-heading-2 h2 {
     font-size: 24px;
     font-family: "Poppins Bold", serif;
-    color: var(--heading-2);
+    color: var(--fnt-heading-2);
 }
 
-.heading-3 h3 {
+.fnt-heading-3 h3 {
     font-size: 18px;
     font-family: "Poppins SemiBold", serif;
-    color: var(--heading-3);
+    color: var(--fnt-heading-3);
 }
 
-.heading-4 h4 {
+.fnt-heading-4 h4 {
     font-size: 14px;
     font-family: "Poppins Medium", serif;
-    color: var(--heading-4);
+    color: var(--fnt-heading-4);
 }
-/* ======== END - headings ========================================================================================== */
+/* ======== END - Headings ========================================================================================== */
 
 
 
-/* ======== START - text ============================================================================================ */
-.text p {
+/* ======== START - Text ============================================================================================ */
+.fnt p {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
-    color: var(--txt);
+    color: var(--fnt);
 }
 
-.text ul li {
+.fnt ul li {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
-    color: var(--txt);
+    color: var(--fnt);
 }
 
-.text-2 p {
+.fnt-2 p {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
-    color: var(--txt-2);
+    color: var(--fnt-2);
 }
 
-.text-heading p {
+.fnt-3 p {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
     line-height: 24px;
-    color: var(--txt-hdg);
+    color: var(--fnt-3);
 }
 
-.text-light p {
+.fnt-light p {
     font-family: "Poppins Light", serif;
     font-size: 14px;
-    color:  var(--txt-light);
+    color:  var(--fnt-light);
 }
 
-.text-small small {
+.fnt-small small {
     font-family: "Poppins Regular", serif;
     font-size: 12px;
-    color:  var(--txt-small);
+    color:  var(--fnt-small);
 }
 
-.text-semibold span {
+.fnt-semibold span {
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
-    color: var(--txt-semibold);
+    color: var(--fnt-semibold);
 }
 
-.text-semibold ul li span {
+.fnt-semibold ul li span {
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
     line-height: 24px;
-    color: var(--txt-semibold);
+    color: var(--fnt-semibold);
 }
-/* ======== END - text ============================================================================================== */
+/* ======== START - Text ============================================================================================ */
 
 
 
-/* ======== START - links, nav, buttons ============================================================================= */
-// .lnk-foncon - .link-font-contact
-.lnk-fontcon ul li a {
+/* ======== START - Links, nav ====================================================================================== */
+.fnt-link ul li a {
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
     transition: color 0.3s linear;
-    color: var(--lnk);
+    color: var(--fnt-link);
 
     &:hover {
-        color: var(--lnk-hover);
+        color: var(--fnt-link-hover);
     }
 }
 
-// .nav-fon - .nav-font
-.nav-font ul li a {
+.fnt-nav ul li a {
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
     transition: color 0.3s linear;
-    color: var(--nav);
+    color: var(--fnt-nav);
 
     &:hover {
-        color: var(--nav-hover);
+        color: var(--fnt-nav-hover);
         text-decoration: none;
     }
 }
 
-// .nav-fontrig - nav-font-right
-.nav-fontrig ul li a {
+.fnt-nav-right ul li a {
     font-family: "Poppins Medium", serif;
     font-size: 18px;
-    color: var(--nav-right);
+    color: var(--fnt-nav-right);
 
     &:hover {
-        color: var(--nav-right-hover);
+        color: var(--fnt-nav-right-hover);
         text-decoration: none;
+    }
+}
+/* ======== END - Links, nav ======================================================================================== */
+
+
+
+/* ======== START - Elements ======================================================================================== */
+// .heading-blk - .heading-block
+.heading-blk {
+    margin: 140px 0 0 0;
+    height: 110px;
+
+    // .heading-blk__desc - .heading-block__description
+    .heading-blk__desc {
+        margin: 0 0 6px 18px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .heading-blk__name {
+        display: inline-block;
+        position: absolute;
+        z-index: 20;
+        margin: 12px 0 0 0;
+        border-radius: 10px;
+        padding: 12px 22px 2px 22px;
+        background-color: var(--heading-blk-base);
+    }
+
+    .heading-blk__border {
+        display: inline-block;
+        position: absolute;
+        z-index: 10;
+        margin: 0 0 0 12px;
+        border-radius: 10px;
+        border: solid 3px var(--heading-blk-border);
+        padding: 12px 22px 2px 22px;
     }
 }
 
@@ -164,52 +200,15 @@
         border-color: var(--color-5);
     }
 }
-/* ======== END - links, nav, buttons =============================================================================== */
+/* ======== END - Elements ========================================================================================== */
 
 
 
-/* ======== START - elements ======================================================================================== */
-// .heading-blk - .heading-block
-.heading-blk {
-    margin: 140px 0 0 0;
-    height: 110px;
-}
-
-.heading-blk__text {
-    margin: 0 0 6px 18px;
-}
-
-.heading-blk__text p {
-    margin: 0;
-}
-
-.heading-blk__base {
-    display: inline-block;
-    position: absolute;
-    z-index: 20;
-    margin: 12px 0 0 0;
-    border-radius: 10px;
-    padding: 12px 22px 2px 22px;
-    background-color: var(--heading-blk-base);
-}
-
-.heading-blk__border {
-    display: inline-block;
-    position: absolute;
-    z-index: 10;
-    margin: 0 0 0 12px;
-    border-radius: 10px;
-    border: solid 3px var(--heading-blk-border);
-    padding: 12px 22px 2px 22px;
-}
-/* ======== END - elements ========================================================================================== */
-
-
-
-/* ======== START - universal block position  ======================================================================================== */
+/* ======== START - Universal block positions  ====================================================================== */
 // .pos-heading-2 - .position-heading-2
 .pos-heading-2 {
     margin: 70px 0 0 0;
 }
-/* ======== END - universal block position ======================================================================================== */
+/* ======== END - Universal block positions ========================================================================= */
+
 /* ======== END - base ============================================================================================== */

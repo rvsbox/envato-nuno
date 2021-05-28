@@ -85,7 +85,7 @@
 
 
 // -------- START - .nav-right ---------------------------------------------------------------------------------------
-.nav-right-open {
+.open-nav {
     float: right;
     margin: 24px 14px 0 0;
     padding: 0;
@@ -101,7 +101,7 @@
 }
 
 @media (min-width: 1024px) {
-    .nav-right-open {
+    .open-nav {
         display: none;
     }
 }
@@ -141,7 +141,7 @@
     }
 }
 
-.nav-right-close {
+.close-nav {
     float: right;
     margin: 24px 48px 0 0;
     padding: 0;

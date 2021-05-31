@@ -133,14 +133,14 @@
     .circular-chart__circle {
         fill: none;
         stroke: var(--color-3);
-        stroke-width: 5;
+        stroke-width: 4.5;
 
     }
 
     .circular-chart__progress {
         fill: none;
         stroke: var(--color-4);
-        stroke-width: 5;
+        stroke-width: 4.5;
         stroke-linecap: round;
     }
 
@@ -148,6 +148,30 @@
         display: block;
         margin: 20px 0 0 0;
     }
+}
+
+.progress-chart {
+    max-width: 920px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .progress-chart__info {
+        display: flex;
+        justify-content: space-between;
+
+        //h4 {
+        //    display: block;
+        //}
+        //span {
+        //    display: block;
+        //}
+    }
+
+    .progress-chart__svg {
+
+    }
+
 }
 
 /* ======== END - .about =============================================================================================*/

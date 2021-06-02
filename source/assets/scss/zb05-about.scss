@@ -118,7 +118,7 @@
     align-items: center;
     flex-direction: column;
 
-    .circular-chart__svg {
+    svg {
         width: 110px;
         height: 110px;
 
@@ -137,7 +137,7 @@
 
     }
 
-    .circular-chart__progress {
+    .circular-chart__result {
         fill: none;
         stroke: var(--color-4);
         stroke-width: 4.5;
@@ -151,27 +151,41 @@
 }
 
 .progress-chart {
-    max-width: 920px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    max-width: 950px;
+
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
 
     .progress-chart__info {
         display: flex;
         justify-content: space-between;
-
-        //h4 {
-        //    display: block;
-        //}
-        //span {
-        //    display: block;
-        //}
     }
 
     .progress-chart__svg {
+        svg {
+            width: 100%;
+            height: 20px;
+        }
 
+        .progress-chart__line {
+            height: 14px;
+            fill: var(--color-3);
+            rx: 7; // закругление краев
+        }
+
+        .progress-chart__result {
+            height: 14px;
+            fill: var(--color-4);
+            rx: 7; // закругление краев
+        }
     }
-
 }
+
+
+
+
 
 /* ======== END - .about =============================================================================================*/

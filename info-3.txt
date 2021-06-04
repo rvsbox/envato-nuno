@@ -16,3 +16,9 @@ fnt-semibold
 fnt-link
 fnt-nav
 fnt-nav-right
+
+
+
+
+
+1. Отступы после заголовков

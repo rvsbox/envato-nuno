@@ -27,18 +27,9 @@ window.onload = () => {
         // body, bodyW - bodyWidth, bodyH - bodyHeight
         this.bodyW = document.body.offsetWidth
         this.bodyH = document.body.offsetHeight
-
-        // .title-section__bg, #titleBg - titleBackground
-        this.headingBaseW = document.getElementById('headingBase').offsetWidth
-        this.headingBaseH = document.getElementById('headingBase').offsetHeight
-
-        // .title-section__border, #headingBord - headingBorder
-        this.headingBordW = document.getElementById('headingBord').offsetWidth
-        this.headingBordH = document.getElementById('headingBord').offsetHeight
     }
 
     /* ======== END - Get block sizes =============================================================================== */
-
 
 
     /* ======== START - .human-info ================================================================================= */
@@ -125,7 +116,6 @@ window.onload = () => {
     setPositionForHumanInfo()
 
 
-
     function setPositionForHumanInfoResize() {
 
         addEventListener('resize', event => {
@@ -159,7 +149,6 @@ window.onload = () => {
     setPositionForHumanInfoResize()
 
     /* ======== END - .human-info =================================================================================== */
-
 
 
     /* ======== START - .circles ==================================================================================== */
@@ -242,7 +231,6 @@ window.onload = () => {
     setSizeForCircles()
 
     /* ======== END - .circles ====================================================================================== */
-
 
 
     /* ======== START - .human-img ================================================================================== */
@@ -342,7 +330,6 @@ window.onload = () => {
     /* ======== END - .human-img ==================================================================================== */
 
 
-
     /* ======== START - .nav-right-open, #navRightOpen ============================================================== */
 
     // Корректировка для media запросов, тк media запросы не работают из-за установки стилей в js
@@ -366,19 +353,22 @@ window.onload = () => {
     /* ======== END -  - .nav-right-open, #navRightOpen ============================================================= */
 
 
-
     /* ======== START - .heading-blk ================================================================================ */
 
     function setSizeForTitleSectionBorder() {
-        let getHeadingBlk = new GetSizeBlocks()
 
-        if ((getHeadingBlk.headingBaseW > 0) && (getHeadingBlk.headingBaseH > 0)){
+        let j = document.getElementsByClassName('heading-blk__name').length
 
-            document.getElementById('headingBord').style.width = getHeadingBlk.headingBaseW + 'px'
-            document.getElementById('headingBord').style.height = getHeadingBlk.headingBaseH + 'px'
+         for (let i = 0; i <= (j - 1); i++) {
 
-            // test
-            // console.log('hi')
+            let headingBaseW = document.getElementsByClassName('heading-blk__name')[i].offsetWidth
+            let headingBaseH = document.getElementsByClassName('heading-blk__name')[i].offsetHeight
+
+            if ((headingBaseW > 0) && (headingBaseH > 0)) {
+
+                document.getElementsByClassName('heading-blk__border')[i].style.width = headingBaseW + 'px'
+                document.getElementsByClassName('heading-blk__border')[i].style.height = headingBaseH + 'px'
+            }
         }
     }
 

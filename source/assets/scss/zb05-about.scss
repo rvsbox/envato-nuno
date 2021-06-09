@@ -213,20 +213,20 @@
 .certificate-all {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 30px auto 0 auto;
 
     .certificate {
-        max-width: 540px;
-        width: 100%;
+        width: 540px;
         height: 118px;
         display: flex;
         flex-direction: row;
         border: solid 2px var(--color-3);
         border-radius: 10px;
 
-        &:last-child {
-            margin-left: 30px;
-        }
+        //&:last-child {
+        //    margin-left: 30px;
+        //}
 
         .certificate__icon {
             width: 118px;
@@ -253,6 +253,37 @@
                 display: block;
                 margin: 10px 0 0 0;
             }
+        }
+    }
+}
+
+
+
+.fact-all{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px auto 0 auto;
+
+    .fact {
+        width: 255px;
+        height: 184px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: solid 2px var(--color-3);
+        border-radius: 8px;
+
+        .fact__icon {
+            margin-top: 18px;
+        }
+
+        h3 {
+            margin-top: 18px;
+        }
+
+        span {
+            margin-top: 18px;
         }
     }
 }

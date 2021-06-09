@@ -124,12 +124,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto 0 auto;
 
     .circular-chart {
         display: flex;
-        margin: 32px 0 0 0;
         align-items: center;
         flex-direction: column;
 
@@ -172,8 +170,7 @@
     max-width: 950px;
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto 0 auto;
 
     .progress-chart {
         width: 100%;
@@ -182,7 +179,7 @@
         margin-top: 18px;
 
         &:first-child {
-            margin-top: 30px;
+            margin-top: 0;
         }
 
         .progress-chart__info {
@@ -216,19 +213,46 @@
 .certificate-all {
     display: flex;
     flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-
-    .certificate__icon {
-        //background-color: black;
-    }
+    margin: 30px auto 0 auto;
 
     .certificate {
         max-width: 540px;
         width: 100%;
+        height: 118px;
+        display: flex;
+        flex-direction: row;
+        border: solid 2px var(--color-3);
+        border-radius: 10px;
 
         &:last-child {
             margin-left: 30px;
+        }
+
+        .certificate__icon {
+            width: 118px;
+            min-height: 118px;
+            background-color: var(--color-3);
+            border-radius: 8px 0 0 8px;
+            margin-left: -1px;
+            margin-top: -1px;
+
+            img {
+                display: block;
+                margin: 24px auto 0 auto;
+            }
+        }
+
+        .certificate__info {
+            padding: 18px 0 0 30px;
+
+            p {
+                margin: 6px 0 0 0;
+            }
+
+            small {
+                display: block;
+                margin: 10px 0 0 0;
+            }
         }
     }
 }

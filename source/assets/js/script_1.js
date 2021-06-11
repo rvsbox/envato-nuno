@@ -357,9 +357,9 @@ window.onload = () => {
 
     function setSizeForTitleSectionBorder() {
 
-        let j = document.getElementsByClassName('heading-blk__name').length
+        let k = document.getElementsByClassName('heading-blk__name').length
 
-         for (let i = 0; i <= (j - 1); i++) {
+         for (let i = 0; i <= (k - 1); i++) {
 
             let headingBaseW = document.getElementsByClassName('heading-blk__name')[i].offsetWidth
             let headingBaseH = document.getElementsByClassName('heading-blk__name')[i].offsetHeight

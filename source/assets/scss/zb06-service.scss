@@ -1,0 +1,68 @@
+/* ======== START - .service =========================================================================================*/
+
+.service {
+    background-color: var(--color-1);
+}
+
+
+.type-service-all {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px auto 0 auto;
+    
+    .type-service {
+        width: 350px;
+        height: 220px;
+        
+        display: block;
+        border: solid 2px var(--color-3);
+        border-radius: 10px;
+        padding: 24px 30px 0 30px;
+        
+        h3 {
+            display: block;
+            position: relative;
+            padding-left: 36px;
+    
+            &:before {
+                display: inline-block;
+                position: absolute;
+                content: ' ';
+                background-image: url('../images/icon-design.svg');
+                background-size: 24px 24px;
+                height: 24px;
+                width: 24px;
+                left: 0;
+            }
+        }
+    
+        p {
+            margin-top: 20px;
+        }
+    
+        a {
+            display: block;
+            position: relative;
+            margin-top: 12px;
+            text-decoration: none;
+            border-bottom: 2px solid var(--fnt-link-2);;
+            width: 86px;
+            
+            &:after {
+                display: inline-block;
+                position: absolute;
+                content: ' ';
+                background-image: url('../images/icon-arrow.svg');
+                background-size: 14px 14px;
+                height: 14px;
+                width: 14px;
+                top: 3px;
+                left: 75px;
+            }
+        }
+    }
+}
+
+
+/* ======== END - .service ===========================================================================================*/

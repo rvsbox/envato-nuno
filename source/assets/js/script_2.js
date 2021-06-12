@@ -71,3 +71,30 @@ startLayers(1400).then(layer_3)
 // setTimeout(layer_3, 1200)
 
 /* ======== END - .circles, #cir ==================================================================================== */
+
+
+
+/* ======== START - .type-service__order ============================================================================ */
+
+// let elements = getComputedStyle(document.querySelector('.type-service__order'), ':after')
+//
+// document.querySelectorAll('.type-service__order').forEach(item => {
+//     item.addEventListener('mouseover', event => {
+//
+//         anime({
+//             targets: '.type-service__order:after',
+//             left: '100px',
+//             backgroundColor: '#212529',
+//             color: '#212529'
+//             // backgroundColor: '#FFF',
+//             // borderRadius: ['0%', '50%'],
+//             // easing: 'easeInOutQuad'
+//         });
+//
+//         // test
+//         console.log(elements)
+//     })
+// })
+
+
+/* ======== END - .type-service__order ============================================================================== */

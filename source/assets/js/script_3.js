@@ -26,7 +26,7 @@ function toggleTheme() {
     } else {
         setTheme('theme-blue')
         // document.getElementById('slider').checked = true
-        console.log('2')
+        // console.log('2')
         // console.log(localStorage.getItem('theme'))
     }
 })()

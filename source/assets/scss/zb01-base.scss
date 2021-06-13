@@ -110,7 +110,13 @@
 .fnt-medium span {
     font-size: 14px;
     font-family: "Poppins Medium", serif;
-    color: var(--fnt-heading-4);
+    color: var(--fnt-medium);
+}
+
+.fnt-extrabold {
+    font-size: 48px;
+    font-family: "Poppins ExtraBold", serif;
+    color: var(--fnt-extrabold);
 }
 /* ======== START - Text ============================================================================================ */
 

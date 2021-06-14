@@ -166,16 +166,15 @@
 
 .progress-chart-all {
     max-width: 950px;
-    
     display: flex;
     flex-direction: column;
-    margin: 30px auto 0 auto;
+    margin: 0 auto;
     
     .progress-chart {
         width: 100%;
         display: block;
         position: relative;
-        margin-top: 18px;
+        margin-top: 30px;
         
         &:first-child {
             margin-top: 0;
@@ -212,14 +211,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 30px auto 0 auto;
+    margin: 0 auto;
     
     .certificate {
         width: 540px;
         height: 118px;
+        min-width: 540px;
+        min-height: 118px;
         
         display: flex;
         flex-direction: row;
+        margin-top: 30px;
         border: solid 2px var(--color-3);
         border-radius: 10px;
         
@@ -257,15 +259,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 30px auto 0 auto;
+    margin: 0 auto;
     
     .fact {
         width: 255px;
         height: 184px;
+        min-width: 255px;
+        min-height: 184px;
         
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 30px;
         border: solid 2px var(--color-3);
         border-radius: 10px;
         padding: 18px 16px 0 16px;

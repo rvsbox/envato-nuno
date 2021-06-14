@@ -11,24 +11,24 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 0 auto;
-    
+
     .type-service {
         width: 350px;
         height: 220px;
         min-width: 350px;
         min-height: 220px;
-        
+
         display: block;
         margin-top: 30px;
         border: solid 2px var(--color-3);
         border-radius: 10px;
         padding: 24px 30px 0 30px;
-        
+
         h3 {
             display: block;
             position: relative;
             padding-left: 36px;
-            
+
             &:before {
                 display: inline-block;
                 position: absolute;
@@ -40,45 +40,59 @@
                 left: 0;
             }
         }
-        
+
         p {
             margin-top: 20px;
         }
-        
-        a {
+    }
+}
+
+
+.pricing-all {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    .pricing {
+        width: 350px;
+        height: 600px;
+        min-width: 350px;
+        min-height: 600px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        margin-top: 30px;
+        border: solid 2px var(--color-3);
+        border-radius: 10px;
+        padding: 40px 30px 0 30px;
+
+        h2 {
             display: block;
-            position: relative;
-            text-decoration: none;
-            
-            svg {
-                width: 12px;
-                height: 12px;
-                fill: var(--fnt-link-2);
-                margin-top: -1px;
-                
-                // test
-                //border: 1px solid black;
-            }
+        }
 
-            &:hover {
-                svg {
-                    animation-name: example;
-                    animation-duration: 1s;
-                    animation-iteration-count: infinite;
-                    animation-direction: alternate;
-                    animation-timing-function: ease-in-out;
-                    fill: var(--fnt-link-hover-2);
-                }
-            }
+        small {
+            display: inline-block;
+        }
 
-            @keyframes example {
-                from {
-                    transform: translateX(0);
-                }
-                to {
-                    transform: translateX(6px);
-                }
-            }
+        .pricing__price {
+            //display: inline-block;
+        }
+
+        .pricing__icon {
+            //display: inline-block;
+        }
+
+        ul {
+            width: 100%;
+            list-style: none;
+        }
+
+        a {
+            width: 100%;
         }
     }
 }

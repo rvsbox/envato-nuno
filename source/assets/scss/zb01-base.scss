@@ -1,6 +1,6 @@
 /* ======== START - Base ============================================================================================ */
 
-/* ======== START - Headings  ======================================================================================= */
+/* ======== START - Fonts: Headings  ================================================================================ */
 .fnt-heading-xxl {
     font-family: "Poppins Bold", serif;
     font-size: 2.875em; // 46px - 2.875em
@@ -37,11 +37,11 @@
     color: var(--fnt-heading-4);
     margin: 0;
 }
-/* ======== END - Headings ========================================================================================== */
+
+/* ======== END - Fonts: Headings =================================================================================== */
 
 
-
-/* ======== START - Text ============================================================================================ */
+/* ======== START - Fonts: Text ===================================================================================== */
 .fnt p {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
@@ -73,13 +73,13 @@
 .fnt-light p {
     font-family: "Poppins Light", serif;
     font-size: 14px;
-    color:  var(--fnt-light);
+    color: var(--fnt-light);
 }
 
 .fnt-small small {
     font-family: "Poppins Regular", serif;
     font-size: 12px;
-    color:  var(--fnt-small);
+    color: var(--fnt-small);
 }
 
 .fnt-semibold span {
@@ -118,11 +118,11 @@
     font-family: "Poppins ExtraBold", serif;
     color: var(--fnt-extrabold);
 }
-/* ======== START - Text ============================================================================================ */
+
+/* ======== START - Fonts: Text ===================================================================================== */
 
 
-
-/* ======== START - Links, nav ====================================================================================== */
+/* ======== START - Fonts: links, nav =============================================================================== */
 .fnt-link ul li a {
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
@@ -167,8 +167,8 @@
         text-decoration: none;
     }
 }
-/* ======== END - Links, nav ======================================================================================== */
 
+/* ======== END - Fonts: links, nav ================================================================================= */
 
 
 /* ======== START - Elements ======================================================================================== */
@@ -207,6 +207,8 @@
     }
 }
 
+
+// .btn-full - .button-full
 .btn-full {
     padding: 8px 20px;
 
@@ -224,6 +226,8 @@
     }
 }
 
+
+// .btn-light - .button-light
 .btn-light {
     padding: 8px 20px;
 
@@ -240,8 +244,42 @@
         border-color: var(--color-5);
     }
 }
-/* ======== END - Elements ========================================================================================== */
 
+
+.order-now {
+    display: block;
+    position: relative;
+    text-decoration: none;
+
+    svg {
+        width: 12px;
+        height: 12px;
+        fill: var(--fnt-link-2);
+        margin-top: -1px;
+    }
+
+    &:hover {
+        svg {
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            fill: var(--fnt-link-hover-2);
+        }
+    }
+
+    @keyframes example {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(6px);
+        }
+    }
+}
+
+/* ======== END - Elements ========================================================================================== */
 
 
 /* ======== START - Universal block positions  ====================================================================== */
@@ -250,6 +288,7 @@
     width: 100%;
     margin: 90px 0 0 0;
 }
+
 /* ======== END - Universal block positions ========================================================================= */
 
 /* ======== END - base ============================================================================================== */

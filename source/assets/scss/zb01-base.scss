@@ -70,16 +70,34 @@
     color: var(--fnt-3);
 }
 
-.fnt-light p {
-    font-family: "Poppins Light", serif;
-    font-size: 14px;
-    color: var(--fnt-light);
+.fnt-small {
+    font-family: "Poppins Regular", serif;
+    font-size: 12px;
+    color: var(--fnt-small);
 }
 
 .fnt-small small {
     font-family: "Poppins Regular", serif;
     font-size: 12px;
     color: var(--fnt-small);
+}
+
+.fnt-small-light {
+    font-family: "Poppins Light", serif;
+    font-size: 12px;
+    color: var(--fnt-small-light);
+}
+
+.fnt-small-light small {
+    font-family: "Poppins Light", serif;
+    font-size: 12px;
+    color: var(--fnt-small-light);
+}
+
+.fnt-light p {
+    font-family: "Poppins Light", serif;
+    font-size: 14px;
+    color: var(--fnt-light);
 }
 
 .fnt-semibold span {
@@ -111,6 +129,12 @@
     font-size: 14px;
     font-family: "Poppins Medium", serif;
     color: var(--fnt-medium);
+}
+
+.fnt-medium-2 span {
+    font-size: 14px;
+    font-family: "Poppins Medium", serif;
+    color: var(--fnt-medium-2);
 }
 
 .fnt-extrabold {
@@ -283,8 +307,8 @@
 
 
 /* ======== START - Universal block positions  ====================================================================== */
-// .pos-hdg - .position-heading
-.pos-hdg {
+// .pos-heading-2 - .position-heading-2
+.pos-heading-2 {
     width: 100%;
     margin: 90px 0 0 0;
 }

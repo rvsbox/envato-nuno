@@ -19,6 +19,8 @@ function toggleTheme() {
 
 // установка темы при начальной загрузке. По умолчанию будет загружена theme-blue
 (function () {
+    localStorage.clear() // очистить localStorage
+
     if (localStorage.getItem('theme') === 'theme-dark') {
         setTheme('theme-dark')
         console.log('1')
@@ -35,5 +37,6 @@ function toggleTheme() {
 // function getInfo() {
 //     console.log(localStorage.getItem('theme'))
 // }
+// getInfo()
 
 /* ======== END - Load and switch theme ============================================================================= */

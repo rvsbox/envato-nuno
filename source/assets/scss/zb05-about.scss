@@ -54,7 +54,7 @@
 }
 
 
-.btn-about {
+.btn-about-all {
     display: flex;
     margin: 50px 0 0 0;
     
@@ -174,10 +174,15 @@
         width: 100%;
         display: block;
         position: relative;
-        margin-top: 30px;
-        
+
+        // первый элемент
         &:first-child {
-            margin-top: 0;
+            margin-top: 30px;
+        }
+
+        // начиная со второго элемента
+        &:nth-child(n+2) {
+            margin-top: 20px;
         }
         
         .progress-chart__info {

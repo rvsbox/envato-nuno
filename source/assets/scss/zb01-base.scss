@@ -147,28 +147,6 @@
 
 
 /* ======== START - Fonts: links, nav =============================================================================== */
-.fnt-link ul li a {
-    font-family: "Poppins SemiBold", serif;
-    font-size: 14px;
-    transition: color 0.3s linear;
-    color: var(--fnt-link);
-
-    &:hover {
-        color: var(--fnt-link-hover);
-    }
-}
-
-.fnt-link-2 a {
-    font-family: "Poppins Bold", serif;
-    font-size: 14px;
-    transition: color 0.3s linear;
-    color: var(--fnt-link-2);
-
-    &:hover {
-        color: var(--fnt-link-hover-2);
-    }
-}
-
 .fnt-nav ul li a {
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
@@ -254,13 +232,11 @@
 // .btn-light - .button-light
 .btn-light {
     padding: 8px 20px;
-
     border: var(--color-4) solid 2px;
     border-radius: 10px;
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
     color: var(--color-4);
-
     transition: color 0.3s linear, border-color 0.3s linear;
 
     &:hover {
@@ -269,27 +245,36 @@
     }
 }
 
-
-.order-now {
+// .ln-order-now - .link-order-now
+.ln-order {
     display: block;
     position: relative;
     text-decoration: none;
 
+    font-family: "Poppins Bold", serif;
+    font-size: 14px;
+    transition: color 0.3s linear;
+    color: var(--ln-order);
+
+    &:hover {
+        color: var(--ln-order-hover);
+    }
+
     svg {
         width: 12px;
         height: 12px;
-        fill: var(--fnt-link-2);
-        margin-top: -1px;
+        fill: var(--ln-order);
+        margin-top: -2px;
     }
 
     &:hover {
         svg {
             animation-name: example;
-            animation-duration: 1s;
+            animation-duration: 0.7s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
             animation-timing-function: ease-in-out;
-            fill: var(--fnt-link-hover-2);
+            fill: var(--ln-order-hover);
         }
     }
 

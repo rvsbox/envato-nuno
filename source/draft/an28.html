@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <style>
-        body {
-            font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-            margin: 2em;
-        }
 
         img {
             max-width: 100%;
@@ -25,20 +21,51 @@
 </head>
 
 <body>
-<!-- https://webformyself.com/kak-ispolzovat-maski-v-css/ -->
 
 <div class="container">
-    <svg viewBox="0 0 400 300">
+    <svg viewBox="0 0 350 240">
         <defs>
             <mask id="mask">
-                <rect fill="#59A5D8" x="0" y="0" width="400" height="300"></rect>
-                <circle fill="#FFFFFF" cx="150" cy="150" r="100"/>
-                <!--                <circle fill="#FFFFFF" cx="50" cy="50" r="150" />-->
+                <!-- чем светлее цвет у <rect> тем прозрачнее невидимая часть маски. Желательно выбирать цвет в диапазоне от белого к черному -->
+                <rect fill="#BABBBB" x="0" y="0" width="350" height="240"></rect>
+                <!-- видимая часть маски-->
+                <circle fill="#FFFFFF" cx="175" cy="120" r="75"/>
             </mask>
         </defs>
-        <image mask="url(#mask)" xmlns:xlink="http://www.w3.org/1999/xlink"
-               xlink:href="https://cdn.glitch.com/04eadd2b-7dd4-43fc-af3d-cff948811986%2Fballoons.jpg?v=1597755892826"
-               width="400" height="300"></image>
+        <rect fill="#41A3D0" x="0" y="0" width="350" height="240"></rect>
+        <image mask="url(#mask)" class="art__img" xmlns:xlink="http://www.w3.org/1999/xlink"
+               xlink:href="../assets/images/00101.png"></image>
+    </svg>
+</div>
+
+<div class="container">
+    <svg viewBox="0 0 350 240">
+        <defs>
+            <mask id="mask2">
+                <!-- чем светлее цвет у <rect> тем прозрачнее невидимая часть маски. Желательно выбирать цвет в диапазоне от белого к черному -->
+                <rect fill="#474747" x="0" y="0" width="350" height="240"></rect>
+                <!-- видимая часть маски-->
+                <circle fill="#FFFFFF" cx="175" cy="120" r="75"/>
+            </mask>
+        </defs>
+        <rect fill="#41A3D0" x="0" y="0" width="350" height="240"></rect>
+        <image mask="url(#mask2)" class="art__img" xmlns:xlink="http://www.w3.org/1999/xlink"
+               xlink:href="../assets/images/00101.png"></image>
+    </svg>
+</div>
+
+<div class="container">
+    <svg viewBox="0 0 350 240">
+        <defs>
+            <mask id="mask2">
+                <rect fill="#474747" x="0" y="0" width="350" height="240"></rect>
+                <circle fill="#FFFFFF" cx="175" cy="120" r="75"/>
+            </mask>
+        </defs>
+        <!-- можем регулировать прозрачность в этом теге -->
+        <rect fill="#41A3D0" x="0" y="0" width="350" height="240" fill-opacity="0.5"></rect>
+        <image mask="url(#mask2)" class="art__img" xmlns:xlink="http://www.w3.org/1999/xlink"
+               xlink:href="../assets/images/00101.png"></image>
     </svg>
 </div>
 

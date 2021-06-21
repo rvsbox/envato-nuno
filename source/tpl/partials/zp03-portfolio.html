@@ -27,14 +27,9 @@
                 <div class="art-all">
                     <div class="art">
                         <a href="#">
-                            <svg viewBox="0 0 350 240">
-                                <defs>
-                                    <mask id="mask" >
-                                        <rect fill="#133C55" x="0" y="0" width="350" height="240"></rect>
-                                        <circle fill="#FFFFFF" cx="175" cy="120" r="75"/>
-                                    </mask>
-                                </defs>
-                                <image mask="url(#mask)" class="art__img"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/00101.png"></image>
+                            <svg viewBox="0 0 350 240" xmlns="http://www.w3.org/2000/svg">
+                                <rect class="art__rect" x="0" y="0" width="350" height="240" rx="10"/>
+                                <image mask="url(#mask-art)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/00101.png"/>
                             </svg>
                         </a>
                     </div>
@@ -62,6 +57,14 @@
 <!--                    <div class="art">-->
 <!--                        <a href="#"><img src="assets/images/00109.png"></a>-->
 <!--                    </div>-->
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <mask id="mask-art" >
+                                <rect fill="#BABBBB" x="0" y="0" width="350" height="240" rx="10"></rect>
+                                <circle fill="#FFFFFF" cx="175" cy="120" r="75" />
+                            </mask>
+                        </defs>
+                    </svg>
                 </div>
             </div>
         </div>

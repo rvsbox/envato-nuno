@@ -5,7 +5,7 @@ window.onload = () => {
 
     function GetSizeBlocks() {
 
-        // .header__sub, #headerWrap - wrapHeaderBase
+        // .header__sub, #headerWrap
         this.headerW = document.getElementById('headerWrap').offsetWidth
         this.headerH = document.getElementById('headerWrap').offsetHeight
 
@@ -242,7 +242,7 @@ window.onload = () => {
     // 1060px  - height блока .wrap-headbas
 
 
-    // headerW - текущая ширина .wrap-headbas
+    // headerW - текущая ширина .header__wrap, #headerWrap
     function resizeHumImgWidth(headerW) {
         let changeW = Math.round((620 * headerW) / 1060)
         let changeH = Math.round((changeW * 900) / 620)
@@ -252,7 +252,7 @@ window.onload = () => {
     }
 
 
-    // headerH - текущая высота .wrap-headbas
+    // headerH - текущая высота .header__wrap, #headerWrap
     function resizeHumImgHeight(headerH) {
         let changeH = Math.round((900 * headerH) / 1060)
         let changeW = Math.round((changeH * 620) / 900)

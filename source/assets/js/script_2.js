@@ -103,36 +103,53 @@ startLayers(1600).then(layer_3)
 // r="75"
 
 
-function lala() {
+
+
+function mouseOver() {
+    startLayers(0).then(layer_1b)
+    startLayers(800).then(layer_2b)
+}
+
+function mouseOut() {
+    anime.remove('#mask-circle')
+    layer_3b()
 
     // test
-    // console.log('test')
+    console.log('test')
+}
 
-    let layer_1b = () => {
-        anime({
-            targets: '#mask-circle',
-            r: 75,
-            duration: 2000,
-            // direction: 'alternate',
-            // loop: true,
-            easing: 'easeInOutSine'
-        })
-    }
 
-    let layer_2b = () => {
-        anime({
-            targets: '#mask-circle',
-            r: 110,
-            duration: 1000,
-            direction: 'alternate',
-            loop: true,
-            easing: 'easeInOutSine'
-        })
-    }
 
-    startLayers(0).then(layer_1b)
-    startLayers(2000).then(layer_2b)
 
+
+let layer_1b = () => {
+    anime({
+        targets: '#mask-circle',
+        r: 75,
+        duration: 800,
+        easing: 'easeInOutSine'
+    })
+}
+
+let layer_2b = () => {
+    anime({
+        targets: '#mask-circle',
+        r: 100,
+        duration: 1200,
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+    })
+}
+
+
+let layer_3b = () => {
+    anime({
+        targets: '#mask-circle',
+        r: 220
+        // duration: 1000,
+        // easing: 'easeInOutSine'
+    })
 }
 
 
@@ -160,9 +177,6 @@ function lala() {
 //
 // startLayers(0).then(layer_1b)
 // startLayers(2000).then(layer_2b)
-
-
-
 
 
 

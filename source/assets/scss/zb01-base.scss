@@ -38,6 +38,12 @@
     margin: 0;
 }
 
+.fnt-heading-4b h4 {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    color: var(--fnt-heading-4b);
+    margin: 0;
+}
 /* ======== END - Fonts: Headings =================================================================================== */
 
 
@@ -269,7 +275,7 @@
 
     &:hover {
         svg {
-            animation-name: example;
+            animation-name: lnord;
             animation-duration: 0.7s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
@@ -278,7 +284,7 @@
         }
     }
 
-    @keyframes example {
+    @keyframes lnord {
         from {
             transform: translateX(0);
         }

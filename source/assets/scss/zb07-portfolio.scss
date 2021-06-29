@@ -6,7 +6,7 @@
 
 .art-filter {
     display: block;
-    margin: 90px 0 0 0;
+    margin: 100px 0 0 0;
 
     ul {
         display: flex;
@@ -59,7 +59,6 @@
         .art__title {
             display: block;
             position: absolute;
-            //z-index: 20;
             margin: -38px 0 0 24px;
             opacity: 0;
         }
@@ -75,6 +74,10 @@
             to {opacity: 1;}
         }
     }
+}
+
+.art-button {
+    margin: 40px 0 0 0;
 }
 
 /* ======== END - .portfolio =========================================================================================*/

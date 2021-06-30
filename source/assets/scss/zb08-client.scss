@@ -23,7 +23,6 @@
         margin-left: 30px;
     }
 
-
     .person__photo {
         width: 140px;
         height: 140px;
@@ -32,6 +31,7 @@
         border-radius: 10px;
         z-index: 20;
         background-color: var(--color-3);
+        //background-color: black;
 
         img {
             width: 100.5%;
@@ -41,6 +41,7 @@
             object-position: 0 0;
             border-radius: 8px;
             border: solid 2px var(--color-3);
+            //border: solid 2px black;
         }
     }
 

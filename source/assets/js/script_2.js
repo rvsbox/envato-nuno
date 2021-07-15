@@ -15,7 +15,6 @@ function closeNavRight() {
 
 
 /* ======== START - .circles, #cir ================================================================================== */
-
 // #cirLgWht  - circleLargeWhite
 // #cirLgBk   - circleLargeBlack
 // #cirMedWht - circleMediumWhite
@@ -98,31 +97,8 @@ document.querySelectorAll('.type-service__order').forEach(item => {
 /* ======== END - .type-service__order ============================================================================== */
 
 
-/* ======== START - .art ============================================================================================ */
+/* ======== START - .post =========================================================================================== */
 
-// function mouseOver() {
-//     layer_1b()
-// }
-//
-// function mouseOut() {
-//     anime.remove('#mask-circle')
-//     layer_3b()
-// }
-//
-// let layer_1b = () => {
-//     anime({
-//         targets: '#mask-circle',
-//         r: 75,
-//         duration: 300,
-//         easing: 'easeInOutSine'
-//     })
-// }
-//
-// let layer_3b = () => {
-//     anime({
-//         targets: '#mask-circle',
-//         r: 220,
-//     })
-// }
 
-/* ======== END - art =============================================================================================== */
+
+/* ======== END - .post ============================================================================================= */

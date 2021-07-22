@@ -14,13 +14,10 @@
 
 .post {
     width: 350px;
-    height: 544px;
     min-width: 350px;
-    min-height: 544px;
     display: block;
 
     .post__link-img {
-        width: 350px;
         height: 360px;
         display: block;
         overflow: hidden;
@@ -42,28 +39,41 @@
     .post__info {
         height: 185px;
         display: block;
-        padding: 20px 30px 25px 30px;
+        padding: 0 30px 0 30px;
         border-radius: 0 0 10px 10px;
         border: 2px solid var(--color-3);
         overflow: hidden;
 
-        a {
+        small {
             display: block;
-            margin-top: 12px;
-
-            &:hover {
-                text-decoration: none;
-            }
-
-
+            margin: 18px 0 0 0;
         }
 
-        //a:hover + .post__img {
-        //    transform: scale(1.2);
-        //}
+        a {
+            display: block;
+            margin: 12px 0 0 0;
+            text-decoration: none;
+
+
+            h3 {
+                display: block;
+                margin: 0;
+                transition: color 0.3s linear;
+                color: var(--color-5);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                text-decoration: none;
+
+                &:hover {
+                    color: var(--color-6);
+                }
+            }
+        }
 
         p {
-            margin-top: 12px;
+            display: block;
+            margin: 12px 0 0 0;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;

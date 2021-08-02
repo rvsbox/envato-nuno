@@ -52,7 +52,7 @@ function myServer() {
         notify: false,
         online: true,
         port: 3000,
-        browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome'
+        // browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome'
     })
 }
 

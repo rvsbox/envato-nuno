@@ -4,7 +4,7 @@
     background-color: var(--color-1);
 }
 
-.contact-form form {
+.message form {
     margin: 30px 0 0 0;
     display: grid;
     grid-gap: 20px;
@@ -41,7 +41,7 @@
         width: 100%;
         border: solid 2px var(--color-3);
         border-radius: 10px;
-        padding: 16px 10px 0 16px;
+        padding: 12px 16px 0 16px;
         color: var(--color-5);
 
         &:focus {
@@ -73,7 +73,68 @@
     div:nth-child(5) {
         grid-area: submit;
     }
-
 }
+
+.contact-text {
+    margin: 30px 0 0 0;
+}
+
+
+.contact-list {
+    margin: 30px 0 0 0;
+    display: block;
+
+    .contact-item {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin: 18px 0 0 0;
+        height: 50px;
+
+        .contact-item__icon {
+            display: flex;
+            flex-direction: row;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                font-size: 38px;
+                color: var(--color-4);
+            }
+        }
+
+        .contact-item__info {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            padding: 0 0 0 26px;
+            overflow: hidden;
+            align-items: center;
+
+            h3 {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                flex-basis: 100%;
+            }
+
+            p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                margin: 2px 0 0 0;
+                flex-basis: 100%;
+            }
+        }
+    }
+}
+
+
+
+
+
 
 /* ======== END - .contact ===========================================================================================*/

@@ -136,7 +136,7 @@
             }
         }
 
-        .footer-top__social-buttons {
+        .footer-top__social {
             display: inline-block;
             float: right;
             margin: 0 14px 0 0;
@@ -162,7 +162,7 @@
         }
 
         @media (max-width: 840px) {
-            .footer-top__social-buttons {
+            .footer-top__social {
                 display: none;
             }
         }

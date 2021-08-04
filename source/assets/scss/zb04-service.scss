@@ -90,34 +90,42 @@
 
             span {
                 display: block;
-                margin-top: 3px;
+                margin: 3px 0 0 0;
             }
         }
 
-        h2 {
-            display: block;
-        }
-
-        .fnt-small {
-            margin-top: 14px;
+        .pricing__description {
+            display: inline-block;
             text-align: center;
+
+            h2 {
+                display: block;
+            }
+
+            small {
+                display: block;
+                margin: 14px 0 0 0;
+            }
         }
 
-        .pricing__price {
-            margin-top: 30px;
+        .pricing__number {
+            display: flex;
+            flex-direction: row;
+            margin: 30px 0 0 0;
         }
 
         .pricing__icon {
-            margin-top: 10px;
+            display: block;
+            margin: 10px 0 0 0;
         }
 
-        ul {
+        .pricing__list {
+            display: block;
             width: 100%;
             list-style: none;
-            padding: 0;
             margin: 44px 0 0 0;
 
-            li {
+            div {
                 display: block;
                 margin-left: 18px;
 
@@ -136,7 +144,7 @@
 
         .pricing__order {
             width: 100%;
-            margin-top: 40px;
+            margin: 40px 0 0 0;
 
             a {
                 display: inline-block;
@@ -145,7 +153,7 @@
             }
         }
 
-        .fnt-small-light {
+        .pricing__clarification{
             margin-top: 20px;
             text-align: center;
         }

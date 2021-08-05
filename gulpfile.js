@@ -47,7 +47,6 @@ const path = {
 /* -------- END - верстка альфа ------------------------------------------------------------------------------------- */
 
 
-
 /* -------- START - верстка бета ------------------------------------------------------------------------------------ */
 const buildPathBeta = 'build-beta/'
 
@@ -62,8 +61,8 @@ const pathBeta = {
     clear: './' + buildPathBeta
 }
 /* -------- END - верстка бета -------------------------------------------------------------------------------------- */
-/* ======== END - установка путей =================================================================================== */
 
+/* ======== END - установка путей =================================================================================== */
 
 
 function myServer() {
@@ -75,7 +74,6 @@ function myServer() {
         // browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome'
     })
 }
-
 
 
 function myJs() {
@@ -101,7 +99,6 @@ function myJs() {
 }
 
 
-
 function myJsBeta() {
     return src([
         'source/assets/js/script-01.js',
@@ -123,7 +120,6 @@ function myJsBeta() {
         .pipe(dest(pathBeta.build.js))
         .pipe(browserSync.stream())
 }
-
 
 
 function myCss() {
@@ -150,7 +146,6 @@ function myCss() {
 }
 
 
-
 function myCssBeta() {
     return src('source/assets/scss/main-beta.scss')
         .pipe(plumber())
@@ -175,22 +170,20 @@ function myCssBeta() {
 }
 
 
-
 function myHtml() {
     panini.refresh();
     return src('source/tpl/pages/**/*.html')
         .pipe(plumber())
         .pipe(panini({
-            root:       srcPath + '/',
-            layouts:    srcPath + 'tpl/layouts/',
-            partials:   srcPath + 'tpl/partials/',
-            helpers:    srcPath + 'tpl/helpers/',
-            data:       srcPath + 'tpl/data/'
+            root: srcPath + '/',
+            layouts: srcPath + 'tpl/layouts/',
+            partials: srcPath + 'tpl/partials/',
+            helpers: srcPath + 'tpl/helpers/',
+            data: srcPath + 'tpl/data/'
         }))
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
 }
-
 
 
 function myHtmlBeta() {
@@ -198,33 +191,51 @@ function myHtmlBeta() {
     return src('source/tpl/pages-beta/**/*.html')
         .pipe(plumber())
         .pipe(panini({
-            root:       srcPath + '/',
-            layouts:    srcPath + 'tpl/layouts/',
-            partials:   srcPath + 'tpl/partials/',
-            helpers:    srcPath + 'tpl/helpers/',
-            data:       srcPath + 'tpl/data/'
+            root: srcPath + '/',
+            layouts: srcPath + 'tpl/layouts/',
+            partials: srcPath + 'tpl/partials/',
+            helpers: srcPath + 'tpl/helpers/',
+            data: srcPath + 'tpl/data/'
         }))
         .pipe(dest(pathBeta.build.html))
         .pipe(browserSync.reload({stream: true}))
 }
 
 
-
-
 function myFonts() {
-    return src(path.src.fonts)
+    return src('source/assets/fonts/**/*.ttf')
         .pipe(dest(path.build.fonts))
         .pipe(browserSync.reload({stream: true}))
 }
 
 
+function myFontsBeta() {
+    return src('source/assets/fonts/**/*.ttf')
+        .pipe(dest(pathBeta.build.fonts))
+        .pipe(browserSync.reload({stream: true}))
+}
+
 
 function myImages() {
-    return src(path.src.images)
+    return src([
+        'source/assets/images/**/*.png',
+        'source/assets/images/**/*.jpg',
+        'source/assets/images/**/*.svg',
+    ])
         .pipe(dest(path.build.images))
         .pipe(browserSync.reload({stream: true}))
 }
 
+
+function myImagesBeta() {
+    return src([
+        'source/assets/images/**/*.png',
+        'source/assets/images/**/*.jpg',
+        'source/assets/images/**/*.svg',
+    ])
+        .pipe(dest(pathBeta.build.images))
+        .pipe(browserSync.reload({stream: true}))
+}
 
 
 function myLibCss() {
@@ -237,6 +248,15 @@ function myLibCss() {
 }
 
 
+function myLibCssBeta() {
+    return src([
+        'source/assets/lib-css/*.css',
+        'source/assets/lib-css/*.map'
+    ])
+        .pipe(dest(pathBeta.build.css))
+        .pipe(browserSync.reload({stream: true}))
+}
+
 
 function myLibJs() {
     return src([
@@ -248,6 +268,15 @@ function myLibJs() {
 }
 
 
+function myLibJsBeta() {
+    return src([
+        'source/assets/lib-js/*.js',
+        'source/assets/lib-js/*.map'
+    ])
+        .pipe(dest(pathBeta.build.js))
+        .pipe(browserSync.reload({stream: true}))
+}
+
 
 function myDraft() {
     return src(path.src.draft)
@@ -256,11 +285,9 @@ function myDraft() {
 }
 
 
-
 function myClear() {
     return del([path.clear, pathBeta.clear], {force: true})
 }
-
 
 
 function myWatch() {
@@ -276,7 +303,6 @@ function myWatch() {
 }
 
 
-
 exports.myServer = myServer           // > yarn gulp myServer
 exports.myJs = myJs                   // > yarn gulp myJs
 exports.myJsBeta = myJsBeta
@@ -286,17 +312,24 @@ exports.myHtml = myHtml               // > yarn gulp myHtml
 exports.myHtmlBeta = myHtmlBeta
 exports.myClear = myClear             // > yarn gulp myClear
 exports.myFonts = myFonts             // > yarn gulp myFonts
+exports.myFontsBeta = myFontsBeta
 exports.myImages = myImages           // > yarn gulp myImages
+exports.myImagesBeta = myImagesBeta
 exports.myLibCss = myLibCss           // > yarn gulp myLibCss
+exports.myLibCssBeta = myLibCssBeta
 exports.myLibJs = myLibJs             // > yarn gulp myLibJso
+exports.myLibJsBeta = myLibJsBeta
 exports.myDraft = myDraft             // > yarn gulp myDraft
-
 
 
 // последовательное выполенение задач
 // > yarn gulp build
-exports.build = series(myClear, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myImages, myLibCss, myLibJs)
+exports.build = series(
+    myClear, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myFontsBeta, myImages, myImagesBeta,
+    myLibCss, myLibCssBeta, myLibJs, myLibJsBeta)
 
 //  параллельное выполнение задач
 //  > yarn gulp
-exports.default = parallel(myServer, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myImages, myLibCss, myLibJs, myDraft, myWatch)
+exports.default = parallel(
+    myServer, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myFontsBeta, myImages, myImagesBeta,
+    myLibCss, myLibCssBeta, myLibJs, myLibJsBeta, myDraft, myWatch)

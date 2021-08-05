@@ -1,0 +1,179 @@
+/* ======== START - .header ========================================================================================= */
+.header {
+    padding: 0 60px;
+    background-color: var(--color-3);
+
+    .header__wrap {
+        max-width: 1800px;
+        min-height: calc(100vh - 64px); // .header-top - height: 64px
+        margin: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 640px) {
+    .header {
+        padding: 0 10px;
+    }
+}
+
+// -------- START - .human-info ----------------------------------------------------------------------------------------
+.human-info {
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    top: auto;
+    left: 0;
+    bottom: 190px;
+    right: 0;
+    z-index: 30;
+
+    div {
+        margin: 0 0 6px 0;
+
+        &:first-child {
+            border-radius: 10px 10px 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 10px 10px;
+        }
+    }
+
+    .human-info__name {
+        display: inline-block;
+        padding: 2px 22px 0 22px;
+        background-color: var(--color-4);
+    }
+
+    .human-info__specialty {
+        display: inline-block;
+        padding: 7px 22px 6px 22px;
+        background-color: var(--color-1);
+    }
+
+    .human-info__about {
+        display: inline-block;
+        padding: 10px 22px 12px 22px;
+        background-color: var(--color-1);
+
+        p {
+            margin: 0;
+        }
+    }
+}
+// -------- END - .human-info ------------------------------------------------------------------------------------------
+
+
+// -------- START - .human-img -----------------------------------------------------------------------------------------
+.human-img {
+    width: 620px;
+    height: 900px;
+
+    position: absolute;
+    margin: auto;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 20;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 0 0;
+    }
+}
+// -------- END - .human-img -------------------------------------------------------------------------------------------
+
+
+// -------- START - .circles -------------------------------------------------------------------------------------------
+.circles {
+    width: 900px;
+    height: 900px;
+
+    position: absolute;
+    margin: auto;
+    top: auto;
+    left: 0;
+    bottom: 140px;
+    right: 0;
+}
+// -------- END - .circles ---------------------------------------------------------------------------------------------
+
+
+// -------- START - .footer-top ----------------------------------------------------------------------------------------
+.footer-top {
+    max-width: 1800px;
+    height: 48px;
+
+    position: relative;
+    z-index: 40;
+    top: calc(100vh - 48px - 64px); // header-top - height: 64px
+
+    .footer-top__wrap {
+        display: flex;
+        justify-content: space-between;
+
+        .footer-top__copyright {
+            display: inline-block;
+            padding: 2px 0 0 0;
+            margin: 0 0 0 14px;
+        }
+
+        @media (max-width: 840px) {
+            .footer-top__copyright {
+                display: none;
+            }
+        }
+
+        .footer-top__social {
+            display: inline-block;
+            float: right;
+            margin: 0 14px 0 0;
+
+            ul {
+                display: flex;
+                padding: 0;
+                list-style-type: none;
+
+                li {
+                    margin-right: 8px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    img {
+                        margin: -4.8px 0 0 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 840px) {
+            .footer-top__social {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        .footer-top__wrap {
+            justify-content: flex-end;
+        }
+    }
+}
+// -------- END - .footer-top ------------------------------------------------------------------------------------------
+
+/* ======== END - .header ====================================================================================== */

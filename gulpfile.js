@@ -67,7 +67,7 @@ const pathBeta = {
 
 function myServer() {
     browserSync.init({
-        server: {baseDir: './' + buildPath},
+        server: {baseDir: './' + buildPathBeta},
         notify: false,
         online: true,
         port: 3000,
@@ -292,11 +292,15 @@ function myClear() {
 
 function myWatch() {
     watch([path.watch.scss], myCss)
+    watch([path.watch.scss], myCssBeta)
     watch([path.watch.js], myJs)
     watch([path.watch.js], myJsBeta)
     watch([path.watch.html], myHtml)
+    watch([path.watch.html], myHtmlBeta)
     watch([path.watch.fonts], myFonts)
+    watch([path.watch.fonts], myFontsBeta)
     watch([path.watch.images], myImages)
+    watch([path.watch.images], myImagesBeta)
     watch([path.watch.draft], myDraft)
     // watch(['source/**/*.js', '!source/**/*.min.js']) // ! - исключение файла для watch
     // watch(['source/_index.html', 'source/**/*.html'], htmlCopy).on('change', browserSync.reload)
@@ -331,5 +335,9 @@ exports.build = series(
 //  параллельное выполнение задач
 //  > yarn gulp
 exports.default = parallel(
-    myServer, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myFontsBeta, myImages, myImagesBeta,
-    myLibCss, myLibCssBeta, myLibJs, myLibJsBeta, myDraft, myWatch)
+    myServer, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myFontsBeta, myImages,
+    myImagesBeta, myLibCss, myLibCssBeta, myLibJs, myLibJsBeta, myDraft, myWatch)
+
+
+// exports.default = parallel(
+//     myClear, myServer, myJsBeta, myCssBeta, myHtmlBeta, myFontsBeta, myImagesBeta, myLibCssBeta, myLibJsBeta, myWatch)

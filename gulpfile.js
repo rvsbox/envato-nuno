@@ -12,7 +12,8 @@ const strip = require('gulp-strip-comments') // удалить коммента�
 const panini = require('panini') // html шаблонизатор
 
 
-
+/* ======== START - установка путей ================================================================================= */
+/* -------- START - верстка альфа ----------------------------------------------------------------------------------- */
 const srcPath = 'source/'
 const buildPath = 'build/'
 
@@ -28,7 +29,7 @@ const path = {
     src: {
         html: srcPath + '*.html',
         js: srcPath + 'assets/js/*.js',
-        scss: srcPath + 'assets/scss/main.scss',
+        scss: srcPath + 'assets/scss/main-beta.scss',
         images: srcPath + 'assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
         fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
         draft: srcPath + 'draft/**/*.{html,js}'
@@ -43,6 +44,25 @@ const path = {
     },
     clear: './' + buildPath
 }
+/* -------- END - верстка альфа ------------------------------------------------------------------------------------- */
+
+
+
+/* -------- START - верстка бета ------------------------------------------------------------------------------------ */
+const buildPathBeta = 'build-beta/'
+
+const pathBeta = {
+    build: {
+        html: buildPathBeta,
+        js: buildPathBeta + 'assets/js/',
+        css: buildPathBeta + 'assets/css/',
+        images: buildPathBeta + 'assets/images/',
+        fonts: buildPathBeta + 'assets/fonts/'
+    },
+    clear: './' + buildPathBeta
+}
+/* -------- END - верстка бета -------------------------------------------------------------------------------------- */
+/* ======== END - установка путей =================================================================================== */
 
 
 
@@ -60,9 +80,9 @@ function myServer() {
 
 function myJs() {
     return src([
-        'source/assets/js/script_1.js',
-        'source/assets/js/script_2.js',
-        'source/assets/js/script_3.js',
+        'source/assets/js/script-01.js',
+        'source/assets/js/script-02.js',
+        'source/assets/js/script-03.js',
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))
@@ -82,8 +102,32 @@ function myJs() {
 
 
 
+function myJsBeta() {
+    return src([
+        'source/assets/js/script-01.js',
+        'source/assets/js/script-02.js',
+        'source/assets/js/script-03.js',
+    ])
+        .pipe(plumber()) // обработка ошибок
+        .pipe(concat('main.js'))
+        .pipe(strip({ignore: /\/\*[\s\S]*?\*\//g})) // удалить комметарии, но исключить многострочные комментарии
+        .pipe(dest(pathBeta.build.js))
+
+        // получить второй минимизированный файл
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(dest(pathBeta.build.js))
+        .pipe(browserSync.stream())
+}
+
+
+
 function myCss() {
-    return src(path.src.scss)
+    return src('source/assets/scss/main.scss')
         .pipe(plumber())
 
         .pipe(sass.sync().on('error', sass.logError))
@@ -107,12 +151,37 @@ function myCss() {
 
 
 
+function myCssBeta() {
+    return src('source/assets/scss/main-beta.scss')
+        .pipe(plumber())
+
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(concat('main.css'))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 10 versions'],
+            grid: true
+        }))
+        .pipe(dest(pathBeta.build.css))
+
+        // получить второй минимизированный файл
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(dest(pathBeta.build.css))
+        .pipe(browserSync.stream())
+}
+
+
+
 function myHtml() {
     panini.refresh();
-    return src(path.src.html, {base: srcPath})
+    return src('source/tpl/pages/**/*.html')
         .pipe(plumber())
         .pipe(panini({
-            root:       srcPath,
+            root:       srcPath + '/',
             layouts:    srcPath + 'tpl/layouts/',
             partials:   srcPath + 'tpl/partials/',
             helpers:    srcPath + 'tpl/helpers/',
@@ -121,6 +190,24 @@ function myHtml() {
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
 }
+
+
+
+function myHtmlBeta() {
+    panini.refresh();
+    return src('source/tpl/pages-beta/**/*.html')
+        .pipe(plumber())
+        .pipe(panini({
+            root:       srcPath + '/',
+            layouts:    srcPath + 'tpl/layouts/',
+            partials:   srcPath + 'tpl/partials/',
+            helpers:    srcPath + 'tpl/helpers/',
+            data:       srcPath + 'tpl/data/'
+        }))
+        .pipe(dest(pathBeta.build.html))
+        .pipe(browserSync.reload({stream: true}))
+}
+
 
 
 
@@ -171,7 +258,7 @@ function myDraft() {
 
 
 function myClear() {
-    return del(path.clear, {force: true})
+    return del([path.clear, pathBeta.clear], {force: true})
 }
 
 
@@ -179,6 +266,7 @@ function myClear() {
 function myWatch() {
     watch([path.watch.scss], myCss)
     watch([path.watch.js], myJs)
+    watch([path.watch.js], myJsBeta)
     watch([path.watch.html], myHtml)
     watch([path.watch.fonts], myFonts)
     watch([path.watch.images], myImages)
@@ -191,8 +279,11 @@ function myWatch() {
 
 exports.myServer = myServer           // > yarn gulp myServer
 exports.myJs = myJs                   // > yarn gulp myJs
+exports.myJsBeta = myJsBeta
 exports.myCss = myCss                 // > yarn gulp myCss
+exports.myCssBeta = myCssBeta
 exports.myHtml = myHtml               // > yarn gulp myHtml
+exports.myHtmlBeta = myHtmlBeta
 exports.myClear = myClear             // > yarn gulp myClear
 exports.myFonts = myFonts             // > yarn gulp myFonts
 exports.myImages = myImages           // > yarn gulp myImages
@@ -204,8 +295,8 @@ exports.myDraft = myDraft             // > yarn gulp myDraft
 
 // последовательное выполенение задач
 // > yarn gulp build
-exports.build = series(myClear, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs)
+exports.build = series(myClear, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myImages, myLibCss, myLibJs)
 
 //  параллельное выполнение задач
 //  > yarn gulp
-exports.default = parallel(myServer, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs, myDraft, myWatch)
+exports.default = parallel(myServer, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myImages, myLibCss, myLibJs, myDraft, myWatch)

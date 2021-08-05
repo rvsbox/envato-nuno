@@ -6,6 +6,8 @@
 # Node artifact files
 node_modules/
 build/
+build-beta/
+build-gamma/
 
 # Compiled Java class files
 *.class

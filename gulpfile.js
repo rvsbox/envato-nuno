@@ -172,7 +172,7 @@ function myCssBeta() {
 
 function myHtml() {
     panini.refresh();
-    return src('source/tpl/pages/**/*.html')
+    return src('source/tpl/pages-alpha/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',

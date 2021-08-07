@@ -1,11 +1,17 @@
 /* ======== START - .header ========================================================================================= */
 .header {
+    display: block;
+    position: relative;
+    z-index: 100;
     padding: 0 60px;
     background-color: var(--color-3);
+    //background-color: pink; // test
+    //top: -64px; // test
 
     .header__wrap {
         max-width: 1800px;
-        min-height: calc(100vh - 64px); // .header-top - height: 64px
+        //min-height: calc(100vh - 64px); // .header-top - height: 64px
+        min-height: 100vh;
         margin: auto;
     }
 }
@@ -118,7 +124,7 @@
 
     position: relative;
     z-index: 40;
-    top: calc(100vh - 48px - 64px); // header-top - height: 64px
+    top: calc(100vh - 48px); // footer-top - height: 48px
 
     .footer-top__wrap {
         display: flex;
@@ -175,5 +181,4 @@
     }
 }
 // -------- END - .footer-top ------------------------------------------------------------------------------------------
-
-/* ======== END - .header ====================================================================================== */
+/* ======== END - .header =========================================================================================== */

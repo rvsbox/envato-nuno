@@ -89,7 +89,7 @@ document.querySelectorAll('.type-service__order').forEach(item => {
         });
 
         // test
-        console.log(elements)
+        // console.log(elements)
     })
 })
 

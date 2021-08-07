@@ -13,9 +13,9 @@ const panini = require('panini') // html шаблонизатор
 
 
 /* ======== START - установка путей ================================================================================= */
-/* -------- START - верстка альфа ----------------------------------------------------------------------------------- */
+/* ======== START - верстка alpha =================================================================================== */
 const srcPath = 'source/'
-const buildPath = 'build/'
+const buildPath = 'build/alpha/'
 
 const path = {
     build: {
@@ -44,11 +44,12 @@ const path = {
     },
     clear: './' + buildPath
 }
-/* -------- END - верстка альфа ------------------------------------------------------------------------------------- */
+/* ======== END - верстка alpha ===================================================================================== */
 
 
-/* -------- START - верстка бета ------------------------------------------------------------------------------------ */
-const buildPathBeta = 'build-beta/'
+
+/* ======== START - верстка beta ==================================================================================== */
+const buildPathBeta = 'build/beta/'
 
 const pathBeta = {
     build: {
@@ -60,18 +61,18 @@ const pathBeta = {
     },
     clear: './' + buildPathBeta
 }
-/* -------- END - верстка бета -------------------------------------------------------------------------------------- */
-
+/* ======== END - верстка beta ====================================================================================== */
 /* ======== END - установка путей =================================================================================== */
 
 
 function myServer() {
     browserSync.init({
-        server: {baseDir: './' + buildPathBeta},
+        server: {baseDir: './build/'},
         notify: false,
         online: true,
         port: 3000,
-        // browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome'
+        // browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome' // windows
+        browser: 'google-chrome-unstable' // linux
     })
 }
 
@@ -81,6 +82,7 @@ function myJs() {
         'source/assets/js/script-01.js',
         'source/assets/js/script-02.js',
         'source/assets/js/script-03.js',
+        'source/assets/js/script-alpha.js',
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))

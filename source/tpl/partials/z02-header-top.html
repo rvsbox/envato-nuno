@@ -8,15 +8,7 @@
             </ul>
         </div>
         <nav class="nav fnt-nav">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Clients</a></li>
-                <li><a href="#" onclick="getInfo()">Blog</a></li>
-                <li><a href="#" onclick="toggleTheme()" id="switch">Contact</a></li>
-            </ul>
+            {{> alpha-links-01 }}
         </nav>
         <button class="open-nav" id="navRightOpen" onclick="openNavRight()">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -31,15 +23,7 @@
                 </svg>
             </button>
             <nav class="nav-right__item fnt-nav-right">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Clients</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+                {{> alpha-links-01 }}
             </nav>
         </div>
     </div>

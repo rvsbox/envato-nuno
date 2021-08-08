@@ -110,6 +110,12 @@
     color: var(--fnt-small-light);
 }
 
+.fnt-small-light span {
+    font-family: "Poppins Light", serif;
+    font-size: 12px;
+    color: var(--fnt-small-light);
+}
+
 .fnt-light p {
     font-family: "Poppins Light", serif;
     font-size: 14px;
@@ -297,6 +303,26 @@
             transform: translateX(6px);
         }
     }
+}
+
+.tag-link {
+    display: block;
+    padding: 3px 14px;
+    background-color: unset;
+    border: 2px solid var(--color-4);
+    color: var(--color-4);
+    border-radius: 10px;
+    font-family: "Poppins Medium", serif;
+    font-size: 14px;
+    transition: color 0.3s linear;
+
+    &:hover {
+        color: var(--color-5);
+        border-color: var(--color-5);
+        text-decoration: none;
+    }
+
+
 }
 /* ======== END - Elements ========================================================================================== */
 

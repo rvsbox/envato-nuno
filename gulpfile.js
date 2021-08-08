@@ -67,12 +67,12 @@ const pathBeta = {
 
 function myServer() {
     browserSync.init({
-        server: {baseDir: './build/'},
+        server: './build/',
         notify: false,
         online: true,
-        port: 3000,
+        port: 8000,
         // browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome' // windows
-        browser: 'google-chrome-unstable' // linux
+        browser: 'google-chrome-unstable', // linux
     })
 }
 

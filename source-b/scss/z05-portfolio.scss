@@ -1,0 +1,87 @@
+/* ======== START - .portfolio =======================================================================================*/
+
+.portfolio {
+    background-color: var(--color-1);
+}
+
+
+.art-filter {
+    display: block;
+    margin: 100px 0 0 0;
+
+    ul {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li:nth-child(n+2) {
+            margin-left: 44px;
+        }
+    }
+}
+
+
+.art-all {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.art {
+    width: 350px;
+    height: 240px;
+    min-width: 350px;
+    min-height: 240px;
+    display: block;
+    margin-top: 30px;
+
+    &:hover .art__mask-circle {
+        animation-name: artmsk;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes artmsk {
+        from {r: 220;}
+        to {r: 0;}
+    }
+
+    // .art__hover-bg - #art__hover-background
+    .art__hover-bg {
+        fill: var(--color-5);
+    }
+
+    a {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .art__title {
+        display: block;
+        position: absolute;
+        margin: -38px 0 0 24px;
+        opacity: 0;
+    }
+
+    &:hover .art__title {
+        animation-name: arttit;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes arttit {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+}
+
+
+.art-button {
+    margin: 40px 0 0 0;
+}
+
+/* ======== END - .portfolio =========================================================================================*/

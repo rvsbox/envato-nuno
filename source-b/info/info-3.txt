@@ -1,0 +1,23 @@
+fnt-heading-xxl
+fnt-heading-1
+fnt-heading-2
+fnt-heading-3
+fnt-heading-4
+
+
+fnt
+fnt-2
+fnt-3
+fnt-light
+fnt-small
+fnt-semibold
+
+
+fnt-link
+fnt-nav
+fnt-nav-right
+
+
+
+
+1. Отступы после заголовков

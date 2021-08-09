@@ -1,0 +1,339 @@
+/* ======== START - Base ============================================================================================ */
+
+/* ======== START - Fonts: headings, elemetns  ====================================================================== */
+.fnt-heading-xxl {
+    font-family: "Poppins Bold", serif;
+    font-size: 2.875em; // 46px - 2.875em
+    color: var(--fnt-heading-xxl);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.fnt-heading-1 h1 {
+    font-family: "Poppins Bold", serif;
+    font-size: 38px;
+    color: var(--fnt-heading-1);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.fnt-heading-2 h2 {
+    font-family: "Poppins Bold", serif;
+    font-size: 24px;
+    color: var(--fnt-heading-2);
+    margin: 0;
+}
+
+.fnt-heading-3 h3 {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 18px;
+    color: var(--fnt-heading-3);
+    margin: 0;
+}
+
+.fnt-heading-4 h4 {
+    font-family: "Poppins Medium", serif;
+    font-size: 14px;
+    color: var(--fnt-heading-4);
+    margin: 0;
+}
+
+.fnt-heading-4b h4 {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    color: var(--fnt-heading-4b);
+    margin: 0;
+}
+
+.font-extrabold {
+    font-size: 48px;
+    font-family: "Poppins ExtraBold", serif;
+    color: var(--fnt-extrabold);
+}
+/* ======== END - Fonts: headings =================================================================================== */
+
+
+/* ======== START - Fonts: text ===================================================================================== */
+.fnt p {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--fnt);
+}
+
+.fnt {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--fnt);
+}
+
+.fnt ul li {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--fnt);
+}
+
+.fnt-2 p {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--fnt-2);
+}
+
+.fnt-3 p {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--fnt-3);
+}
+
+.fnt-small {
+    font-family: "Poppins Regular", serif;
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--fnt-small);
+}
+
+.fnt-small small { font-family: "Poppins Regular", serif; font-size: 12px; line-height: 20px; color: var(--fnt-small); }
+
+.fnt-small-light {
+    font-family: "Poppins Light", serif;
+    font-size: 12px;
+    color: var(--fnt-small-light);
+}
+
+.fnt-small-light small {
+    font-family: "Poppins Light", serif;
+    font-size: 12px;
+    color: var(--fnt-small-light);
+}
+
+.fnt-small-light span {
+    font-family: "Poppins Light", serif;
+    font-size: 12px;
+    color: var(--fnt-small-light);
+}
+
+.fnt-light p {
+    font-family: "Poppins Light", serif;
+    font-size: 14px;
+    color: var(--fnt-light);
+}
+
+.fnt-semibold span {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: var(--fnt-semibold);
+}
+
+.fnt-semibold ul li span {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--fnt-semibold);
+}
+
+.fnt-semibold-2 text {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 24px;
+    fill: var(--fnt-semibold);
+}
+
+.fnt-semibold-3 span {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 18px;
+    color: var(--fnt-semibold);
+}
+
+.fnt-medium span {
+    font-size: 14px;
+    font-family: "Poppins Medium", serif;
+    color: var(--fnt-medium);
+}
+
+.fnt-medium-2 span {
+    font-size: 14px;
+    font-family: "Poppins Medium", serif;
+    color: var(--fnt-medium-2);
+}
+
+/* ======== START - Fonts: text ===================================================================================== */
+
+
+/* ======== START - Fonts: links, nav =============================================================================== */
+.fnt-nav ul li a {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    transition: color 0.3s linear;
+    color: var(--fnt-nav);
+
+    &:hover {
+        color: var(--fnt-nav-hover);
+        text-decoration: none;
+    }
+}
+
+.fnt-nav-right ul li a {
+    font-family: "Poppins Medium", serif;
+    font-size: 18px;
+    color: var(--fnt-nav-right);
+
+    &:hover {
+        color: var(--fnt-nav-right-hover);
+        text-decoration: none;
+    }
+}
+
+/* ======== END - Fonts: links, nav ================================================================================= */
+
+
+/* ======== START - Elements ======================================================================================== */
+// .heading-blk - .heading-block
+.heading-blk {
+    margin: 140px 0 0 0;
+    height: 110px;
+
+    // .heading-blk__desc - .heading-block__description
+    .heading-blk__desc {
+        margin: 0 0 6px 18px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .heading-blk__name {
+        display: inline-block;
+        position: absolute;
+        z-index: 20;
+        margin: 12px 0 0 0;
+        border-radius: 10px;
+        padding: 12px 22px 10px 22px;
+        background-color: var(--heading-blk-base);
+    }
+
+    .heading-blk__border {
+        display: inline-block;
+        position: absolute;
+        z-index: 10;
+        margin: 0 0 0 12px;
+        border-radius: 10px;
+        border: solid 2px var(--heading-blk-border);
+        padding: 12px 22px 2px 22px;
+    }
+}
+
+
+// .btn-full - .button-full
+.btn-full {
+    height: 40px;
+    padding: 8px 20px;
+    border-width: 0;
+    background-color: var(--color-4);
+    border-radius: 10px;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: var(--color-1);
+
+    transition: background-color 0.3s linear;
+
+    &:hover {
+        background-color: var(--color-5);
+    }
+}
+
+
+// .btn-light - .button-light
+.btn-light {
+    height: 40px;
+    padding: 8px 20px;
+    border: var(--color-4) solid 2px;
+    border-radius: 10px;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: var(--color-4);
+    transition: color 0.3s linear, border-color 0.3s linear;
+
+    &:hover {
+        color: var(--color-5);
+        border-color: var(--color-5);
+    }
+}
+
+// .ln-order - .link-order
+.ln-order {
+    display: block;
+    position: relative;
+    text-decoration: none;
+
+    font-family: "Poppins Bold", serif;
+    font-size: 14px;
+    transition: color 0.3s linear;
+    color: var(--ln-order);
+
+    &:hover {
+        color: var(--ln-order-hover);
+    }
+
+    svg {
+        width: 12px;
+        height: 12px;
+        fill: var(--ln-order);
+        margin-top: -2px;
+    }
+
+    &:hover {
+        svg {
+            animation-name: lnord;
+            animation-duration: 0.7s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            fill: var(--ln-order-hover);
+        }
+    }
+
+    @keyframes lnord {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(6px);
+        }
+    }
+}
+
+.tag-link {
+    display: block;
+    padding: 3px 14px;
+    background-color: unset;
+    border: 2px solid var(--color-4);
+    color: var(--color-4);
+    border-radius: 10px;
+    font-family: "Poppins Medium", serif;
+    font-size: 14px;
+    transition: color 0.3s linear;
+
+    &:hover {
+        color: var(--color-5);
+        border-color: var(--color-5);
+        text-decoration: none;
+    }
+
+
+}
+/* ======== END - Elements ========================================================================================== */
+
+
+/* ======== START - Universal block positions  ====================================================================== */
+// .pos-heading-2 - .position-heading-2
+.pos-heading-2 {
+    width: 100%;
+    margin: 90px 0 0 0;
+}
+
+/* ======== END - Universal block positions ========================================================================= */
+
+/* ======== END - base ============================================================================================== */

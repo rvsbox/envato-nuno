@@ -14,7 +14,7 @@ const panini = require('panini') // html шаблонизатор
 
 /* ======== START - установка путей ================================================================================= */
 /* ======== START - верстка alpha =================================================================================== */
-const srcPath = 'source/'
+const srcPath = 'source-old/'
 const buildPath = 'build/alpha/'
 
 const path = {
@@ -79,10 +79,10 @@ function myServer() {
 
 function myJs() {
     return src([
-        'source/assets/js/script-01.js',
-        'source/assets/js/script-02.js',
-        'source/assets/js/script-03.js',
-        'source/assets/js/script-alpha.js',
+        'source-old/assets/js/script-01.js',
+        'source-old/assets/js/script-02.js',
+        'source-old/assets/js/script-03.js',
+        'source-old/assets/js/script-alpha.js',
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))
@@ -103,9 +103,9 @@ function myJs() {
 
 function myJsBeta() {
     return src([
-        'source/assets/js/script-01.js',
-        'source/assets/js/script-02.js',
-        'source/assets/js/script-03.js',
+        'source-old/assets/js/script-01.js',
+        'source-old/assets/js/script-02.js',
+        'source-old/assets/js/script-03.js',
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))
@@ -125,7 +125,7 @@ function myJsBeta() {
 
 
 function myCss() {
-    return src('source/assets/scss/main.scss')
+    return src('source-old/assets/scss/main.scss')
         .pipe(plumber())
 
         .pipe(sass.sync().on('error', sass.logError))
@@ -149,7 +149,7 @@ function myCss() {
 
 
 function myCssBeta() {
-    return src('source/assets/scss/main-beta.scss')
+    return src('source-old/assets/scss/main-beta.scss')
         .pipe(plumber())
 
         .pipe(sass.sync().on('error', sass.logError))
@@ -174,7 +174,7 @@ function myCssBeta() {
 
 function myHtml() {
     panini.refresh();
-    return src('source/tpl/pages-alpha/**/*.html')
+    return src('source-old/tpl/pages-alpha/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',
@@ -190,7 +190,7 @@ function myHtml() {
 
 function myHtmlBeta() {
     panini.refresh();
-    return src('source/tpl/pages-beta/**/*.html')
+    return src('source-old/tpl/pages-beta/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',
@@ -205,14 +205,14 @@ function myHtmlBeta() {
 
 
 function myFonts() {
-    return src('source/assets/fonts/**/*.ttf')
+    return src('source-old/assets/fonts/**/*.ttf')
         .pipe(dest(path.build.fonts))
         .pipe(browserSync.reload({stream: true}))
 }
 
 
 function myFontsBeta() {
-    return src('source/assets/fonts/**/*.ttf')
+    return src('source-old/assets/fonts/**/*.ttf')
         .pipe(dest(pathBeta.build.fonts))
         .pipe(browserSync.reload({stream: true}))
 }
@@ -220,9 +220,9 @@ function myFontsBeta() {
 
 function myImages() {
     return src([
-        'source/assets/images/**/*.png',
-        'source/assets/images/**/*.jpg',
-        'source/assets/images/**/*.svg',
+        'source-old/assets/images/**/*.png',
+        'source-old/assets/images/**/*.jpg',
+        'source-old/assets/images/**/*.svg',
     ])
         .pipe(dest(path.build.images))
         .pipe(browserSync.reload({stream: true}))
@@ -231,9 +231,9 @@ function myImages() {
 
 function myImagesBeta() {
     return src([
-        'source/assets/images/**/*.png',
-        'source/assets/images/**/*.jpg',
-        'source/assets/images/**/*.svg',
+        'source-old/assets/images/**/*.png',
+        'source-old/assets/images/**/*.jpg',
+        'source-old/assets/images/**/*.svg',
     ])
         .pipe(dest(pathBeta.build.images))
         .pipe(browserSync.reload({stream: true}))
@@ -242,8 +242,8 @@ function myImagesBeta() {
 
 function myLibCss() {
     return src([
-        'source/assets/lib-css/*.css',
-        'source/assets/lib-css/*.map'
+        'source-old/assets/lib-css/*.css',
+        'source-old/assets/lib-css/*.map'
     ])
         .pipe(dest(path.build.css))
         .pipe(browserSync.reload({stream: true}))
@@ -252,8 +252,8 @@ function myLibCss() {
 
 function myLibCssBeta() {
     return src([
-        'source/assets/lib-css/*.css',
-        'source/assets/lib-css/*.map'
+        'source-old/assets/lib-css/*.css',
+        'source-old/assets/lib-css/*.map'
     ])
         .pipe(dest(pathBeta.build.css))
         .pipe(browserSync.reload({stream: true}))
@@ -262,8 +262,8 @@ function myLibCssBeta() {
 
 function myLibJs() {
     return src([
-        'source/assets/lib-js/*.js',
-        'source/assets/lib-js/*.map'
+        'source-old/assets/lib-js/*.js',
+        'source-old/assets/lib-js/*.map'
     ])
         .pipe(dest(path.build.js))
         .pipe(browserSync.reload({stream: true}))
@@ -272,8 +272,8 @@ function myLibJs() {
 
 function myLibJsBeta() {
     return src([
-        'source/assets/lib-js/*.js',
-        'source/assets/lib-js/*.map'
+        'source-old/assets/lib-js/*.js',
+        'source-old/assets/lib-js/*.map'
     ])
         .pipe(dest(pathBeta.build.js))
         .pipe(browserSync.reload({stream: true}))
@@ -304,8 +304,8 @@ function myWatch() {
     watch([path.watch.images], myImages)
     watch([path.watch.images], myImagesBeta)
     watch([path.watch.draft], myDraft)
-    // watch(['source/**/*.js', '!source/**/*.min.js']) // ! - исключение файла для watch
-    // watch(['source/_index.html', 'source/**/*.html'], htmlCopy).on('change', browserSync.reload)
+    // watch(['source-old/**/*.js', '!source-old/**/*.min.js']) // ! - исключение файла для watch
+    // watch(['source-old/_index.html', 'source-old/**/*.html'], htmlCopy).on('change', browserSync.reload)
 }
 
 

@@ -1,0 +1,12 @@
+.header {
+    display: block;
+    background-color: pink;
+
+    > .container {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: green;
+        margin: 0 auto;
+    }
+}

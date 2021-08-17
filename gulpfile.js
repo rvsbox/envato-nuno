@@ -28,18 +28,18 @@ const path = {
     },
     src: {
         html: srcPath + '*.html',
-        js: srcPath + 'assets/js/*.js',
-        scss: srcPath + 'assets/scss/main-beta.scss',
-        images: srcPath + 'assets/img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
+        js: srcPath + 'js/*.js',
+        scss: srcPath + 'scss/main-beta.scss',
+        images: srcPath + 'img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
+        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}',
         draft: srcPath + 'draft/**/*.{html,js}'
     },
     watch: {
         html: srcPath + '**/*.html',
-        js: srcPath + 'assets/js/**/*.js',
-        scss: srcPath + 'assets/scss/**/*.scss',
-        images: srcPath + 'assets/img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
+        js: srcPath + 'js/**/*.js',
+        scss: srcPath + 'scss/**/*.scss',
+        images: srcPath + 'img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
+        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}',
         draft: srcPath + 'draft/**/*.{html,js}'
     },
     clear: './' + buildPath
@@ -54,10 +54,10 @@ const buildPathBeta = 'build/beta/'
 const pathBeta = {
     build: {
         html: buildPathBeta,
-        js: buildPathBeta + 'assets/js/',
-        css: buildPathBeta + 'assets/css/',
-        images: buildPathBeta + 'assets/img/',
-        fonts: buildPathBeta + 'assets/fonts/'
+        js: buildPathBeta + 'js/',
+        css: buildPathBeta + 'css/',
+        images: buildPathBeta + 'img/',
+        fonts: buildPathBeta + 'fonts/'
     },
     clear: './' + buildPathBeta
 }

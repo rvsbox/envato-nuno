@@ -1,12 +1,228 @@
+// START - header ------------------------------------------------------------------------------------------------------
 .header {
     display: block;
-    background-color: pink;
-
+    background-color: var(--color-3);
     > .container {
-        display: block;
-        width: 100px;
-        height: 100px;
-        background: green;
-        margin: 0 auto;
+        margin: 0 16px;
+        display: grid;
+        grid-template-columns: 1fr minmax(320px, 1400px) 1fr;
+        background-color: var(--color-3);
     }
 }
+
+.contact-header {
+    display: block;
+    background-color: var(--color-3);
+    > .contactlist {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        list-style-type: none;
+    }
+}
+
+.nav {
+    display: block;
+    > .navlist {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        list-style-type: none;
+    }
+
+    .navitem {
+        font-family: "Poppins SemiBold", serif;
+        font-size: 18px;
+        transition: color 0.3s linear;
+        color: var(--color-4);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-6);
+            text-decoration: none;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+//.fnt-nav ul li a {
+//    font-family: "Poppins SemiBold", serif;
+//    font-size: 14px;
+//    transition: color 0.3s linear;
+//    color: var(--color-4);
+//
+//    &:hover {
+//        color: var(--color-6);
+//        text-decoration: none;
+//    }
+//}
+//
+//.fnt-nav-right ul li a {
+//    font-family: "Poppins Medium", serif;
+//    font-size: 18px;
+//    color: var(--fnt-nav-right);
+//
+//    &:hover {
+//        color: var(--fnt-nav-right-hover);
+//        text-decoration: none;
+//    }
+//}
+// END - header --------------------------------------------------------------------------------------------------------
+
+
+// START - section base ------------------------------------------------------------------------------------------------
+.base {
+    display: block;
+    background-color: pink;
+    > .container {
+        margin: 0 16px;
+        display: block;
+        background-color: #FFA2B1;
+    }
+}
+
+.composition {
+    width: 100px;
+    margin: 0 auto;
+    display: block;
+    background-color: green;
+}
+
+.footer-base {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: #4F5FF6;
+}
+// END - section base --------------------------------------------------------------------------------------------------
+
+
+// START - section about -----------------------------------------------------------------------------------------------
+.about {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section about -------------------------------------------------------------------------------------------------
+
+
+// START - section service ---------------------------------------------------------------------------------------------
+.service {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section service -----------------------------------------------------------------------------------------------
+
+
+// START - section portfolio -------------------------------------------------------------------------------------------
+.portfolio {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section portfolio ---------------------------------------------------------------------------------------------
+
+
+// START - section client ----------------------------------------------------------------------------------------------
+.client {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section client ------------------------------------------------------------------------------------------------
+
+
+// START - section blog ------------------------------------------------------------------------------------------------
+.blog {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section blog --------------------------------------------------------------------------------------------------
+
+
+// START - section contact ---------------------------------------------------------------------------------------------
+.contact {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section contact -----------------------------------------------------------------------------------------------
+
+
+// START - section contact ---------------------------------------------------------------------------------------------
+.contact {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section contact -----------------------------------------------------------------------------------------------
+
+
+// START - section footer ----------------------------------------------------------------------------------------------
+.footer {
+    display: block;
+    background-color: pink;
+    > .container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background-color: #FF8297;
+    }
+}
+// END - section footer ------------------------------------------------------------------------------------------------

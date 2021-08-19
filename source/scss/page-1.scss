@@ -63,44 +63,45 @@
 }
 
 .circle {
-    display: block;
-    position: absolute;
-    background-color: white;
     width: 200px;
     height: 200px;
-    margin: auto;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    background-color: white;
 }
 
 .person-img {
-    display: block;
-    position: absolute;
-    background-color: blue;
-    color: white;
     width: 200px;
     height: 200px;
-    margin: auto;
     left: 40px;
     right: 0;
     top: 40px;
     bottom: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    background-color: blue;
+    color: white;
+
 
 }
 
 .person-info {
-    display: block;
-    position: absolute;
-    background-color: gray;
     width: 100px;
     height: 50px;
-    margin: auto;
     left: -150px;
     right: 0;
     top: 100px;
     bottom: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    background-color: gray;
 }
 
 .footer-top {

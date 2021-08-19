@@ -1,82 +1,43 @@
 // START - header ------------------------------------------------------------------------------------------------------
 .header {
+    height: 64px;
     display: block;
     background-color: var(--color-3);
+
     > .container {
-        margin: 0 16px;
+        margin: 0 65px;
         display: grid;
         grid-template-columns: 1fr minmax(320px, 1400px) 1fr;
         background-color: var(--color-3);
     }
 }
 
-.contact-header {
+.contact-top {
     display: block;
     background-color: var(--color-3);
-    > .contactlist {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        list-style-type: none;
-    }
+}
+
+.contact-top-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style-type: none;
 }
 
 .nav {
     display: block;
-    > .navlist {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        list-style-type: none;
-    }
-
-    .navitem {
-        font-family: "Poppins SemiBold", serif;
-        font-size: 18px;
-        transition: color 0.3s linear;
-        color: var(--color-4);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--color-6);
-            text-decoration: none;
-        }
-    }
 }
 
-
-
-
-
-
-
-
-//.fnt-nav ul li a {
-//    font-family: "Poppins SemiBold", serif;
-//    font-size: 14px;
-//    transition: color 0.3s linear;
-//    color: var(--color-4);
-//
-//    &:hover {
-//        color: var(--color-6);
-//        text-decoration: none;
-//    }
-//}
-//
-//.fnt-nav-right ul li a {
-//    font-family: "Poppins Medium", serif;
-//    font-size: 18px;
-//    color: var(--fnt-nav-right);
-//
-//    &:hover {
-//        color: var(--fnt-nav-right-hover);
-//        text-decoration: none;
-//    }
-//}
+.nav-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    list-style-type: none;
+}
 // END - header --------------------------------------------------------------------------------------------------------
 
 
@@ -84,21 +45,66 @@
 .base {
     display: block;
     background-color: pink;
+
     > .container {
-        margin: 0 16px;
-        display: block;
+        margin: 0 65px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         background-color: #FFA2B1;
     }
 }
 
 .composition {
-    width: 100px;
+    min-height: calc(100vh - 64px - 64px); // header: 64px, footer-top: 64px
     margin: 0 auto;
     display: block;
     background-color: green;
 }
 
-.footer-base {
+.circle {
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.person-img {
+    display: block;
+    position: absolute;
+    background-color: blue;
+    color: white;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    left: 40px;
+    right: 0;
+    top: 40px;
+    bottom: 0;
+
+}
+
+.person-info {
+    display: block;
+    position: absolute;
+    background-color: gray;
+    width: 100px;
+    height: 50px;
+    margin: auto;
+    left: -150px;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+}
+
+.footer-top {
+    height: 64px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -112,6 +118,7 @@
 .about {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -120,6 +127,7 @@
         background-color: #FF8297;
     }
 }
+
 // END - section about -------------------------------------------------------------------------------------------------
 
 
@@ -127,6 +135,7 @@
 .service {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -135,6 +144,7 @@
         background-color: #FF8297;
     }
 }
+
 // END - section service -----------------------------------------------------------------------------------------------
 
 
@@ -142,6 +152,7 @@
 .portfolio {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -150,6 +161,7 @@
         background-color: #FF8297;
     }
 }
+
 // END - section portfolio ---------------------------------------------------------------------------------------------
 
 
@@ -157,6 +169,7 @@
 .client {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -165,6 +178,7 @@
         background-color: #FF8297;
     }
 }
+
 // END - section client ------------------------------------------------------------------------------------------------
 
 
@@ -172,6 +186,7 @@
 .blog {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -180,6 +195,7 @@
         background-color: #FF8297;
     }
 }
+
 // END - section blog --------------------------------------------------------------------------------------------------
 
 
@@ -187,6 +203,7 @@
 .contact {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -195,6 +212,7 @@
         background-color: #FF8297;
     }
 }
+
 // END - section contact -----------------------------------------------------------------------------------------------
 
 
@@ -202,6 +220,7 @@
 .contact {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -210,6 +229,7 @@
         background-color: #FF8297;
     }
 }
+
 // END - section contact -----------------------------------------------------------------------------------------------
 
 
@@ -217,6 +237,7 @@
 .footer {
     display: block;
     background-color: pink;
+
     > .container {
         width: 100px;
         height: 100px;
@@ -225,4 +246,5 @@
         background-color: #FF8297;
     }
 }
+
 // END - section footer ------------------------------------------------------------------------------------------------

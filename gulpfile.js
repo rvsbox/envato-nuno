@@ -22,7 +22,7 @@ const path = {
         html: buildPath,
         js: buildPath + 'assets/js/',
         css: buildPath + 'assets/css/',
-        images: buildPath + 'assets/img/',
+        images: buildPath + 'assets/images/',
         fonts: buildPath + 'assets/fonts/',
         draft: buildPath + 'draft/'
     },
@@ -56,7 +56,7 @@ const pathBeta = {
         html: buildPathBeta,
         js: buildPathBeta + 'js/',
         css: buildPathBeta + 'css/',
-        images: buildPathBeta + 'img/',
+        images: buildPathBeta + 'images/',
         fonts: buildPathBeta + 'fonts/'
     },
     clear: './' + buildPathBeta

@@ -87,8 +87,6 @@
     position: absolute;
     background-color: blue;
     color: white;
-
-
 }
 
 .person-info {
@@ -117,32 +115,51 @@
 
 // START - section about -----------------------------------------------------------------------------------------------
 .about {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: pink;
 
     > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 1400px;
+        margin: 0 65px;
         display: block;
-        background-color: #FF8297;
+        background-color: #FFA2B1; // test
     }
 }
 
+.info-person {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.timeline-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-item {
+    display: block;
+    flex-grow: 1; // разделение блоков на равные части
+}
 // END - section about -------------------------------------------------------------------------------------------------
 
 
 // START - section service ---------------------------------------------------------------------------------------------
 .service {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: pink;
 
     > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 1400px;
+        margin: 0 65px;
         display: block;
-        background-color: #FF8297;
+        background-color: #FF8297; // test
     }
 }
 
@@ -151,15 +168,17 @@
 
 // START - section portfolio -------------------------------------------------------------------------------------------
 .portfolio {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: pink;
 
     > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 1400px;
+        margin: 0 65px;
         display: block;
-        background-color: #FF8297;
+        background-color: #FF627C; // test
     }
 }
 
@@ -168,49 +187,36 @@
 
 // START - section client ----------------------------------------------------------------------------------------------
 .client {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: pink;
 
     > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 1400px;
+        margin: 0 65px;
         display: block;
-        background-color: #FF8297;
+        background-color: #FF4261; // test
     }
 }
 
 // END - section client ------------------------------------------------------------------------------------------------
 
 
-// START - section blog ------------------------------------------------------------------------------------------------
-.blog {
-    display: block;
-    background-color: pink;
-
-    > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-        display: block;
-        background-color: #FF8297;
-    }
-}
-
-// END - section blog --------------------------------------------------------------------------------------------------
-
-
 // START - section contact ---------------------------------------------------------------------------------------------
 .contact {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: pink;
 
     > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 1400px;
+        margin: 0 65px;
         display: block;
-        background-color: #FF8297;
+        background-color: #FF2B4F; // test
     }
 }
 
@@ -219,15 +225,17 @@
 
 // START - section contact ---------------------------------------------------------------------------------------------
 .contact {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: pink;
 
     > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 1400px;
+        margin: 0 65px;
         display: block;
-        background-color: #FF8297;
+        background-color: #E60026; // test
     }
 }
 
@@ -236,15 +244,17 @@
 
 // START - section footer ----------------------------------------------------------------------------------------------
 .footer {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: pink;
 
     > .container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 1400px;
+        margin: 0 65px;
         display: block;
-        background-color: #FF8297;
+        background-color: #CF0022; // test
     }
 }
 

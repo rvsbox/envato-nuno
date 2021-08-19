@@ -1,5 +1,5 @@
 // START - test --------------------------------------------------------------------------------------------------------
-.link{
+.link {
     display: block;
     > .linkname {
         font-family: "Poppins SemiBold", serif;
@@ -12,6 +12,19 @@
             color: var(--color-6);
             text-decoration: none;
         }
+    }
+}
+
+.name-section {
+    display: block;
+    > .description {
+
+    }
+    > .heading-1 {
+        font-size: 22px; // test
+    }
+    > .borderblock {
+
     }
 }
 // END - test ----------------------------------------------------------------------------------------------------------

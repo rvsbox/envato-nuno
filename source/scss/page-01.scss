@@ -38,6 +38,7 @@
     flex-wrap: nowrap;
     list-style-type: none;
 }
+
 // END - header --------------------------------------------------------------------------------------------------------
 
 
@@ -110,6 +111,7 @@
     justify-content: space-between;
     background-color: #4F5FF6;
 }
+
 // END - section base --------------------------------------------------------------------------------------------------
 
 
@@ -144,6 +146,7 @@
     display: block;
     flex-grow: 1; // разделение блоков на равные части
 }
+
 // END - section about -------------------------------------------------------------------------------------------------
 
 
@@ -239,6 +242,29 @@
     }
 }
 
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "map map"
+        "message contact";
+}
+
+.map {
+    display: block;
+    grid-area: map;
+}
+
+.message {
+    display: block;
+    grid-area: message;
+}
+
+.contact-info {
+    display: block;
+    grid-area: contact;
+}
+
 // END - section contact -----------------------------------------------------------------------------------------------
 
 
@@ -252,10 +278,23 @@
     > .container {
         max-width: 1400px;
         width: 1400px;
+        height: 64px;
         margin: 0 65px;
-        display: block;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
         background-color: #CF0022; // test
     }
 }
 
 // END - section footer ------------------------------------------------------------------------------------------------
+
+//.footer-top {
+//    height: 64px;
+//    display: flex;
+//    flex-direction: row;
+//    flex-wrap: nowrap;
+//    justify-content: space-between;
+//    background-color: #4F5FF6;
+//}

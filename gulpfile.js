@@ -80,9 +80,9 @@ function myServer() {
 function myJs() {
     return src([
         'source/js/script-01.js',
-        'source/js/script-02.js',
+        // 'source/js/script-02.js',
         'source/js/script-03.js',
-        'source/js/script-alpha.js',
+        // 'source/js/script-alpha.js',
     ])
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))

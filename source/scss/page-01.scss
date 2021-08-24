@@ -1,8 +1,11 @@
+body {
+    background-color: var(--color-3);
+}
+
 // START - header ------------------------------------------------------------------------------------------------------
 .header {
     height: 64px;
     display: block;
-    background-color: var(--color-3);
 
     > .container {
         margin: 0 65px;
@@ -81,27 +84,27 @@
 // START - section base ------------------------------------------------------------------------------------------------
 .base {
     display: block;
-    background-color: pink;
+    //background-color: pink; // test
 
     > .container {
         margin: 0 65px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: #FFA2B1;
+        display: block;
+        //display: flex; // test
+        //flex-direction: column; // test
+        //justify-content: space-between; // test
+        //background-color: #FFA2B1; // test
     }
 }
 
 .composition {
     min-height: calc(100vh - 64px - 64px); // header: 64px, footer-top: 64px
-    margin: 0 auto;
     display: block;
-    background-color: green;
+    background-color: blue; // test
 }
 
 .circle {
-    width: 900px;
-    height: 900px;
+    width: 1400px;
+    height: 1400px;
     left: 0;
     right: 0;
     top: 0;
@@ -109,21 +112,26 @@
     margin: auto;
     display: block;
     position: absolute;
-    background-color: white;
+    //background-color: red; // test
 }
 
 .person-img {
-    width: 626px;
-    height: 1008px;
+    width: 1020px;
+    height: 1500px;
     left: 0;
     right: 0;
-    top: 0;
+    //top: 0;
     bottom: 0;
     margin: auto;
     display: block;
     position: absolute;
-    //background-color: blue;
-    color: white;
+
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 0 0;
+    }
 }
 
 .person-info {
@@ -136,7 +144,7 @@
     margin: auto;
     display: block;
     position: absolute;
-    background-color: gray;
+    background-color: gray; // test
 }
 
 .footer-top {
@@ -145,7 +153,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    background-color: #4F5FF6;
+    background-color: #4F5FF6; // test
 }
 
 // END - section base --------------------------------------------------------------------------------------------------

@@ -25,7 +25,7 @@ window.onload = () => {
 
 
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-    // ?????????????140px   - bottom блока .circles
+    // 314px     - bottom блока #circle
     // 1400px  - width блока #circle
     // 1400px  - height блока #circle
     // 3600px  - width блока #composition 
@@ -34,10 +34,11 @@ window.onload = () => {
 
     function resizeCircle(compositionSize) {
         let change = Math.round((1400 * compositionSize) / 1900)
-        // let changeBottom = Math.round((140 * compositionSize) / 1900)
+        let changeTop = Math.round((314 * compositionSize) / 1900)
 
         document.getElementById('circle').style.width = change + 'px'
         document.getElementById('circle').style.height = change + 'px'
+        document.getElementById('circle').style.bottom = changeTop + 'px'
     }
 
     // условия при изменении ширины и, или высоты экрана
@@ -46,7 +47,7 @@ window.onload = () => {
 
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            // console.log(getSizeBlock.compositionH) // test
+            console.log(getSizeBlock.compositionH) // test
 
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 resizeCircle(getSizeBlock.compositionW)

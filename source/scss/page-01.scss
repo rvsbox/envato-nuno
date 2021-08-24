@@ -107,8 +107,9 @@ body {
     height: 1400px;
     left: 0;
     right: 0;
-    top: 0;
-    bottom: 0;
+    //top: 0; // test
+    //bottom: 0;
+    bottom: 314px;
     margin: auto;
     display: block;
     position: absolute;
@@ -120,7 +121,7 @@ body {
     height: 1500px;
     left: 0;
     right: 0;
-    //top: 0;
+    //top: 0; // test
     bottom: 0;
     margin: auto;
     display: block;

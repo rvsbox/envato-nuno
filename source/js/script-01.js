@@ -1,7 +1,7 @@
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
 
-    /* ======== START - Get block sizes ================================================================================= */
+    /* ======== START - Get block sizes ============================================================================= */
     function GetSizeBlock() {
         // #composition
         this.compositionW = document.getElementById('composition').offsetWidth
@@ -14,6 +14,9 @@ window.onload = () => {
         // #personImg
         this.personImgW = document.getElementById('personImg').offsetWidth
         this.personImgH = document.getElementById('personImg').offsetHeight
+
+        // #personHeading1
+        this.personHeading1W = document.getElementById('personHeading1').offsetWidth
     }
 
     // GetSizeBlock() // test
@@ -21,16 +24,16 @@ window.onload = () => {
     // console.log(compositionW, compositionH) // test
     // console.log(circleW, circleH) // test
     // console.log(personImgW, personImgH) // test
-    /* ======== END - Get block sizes =================================================================================== */
+    /* ======== END - Get block sizes =============================================================================== */
 
 
+    /* ======== START - #circle ===================================================================================== */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 314px     - bottom блока #circle
     // 1400px  - width блока #circle
     // 1400px  - height блока #circle
     // 3600px  - width блока #composition 
     // 1900px  - height блока #composition
-
 
     function resizeCircle(compositionSize) {
         let change = Math.round((1400 * compositionSize) / 1900)
@@ -47,7 +50,7 @@ window.onload = () => {
 
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            console.log(getSizeBlock.compositionH) // test
+            // console.log(getSizeBlock.compositionH) // test
 
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 resizeCircle(getSizeBlock.compositionW)
@@ -70,7 +73,7 @@ window.onload = () => {
     function setSizeCircleDefault() {
         let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-         if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
             resizeCircle(getSizeBlock.compositionW)
         }
         if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH <= 1900)) {
@@ -85,8 +88,10 @@ window.onload = () => {
     }
 
     setSizeCircleDefault()
+    /* ======== END - #circle ======================================================================================= */
 
 
+    /* ======== START - #personImg ================================================================================== */
 
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 1020px  - width блока #personImg
@@ -157,4 +162,30 @@ window.onload = () => {
 
     setSizePersonImgDefault()
 
+
+    function test() {
+        addEventListener('resize', event => {
+
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            if (getSizeBlock.compositionW <= 1900) {
+
+                // let changeH = Math.round((1500 * compositionSize) / 1900)
+                // let changeW = Math.round((changeH * 1020) / 1500)
+                //
+                // document.getElementById('personImg').style.width = changeW + 'px'
+                // document.getElementById('personImg').style.height = changeH + 'px'
+
+                document.getElementById('personInfo').style.left = 100 + 'px'
+                // console.log('lala') // test
+            }
+
+        })
+
+
+    }
+
+    test()
+
+    /* ======== END - #personImg ==================================================================================== */
 }

@@ -3,7 +3,6 @@ window.onload = () => {
 
     /* ======== START - Get block sizes ================================================================================= */
     function GetSizeBlock() {
-
         // #composition
         this.compositionW = document.getElementById('composition').offsetWidth
         this.compositionH = document.getElementById('composition').offsetHeight
@@ -13,9 +12,8 @@ window.onload = () => {
         this.circleH = document.getElementById('circle').offsetHeight
 
         // #personImg
-        // this.personImgW = document.getElementById('personImg').offsetWidth
-        // this.personImgH = document.getElementById('personImg').offsetHeight
-
+        this.personImgW = document.getElementById('personImg').offsetWidth
+        this.personImgH = document.getElementById('personImg').offsetHeight
     }
 
     // GetSizeBlock() // test
@@ -26,10 +24,10 @@ window.onload = () => {
     /* ======== END - Get block sizes =================================================================================== */
 
 
-    // размеры установленные в стилях, размеры блоков при 4k разрешении
+    // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // ?????????????140px   - bottom блока .circles
-    // 1400px   - width блока .circle
-    // 1400px   - height блока .circle
+    // 1400px  - width блока #circle
+    // 1400px  - height блока #circle
     // 3600px  - width блока #composition 
     // 1900px  - height блока #composition
 
@@ -42,26 +40,23 @@ window.onload = () => {
         document.getElementById('circle').style.height = change + 'px'
     }
 
+    // условия при изменении ширины и, или высоты экрана
     function setSizeCircle() {
-
         addEventListener('resize', event => {
 
-            let getSizeBlock = new GetSizeBlock()
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            console.log(getSizeBlock.compositionH) // test
+            // console.log(getSizeBlock.compositionH) // test
 
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 resizeCircle(getSizeBlock.compositionW)
             }
-
             if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH <= 1900)) {
                 resizeCircle(getSizeBlock.compositionH)
             }
-
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
                 resizeCircle(getSizeBlock.compositionW)
             }
-
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
                 resizeCircle(getSizeBlock.compositionH)
             }
@@ -70,5 +65,95 @@ window.onload = () => {
 
     setSizeCircle()
 
+    // условия при первой загрузке сайта
+    function setSizeCircleDefault() {
+        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+         if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
+            resizeCircle(getSizeBlock.compositionW)
+        }
+        if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH <= 1900)) {
+            resizeCircle(getSizeBlock.compositionH)
+        }
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+            resizeCircle(getSizeBlock.compositionW)
+        }
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+            resizeCircle(getSizeBlock.compositionH)
+        }
+    }
+
+    setSizeCircleDefault()
+
+
+
+    // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
+    // 1020px  - width блока #personImg
+    // 1500px  - height блока #personImg
+    // 3600px  - width блока #composition
+    // 1900px  - height блока #composition
+
+    // #composition - ширина
+    function resizePersonImgWidth(compositionSize) {
+        let changeW = Math.round((1020 * compositionSize) / 1900)
+        let changeH = Math.round((changeW * 1500) / 1020)
+
+        document.getElementById('personImg').style.width = changeW + 'px'
+        document.getElementById('personImg').style.height = changeH + 'px'
+    }
+
+    // #composition - высота
+    function resizePersonImgHeight(compositionSize) {
+        let changeH = Math.round((1500 * compositionSize) / 1900)
+        let changeW = Math.round((changeH * 1020) / 1500)
+
+        document.getElementById('personImg').style.width = changeW + 'px'
+        document.getElementById('personImg').style.height = changeH + 'px'
+    }
+
+    // условия при изменении ширины и, или высоты экрана
+    function setSizePersonImg() {
+        addEventListener('resize', event => {
+
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            // console.log(getSizeBlock.compositionH) // test
+
+            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
+                resizePersonImgWidth(getSizeBlock.compositionW)
+            }
+            if ((getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW >= 1900)) {
+                resizePersonImgHeight(getSizeBlock.compositionH)
+            }
+            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+                resizePersonImgWidth(getSizeBlock.compositionW)
+            }
+            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+                resizePersonImgHeight(getSizeBlock.compositionH)
+            }
+        })
+    }
+
+    setSizePersonImg()
+
+    // условия при первой загрузке сайта
+    function setSizePersonImgDefault() {
+        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
+            resizePersonImgWidth(getSizeBlock.compositionW)
+        }
+        if ((getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW >= 1900)) {
+            resizePersonImgHeight(getSizeBlock.compositionH)
+        }
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+            resizePersonImgWidth(getSizeBlock.compositionW)
+        }
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+            resizePersonImgHeight(getSizeBlock.compositionH)
+        }
+    }
+
+    setSizePersonImgDefault()
 
 }

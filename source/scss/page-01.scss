@@ -16,8 +16,8 @@ body {
 }
 
 .logo {
-    display: block;
     padding: 32px 0 0 0;
+    display: block;
 }
 
 .contact-top {
@@ -29,8 +29,8 @@ body {
     margin: auto;
     max-width: 100%;
     width: 1400px;
-    z-index: 10;
     display: block;
+    z-index: 10;
     position: absolute;
 }
 
@@ -60,9 +60,9 @@ body {
 }
 
 .nav {
-    z-index: 20;
-    display: block;
     padding: 34px 0 0 0;
+    display: block;
+    z-index: 20;
 }
 
 .nav-list {
@@ -131,66 +131,67 @@ body {
 }
 
 .person-info {
-    //width: 800px;
-    //left: 0;
-    //right: 0;
+    width: 709px; // [APP.JS]
+    //left: 0; // test
+    //right: 0; // test
     //top: 0; // test
     bottom: 400px;
     //left: 100px; // test
-    //margin: auto;
-    //display: block;
-    //display: inline-block;
+    //margin: auto; // test
+    //display: block; // test
+    //display: inline-block; // test
+
     display: flex;
+    overflow:hidden;
     flex-direction: column;
     flex-wrap: wrap;
     position: absolute;
     z-index: 10;
+    //background-color: yellow; // test
 
     div {
         &:first-child {
             border-radius: 10px 10px 0 0;
-            margin: 0 0 6px 0;
+            margin: 0 0 .7% 0;
         }
 
         &:last-child {
             border-radius: 0 0 10px 10px;
-            margin: 6px 0 0 0;
+            margin: .7% 0 0 0;
         }
     }
 
 
     > .heading-h1 {
-        //display: inline-block;
-        //padding: 0;
+        padding: 1% 4%;
+        display: block;
         font-family: "Poppins Bold", serif;
-        font-size: 28px;
+        font-size: 210%;
         text-transform: uppercase;
-        //line-height: 0;
+        line-height: 0;
+        white-space: nowrap;
         background-color: gray; // test
-        //box-sizing: border-box;
-        //flex-basis: 30%;
-
 
         h1 {
-            background-color: red;
+            background-color: red; // test
         }
-
     }
 
     > .heading-h2 {
-        //display: inline-block;
+        padding: 1% 4%;
+        display: block;
+        font-family: "Poppins Bold", serif;
+        font-size: 130%;
+        line-height: 0;
+        white-space: nowrap;
         background-color: gray; // test
-        //flex-basis: 30%;
-
     }
 
     > .description {
-        //display: block;
+        padding: 0 22px 0 22px;
+        display: block;
         background-color: gray; // test
-        //flex-basis: 30%;
-        //width: 400px; // test
     }
-
 }
 
 .footer-top {

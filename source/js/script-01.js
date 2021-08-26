@@ -29,7 +29,7 @@ window.onload = () => {
 
     /* ======== START - #circle ===================================================================================== */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-    // 314px     - bottom блока #circle
+    // 314px   - bottom блока #circle
     // 1400px  - width блока #circle
     // 1400px  - height блока #circle
     // 3600px  - width блока #composition 
@@ -37,17 +37,16 @@ window.onload = () => {
 
     function resizeCircle(compositionSize) {
         let change = Math.round((1400 * compositionSize) / 1900)
-        let changeTop = Math.round((314 * compositionSize) / 1900)
+        let changeBottom = Math.round((314 * compositionSize) / 1900)
 
         document.getElementById('circle').style.width = change + 'px'
         document.getElementById('circle').style.height = change + 'px'
-        document.getElementById('circle').style.bottom = changeTop + 'px'
+        document.getElementById('circle').style.bottom = changeBottom + 'px'
     }
 
     // условия при изменении ширины и, или высоты экрана
     function setSizeCircle() {
         addEventListener('resize', event => {
-
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
             // console.log(getSizeBlock.compositionH) // test
@@ -92,7 +91,6 @@ window.onload = () => {
 
 
     /* ======== START - #personImg ================================================================================== */
-
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 1020px  - width блока #personImg
     // 1500px  - height блока #personImg
@@ -120,7 +118,6 @@ window.onload = () => {
     // условия при изменении ширины и, или высоты экрана
     function setSizePersonImg() {
         addEventListener('resize', event => {
-
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
             // console.log(getSizeBlock.compositionH) // test
@@ -161,31 +158,42 @@ window.onload = () => {
     }
 
     setSizePersonImgDefault()
+    /* ======== END - #personImg ==================================================================================== */
 
 
-    function test() {
-        addEventListener('resize', event => {
+    /* ======== START - #personInfo ================================================================================= */
+    function resizePersonInfo(compositionSize) {
+        let change = Math.round((709 * compositionSize) / 1900)
+        let changePersonHeading1 = Math.round((210 * compositionSize) / 1900)
+        let changePersonHeading2 = Math.round((130 * compositionSize) / 1900)
+
+        document.getElementById('personInfo').style.width = change + 'px'
+        document.getElementById('personHeading1').style.fontSize = changePersonHeading1 + '%'
+        document.getElementById('personHeading2').style.fontSize = changePersonHeading2 + '%'
+    }
+
+
+    function setSizePersonInfo() {
+          addEventListener('resize', event => {
 
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
             if (getSizeBlock.compositionW <= 1900) {
+                resizePersonInfo(getSizeBlock.compositionW)
 
-                // let changeH = Math.round((1500 * compositionSize) / 1900)
+                // let change = Math.round((1500 * compositionSize) / 1900)
                 // let changeW = Math.round((changeH * 1020) / 1500)
                 //
                 // document.getElementById('personImg').style.width = changeW + 'px'
                 // document.getElementById('personImg').style.height = changeH + 'px'
 
-                document.getElementById('personInfo').style.left = 100 + 'px'
+                // document.getElementById('personInfo').style.left = 100 + 'px'
                 // console.log('lala') // test
             }
-
         })
-
-
     }
 
-    test()
+    setSizePersonInfo()
 
-    /* ======== END - #personImg ==================================================================================== */
+    /* ======== END - #personInfo ==================================================================================== */
 }

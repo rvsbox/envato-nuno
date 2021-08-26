@@ -132,65 +132,82 @@ body {
 
 .person-info {
     width: 709px; // [APP.JS]
-    //left: 0; // test
-    //right: 0; // test
+    left: 0;
+    right: 1000px;
     //top: 0; // test
+    //bottom: 0;
     bottom: 400px;
     //left: 100px; // test
-    //margin: auto; // test
+    margin: auto; // test
     //display: block; // test
     //display: inline-block; // test
 
     display: flex;
-    overflow:hidden;
+    overflow: hidden;
     flex-direction: column;
     flex-wrap: wrap;
     position: absolute;
-    z-index: 10;
+    z-index: 1000;
     //background-color: yellow; // test
 
     div {
         &:first-child {
             border-radius: 10px 10px 0 0;
-            margin: 0 0 .7% 0;
+            margin: 0 0 1% 0;
         }
 
         &:last-child {
             border-radius: 0 0 10px 10px;
-            margin: .7% 0 0 0;
+            margin: 1% 0 0 0;
         }
     }
+}
 
+.person-h1 {
+    padding: 1.8% 4%;
+    display: block;
+    font-family: "Poppins Bold", serif;
+    font-size: 210%; // [APP.JS]
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+    background-color: gray; // test
 
-    > .heading-h1 {
-        padding: 1% 4%;
-        display: block;
-        font-family: "Poppins Bold", serif;
-        font-size: 210%;
-        text-transform: uppercase;
-        line-height: 0;
-        white-space: nowrap;
-        background-color: gray; // test
-
-        h1 {
-            background-color: red; // test
-        }
+    > .heading-1 {
+        margin: 0;
+        padding: 0;
+        //background-color: red; // test
     }
+}
 
-    > .heading-h2 {
-        padding: 1% 4%;
-        display: block;
-        font-family: "Poppins Bold", serif;
-        font-size: 130%;
-        line-height: 0;
-        white-space: nowrap;
-        background-color: gray; // test
+.person-h2 {
+    padding: 1.3% 4%;
+    display: block;
+    font-family: "Poppins Bold", serif;
+    font-size: 130%; // [APP.JS]
+    line-height: 1.3;
+    //white-space: nowrap;
+    background-color: gray; // test
+
+    > .heading-2 {
+        margin: 0;
+        padding: 0;
+        //background-color: red; // test
     }
+}
 
-    > .description {
-        padding: 0 22px 0 22px;
-        display: block;
-        background-color: gray; // test
+.person-description {
+    padding: 1.3% 4%;
+    display: block;
+    font-family: "Poppins Regular", serif;
+    font-size: 118%; // [APP.JS]
+    line-height: 1.6;
+    background-color: gray; // test
+
+    > .paragraph {
+        margin: 0;
+        padding: 0;
+        //background-color: red; // test
     }
 }
 

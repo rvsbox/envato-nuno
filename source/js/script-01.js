@@ -51,7 +51,6 @@ window.onload = () => {
     }
 
 
-
     // условия при изменении ширины и, или высоты экрана
     function setSizeCircle() {
         addEventListener('resize', event => {
@@ -182,28 +181,46 @@ window.onload = () => {
 
     /* ======== START - #personInfo ================================================================================= */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-    // 709px  - width #personInfo
+    // 718px  - width #personInfo
     // 210%   - font-size, #personH1
     // 130%   - font-size, #personH2
     // 118%   - font-size, #personDescription
-    // 400px  - bottom, #personInfo
+    // 300px  - bottom, #personInfo
     // 1000px - right, #personInfo
 
     function defaultPersonInfo() {
-        document.getElementById('personInfo').style.width = 709 + 'px'
+        document.getElementById('personInfo').style.width = 718 + 'px'
         document.getElementById('personH1').style.fontSize = 210 + '%'
         document.getElementById('personH2').style.fontSize = 130 + '%'
         document.getElementById('personDescription').style.fontSize = 118 + '%'
-        document.getElementById('personInfo').style.bottom = 400 + 'px'
+        document.getElementById('personInfo').style.bottom = 300 + 'px'
         document.getElementById('personInfo').style.right = 1000 + 'px'
+
+
+    }
+
+    // #personH2, #personDescription
+    function defaultPersonInfoPlus() {
+        document.getElementById('personH2').style.display = 'block'
+        document.getElementById('personDescription').style.display = 'block'
+        document.getElementById('personH1').style.borderBottomRightRadius = 0
+        document.getElementById('personH1').style.borderBottomLeftRadius = 0
+    }
+
+    // #personH2, #personDescription
+    function resizePersonInfoMini() {
+        document.getElementById('personH2').style.display = 'none'
+        document.getElementById('personDescription').style.display = 'none'
+        document.getElementById('personH1').style.borderBottomRightRadius = 0.5 + 'em'
+        document.getElementById('personH1').style.borderBottomLeftRadius = 0.5 + 'em'
     }
 
     function resizePersonInfo(compositionSize) {
-        let change = Math.round((709 * compositionSize) / 1900)
+        let change = Math.round((718 * compositionSize) / 1900)
         let changePersonH1 = Math.round((210 * compositionSize) / 1900)
         let changePersonH2 = Math.round((130 * compositionSize) / 1900)
         let changePersonDescription = Math.round((118 * compositionSize) / 1900)
-        let changeBottom = Math.round((400 * compositionSize) / 1900)
+        let changeBottom = Math.round((300 * compositionSize) / 1900)
         let changeLeft = Math.round((1000 * compositionSize) / 1900)
 
 
@@ -221,10 +238,6 @@ window.onload = () => {
 
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            // if (getSizeBlock.compositionW <= 1900) {
-            //     resizePersonInfo(getSizeBlock.compositionW)
-            // }
-
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 resizePersonInfo(getSizeBlock.compositionW)
             }
@@ -238,12 +251,78 @@ window.onload = () => {
                 resizePersonInfo(getSizeBlock.compositionH)
             }
             if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH >= 1900)) {
-                defaultPersonInfo()
+                defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
             }
         })
     }
 
     setSizePersonInfo()
+
+    // условия при первой загрузке сайта
+    function setSizePersonInfoDefault() {
+        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
+            resizePersonInfo(getSizeBlock.compositionW)
+        }
+        if ((getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW >= 1900)) {
+            resizePersonInfo(getSizeBlock.compositionH)
+        }
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+            resizePersonInfo(getSizeBlock.compositionW)
+        }
+        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+            resizePersonInfo(getSizeBlock.compositionH)
+        }
+    }
+
+    setSizePersonInfoDefault()
+
+    // условие, если у #personInfo ширина, высота меньше 1200px, для #personH2, #personDescription
+    function setSizePersonInfoMini() {
+        addEventListener('resize', event => {
+
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH >= 1200)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW >= 1200)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionW >= 1200) && (getSizeBlock.compositionH >= 1200)) {
+                defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personH2, #personDescription
+            }
+        })
+    }
+
+    setSizePersonInfoMini()
+
+    // условия при первой загрузке сайта, для #personH2, #personDescription
+    function setSizePersonInfoPlusDefault() {
+        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+        if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH >= 1200)) {
+            resizePersonInfoMini()
+        }
+        if ((getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW >= 1200)) {
+            resizePersonInfoMini()
+        }
+        if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+            resizePersonInfoMini()
+        }
+        if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+            resizePersonInfoMini()
+        }
+    }
+
+    setSizePersonInfoPlusDefault()
 
     /* ======== END - #personInfo ==================================================================================== */
 }

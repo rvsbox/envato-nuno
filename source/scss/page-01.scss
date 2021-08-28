@@ -61,7 +61,7 @@ body {
 
 .nav {
     padding: 34px 0 0 0;
-    display: block;
+    display: none;
     z-index: 20;
 }
 
@@ -76,6 +76,45 @@ body {
     li:nth-child(n+2) {
         margin: 0 0 0 28px;
     }
+}
+
+.nav-right {
+    right: 0;
+    width: 220px;
+    height: calc(100vh - 200px); // padding-top: 200px
+    padding: 200px 0 0 50px;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    background-color: var(--color-4);
+}
+
+.nav-right-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+
+    li {
+        margin-top: 20px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.close-nav {
+    top: 32px;
+    right: 65px;
+    display: block;
+    position: absolute;
+
+}
+
+.open-van {
+    display: block;
 }
 
 // -------- END - header -----------------------------------------------------------------------------------------------
@@ -135,13 +174,8 @@ body {
     left: 0;
     right: 1000px;
     //top: 0; // test
-    //bottom: 0;
     bottom: 300px;
-    //left: 100px; // test
-    margin: auto; // test
-    //display: block; // test
-    //display: inline-block; // test
-
+    margin: auto;
     display: flex;
     overflow: hidden;
     flex-direction: column;
@@ -176,7 +210,7 @@ body {
     > .heading-1 {
         margin: 0;
         padding: 0;
-        background-color: red; // test
+        //background-color: red; // test
     }
 }
 
@@ -219,7 +253,6 @@ body {
     justify-content: space-between;
     background-color: #4F5FF6; // test
 }
-
 // -------- END - section base -----------------------------------------------------------------------------------------
 
 

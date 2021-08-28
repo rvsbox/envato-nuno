@@ -16,6 +16,34 @@
     }
 }
 
+.link-big {
+    display: block;
+
+    > .linkname {
+        font-family: "Poppins Medium", serif;
+        font-size: 18px;
+        color: var(--color-1);
+        transition: color 0.3s linear;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-6);
+            text-decoration: none;
+        }
+    }
+}
+
+.btn-icon {
+    display: block;
+    color: var(--color-1);
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+
+
+
 .name-section {
     display: block;
 

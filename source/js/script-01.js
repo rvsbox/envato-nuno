@@ -195,16 +195,14 @@ window.onload = () => {
         document.getElementById('personDescription').style.fontSize = 118 + '%'
         document.getElementById('personInfo').style.bottom = 300 + 'px'
         document.getElementById('personInfo').style.right = 1000 + 'px'
-
-
     }
 
     // #personH2, #personDescription
     function defaultPersonInfoPlus() {
         document.getElementById('personH2').style.display = 'block'
         document.getElementById('personDescription').style.display = 'block'
-        document.getElementById('personH1').style.borderBottomRightRadius = 0
-        document.getElementById('personH1').style.borderBottomLeftRadius = 0
+        document.getElementById('personH1').style.borderBottomRightRadius = 0 + 'px'
+        document.getElementById('personH1').style.borderBottomLeftRadius = 0 + 'px'
     }
 
     // #personH2, #personDescription
@@ -323,6 +321,5 @@ window.onload = () => {
     }
 
     setSizePersonInfoPlusDefault()
-
     /* ======== END - #personInfo ==================================================================================== */
 }

@@ -366,7 +366,7 @@ window.onload = () => {
 
             if ((headingBaseW > 0) && (headingBaseH > 0)) {
 
-                document.getElementsByClassName('heading-blk__border')[i].style.width = headingBaseW + 'px'
+                document.getElementsByClassName('heading-blk__border')[i].style.width = zheadingBaseW + 'px'
                 document.getElementsByClassName('heading-blk__border')[i].style.height = headingBaseH + 'px'
             }
         }

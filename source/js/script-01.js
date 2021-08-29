@@ -376,8 +376,9 @@ window.onload = () => {
 
             if ((headingBaseW > 0) && (headingBaseH > 0)) {
 
-                document.getElementsByClassName('border-section')[i].style.width = headingBaseW + 'px'
-                document.getElementsByClassName('border-section')[i].style.height = headingBaseH + 'px'
+                // тк border: 3px, то минус 6
+                document.getElementsByClassName('border-section')[i].style.width = headingBaseW - 6 + 'px'
+                document.getElementsByClassName('border-section')[i].style.height = headingBaseH - 6 + 'px'
             }
         }
     }

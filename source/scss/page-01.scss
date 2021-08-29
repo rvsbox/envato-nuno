@@ -1,11 +1,8 @@
-body {
-    background-color: var(--color-3);
-}
-
 // -------- START - header ---------------------------------------------------------------------------------------------
 .header {
     height: 64px;
     display: block;
+    background-color: var(--color-3);
 
     > .container {
         margin: 0 65px;
@@ -124,6 +121,7 @@ body {
 // -------- START - section base ---------------------------------------------------------------------------------------
 .base {
     display: block;
+    background-color: var(--color-3);
     //background-color: pink; // test
 
     > .container {
@@ -145,8 +143,8 @@ body {
 }
 
 .circle {
-    width: 1400px;
-    height: 1400px;
+    width: 1400px; // [APP.JS]
+    height: 1400px; // [APP.JS]
     left: 0;
     right: 0;
     //top: 0; // test
@@ -158,11 +156,11 @@ body {
 }
 
 .person-img {
-    width: 1020px;
-    height: 1500px;
+    width: 1020px; // [APP.JS]
+    height: 1500px; // [APP.JS]
     left: 0;
     right: 0;
-    //top: 0; // test
+    //top: 0;
     bottom: 0;
     margin: auto;
     display: block;
@@ -180,7 +178,7 @@ body {
     width: 718px; // [APP.JS]
     left: 0;
     right: 1000px;
-    //top: 0; // test
+    //top: 0;
     bottom: 300px;
     margin: auto;
     display: flex;
@@ -300,14 +298,14 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    //background-color: pink; // test
 
     > .container {
         max-width: 1400px;
         width: 1400px;
         margin: 0 65px;
         display: block;
-        background-color: #FFA2B1; // test
+        //background-color: #FFA2B1; // test
     }
 }
 
@@ -335,7 +333,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    background-color: pink; // test
 
     > .container {
         max-width: 1400px;
@@ -354,7 +352,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    background-color: pink; // test
 
     > .container {
         max-width: 1400px;
@@ -373,7 +371,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    background-color: pink; // test
 
     > .container {
         max-width: 1400px;
@@ -392,7 +390,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    background-color: pink; // test
 
     > .container {
         max-width: 1400px;
@@ -411,7 +409,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    background-color: pink; // test
 
     > .container {
         max-width: 1400px;
@@ -453,7 +451,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    background-color: pink; // test
 
     > .container {
         max-width: 1400px;

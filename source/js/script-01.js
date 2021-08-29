@@ -367,18 +367,18 @@ window.onload = () => {
 
     function setSizeBorderSection() {
 
-        let k = document.getElementsByClassName('heading-section').length
+        let k = document.getElementsByClassName('title-heading').length
 
         for (let i = 0; i <= (k - 1); i++) {
 
-            let headingBaseW = document.getElementsByClassName('heading-section')[i].offsetWidth
-            let headingBaseH = document.getElementsByClassName('heading-section')[i].offsetHeight
+            let headingBaseW = document.getElementsByClassName('title-heading')[i].offsetWidth
+            let headingBaseH = document.getElementsByClassName('title-heading')[i].offsetHeight
 
             if ((headingBaseW > 0) && (headingBaseH > 0)) {
 
                 // тк border: 3px, то минус 6
-                document.getElementsByClassName('border-section')[i].style.width = headingBaseW - 6 + 'px'
-                document.getElementsByClassName('border-section')[i].style.height = headingBaseH - 6 + 'px'
+                document.getElementsByClassName('title-border')[i].style.width = headingBaseW - 6 + 'px'
+                document.getElementsByClassName('title-border')[i].style.height = headingBaseH - 6 + 'px'
             }
         }
     }

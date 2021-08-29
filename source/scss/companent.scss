@@ -71,12 +71,12 @@
 
 
 // -------- START - .name-section ---------------------------------------------------------------------------------------
-.name-section {
-    margin: 140px 0 0 0;
+.title-section {
+    margin: 140px 0 90px 0;
     height: 110px;
 }
 
-.description-section {
+.title-description {
     margin: 0 0 6px 18px;
 
     > .paragraph {
@@ -92,7 +92,7 @@
 }
 
 // [APP.JS], width
-.heading-section {
+.title-heading {
     margin: 12px 0 0 0;
     display: inline-block;
     position: absolute;
@@ -114,7 +114,7 @@
 }
 
 // [APP.JS], width
-.border-section {
+.title-border {
     margin: 0 0 0 12px;
     display: inline-block;
     position: absolute;

@@ -1,4 +1,4 @@
-// -------- START - test -----------------------------------------------------------------------------------------------
+// -------- START - .link ----------------------------------------------------------------------------------------------
 .link {
     display: block;
 
@@ -15,7 +15,10 @@
         }
     }
 }
+// -------- END - .link ------------------------------------------------------------------------------------------------
 
+
+// -------- START - .link-big ------------------------------------------------------------------------------------------
 .link-big {
     display: block;
 
@@ -32,7 +35,10 @@
         }
     }
 }
+// -------- END - .link-big --------------------------------------------------------------------------------------------
 
+
+// -------- START - .btn-icon ------------------------------------------------------------------------------------------
 .btn-icon {
     display: block;
     border: none;
@@ -61,21 +67,57 @@
         }
     }
 }
+// -------- END - .btn-icon --------------------------------------------------------------------------------------------
 
 
-
-
+// -------- START - .name-section ---------------------------------------------------------------------------------------
 .name-section {
-    display: block;
+    margin: 140px 0 0 0;
+    height: 110px;
+}
 
-    > .description {
+.description-section {
+    margin: 0 0 6px 18px;
 
-    }
-    > .heading-1 {
-        font-size: 22px; // test
-    }
-    > .borderblock {
+    > .paragraph {
+        margin: 0;
+        padding: 0;
+        display: block;
 
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        line-height: 24px;
+        color: var(--color-4);
     }
 }
-// -------- END - test -------------------------------------------------------------------------------------------------
+
+.heading-section {
+    margin: 12px 0 0 0;
+    display: inline-block;
+    position: absolute;
+    z-index: 20;
+    border-radius: 10px;
+    padding: 12px 22px 10px 22px;
+    background-color: var(--color-4);
+
+    > .heading1 {
+        margin: 0;
+        padding: 0;
+        display: block;
+
+        font-family: "Poppins Bold", serif;
+        font-size: 38px;
+        color: var(--color-1);
+        text-transform: uppercase;
+    }
+}
+
+.border-section {
+    margin: 0 0 0 12px;
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    border-radius: 10px;
+    border: solid 3px var(--color-3);
+}
+// -------- END - .name-section ----------------------------------------------------------------------------------------

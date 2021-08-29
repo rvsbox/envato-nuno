@@ -339,8 +339,6 @@ window.onload = () => {
             if (getSizeBlock.windowInnerWidth <= 1200) {
                 document.getElementById('nav').style.display = 'none'
                 document.getElementById('openNavRight').style.display = 'block'
-
-                console.log('lala')
             }
         })
     }
@@ -363,4 +361,27 @@ window.onload = () => {
 
     setCloseNavRightDefault()
     /* ======== END - #navRight ===================================================================================== */
+
+
+    /* ======== START - #headingSection ============================================================================= */
+
+    function setSizeBorderSection() {
+
+        let k = document.getElementsByClassName('heading-section').length
+
+        for (let i = 0; i <= (k - 1); i++) {
+
+            let headingBaseW = document.getElementsByClassName('heading-section')[i].offsetWidth
+            let headingBaseH = document.getElementsByClassName('heading-section')[i].offsetHeight
+
+            if ((headingBaseW > 0) && (headingBaseH > 0)) {
+
+                document.getElementsByClassName('border-section')[i].style.width = headingBaseW + 'px'
+                document.getElementsByClassName('border-section')[i].style.height = headingBaseH + 'px'
+            }
+        }
+    }
+
+    setSizeBorderSection()
+    /* ======== END - #headingSection =============================================================================== */
 }

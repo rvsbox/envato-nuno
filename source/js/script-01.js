@@ -17,6 +17,9 @@ window.onload = () => {
 
         // #personHeading1
         this.personHeading1W = document.getElementById('personH1').offsetWidth
+
+        // параметры области видимости (viewport)
+        this.windowInnerWidth = window.innerWidth
     }
 
     // GetSizeBlock() // test
@@ -55,8 +58,6 @@ window.onload = () => {
     function setSizeCircle() {
         addEventListener('resize', event => {
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
-            // console.log(getSizeBlock.compositionH) // test
 
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 resizeCircle(getSizeBlock.compositionW)
@@ -134,8 +135,6 @@ window.onload = () => {
     function setSizePersonImg() {
         addEventListener('resize', event => {
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
-            // console.log(getSizeBlock.compositionH) // test
 
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 resizePersonImgWidth(getSizeBlock.compositionW)
@@ -238,6 +237,8 @@ window.onload = () => {
 
             if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 resizePersonInfo(getSizeBlock.compositionW)
+
+                console.log('lala') // test
             }
             if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH <= 1900)) {
                 resizePersonInfo(getSizeBlock.compositionH)
@@ -250,6 +251,23 @@ window.onload = () => {
             }
             if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH >= 1900)) {
                 defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
+            }
+
+            // условие, если у #personInfo ширина, высота меньше 1200px, для #personH2, #personDescription
+            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH >= 1200)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW >= 1200)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+                resizePersonInfoMini()
+            }
+            if ((getSizeBlock.compositionW >= 1200) && (getSizeBlock.compositionH >= 1200)) {
+                defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personH2, #personDescription
             }
         })
     }
@@ -271,41 +289,11 @@ window.onload = () => {
         }
         if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
             resizePersonInfo(getSizeBlock.compositionH)
+
+
         }
-    }
 
-    setSizePersonInfoDefault()
-
-    // условие, если у #personInfo ширина, высота меньше 1200px, для #personH2, #personDescription
-    function setSizePersonInfoMini() {
-        addEventListener('resize', event => {
-
-            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
-            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH >= 1200)) {
-                resizePersonInfoMini()
-            }
-            if ((getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW >= 1200)) {
-                resizePersonInfoMini()
-            }
-            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
-                resizePersonInfoMini()
-            }
-            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
-                resizePersonInfoMini()
-            }
-            if ((getSizeBlock.compositionW >= 1200) && (getSizeBlock.compositionH >= 1200)) {
-                defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personH2, #personDescription
-            }
-        })
-    }
-
-    setSizePersonInfoMini()
-
-    // условия при первой загрузке сайта, для #personH2, #personDescription
-    function setSizePersonInfoPlusDefault() {
-        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
+        // условия при первой загрузке сайта, для #personH2, #personDescription
         if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH >= 1200)) {
             resizePersonInfoMini()
         }
@@ -320,6 +308,59 @@ window.onload = () => {
         }
     }
 
-    setSizePersonInfoPlusDefault()
-    /* ======== END - #personInfo ==================================================================================== */
+    setSizePersonInfoDefault()
+    /* ======== END - #personInfo =================================================================================== */
+
+
+    /* ======== START - #navRight =================================================================================== */
+    document.getElementById('openNavRight').addEventListener('click', openNavRight)
+    document.getElementById('closeNavRight').addEventListener('click', closeNavRight)
+
+    function openNavRight() {
+        document.getElementById('openNavRight').style.display = 'none'
+        document.getElementById('navRight').style.display = 'block'
+    }
+
+    function closeNavRight() {
+        document.getElementById('openNavRight').style.display = 'block'
+        document.getElementById('navRight').style.display = 'none'
+    }
+
+    function setCloseNavRight() {
+        addEventListener('resize', event => {
+
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            if (getSizeBlock.windowInnerWidth >= 1200) {
+                document.getElementById('nav').style.display = 'block'
+                document.getElementById('navRight').style.display = 'none'
+                document.getElementById('openNavRight').style.display = 'none'
+            }
+            if (getSizeBlock.windowInnerWidth <= 1200) {
+                document.getElementById('nav').style.display = 'none'
+                document.getElementById('openNavRight').style.display = 'block'
+
+                console.log('lala')
+            }
+        })
+    }
+
+    setCloseNavRight()
+
+    function setCloseNavRightDefault() {
+        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+        if (getSizeBlock.windowInnerWidth >= 1200) {
+            document.getElementById('nav').style.display = 'block'
+            document.getElementById('navRight').style.display = 'none'
+            document.getElementById('openNavRight').style.display = 'none'
+        }
+        if (getSizeBlock.windowInnerWidth <= 1200) {
+            document.getElementById('nav').style.display = 'none'
+            document.getElementById('openNavRight').style.display = 'block'
+        }
+    }
+
+    setCloseNavRightDefault()
+    /* ======== END - #navRight ===================================================================================== */
 }

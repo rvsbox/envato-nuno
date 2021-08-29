@@ -209,7 +209,13 @@ function myHtml() {
 
 
 function myFonts() {
-    return src('source/fonts/**/*.ttf')
+    return src([
+        'source/fonts/**/*.ttf',
+        'source/fonts/**/*.woff',
+        'source/fonts/**/*.woff2',
+        'source/fonts/**/*.eot',
+        'source/fonts/**/*.svg'
+    ])
         .pipe(dest(path.build.fonts))
         .pipe(browserSync.reload({stream: true}))
 }

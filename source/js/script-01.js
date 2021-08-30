@@ -16,15 +16,16 @@ window.onload = () => {
         this.personImgH = document.getElementById('personImg').offsetHeight
 
         // #personHeading1
-        this.personHeading1W = document.getElementById('personH1').offsetWidth
+        // this.personHeading1W = document.getElementById('personH1').offsetWidth
 
         // параметры области видимости (viewport)
-        this.windowInnerWidth = window.innerWidth
+        this.windowInnerW = window.innerWidth
+        this.windowInnerH = window.innerHeight
     }
 
     // GetSizeBlock() // test
 
-    // console.log(compositionW, compositionH) // test
+    // console.log(windowInnerW, windowInnerH) // test
     // console.log(circleW, circleH) // test
     // console.log(personImgW, personImgH) // test
     /* ======== END - Get block sizes =============================================================================== */
@@ -44,9 +45,9 @@ window.onload = () => {
         document.getElementById('circle').style.bottom = 314 + 'px'
     }
 
-    function resizeCircle(compositionSize) {
-        let change = Math.round((1400 * compositionSize) / 1900)
-        let changeBottom = Math.round((314 * compositionSize) / 1900)
+    function resizeCircle(windowInnerSize) {
+        let change = Math.round((1400 * windowInnerSize) / 1900)
+        let changeBottom = Math.round((314 * windowInnerSize) / 1900)
 
         document.getElementById('circle').style.width = change + 'px'
         document.getElementById('circle').style.height = change + 'px'
@@ -59,19 +60,19 @@ window.onload = () => {
         addEventListener('resize', event => {
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
-                resizeCircle(getSizeBlock.compositionW)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
+                resizeCircle(getSizeBlock.windowInnerW)
             }
-            if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH <= 1900)) {
-                resizeCircle(getSizeBlock.compositionH)
+            if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH <= 1900)) {
+                resizeCircle(getSizeBlock.windowInnerH)
             }
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
-                resizeCircle(getSizeBlock.compositionW)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+                resizeCircle(getSizeBlock.windowInnerW)
             }
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
-                resizeCircle(getSizeBlock.compositionH)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+                resizeCircle(getSizeBlock.windowInnerH)
             }
-            if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH >= 1900)) {
+            if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
                 defaultCircle()
             }
         })
@@ -83,17 +84,17 @@ window.onload = () => {
     function setSizeCircleDefault() {
         let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
-            resizeCircle(getSizeBlock.compositionW)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
+            resizeCircle(getSizeBlock.windowInnerW)
         }
-        if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH <= 1900)) {
-            resizeCircle(getSizeBlock.compositionH)
+        if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH <= 1900)) {
+            resizeCircle(getSizeBlock.windowInnerH)
         }
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
-            resizeCircle(getSizeBlock.compositionW)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+            resizeCircle(getSizeBlock.windowInnerW)
         }
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
-            resizeCircle(getSizeBlock.compositionH)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+            resizeCircle(getSizeBlock.windowInnerH)
         }
     }
 
@@ -136,19 +137,19 @@ window.onload = () => {
         addEventListener('resize', event => {
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
-                resizePersonImgWidth(getSizeBlock.compositionW)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
+                resizePersonImgWidth(getSizeBlock.windowInnerW)
             }
-            if ((getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW >= 1900)) {
-                resizePersonImgHeight(getSizeBlock.compositionH)
+            if ((getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW >= 1900)) {
+                resizePersonImgHeight(getSizeBlock.windowInnerH)
             }
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
-                resizePersonImgWidth(getSizeBlock.compositionW)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+                resizePersonImgWidth(getSizeBlock.windowInnerW)
             }
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
-                resizePersonImgHeight(getSizeBlock.compositionH)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+                resizePersonImgHeight(getSizeBlock.windowInnerH)
             }
-            if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH >= 1900)) {
+            if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
                 defaultPersonImg()
             }
         })
@@ -160,17 +161,17 @@ window.onload = () => {
     function setSizePersonImgDefault() {
         let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
-            resizePersonImgWidth(getSizeBlock.compositionW)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
+            resizePersonImgWidth(getSizeBlock.windowInnerW)
         }
-        if ((getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW >= 1900)) {
-            resizePersonImgHeight(getSizeBlock.compositionH)
+        if ((getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW >= 1900)) {
+            resizePersonImgHeight(getSizeBlock.windowInnerH)
         }
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
-            resizePersonImgWidth(getSizeBlock.compositionW)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+            resizePersonImgWidth(getSizeBlock.windowInnerW)
         }
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
-            resizePersonImgHeight(getSizeBlock.compositionH)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+            resizePersonImgHeight(getSizeBlock.windowInnerH)
         }
     }
 
@@ -180,20 +181,20 @@ window.onload = () => {
 
     /* ======== START - #personInfo ================================================================================= */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-    // 718px  - width #personInfo
+    // 740px  - width #personInfo
     // 210%   - font-size, #personH1
     // 130%   - font-size, #personH2
     // 118%   - font-size, #personDescription
     // 300px  - bottom, #personInfo
-    // 1000px - right, #personInfo
+    // 900px - right, #personInfo
 
     function defaultPersonInfo() {
-        document.getElementById('personInfo').style.width = 718 + 'px'
+        document.getElementById('personInfo').style.width = 740 + 'px'
         document.getElementById('personH1').style.fontSize = 210 + '%'
         document.getElementById('personH2').style.fontSize = 130 + '%'
         document.getElementById('personDescription').style.fontSize = 118 + '%'
         document.getElementById('personInfo').style.bottom = 300 + 'px'
-        document.getElementById('personInfo').style.right = 1000 + 'px'
+        document.getElementById('personInfo').style.right = 900 + 'px'
     }
 
     // #personH2, #personDescription
@@ -210,15 +211,16 @@ window.onload = () => {
         document.getElementById('personDescription').style.display = 'none'
         document.getElementById('personH1').style.borderBottomRightRadius = 0.5 + 'em'
         document.getElementById('personH1').style.borderBottomLeftRadius = 0.5 + 'em'
+        document.getElementById('personInfo').style.right = 0 + 'px'
     }
 
     function resizePersonInfo(compositionSize) {
-        let change = Math.round((718 * compositionSize) / 1900)
+        let change = Math.round((740 * compositionSize) / 1900)
         let changePersonH1 = Math.round((210 * compositionSize) / 1900)
         let changePersonH2 = Math.round((130 * compositionSize) / 1900)
         let changePersonDescription = Math.round((118 * compositionSize) / 1900)
         let changeBottom = Math.round((300 * compositionSize) / 1900)
-        let changeLeft = Math.round((1000 * compositionSize) / 1900)
+        let changeLeft = Math.round((900 * compositionSize) / 1900)
 
 
         document.getElementById('personInfo').style.width = change + 'px'
@@ -235,38 +237,36 @@ window.onload = () => {
 
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
-                resizePersonInfo(getSizeBlock.compositionW)
-
-                console.log('lala') // test
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
+                resizePersonInfo(getSizeBlock.windowInnerW)
             }
-            if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH <= 1900)) {
-                resizePersonInfo(getSizeBlock.compositionH)
+            if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH <= 1900)) {
+                resizePersonInfo(getSizeBlock.windowInnerH)
             }
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
-                resizePersonInfo(getSizeBlock.compositionW)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+                resizePersonInfo(getSizeBlock.windowInnerW)
             }
-            if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
-                resizePersonInfo(getSizeBlock.compositionH)
+            if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+                resizePersonInfo(getSizeBlock.windowInnerH)
             }
-            if ((getSizeBlock.compositionW >= 1900) && (getSizeBlock.compositionH >= 1900)) {
+            if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
                 defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
             }
 
             // условие, если у #personInfo ширина, высота меньше 1200px, для #personH2, #personDescription
-            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH >= 1200)) {
+            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW >= 1200)) {
+            if ((getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW >= 1200)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.compositionW >= 1200) && (getSizeBlock.compositionH >= 1200)) {
+            if ((getSizeBlock.windowInnerW >= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
                 defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personH2, #personDescription
             }
         })
@@ -278,32 +278,30 @@ window.onload = () => {
     function setSizePersonInfoDefault() {
         let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH >= 1900)) {
-            resizePersonInfo(getSizeBlock.compositionW)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
+            resizePersonInfo(getSizeBlock.windowInnerW)
         }
-        if ((getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW >= 1900)) {
-            resizePersonInfo(getSizeBlock.compositionH)
+        if ((getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW >= 1900)) {
+            resizePersonInfo(getSizeBlock.windowInnerH)
         }
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
-            resizePersonInfo(getSizeBlock.compositionW)
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+            resizePersonInfo(getSizeBlock.windowInnerW)
         }
-        if ((getSizeBlock.compositionW <= 1900) && (getSizeBlock.compositionH <= 1900) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
-            resizePersonInfo(getSizeBlock.compositionH)
-
-
+        if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+            resizePersonInfo(getSizeBlock.windowInnerH)
         }
 
         // условия при первой загрузке сайта, для #personH2, #personDescription
-        if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH >= 1200)) {
+        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW >= 1200)) {
+        if ((getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW >= 1200)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW < getSizeBlock.compositionH)) {
+        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.compositionW <= 1200) && (getSizeBlock.compositionH <= 1200) && (getSizeBlock.compositionW > getSizeBlock.compositionH)) {
+        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
             resizePersonInfoMini()
         }
     }
@@ -331,12 +329,12 @@ window.onload = () => {
 
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            if (getSizeBlock.windowInnerWidth >= 1200) {
+            if (getSizeBlock.windowInnerW >= 1200) {
                 document.getElementById('nav').style.display = 'block'
                 document.getElementById('navRight').style.display = 'none'
                 document.getElementById('openNavRight').style.display = 'none'
             }
-            if (getSizeBlock.windowInnerWidth <= 1200) {
+            if (getSizeBlock.windowInnerW <= 1200) {
                 document.getElementById('nav').style.display = 'none'
                 document.getElementById('openNavRight').style.display = 'block'
             }
@@ -348,12 +346,12 @@ window.onload = () => {
     function setCloseNavRightDefault() {
         let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-        if (getSizeBlock.windowInnerWidth >= 1200) {
+        if (getSizeBlock.windowInnerW >= 1200) {
             document.getElementById('nav').style.display = 'block'
             document.getElementById('navRight').style.display = 'none'
             document.getElementById('openNavRight').style.display = 'none'
         }
-        if (getSizeBlock.windowInnerWidth <= 1200) {
+        if (getSizeBlock.windowInnerW <= 1200) {
             document.getElementById('nav').style.display = 'none'
             document.getElementById('openNavRight').style.display = 'block'
         }

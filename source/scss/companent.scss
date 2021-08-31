@@ -15,6 +15,7 @@
         }
     }
 }
+
 // -------- END - .link ------------------------------------------------------------------------------------------------
 
 
@@ -35,6 +36,7 @@
         }
     }
 }
+
 // -------- END - .link-big --------------------------------------------------------------------------------------------
 
 
@@ -67,6 +69,7 @@
         }
     }
 }
+
 // -------- END - .btn-icon --------------------------------------------------------------------------------------------
 
 
@@ -74,52 +77,54 @@
 .title-section {
     margin: 140px 0 90px 0;
     height: 110px;
-}
+    display: block;
 
-.title-description {
-    margin: 0 0 6px 18px;
-
-    > .paragraph {
-        margin: 0;
+    > .description {
+        margin: 0 0 6px 18px;
         padding: 0;
         display: block;
-
-        font-family: "Poppins Regular", serif;
-        font-size: 14px;
-        line-height: 24px;
         color: var(--color-4);
+
+        * {
+            margin: 0;
+            display: block;
+            font-family: "Poppins Regular", serif;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
     }
-}
 
-// [APP.JS], width
-.title-heading {
-    margin: 12px 0 0 0;
-    display: inline-block;
-    position: absolute;
-    z-index: 20;
-    border-radius: 10px;
-    padding: 12px 22px 10px 22px;
-    background-color: var(--color-4);
-
+    // [APP.JS], width
     > .heading1 {
-        margin: 0;
-        padding: 0;
-        display: block;
-
-        font-family: "Poppins Bold", serif;
-        font-size: 38px;
+        margin: 12px 0 0 0;
+        display: inline-block;
+        position: absolute;
+        z-index: 20;
+        border-radius: 10px;
+        padding: 12px 22px 10px 22px;
+        background-color: var(--color-4);
         color: var(--color-1);
-        text-transform: uppercase;
+
+        * {
+            margin: 0;
+            display: block;
+            font-family: "Poppins Bold", serif;
+            font-size: 38px;
+            text-transform: uppercase;
+        }
+    }
+
+    // [APP.JS], width
+    > .borderbox {
+        margin: 0 0 0 12px;
+        display: inline-block;
+        position: absolute;
+        z-index: 10;
+        border-radius: 10px;
+        border: solid 3px var(--color-3);
     }
 }
 
-// [APP.JS], width
-.title-border {
-    margin: 0 0 0 12px;
-    display: inline-block;
-    position: absolute;
-    z-index: 10;
-    border-radius: 10px;
-    border: solid 3px var(--color-3);
-}
+
 // -------- END - .name-section ----------------------------------------------------------------------------------------

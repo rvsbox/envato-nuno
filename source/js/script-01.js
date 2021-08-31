@@ -16,7 +16,7 @@ window.onload = () => {
         this.personImgH = document.getElementById('personImg').offsetHeight
 
         // #personHeading1
-        // this.personHeading1W = document.getElementById('personH1').offsetWidth
+        // this.personHeading1W = document.getElementById('personName').offsetWidth
 
         // параметры области видимости (viewport)
         this.windowInnerW = window.innerWidth
@@ -182,50 +182,50 @@ window.onload = () => {
     /* ======== START - #personInfo ================================================================================= */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 740px  - width #personInfo
-    // 210%   - font-size, #personH1
-    // 130%   - font-size, #personH2
+    // 210%   - font-size, #personName
+    // 130%   - font-size, #personProfession
     // 118%   - font-size, #personDescription
     // 300px  - bottom, #personInfo
     // 900px - right, #personInfo
 
     function defaultPersonInfo() {
         document.getElementById('personInfo').style.width = 740 + 'px'
-        document.getElementById('personH1').style.fontSize = 210 + '%'
-        document.getElementById('personH2').style.fontSize = 130 + '%'
+        document.getElementById('personName').style.fontSize = 210 + '%'
+        document.getElementById('personProfession').style.fontSize = 130 + '%'
         document.getElementById('personDescription').style.fontSize = 118 + '%'
         document.getElementById('personInfo').style.bottom = 300 + 'px'
         document.getElementById('personInfo').style.right = 900 + 'px'
     }
 
-    // #personH2, #personDescription
+    // #personProfession, #personDescription
     function defaultPersonInfoPlus() {
-        document.getElementById('personH2').style.display = 'block'
+        document.getElementById('personProfession').style.display = 'block'
         document.getElementById('personDescription').style.display = 'block'
-        document.getElementById('personH1').style.borderBottomRightRadius = 0 + 'px'
-        document.getElementById('personH1').style.borderBottomLeftRadius = 0 + 'px'
+        document.getElementById('personName').style.borderBottomRightRadius = 0 + 'px'
+        document.getElementById('personName').style.borderBottomLeftRadius = 0 + 'px'
     }
 
-    // #personH2, #personDescription
+    // #personProfession, #personDescription
     function resizePersonInfoMini() {
-        document.getElementById('personH2').style.display = 'none'
+        document.getElementById('personProfession').style.display = 'none'
         document.getElementById('personDescription').style.display = 'none'
-        document.getElementById('personH1').style.borderBottomRightRadius = 0.5 + 'em'
-        document.getElementById('personH1').style.borderBottomLeftRadius = 0.5 + 'em'
+        document.getElementById('personName').style.borderBottomRightRadius = 0.5 + 'em'
+        document.getElementById('personName').style.borderBottomLeftRadius = 0.5 + 'em'
         document.getElementById('personInfo').style.right = 0 + 'px'
     }
 
     function resizePersonInfo(compositionSize) {
         let change = Math.round((740 * compositionSize) / 1900)
-        let changePersonH1 = Math.round((210 * compositionSize) / 1900)
-        let changePersonH2 = Math.round((130 * compositionSize) / 1900)
+        let changepersonName = Math.round((210 * compositionSize) / 1900)
+        let changepersonProfession = Math.round((130 * compositionSize) / 1900)
         let changePersonDescription = Math.round((118 * compositionSize) / 1900)
         let changeBottom = Math.round((300 * compositionSize) / 1900)
         let changeLeft = Math.round((900 * compositionSize) / 1900)
 
 
         document.getElementById('personInfo').style.width = change + 'px'
-        document.getElementById('personH1').style.fontSize = changePersonH1 + '%'
-        document.getElementById('personH2').style.fontSize = changePersonH2 + '%'
+        document.getElementById('personName').style.fontSize = changepersonName + '%'
+        document.getElementById('personProfession').style.fontSize = changepersonProfession + '%'
         document.getElementById('personDescription').style.fontSize = changePersonDescription + '%'
         document.getElementById('personInfo').style.bottom = changeBottom + 'px'
         document.getElementById('personInfo').style.right = changeLeft + 'px'
@@ -253,7 +253,7 @@ window.onload = () => {
                 defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
             }
 
-            // условие, если у #personInfo ширина, высота меньше 1200px, для #personH2, #personDescription
+            // условие, если у #personInfo ширина, высота меньше 1200px, для #personProfession, #personDescription
             if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
                 resizePersonInfoMini()
             }
@@ -267,7 +267,7 @@ window.onload = () => {
                 resizePersonInfoMini()
             }
             if ((getSizeBlock.windowInnerW >= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
-                defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personH2, #personDescription
+                defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
             }
         })
     }
@@ -291,7 +291,7 @@ window.onload = () => {
             resizePersonInfo(getSizeBlock.windowInnerH)
         }
 
-        // условия при первой загрузке сайта, для #personH2, #personDescription
+        // условия при первой загрузке сайта, для #personProfession, #personDescription
         if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
             resizePersonInfoMini()
         }
@@ -365,18 +365,18 @@ window.onload = () => {
 
     function setSizeBorderSection() {
 
-        let k = document.getElementsByClassName('title-heading').length
+        let k = document.getElementsByClassName('background-heading-js').length
 
         for (let i = 0; i <= (k - 1); i++) {
 
-            let headingBaseW = document.getElementsByClassName('title-heading')[i].offsetWidth
-            let headingBaseH = document.getElementsByClassName('title-heading')[i].offsetHeight
+            let headingBaseW = document.getElementsByClassName('background-heading-js')[i].offsetWidth
+            let headingBaseH = document.getElementsByClassName('background-heading-js')[i].offsetHeight
 
             if ((headingBaseW > 0) && (headingBaseH > 0)) {
 
                 // тк border: 3px, то минус 6
-                document.getElementsByClassName('title-border')[i].style.width = headingBaseW - 6 + 'px'
-                document.getElementsByClassName('title-border')[i].style.height = headingBaseH - 6 + 'px'
+                document.getElementsByClassName('border-heading-js')[i].style.width = headingBaseW - 6 + 'px'
+                document.getElementsByClassName('border-heading-js')[i].style.height = headingBaseH - 6 + 'px'
             }
         }
     }

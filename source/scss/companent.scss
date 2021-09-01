@@ -1,130 +1,122 @@
-// -------- START - .link ----------------------------------------------------------------------------------------------
-.link {
-    display: block;
-
-    > .linkname {
-        font-family: "Poppins SemiBold", serif;
-        font-size: 14px;
-        transition: color 0.3s linear;
-        color: var(--color-4);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--color-6);
-            text-decoration: none;
-        }
-    }
-}
-
-// -------- END - .link ------------------------------------------------------------------------------------------------
-
-
-// -------- START - .link-big ------------------------------------------------------------------------------------------
-.link-big {
-    display: block;
-
-    > .linkname {
-        font-family: "Poppins Medium", serif;
-        font-size: 18px;
-        color: var(--color-1);
-        transition: color 0.3s linear;
-        text-decoration: none;
-
-        &:hover {
-            color: var(--color-6);
-            text-decoration: none;
-        }
-    }
-}
-
-// -------- END - .link-big --------------------------------------------------------------------------------------------
-
-
-// -------- START - .btn-icon ------------------------------------------------------------------------------------------
+// -------- START - .btn-icon (.nav-right) -----------------------------------------------------------------------------
 .btn-icon {
     display: block;
     border: none;
     outline: none;
     background: transparent;
+    transition: color 0.3s linear;
 
     &:hover {
         cursor: pointer;
     }
+}
 
-    &.-white {
-        color: var(--color-1);
-        transition: color 0.3s linear;
+.btn-icon--white {
+    color: var(--color-1);
 
-        &:hover {
-            color: var(--color-6);
-        }
-    }
-
-    &.-dark {
-        color: var(--color-4);
-        transition: color 0.3s linear;
-
-        &:hover {
-            color: var(--color-6);
-        }
+    &:hover {
+        color: var(--color-6);
     }
 }
 
-// -------- END - .btn-icon --------------------------------------------------------------------------------------------
+.btn-icon--dark {
+    color: var(--color-4);
+
+    &:hover {
+        color: var(--color-6);
+    }
+}
+
+// -------- END - .btn-icon (.nav-right) -------------------------------------------------------------------------------
 
 
-// -------- START - .name-section ---------------------------------------------------------------------------------------
+// -------- START - .title-section -------------------------------------------------------------------------------------
 .title-section {
     margin: 140px 0 90px 0;
     height: 110px;
     display: block;
+}
 
-    > .description {
-        margin: 0 0 6px 18px;
-        padding: 0;
+.title-section__description {
+    margin: 0 0 6px 18px;
+    padding: 0;
+    display: block;
+    color: var(--color-4);
+
+    > p {
+        margin: 0;
         display: block;
-        color: var(--color-4);
-
-        * {
-            margin: 0;
-            display: block;
-            font-family: "Poppins Regular", serif;
-            font-size: 14px;
-            line-height: 24px;
-        }
-
-    }
-
-    // [APP.JS], width
-    > .heading1 {
-        margin: 12px 0 0 0;
-        display: inline-block;
-        position: absolute;
-        z-index: 20;
-        border-radius: 10px;
-        padding: 12px 22px 10px 22px;
-        background-color: var(--color-4);
-        color: var(--color-1);
-
-        * {
-            margin: 0;
-            display: block;
-            font-family: "Poppins Bold", serif;
-            font-size: 38px;
-            text-transform: uppercase;
-        }
-    }
-
-    // [APP.JS], width
-    > .borderbox {
-        margin: 0 0 0 12px;
-        display: inline-block;
-        position: absolute;
-        z-index: 10;
-        border-radius: 10px;
-        border: solid 3px var(--color-3);
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        line-height: 24px;
     }
 }
 
+// [APP.JS], width
+.title-section__heading {
+    margin: 12px 0 0 0;
+    display: inline-block;
+    position: absolute;
+    z-index: 20;
+    border-radius: 10px;
+    padding: 12px 22px 10px 22px;
+    background-color: var(--color-4);
+    color: var(--color-1);
 
-// -------- END - .name-section ----------------------------------------------------------------------------------------
+    > h1 {
+        margin: 0;
+        display: block;
+        font-family: "Poppins Bold", serif;
+        font-size: 38px;
+        text-transform: uppercase;
+    }
+}
+
+// [APP.JS], width
+.title-section__border {
+    margin: 0 0 0 12px;
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    border-radius: 10px;
+    border: solid 3px var(--color-3);
+}
+// -------- END - .title-section ---------------------------------------------------------------------------------------
+
+
+// -------- START - .btn-full ------------------------------------------------------------------------------------------
+.btn-full {
+    height: 40px;
+    padding: 8px 20px;
+    border-width: 0;
+    background-color: var(--color-4);
+    border-radius: 10px;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: var(--color-1);
+    transition: background-color 0.3s linear;
+
+    &:hover {
+        background-color: var(--color-5);
+    }
+}
+// -------- END - .btn-full --------------------------------------------------------------------------------------------
+
+
+// -------- START - .btn-light -----------------------------------------------------------------------------------------
+.btn-light {
+    height: 40px;
+    padding: 8px 20px;
+    border: var(--color-4) solid 2px;
+    border-radius: 10px;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: var(--color-4);
+    transition: color 0.3s linear, border-color 0.3s linear;
+
+    &:hover {
+        color: var(--color-5);
+        border-color: var(--color-5);
+    }
+}
+// -------- END - .btn-light -------------------------------------------------------------------------------------------

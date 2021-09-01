@@ -361,26 +361,26 @@ window.onload = () => {
     /* ======== END - #navRight ===================================================================================== */
 
 
-    /* ======== START - #headingSection ============================================================================= */
+    /* ======== START - .title-section ============================================================================== */
 
     function setSizeBorderSection() {
 
-        let k = document.getElementsByClassName('background-heading-js').length
+        let k = document.getElementsByClassName('title-section__heading').length
 
         for (let i = 0; i <= (k - 1); i++) {
 
-            let headingBaseW = document.getElementsByClassName('background-heading-js')[i].offsetWidth
-            let headingBaseH = document.getElementsByClassName('background-heading-js')[i].offsetHeight
+            let headingBaseW = document.getElementsByClassName('title-section__heading')[i].offsetWidth
+            let headingBaseH = document.getElementsByClassName('title-section__heading')[i].offsetHeight
 
             if ((headingBaseW > 0) && (headingBaseH > 0)) {
 
                 // тк border: 3px, то минус 6
-                document.getElementsByClassName('border-heading-js')[i].style.width = headingBaseW - 6 + 'px'
-                document.getElementsByClassName('border-heading-js')[i].style.height = headingBaseH - 6 + 'px'
+                document.getElementsByClassName('title-section__border')[i].style.width = headingBaseW - 6 + 'px'
+                document.getElementsByClassName('title-section__border')[i].style.height = headingBaseH - 6 + 'px'
             }
         }
     }
 
     setSizeBorderSection()
-    /* ======== END - #headingSection =============================================================================== */
+    /* ======== END - .title-section ================================================================================ */
 }

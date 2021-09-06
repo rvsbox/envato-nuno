@@ -1,4 +1,4 @@
-// -------- START - header ---------------------------------------------------------------------------------------------
+// ======== START - header =============================================================================================
 .header {
     height: 64px;
     display: block;
@@ -10,6 +10,14 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header {
+        > .container {
+            margin: 0 15px;
+        }
     }
 }
 
@@ -160,14 +168,20 @@
     position: absolute;
 }
 
+@media (max-width: 1200px) {
+    .close-nav-right {
+        margin-right: calc(15px + 15px);
+    }
+}
+
 .open-nav-right {
     display: block;
     margin: 27px 0 0 0;
 }
-// -------- END - header -----------------------------------------------------------------------------------------------
+// ======== END - header ===============================================================================================
 
 
-// -------- START - section base ---------------------------------------------------------------------------------------
+// ======== START - section base =======================================================================================
 .base {
     display: block;
     background-color: var(--color-3);
@@ -177,6 +191,14 @@
         margin: 0 65px;
         padding: 0 15px;
         display: block;
+    }
+}
+
+@media (max-width: 1200px) {
+    .base {
+        > .container {
+            margin: 0 15px;
+        }
     }
 }
 
@@ -341,10 +363,10 @@
     }
 }
 
-// -------- END - section base -----------------------------------------------------------------------------------------
+// ======== END - section base =========================================================================================
 
 
-// -------- START - section about --------------------------------------------------------------------------------------
+// ======== START - section about ======================================================================================
 .about {
     display: flex;
     flex-direction: row;
@@ -361,14 +383,41 @@
     }
 }
 
-
+@media (max-width: 1200px) {
+    .about {
+        > .container {
+            margin: 0 15px;
+        }
+    }
+}
 
 .info-img {
     display: block;
 
-    img {
+    > img {
         display: block;
         border-radius: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .info-img {
+        margin:  0 0 90px 0;
+
+        > img {
+            margin: auto;
+            max-width: 445px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .info-img {
+
+        > img {
+            width: 70vw;
+            min-width: 70vw;
+        }
     }
 }
 
@@ -383,7 +432,7 @@
 }
 
 .info-content__heading {
-    margin: 0 0 20px 0;
+    margin: 0 0 30px 0;
     display: block;
     font-family: "Poppins Bold", serif;
     color: var(--color-5);
@@ -402,10 +451,25 @@
     margin: 0 0 50px 0;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
 
     > ul:nth-child(n+2) {
         margin: 0 0 0 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .info-contact {
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-contact {
+        flex-direction: column;
+
+        > ul:nth-child(n+2) {
+            margin: 18px 0 0 0;
+        }
     }
 }
 
@@ -415,16 +479,14 @@
     display: block;
     list-style: none;
 
-    > li {
-        display: block;
-    }
-
-    > li:nth-child(n+2) {
+    li:nth-child(n+2) {
         margin: 18px 0 0 0;
     }
 }
 
 .info-contact__records {
+    margin: 0;
+    display: block;
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
     color: var(--color-5);
@@ -438,23 +500,52 @@
 
 .info-button {
     display: block;
+}
 
-    > button:nth-child(2) {
+.info-button__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+    > li {
+        display: block;
+    }
+
+    > li:nth-child(n+2) {
         margin: 0 0 0 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .info-button__list {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-button__list {
+        flex-direction: column;
+
+        > li:nth-child(n+2) {
+            margin: 30px 0 0 0;
+        }
     }
 }
 
 .timeline {
     display: block;
-    //display: flex;
-    //flex-direction: row;
-    //
-    //> div:nth-child(2) {
-    //    margin: 0 0 0 30px;
-    //}
+}
+
+@media (max-width: 1200px) {
+    .timeline {
+        margin:  0 0 90px 0;
+    }
 }
 
 .timeline__heading {
+    margin: 0 0 30px 0;
     display: block;
     font-family: "Poppins Bold", serif;
     color: var(--color-5);
@@ -472,52 +563,27 @@
     border-left: 2px solid var(--color-4);
 
     &::before {
+        width: 18px;
+        height: 18px;
         margin-left: -42px;
-        content: '';
-        width: 18px;
-        height: 18px;
-        background: var(--color-4);
-
-        border-radius: 50%;
         position: absolute;
-        //left: 14px;
+        content: '';
+        background: var(--color-4);
+        border-radius: 50%;
     }
 
     &:last-child {
-        border-left: none;
-        padding: 0 0 0 32px;
-    }
-}
-
-
-
-.timeline__item2 {
-    padding: 0 0 40px 32px;
-    margin: 0 0 0 8px;
-    display: block;
-    border-left: 2px solid var(--color-4);
-
-    &::before {
-        content: '';
-        width: 18px;
-        height: 18px;
-        background: var(--color-4);
-
-        border-radius: 50%;
-        position: absolute;
-        left: 14px;
-    }
-
-    &:last-child {
-        border-left: none;
-        padding: 0 0 0 32px;
+        border-left: 2px solid var(--color-1);
+        padding-bottom: 0;
     }
 }
 
 .timeline__date {
+    margin: 0 0 14px 0;
     display: block;
 
     > span {
+        margin: 0 0 4px 0;
         display: block;
         font-family: "Poppins SemiBold", serif;
         font-size: 14px;
@@ -537,7 +603,7 @@
     display: block;
 
     > h3 {
-        margin: 0;
+        margin: 0 0 6px 0;
         display: block;
         font-family: "Poppins SemiBold", serif;
         font-size: 18px;
@@ -553,10 +619,180 @@
     }
 }
 
-// -------- END - section about ----------------------------------------------------------------------------------------
+.circular-chart {
+    width: 100%;
+    display: block;
+}
+
+.circular-chart__heading {
+    margin: 0 0 30px 0;
+    display: block;
+
+    > h2 {
+        margin: 0;
+        display: block;
+        font-family: "Poppins Bold", serif;
+        font-size: 24px;
+        color: var(--color-5);
+    }
+}
+
+.circular-chart__list {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1200px) {
+    .circular-chart__list {
+        flex-wrap: wrap;
+
+        > div  {
+            width: 50%;
+        }
+
+        > div:nth-child(n+3) {
+            margin: 50px 0 0 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .circular-chart__list {
+        flex-direction: column;
+
+        > div {
+            width: 100%;
+        }
+
+        > div:nth-child(n+2) {
+            margin: 50px 0 0 0;
+        }
+    }
+}
+
+.circular-chart__item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    > h4 {
+        margin: 20px 0 0 0;
+        display: block;
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        color: var(--color-6);
+    }
+}
+
+.svg-circle {
+    width: 110px;
+    height: 110px;
+
+    > text {
+        font-size: 0.54em;
+        font-family: "Poppins SemiBold", serif;
+        fill: var(--color-4);
+        text-anchor: middle;
+    }
+}
+
+.svg-circle__background {
+    fill: none;
+    stroke: var(--color-3);
+    stroke-width: 4.5;
+}
+
+.svg-circle__result {
+    fill: none;
+    stroke: var(--color-4);
+    stroke-width: 4.5;
+    stroke-linecap: round;
+}
+
+.progress-chart {
+    width: 100%;
+    display: block;
+}
+
+.progress-chart__heading {
+    margin: 0 0 30px 0;
+    display: block;
+
+    > h2 {
+        margin: 0;
+        display: block;
+        font-family: "Poppins Bold", serif;
+        font-size: 24px;
+        color: var(--color-5);
+    }
+}
+
+.progress-chart__list {
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .progress-chart__list {
+        width: 80%;
+    }
+}
+
+.progress-chart__item {
+    width: 100%;
+    display: block;
+    position: relative;
+
+    &:nth-child(n+2) {
+        margin: 20px 0 0 0;
+    }
+}
+
+.progress-chart__name {
+    margin: 0 0 6px 0;
+    display: flex;
+    justify-content: space-between;
+
+    > h4 {
+        margin: 0;
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        color: var(--color-6);
+    }
+
+    > span {
+        margin: 0;
+        font-size: 14px;
+        font-family: "Poppins Medium", serif;
+        color: var(--color-6);
+    }
+}
+
+.svg-progress {
+    width: 100%;
+    height: 16px;
+    display: block;
+}
+
+.svg-progress__background {
+    height: 16px;
+    fill: var(--color-3);
+    rx: 7; // закругление краев
+}
+
+.svg-progress__result {
+    height: 16px;
+    fill: var(--color-4);
+    rx: 7; // закругление краев
+}
+// ======== END - section about ========================================================================================
 
 
-// -------- START - section service ------------------------------------------------------------------------------------
+// ======== START - section service ====================================================================================
 .service {
     display: flex;
     flex-direction: row;
@@ -572,11 +808,10 @@
         background-color: #FF8297; // test
     }
 }
+// ======== END - section service ======================================================================================
 
-// -------- END - section service --------------------------------------------------------------------------------------
 
-
-// -------- START - section portfolio ----------------------------------------------------------------------------------
+// ======== START - section portfolio ==================================================================================
 .portfolio {
     display: flex;
     flex-direction: row;
@@ -593,10 +828,10 @@
     }
 }
 
-// -------- END - section portfolio -------------------------------------------------------------------------------------
+// ======== END - section portfolio ====================================================================================
 
 
-// -------- START - section client -------------------------------------------------------------------------------------
+// ======== START - section client =====================================================================================
 .client {
     display: flex;
     flex-direction: row;
@@ -613,10 +848,10 @@
     }
 }
 
-// -------- END - section client ---------------------------------------------------------------------------------------
+// ======== END - section client =======================================================================================
 
 
-// -------- START - section contact ------------------------------------------------------------------------------------
+// ======== START - section contact ====================================================================================
 .contact {
     display: flex;
     flex-direction: row;
@@ -633,10 +868,10 @@
     }
 }
 
-// -------- END - section contact --------------------------------------------------------------------------------------
+// ======== END - section contact ======================================================================================
 
 
-// -------- START - section contact ------------------------------------------------------------------------------------
+// ======== START - section contact ====================================================================================
 .contact {
     display: flex;
     flex-direction: row;
@@ -676,10 +911,10 @@
     grid-area: contact;
 }
 
-// -------- END - section contact --------------------------------------------------------------------------------------
+// ======== END - section contact ======================================================================================
 
 
-// -------- START - section footer -------------------------------------------------------------------------------------
+// ======== START - section footer =====================================================================================
 .footer {
     display: flex;
     flex-direction: row;
@@ -700,7 +935,7 @@
     }
 }
 
-// -------- END - section footer ---------------------------------------------------------------------------------------
+// ======== END - section footer =======================================================================================
 
 //.footer-top {
 //    height: 64px;

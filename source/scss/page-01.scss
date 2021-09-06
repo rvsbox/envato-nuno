@@ -638,14 +638,16 @@
 }
 
 .circular-chart__list {
+    max-width: 950px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 @media (max-width: 1200px) {
     .circular-chart__list {
+        width: 80%;
         flex-wrap: wrap;
 
         > div  {
@@ -653,7 +655,7 @@
         }
 
         > div:nth-child(n+3) {
-            margin: 50px 0 0 0;
+            margin: 40px 0 0 0;
         }
     }
 }
@@ -667,7 +669,7 @@
         }
 
         > div:nth-child(n+2) {
-            margin: 50px 0 0 0;
+            margin: 40px 0 0 0;
         }
     }
 }
@@ -738,7 +740,7 @@
 
 @media (max-width: 1200px) {
     .progress-chart__list {
-        width: 80%;
+        width: 60%;
     }
 }
 
@@ -748,7 +750,7 @@
     position: relative;
 
     &:nth-child(n+2) {
-        margin: 20px 0 0 0;
+        margin: 30px 0 0 0;
     }
 }
 
@@ -789,6 +791,100 @@
     fill: var(--color-4);
     rx: 7; // закругление краев
 }
+
+.certificate {
+    width: 100%;
+    display: block;
+}
+
+.certificate__heading {
+    margin: 0 0 30px 0;
+    display: block;
+
+    > h2 {
+        margin: 0;
+        display: block;
+        font-family: "Poppins Bold", serif;
+        font-size: 24px;
+        color: var(--color-5);
+    }
+}
+
+.certificate__list {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+    .certificate__list {
+        justify-content: center;
+
+        > div:nth-child(n+2) {
+            margin: 30px 0 0 0;
+        }
+    }
+}
+
+.certificate__item {
+    width: 530px;
+    height: 118px;
+    min-width: 520px;
+    min-height: 118px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border: solid 2px var(--color-3);
+    border-radius: 10px;
+}
+
+.certificate__icon {
+    width: 118px;
+    min-height: 118px;
+    background-color: var(--color-3);
+    border-radius: 10px 0 0 10px;
+    margin-left: -1px;
+    margin-top: -1px;
+
+    img {
+        display: block;
+        margin: 24px auto 0 auto;
+    }
+}
+
+.certificate__info {
+    padding: 20px 30px 0 30px;
+    display: block;
+
+    > h3 {
+        margin: 0;
+        font-family: "Poppins SemiBold", serif;
+        font-size: 18px;
+        color: var(--color-5);
+    }
+
+    > p {
+        margin: 10px 0 0 0;
+        display: block;
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        line-height: 24px;
+        color: var(--color-6);
+    }
+
+    > small {
+        margin: 18px 0 0 0;
+        display: block;
+        font-family: "Poppins Regular", serif;
+        font-size: 12px;
+        line-height: 10px;
+        color: var(--color-6);
+    }
+}
+
 // ======== END - section about ========================================================================================
 
 

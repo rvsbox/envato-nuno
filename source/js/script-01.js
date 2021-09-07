@@ -253,20 +253,20 @@ window.onload = () => {
                 defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
             }
 
-            // условие, если у #personInfo ширина, высота меньше 1200px, для #personProfession, #personDescription
-            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
+            // условие, если у #personInfo ширина, высота меньше 1300px, для #personProfession, #personDescription
+            if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH >= 1300)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW >= 1200)) {
+            if ((getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW >= 1300)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+            if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+            if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerW >= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
+            if ((getSizeBlock.windowInnerW >= 1300) && (getSizeBlock.windowInnerH >= 1300)) {
                 defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
             }
         })
@@ -292,16 +292,16 @@ window.onload = () => {
         }
 
         // условия при первой загрузке сайта, для #personProfession, #personDescription
-        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
+        if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH >= 1300)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW >= 1200)) {
+        if ((getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW >= 1300)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+        if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+        if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
             resizePersonInfoMini()
         }
     }
@@ -329,12 +329,12 @@ window.onload = () => {
 
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            if (getSizeBlock.windowInnerW >= 1200) {
+            if (getSizeBlock.windowInnerW >= 1300) {
                 document.getElementById('nav').style.display = 'block'
                 document.getElementById('navRight').style.display = 'none'
                 document.getElementById('openNavRight').style.display = 'none'
             }
-            if (getSizeBlock.windowInnerW <= 1200) {
+            if (getSizeBlock.windowInnerW <= 1300) {
                 document.getElementById('nav').style.display = 'none'
                 document.getElementById('openNavRight').style.display = 'block'
             }
@@ -346,12 +346,12 @@ window.onload = () => {
     function setCloseNavRightDefault() {
         let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-        if (getSizeBlock.windowInnerW >= 1200) {
+        if (getSizeBlock.windowInnerW >= 1300) {
             document.getElementById('nav').style.display = 'block'
             document.getElementById('navRight').style.display = 'none'
             document.getElementById('openNavRight').style.display = 'none'
         }
-        if (getSizeBlock.windowInnerW <= 1200) {
+        if (getSizeBlock.windowInnerW <= 1300) {
             document.getElementById('nav').style.display = 'none'
             document.getElementById('openNavRight').style.display = 'block'
         }

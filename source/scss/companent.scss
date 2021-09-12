@@ -144,3 +144,48 @@
     }
 }
 // ======== END - .btn-light ===========================================================================================
+
+
+// ======== START - .link-arrow ========================================================================================
+.link-arrow {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+
+    font-family: "Poppins Bold", serif;
+    font-size: 14px;
+    transition: color 0.3s linear;
+    color: var(--color-5);
+
+    &:hover {
+        color: var(--color-6);
+    }
+
+    svg {
+        width: 12px;
+        height: 12px;
+        fill: var(--color-5);
+        margin-top: -2px;
+    }
+
+    &:hover {
+        svg {
+            animation-name: lnord;
+            animation-duration: 0.7s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            fill: var(--color-6);
+        }
+    }
+
+    @keyframes lnord {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(6px);
+        }
+    }
+}
+// ======== END - .link-arrow ==========================================================================================

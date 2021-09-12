@@ -1084,48 +1084,6 @@
     display: flex;
 }
 
-.type-service__link {
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-
-    font-family: "Poppins Bold", serif;
-    font-size: 14px;
-    transition: color 0.3s linear;
-    color: var(--color-5);
-
-    &:hover {
-        color: var(--color-6);
-    }
-
-    svg {
-        width: 12px;
-        height: 12px;
-        fill: var(--color-5);
-        margin-top: -2px;
-    }
-
-    &:hover {
-        svg {
-            animation-name: lnord;
-            animation-duration: 0.7s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-timing-function: ease-in-out;
-            fill: var(--color-6);
-        }
-    }
-
-    @keyframes lnord {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(6px);
-        }
-    }
-}
-
 .price {
     width: 100%;
     display: block;
@@ -1164,7 +1122,69 @@
     }
 }
 
+.price__item {
 
+}
+
+.price__mark {
+    display: block;
+
+    > span {
+        font-size: 14px;
+        font-family: "Poppins Medium", serif;
+        color: var(--color-4);
+    }
+}
+
+.price__description {
+    display: block;
+
+    > h2 {
+        margin: 0;
+        font-family: "Poppins Bold", serif;
+        font-size: 24px;
+        color: var(--color-5);
+    }
+
+    > small {
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--color-6);
+    }
+}
+
+.price__number {
+    display: block;
+    font-size: 48px;
+    font-family: "Poppins ExtraBold", serif;
+    color: var(--color-4);
+}
+
+.price__service-list {
+    display: block;
+
+    > ul > li {
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        line-height: 24px;
+        color: var(--color-6);
+    }
+}
+
+.price__order {
+    display: block;
+}
+
+.price__clarification {
+    display: block;
+
+    > small {
+        font-family: "Poppins Light", serif;
+        font-size: 12px;
+        color: var(--color-6);
+    }
+}
 // ======== END - section service ======================================================================================
 
 

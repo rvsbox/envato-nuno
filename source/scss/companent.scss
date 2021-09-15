@@ -70,29 +70,6 @@
 // ======== END - .subtitle, .subtitle__indent =========================================================================
 
 
-// ======== START - .info-section ======================================================================================
-.info-section {
-    margin: 90px 0 0 0;
-    display: flex;
-    flex-direction: row;
-
-    > div:nth-child(2) {
-        margin: 0 0 0 30px;
-    }
-}
-
-@media (max-width: 1100px) {
-    .info-section {
-        flex-direction: column;
-
-        > div:nth-child(2) {
-            margin: 90px 0 0 0;
-        }
-    }
-}
-// ======== END - .info-section ========================================================================================
-
-
 // ======== START - .btn-icon (.nav-right) =============================================================================
 .btn-icon {
     display: block;
@@ -206,3 +183,18 @@
     }
 }
 // ======== END - .link-arrow ==========================================================================================
+
+
+// ======== START - .link-name =========================================================================================
+.link-name {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    transition: color 0.3s linear;
+    color: var(--color-4);
+
+    &:hover {
+        color: var(--color-5);
+        text-decoration: none;
+    }
+}
+// ======== END - .link-name ===========================================================================================

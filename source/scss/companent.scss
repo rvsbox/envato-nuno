@@ -53,7 +53,6 @@
 
 
 // ======== START - .subtitle, .subtitle__indent =======================================================================
-
 .subtitle {
     > h2 {
         margin: 0;
@@ -169,8 +168,6 @@
 .link-arrow {
     display: inline-block;
     position: relative;
-    text-decoration: none;
-
     font-family: "Poppins Bold", serif;
     font-size: 14px;
     transition: color 0.3s linear;
@@ -178,6 +175,7 @@
 
     &:hover {
         color: var(--color-6);
+        text-decoration: none;
     }
 
     svg {

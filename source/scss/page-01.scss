@@ -178,6 +178,7 @@
     display: block;
     margin: 27px 0 0 0;
 }
+
 // ======== END - header ===============================================================================================
 
 
@@ -802,85 +803,18 @@
         height: 44px;
     }
 }
+
 // ======== END - section about ========================================================================================
 
 
 // ======== START - section service ====================================================================================
 .service {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    > .container {
-        max-width: 1110px;
-        width: 1110px;
-        margin: 0 65px;
-        padding: 0 15px;
-        display: block;
-    }
-}
-
-@media (max-width: 1300px) {
-    .service {
-        > .container {
-            margin: 0 30px;
-        }
-    }
+    display: block;
 }
 
 .type-service {
     width: 100%;
-    display: block;
-}
-
-.type-service__heading {
-    margin: 0 0 30px 0;
-    display: block;
-
-    > h2 {
-        margin: 0;
-        display: block;
-        font-family: "Poppins Bold", serif;
-        font-size: 24px;
-        color: var(--color-5);
-    }
-}
-
-.type-service__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    > div {
-        width: 26%;
-    }
-
-    > div:first-child {
-        margin: 0;
-    }
-
-    > div:nth-child(n+4) {
-        margin-top: 30px;
-    }
-}
-
-@media (max-width: 1100px) {
-    .type-service__list {
-        flex-wrap: wrap;
-
-        > div {
-            width: 100%;
-        }
-
-        > div:nth-child(n+2) {
-            margin: 30px 0 0 0;
-        }
-    }
-}
-
-.type-service__item {
+    margin: 30px 0 0 0;
     display: block;
     border: solid 2px var(--color-3);
     border-radius: 10px;
@@ -899,7 +833,7 @@
     }
 }
 
-.type-service__heading2 {
+.type-service__heading {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -920,44 +854,8 @@
 
 .price {
     width: 100%;
-    display: block;
-}
-
-.price__heading {
-    margin: 0 0 30px 0;
-    display: block;
-
-    > h2 {
-        margin: 0;
-        display: block;
-        font-family: "Poppins Bold", serif;
-        font-size: 24px;
-        color: var(--color-5);
-    }
-}
-
-.price__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    > div {
-        width: 260px;
-    }
-
-    //> div:nth-child(n+2) {
-    //    margin: 0 0 0 30px;
-    //}
-
-    &:nth-child(n+2) {
-        margin: 30px 0 0 0;
-    }
-}
-
-.price__item {
-    padding: 38px 30px;
+    margin: 30px 0 0 0;
+    padding: 38px 30px 24px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -965,20 +863,17 @@
     border-radius: 10px;
 }
 
-
 .price__mark {
-    width: 64px;
+    width: 112px;
     height: 0;
-    margin: -20px -286px 0 0;
+    top: 48px;
+    right: -9px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     transform: rotate(45deg);
-
     border-bottom: 26px solid var(--color-3);
-    //border-bottom: 26px solid red;
-
     border-left: 26px solid transparent;
     border-right: 26px solid transparent;
 
@@ -992,35 +887,21 @@
 }
 
 .price__description {
+    width: 100%;
     display: inline-block;
     text-align: center;
 
     > h2 {
         margin: 0;
+        display: block;
         font-family: "Poppins Bold", serif;
         font-size: 24px;
         color: var(--color-5);
     }
 
-    > small {
-        font-family: "Poppins Regular", serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: var(--color-6);
-    }
-}
-
-.price__number {
-    display: block;
-    font-size: 48px;
-    font-family: "Poppins ExtraBold", serif;
-    color: var(--color-4);
-}
-
-.price__service-list {
-    display: block;
-
-    > ul > li {
+    > p {
+        margin: 20px 0 0 0;
+        display: block;
         font-family: "Poppins Regular", serif;
         font-size: 14px;
         line-height: 24px;
@@ -1028,44 +909,78 @@
     }
 }
 
+.price__number {
+    margin: 30px 0 0 0;
+    display: block;
+    font-size: 48px;
+    font-family: "Poppins ExtraBold", serif;
+    color: var(--color-4);
+}
+
+.price__icon {
+    margin: 10px 0 0 0;
+    display: block;
+}
+
+.price__service-list {
+    width: 100%;
+    margin: 40px 0 0 0;
+    display: block;
+
+    > ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    > ul > li {
+        margin: 0 0 0 20px;
+        display: block;
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        line-height: 24px;
+        color: var(--color-6);
+
+        &::before {
+            width: 14px;
+            height: 14px;
+
+            display: inline-block;
+            position: absolute;
+            margin: 5px 0 0 -22px;
+            content: ' ';
+            background-image: url('../images/icon-check.svg');
+            background-repeat: no-repeat;
+        }
+    }
+}
+
 .price__order {
+    width: 100%;
+    margin: 40px 0 0 0;
     display: block;
 }
 
 .price__clarification {
+    margin: 16px 0 0 0;
     display: block;
 
     > small {
         font-family: "Poppins Light", serif;
         font-size: 12px;
         color: var(--color-6);
+        line-height: 24px;
     }
 }
-
 // ======== END - section service ======================================================================================
-
-
-// ======== START - TEST ===============================================================================================
-
-// ======== END - TEST =================================================================================================
 
 
 // ======== START - section portfolio ==================================================================================
 .portfolio {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: pink; // test
-
-    > .container {
-        max-width: 1110px;
-        width: 1110px;
-        margin: 0 65px;
-        padding: 0 15px;
-        display: block;
-        background-color: #FF627C; // test
-    }
+    display: block;
 }
+
+
 
 // ======== END - section portfolio ====================================================================================
 

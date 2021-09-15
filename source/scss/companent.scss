@@ -52,6 +52,25 @@
 // ======== END - .title-section =======================================================================================
 
 
+// ======== START - .subtitle, .subtitle__indent =======================================================================
+
+.subtitle {
+    > h2 {
+        margin: 0;
+        display: block;
+        font-family: "Poppins Bold", serif;
+        font-size: 24px;
+        color: var(--color-5);
+    }
+}
+
+.subtitle__indent {
+    margin-top: 90px;
+}
+
+// ======== END - .subtitle, .subtitle__indent =========================================================================
+
+
 // ======== START - .info-section ======================================================================================
 .info-section {
     margin: 90px 0 0 0;

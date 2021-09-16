@@ -929,7 +929,7 @@
         list-style-type: none;
     }
 
-    > ul > li {
+    > li {
         margin: 0 0 0 20px;
         display: block;
         font-family: "Poppins Regular", serif;
@@ -989,12 +989,12 @@
         list-style-type: none;
     }
 
-    > ul > li {
+    > li {
         margin: 0 0 0 34px;
         display: block;
     }
 
-    > ul > li:first-child {
+    > li:first-child {
         margin: 0;
     }
 }
@@ -1305,6 +1305,17 @@
     }
 }
 
+@media (max-width: 576px) {
+    .message__list  {
+        grid-template-areas:
+        "name"
+        "email"
+        "subject"
+        "message"
+        "submit";
+    }
+}
+
 .contact-info {
     margin: 90px 0 0 30px;
     display: block;
@@ -1416,12 +1427,3 @@
 }
 
 // ======== END - section footer =======================================================================================
-
-//.footer-top {
-//    height: 64px;
-//    display: flex;
-//    flex-direction: row;
-//    flex-wrap: nowrap;
-//    justify-content: space-between;
-//    background-color: #4F5FF6;
-//}

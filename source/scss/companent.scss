@@ -49,6 +49,10 @@
     border-radius: 10px;
     border: solid 3px var(--color-3);
 }
+
+.title-section--indent {
+    margin: 140px 0 60px 0;
+}
 // ======== END - .title-section =======================================================================================
 
 
@@ -63,8 +67,8 @@
     }
 }
 
-.subtitle__indent {
-    margin-top: 90px;
+.subtitle--indent {
+    margin: 90px 0 0 0;
 }
 
 // ======== END - .subtitle, .subtitle__indent =========================================================================

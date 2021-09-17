@@ -181,17 +181,17 @@ window.onload = () => {
 
     /* ======== START - #personInfo ================================================================================= */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-    // 740px  - width #personInfo
+    // 770px  - width #personInfo
     // 210%   - font-size, #personName
-    // 130%   - font-size, #personProfession
+    // 160%   - font-size, #personProfession
     // 118%   - font-size, #personDescription
     // 300px  - bottom, #personInfo
     // 900px - right, #personInfo
 
     function defaultPersonInfo() {
-        document.getElementById('personInfo').style.width = 740 + 'px'
+        document.getElementById('personInfo').style.width = 770 + 'px'
         document.getElementById('personName').style.fontSize = 210 + '%'
-        document.getElementById('personProfession').style.fontSize = 130 + '%'
+        document.getElementById('personProfession').style.fontSize = 160 + '%'
         document.getElementById('personDescription').style.fontSize = 118 + '%'
         document.getElementById('personInfo').style.bottom = 300 + 'px'
         document.getElementById('personInfo').style.right = 900 + 'px'
@@ -215,17 +215,17 @@ window.onload = () => {
     }
 
     function resizePersonInfo(compositionSize) {
-        let change = Math.round((740 * compositionSize) / 1900)
-        let changepersonName = Math.round((210 * compositionSize) / 1900)
-        let changepersonProfession = Math.round((130 * compositionSize) / 1900)
+        let change = Math.round((770 * compositionSize) / 1900)
+        let changePersonName = Math.round((210 * compositionSize) / 1900)
+        let changePersonProfession = Math.round((160 * compositionSize) / 1900)
         let changePersonDescription = Math.round((118 * compositionSize) / 1900)
         let changeBottom = Math.round((300 * compositionSize) / 1900)
         let changeLeft = Math.round((900 * compositionSize) / 1900)
 
 
         document.getElementById('personInfo').style.width = change + 'px'
-        document.getElementById('personName').style.fontSize = changepersonName + '%'
-        document.getElementById('personProfession').style.fontSize = changepersonProfession + '%'
+        document.getElementById('personName').style.fontSize = changePersonName + '%'
+        document.getElementById('personProfession').style.fontSize = changePersonProfession + '%'
         document.getElementById('personDescription').style.fontSize = changePersonDescription + '%'
         document.getElementById('personInfo').style.bottom = changeBottom + 'px'
         document.getElementById('personInfo').style.right = changeLeft + 'px'
@@ -362,31 +362,46 @@ window.onload = () => {
 
 
     /* ======== START - .title-section ============================================================================== */
-
     function setSizeBorderSection() {
 
         let k = document.getElementsByClassName('title-section__heading').length
 
         for (let i = 0; i <= (k - 1); i++) {
 
-            let headingBaseW = document.getElementsByClassName('title-section__heading')[i].offsetWidth
-            let headingBaseH = document.getElementsByClassName('title-section__heading')[i].offsetHeight
+            let headingBaseWidth = document.getElementsByClassName('title-section__heading')[i].offsetWidth
+            let headingBaseHeight = document.getElementsByClassName('title-section__heading')[i].offsetHeight
 
-            if ((headingBaseW > 0) && (headingBaseH > 0)) {
+            if ((headingBaseWidth > 0) && (headingBaseHeight > 0)) {
 
                 // тк border: 3px, то минус 6
-                document.getElementsByClassName('title-section__border')[i].style.width = headingBaseW - 6 + 'px'
-                document.getElementsByClassName('title-section__border')[i].style.height = headingBaseH - 6 + 'px'
+                document.getElementsByClassName('title-section__border')[i].style.width = headingBaseWidth + 'px'
+                document.getElementsByClassName('title-section__border')[i].style.height = headingBaseHeight + 'px'
             }
         }
     }
 
     setSizeBorderSection()
+
+    function resizeSizeBorderSection() {
+
+        addEventListener('resize', event => {
+
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            if (getSizeBlock.windowInnerW <= 576)  {
+                setSizeBorderSection()
+            }
+            if (getSizeBlock.windowInnerW >= 576)  {
+                setSizeBorderSection()
+            }
+        })
+    }
+
+    resizeSizeBorderSection()
     /* ======== END - .title-section ================================================================================ */
 
 
-    /* ======== START -  ==================================================================================== */
-
+    /* ======== START - .header ===================================================================================== */
     window.addEventListener('scroll', function() {
 
         if (pageYOffset > 1) {
@@ -401,5 +416,5 @@ window.onload = () => {
         }
     });
 
-    /* ======== END -  ====================================================================================== */
+    /* ======== END - .header ======================================================================================= */
 }

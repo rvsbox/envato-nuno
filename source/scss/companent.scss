@@ -40,6 +40,15 @@
     }
 }
 
+@media (max-width: 576px) {
+    .title-section__heading {
+        > h1 {
+            font-size: 28px;
+        }
+    }
+}
+
+
 // [APP.JS], width
 .title-section__border {
     margin: 0 0 0 12px;

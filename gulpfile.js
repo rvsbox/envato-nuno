@@ -262,8 +262,8 @@ function myLibCss() {
 
 // function myLibCssBeta() {
 //     return src([
-//         'source/assets/lib-css/*.css',
-//         'source/assets/lib-css/*.map'
+//         'source/lib-css/*.css',
+//         'source/lib-css/*.map'
 //     ])
 //         .pipe(dest(pathBeta.build.css))
 //         .pipe(browserSync.reload({stream: true}))
@@ -272,8 +272,8 @@ function myLibCss() {
 
 function myLibJs() {
     return src([
-        'source/assets/lib-js/*.js',
-        'source/assets/lib-js/*.map'
+        'source/lib-js/*.js',
+        'source/lib-js/*.map'
     ])
         .pipe(dest(path.build.js))
         .pipe(browserSync.reload({stream: true}))
@@ -282,8 +282,8 @@ function myLibJs() {
 
 // function myLibJsBeta() {
 //     return src([
-//         'source/assets/lib-js/*.js',
-//         'source/assets/lib-js/*.map'
+//         'source/lib-js/*.js',
+//         'source/ib-js/*.map'
 //     ])
 //         .pipe(dest(pathBeta.build.js))
 //         .pipe(browserSync.reload({stream: true}))

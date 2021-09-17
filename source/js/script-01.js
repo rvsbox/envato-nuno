@@ -22,12 +22,6 @@ window.onload = () => {
         this.windowInnerW = window.innerWidth
         this.windowInnerH = window.innerHeight
     }
-
-    // GetSizeBlock() // test
-
-    // console.log(windowInnerW, windowInnerH) // test
-    // console.log(circleW, circleH) // test
-    // console.log(personImgW, personImgH) // test
     /* ======== END - Get block sizes =============================================================================== */
 
 
@@ -414,7 +408,53 @@ window.onload = () => {
             // document.getElementById('header').style.position = 'absolute'
             document.getElementById('header').style.opacity = 100 + '%'
         }
-    });
-
+    })
     /* ======== END - .header ======================================================================================= */
+
+
+    /* ======== START - svg, .circle, #circle ======================================================================= */
+    // #circleLargeWhite
+    // #circleLargeBlack
+    // #circleMediumWhite
+    // #circleMediumBlack
+    // #circleSmallWhite
+    // #circleSmallBlack
+
+    let layer_1 = () => {
+
+        // tl - timeLine
+        let tl = anime.timeline({
+            easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
+        })
+        tl.add({targets: '#circleSmallWhite', r: 170})
+            .add({targets: '#circleSmallBlack', r: 170}, '-=3000')
+    }
+
+    let layer_2 = () => {
+        let tl = anime.timeline({
+            easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
+        })
+        tl.add({targets: '#circleMediumWhite', r: 270})
+            .add({targets: '#circleMediumBlack', r: 270}, '-=3000')
+    }
+
+    let layer_3 = () => {
+        let tl = anime.timeline({
+            easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
+        })
+        tl.add({targets: '#circleLargeWhite', r: 370})
+            .add({targets: '#circleLargeBlack', r: 370}, '-=3000')
+    }
+
+    const startLayers = ms => {
+        return new Promise(resolve => {
+            setTimeout(() => resolve(), ms)
+        })
+    }
+
+    // последовательность запуска слоев
+    startLayers(0).then(layer_1)
+    startLayers(700).then(layer_2)
+    startLayers(1600).then(layer_3)
+    /* ======== END - svg, .circle, #circle ========================================================================= */
 }

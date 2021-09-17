@@ -202,3 +202,32 @@
     }
 }
 // ======== END - .link-name ===========================================================================================
+
+
+// ======== START - .copyright, .social-button =========================================================================
+.copyright {
+    margin: 24px 0 0 0;
+    display: block;
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    color: var(--color-4);
+}
+
+.social-button {
+    margin: 24px 0 0 0;
+    padding: 0;
+    display: block;
+}
+
+.social-button__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+
+    > li:nth-child(n+2) {
+        margin: 0 0 0 8px;
+    }
+}
+// ======== END - .copyright, .social-button ===========================================================================

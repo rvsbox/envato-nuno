@@ -383,4 +383,23 @@ window.onload = () => {
 
     setSizeBorderSection()
     /* ======== END - .title-section ================================================================================ */
+
+
+    /* ======== START -  ==================================================================================== */
+
+    window.addEventListener('scroll', function() {
+
+        if (pageYOffset > 1) {
+            document.getElementById('header').style.top = -16 + 'px'
+            // document.getElementById('header').style.position = 'fixed'
+            document.getElementById('header').style.opacity = 95 + '%'
+            console.log('hello')
+        } else {
+            document.getElementById('header').style.top = 0 + 'px'
+            // document.getElementById('header').style.position = 'absolute'
+            document.getElementById('header').style.opacity = 100 + '%'
+        }
+    });
+
+    /* ======== END -  ====================================================================================== */
 }

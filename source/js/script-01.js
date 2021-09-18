@@ -462,4 +462,16 @@ window.onload = () => {
     startLayers(700).then(layer_2)
     startLayers(1600).then(layer_3)
     /* ======== END - svg, .circle, #circle ========================================================================= */
+
+
+    /* ======== START - .owl-carousel =================================================================================== */
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        // nav: true,
+        items: 2,
+        dots: true,
+        dotsData: true
+    })
+    /* ======== END - .owl-carousel ===================================================================================== */
 }

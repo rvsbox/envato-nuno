@@ -180,7 +180,7 @@ window.onload = () => {
     // 160%   - font-size, #personProfession
     // 118%   - font-size, #personDescription
     // 300px  - bottom, #personInfo
-    // 900px - right, #personInfo
+    // 900px  - right, #personInfo
 
     function defaultPersonInfo() {
         document.getElementById('personInfo').style.width = 770 + 'px'
@@ -195,17 +195,17 @@ window.onload = () => {
     function defaultPersonInfoPlus() {
         document.getElementById('personProfession').style.display = 'block'
         document.getElementById('personDescription').style.display = 'block'
-        document.getElementById('personName').style.borderBottomRightRadius = 0 + 'px'
-        document.getElementById('personName').style.borderBottomLeftRadius = 0 + 'px'
+        document.getElementById('personProfession').style.borderBottomRightRadius = 0 + 'px'
+        document.getElementById('personProfession').style.borderBottomLeftRadius = 0 + 'px'
     }
 
     // #personProfession, #personDescription
     function resizePersonInfoMini() {
-        document.getElementById('personProfession').style.display = 'none'
+        // document.getElementById('personProfession').style.display = 'none'
         document.getElementById('personDescription').style.display = 'none'
-        document.getElementById('personName').style.borderBottomRightRadius = 0.5 + 'em'
-        document.getElementById('personName').style.borderBottomLeftRadius = 0.5 + 'em'
-        document.getElementById('personInfo').style.right = 0 + 'px'
+        document.getElementById('personProfession').style.borderBottomRightRadius = 0.5 + 'em'
+        document.getElementById('personProfession').style.borderBottomLeftRadius = 0.5 + 'em'
+        document.getElementById('personInfo').style.right = 0 + 'px' // установить посередине
     }
 
     function resizePersonInfo(compositionSize) {
@@ -215,7 +215,6 @@ window.onload = () => {
         let changePersonDescription = Math.round((118 * compositionSize) / 1900)
         let changeBottom = Math.round((300 * compositionSize) / 1900)
         let changeLeft = Math.round((900 * compositionSize) / 1900)
-
 
         document.getElementById('personInfo').style.width = change + 'px'
         document.getElementById('personName').style.fontSize = changePersonName + '%'
@@ -282,6 +281,12 @@ window.onload = () => {
             resizePersonInfo(getSizeBlock.windowInnerW)
         }
         if ((getSizeBlock.windowInnerW <= 1900) && (getSizeBlock.windowInnerH <= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+            resizePersonInfo(getSizeBlock.windowInnerH)
+        }
+        if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH >= 1900) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+            resizePersonInfo(getSizeBlock.windowInnerW)
+        }
+        if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH >= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
             resizePersonInfo(getSizeBlock.windowInnerH)
         }
 

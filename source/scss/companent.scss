@@ -260,11 +260,11 @@
 .owl-dot {
     > button {
         width: 50px;
-        height: 8px;
+        height: 12px;
         display: block;
         border: solid 2px var(--color-4);
         background: var(--color-1);
-        border-radius: 10px;
+        border-radius: 6px;
     }
 
     &:nth-child(n+2) {

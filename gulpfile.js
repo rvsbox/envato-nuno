@@ -24,7 +24,7 @@ const path = {
         css: buildPath + 'assets/css/',
         images: buildPath + 'assets/images/',
         fonts: buildPath + 'assets/fonts/',
-        draft: buildPath + 'draft/'
+        draft: 'build/draft/'
     },
     src: {
         html: srcPath + '*.html',

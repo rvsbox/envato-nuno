@@ -22,6 +22,7 @@ window.onload = () => {
         this.windowInnerW = window.innerWidth
         this.windowInnerH = window.innerHeight
     }
+
     /* ======== END - Get block sizes =============================================================================== */
 
 
@@ -362,16 +363,13 @@ window.onload = () => {
 
     /* ======== START - .title-section ============================================================================== */
     function setSizeBorderSection() {
-
         let k = document.getElementsByClassName('title-section__heading').length
 
         for (let i = 0; i <= (k - 1); i++) {
-
             let headingBaseWidth = document.getElementsByClassName('title-section__heading')[i].offsetWidth
             let headingBaseHeight = document.getElementsByClassName('title-section__heading')[i].offsetHeight
 
             if ((headingBaseWidth > 0) && (headingBaseHeight > 0)) {
-
                 // тк border: 3px, то минус 6
                 document.getElementsByClassName('title-section__border')[i].style.width = headingBaseWidth + 'px'
                 document.getElementsByClassName('title-section__border')[i].style.height = headingBaseHeight + 'px'
@@ -382,15 +380,13 @@ window.onload = () => {
     setSizeBorderSection()
 
     function resizeSizeBorderSection() {
-
         addEventListener('resize', event => {
-
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
-            if (getSizeBlock.windowInnerW <= 576)  {
+            if (getSizeBlock.windowInnerW <= 576) {
                 setSizeBorderSection()
             }
-            if (getSizeBlock.windowInnerW >= 576)  {
+            if (getSizeBlock.windowInnerW >= 576) {
                 setSizeBorderSection()
             }
         })
@@ -401,23 +397,19 @@ window.onload = () => {
 
 
     /* ======== START - .header ===================================================================================== */
-    window.addEventListener('scroll', function() {
-
+    window.addEventListener('scroll', function () {
         if (pageYOffset > 1) {
             document.getElementById('header').style.top = -16 + 'px'
-            // document.getElementById('header').style.position = 'fixed'
             document.getElementById('header').style.opacity = 95 + '%'
-            console.log('hello')
         } else {
             document.getElementById('header').style.top = 0 + 'px'
-            // document.getElementById('header').style.position = 'absolute'
             document.getElementById('header').style.opacity = 100 + '%'
         }
     })
     /* ======== END - .header ======================================================================================= */
 
 
-    /* ======== START - svg, .circle, #circle ======================================================================= */
+    /* ======== START - anime.js, svg, .circle, #circle ============================================================= */
     // #circleLargeWhite
     // #circleLargeBlack
     // #circleMediumWhite
@@ -426,7 +418,6 @@ window.onload = () => {
     // #circleSmallBlack
 
     let layer_1 = () => {
-
         // tl - timeLine
         let tl = anime.timeline({
             easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
@@ -461,17 +452,14 @@ window.onload = () => {
     startLayers(0).then(layer_1)
     startLayers(700).then(layer_2)
     startLayers(1600).then(layer_3)
-    /* ======== END - svg, .circle, #circle ========================================================================= */
+    /* ======== END - anime.js, svg, .circle, #circle =============================================================== */
 
 
-    /* ======== START - .owl-carousel =================================================================================== */
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 30,
-        // nav: true,
-        items: 2,
-        dots: true,
-        dotsData: true
-    })
-    /* ======== END - .owl-carousel ===================================================================================== */
+    /* ======== START - .owl-carousel =============================================================================== */
+
+
+
+
+
+    /* ======== END - .owl-carousel ================================================================================= */
 }

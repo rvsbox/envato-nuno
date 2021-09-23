@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>owl-carousel</title>
+    <link rel="stylesheet" href="../alpha/assets/css/owl.carousel.min.css">
+    <script src="../alpha/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../alpha/assets/js/owl.carousel.js"></script>
+    <style>
+
+
+        .item {
+            width: 600px;
+            height: 600px;
+            margin: 0;
+            display: block;
+
+        }
+
+        .b1 {
+            background-color: black;
+        }
+
+        .b2 {
+            background-color: red;
+        }
+
+        .b3 {
+            background-color: blue;
+        }
+
+        .b4 {
+            background-color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="owl-carousel">
+    <div class="item b1">1</div>
+    <div class="item b2">2</div>
+    <div class="item b3">3</div>
+    <div class="item b4">4</div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            items: 2,
+            dots: true,
+            dotsData: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                1400: {
+                    items: 2
+                }
+            }
+        });
+
+    })
+
+
+</script>
+
+
+</body>
+</html>

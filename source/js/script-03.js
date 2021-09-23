@@ -40,22 +40,3 @@ function toggleTheme() {
 // getInfo()
 
 /* ======== END - Load and switch theme ============================================================================= */
-
-$(document).ready(function () {
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 30,
-        nav: false,
-        items: 2,
-        dots: true,
-        dotsData: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            1400: {
-                items: 2
-            }
-        }
-    });
-})

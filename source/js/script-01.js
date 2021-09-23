@@ -26,6 +26,87 @@ window.onload = () => {
     /* ======== END - Get block sizes =============================================================================== */
 
 
+    /* ======== START - #header ===================================================================================== */
+    window.addEventListener('scroll', function () {
+        if (pageYOffset > 1) {
+            document.getElementById('header').style.top = -16 + 'px'
+            document.getElementById('header').style.opacity = 95 + '%'
+            document.getElementById('navRight').style.height = 'calc(100vh + 16px)'
+        } else {
+            document.getElementById('header').style.top = 0 + 'px'
+            document.getElementById('header').style.opacity = 100 + '%'
+            document.getElementById('navRight').style.height = 100 + 'vh'
+        }
+    })
+    /* ======== END - #header ======================================================================================= */
+
+
+    /* ======== START - links, #nav, #navRight ============================================================================ */
+    $('a[href*="#"]').on('click', function (e) {
+        e.preventDefault()
+
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 1000, 'swing')
+
+        $('#navRight').css('display', 'none')
+        $('#openNavRight').css('display', 'block')
+
+    })
+    /* ======== END - links, #nav, #navRight ============================================================================ */
+
+
+    /* ======== START - #navRight =================================================================================== */
+    document.getElementById('openNavRight').addEventListener('click', openNavRight)
+    document.getElementById('closeNavRight').addEventListener('click', closeNavRight)
+
+    function openNavRight() {
+        document.getElementById('openNavRight').style.display = 'none'
+        document.getElementById('navRight').style.display = 'block'
+    }
+
+    function closeNavRight() {
+        document.getElementById('openNavRight').style.display = 'block'
+        document.getElementById('navRight').style.display = 'none'
+    }
+
+    function setCloseNavRight() {
+        addEventListener('resize', event => {
+
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            if (getSizeBlock.windowInnerW >= 1200) {
+                document.getElementById('nav').style.display = 'block'
+                document.getElementById('navRight').style.display = 'none'
+                document.getElementById('openNavRight').style.display = 'none'
+            }
+            if (getSizeBlock.windowInnerW <= 1200) {
+                document.getElementById('nav').style.display = 'none'
+                document.getElementById('openNavRight').style.display = 'block'
+            }
+        })
+    }
+
+    setCloseNavRight()
+
+    function setCloseNavRightDefault() {
+        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+        if (getSizeBlock.windowInnerW >= 1200) {
+            document.getElementById('nav').style.display = 'block'
+            document.getElementById('navRight').style.display = 'none'
+            document.getElementById('openNavRight').style.display = 'none'
+        }
+        if (getSizeBlock.windowInnerW <= 1200) {
+            document.getElementById('nav').style.display = 'none'
+            document.getElementById('openNavRight').style.display = 'block'
+        }
+    }
+
+    setCloseNavRightDefault()
+    /* ======== END - #navRight ===================================================================================== */
+
+
     /* ======== START - #circle ===================================================================================== */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 314px   - bottom блока #circle
@@ -310,106 +391,7 @@ window.onload = () => {
     /* ======== END - #personInfo =================================================================================== */
 
 
-    /* ======== START - #navRight =================================================================================== */
-    document.getElementById('openNavRight').addEventListener('click', openNavRight)
-    document.getElementById('closeNavRight').addEventListener('click', closeNavRight)
-
-    function openNavRight() {
-        document.getElementById('openNavRight').style.display = 'none'
-        document.getElementById('navRight').style.display = 'block'
-    }
-
-    function closeNavRight() {
-        document.getElementById('openNavRight').style.display = 'block'
-        document.getElementById('navRight').style.display = 'none'
-    }
-
-    function setCloseNavRight() {
-        addEventListener('resize', event => {
-
-            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
-            if (getSizeBlock.windowInnerW >= 1300) {
-                document.getElementById('nav').style.display = 'block'
-                document.getElementById('navRight').style.display = 'none'
-                document.getElementById('openNavRight').style.display = 'none'
-            }
-            if (getSizeBlock.windowInnerW <= 1300) {
-                document.getElementById('nav').style.display = 'none'
-                document.getElementById('openNavRight').style.display = 'block'
-            }
-        })
-    }
-
-    setCloseNavRight()
-
-    function setCloseNavRightDefault() {
-        let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
-        if (getSizeBlock.windowInnerW >= 1300) {
-            document.getElementById('nav').style.display = 'block'
-            document.getElementById('navRight').style.display = 'none'
-            document.getElementById('openNavRight').style.display = 'none'
-        }
-        if (getSizeBlock.windowInnerW <= 1300) {
-            document.getElementById('nav').style.display = 'none'
-            document.getElementById('openNavRight').style.display = 'block'
-        }
-    }
-
-    setCloseNavRightDefault()
-    /* ======== END - #navRight ===================================================================================== */
-
-
-    /* ======== START - .title-section ============================================================================== */
-    function setSizeBorderSection() {
-        let k = document.getElementsByClassName('title-section__heading').length
-
-        for (let i = 0; i <= (k - 1); i++) {
-            let headingBaseWidth = document.getElementsByClassName('title-section__heading')[i].offsetWidth
-            let headingBaseHeight = document.getElementsByClassName('title-section__heading')[i].offsetHeight
-
-            if ((headingBaseWidth > 0) && (headingBaseHeight > 0)) {
-                // тк border: 3px, то минус 6
-                document.getElementsByClassName('title-section__border')[i].style.width = headingBaseWidth + 'px'
-                document.getElementsByClassName('title-section__border')[i].style.height = headingBaseHeight + 'px'
-            }
-        }
-    }
-
-    setSizeBorderSection()
-
-    function resizeSizeBorderSection() {
-        addEventListener('resize', event => {
-            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
-            if (getSizeBlock.windowInnerW <= 576) {
-                setSizeBorderSection()
-            }
-            if (getSizeBlock.windowInnerW >= 576) {
-                setSizeBorderSection()
-            }
-        })
-    }
-
-    resizeSizeBorderSection()
-    /* ======== END - .title-section ================================================================================ */
-
-
-    /* ======== START - .header ===================================================================================== */
-    window.addEventListener('scroll', function () {
-        if (pageYOffset > 1) {
-            document.getElementById('header').style.top = -16 + 'px'
-            document.getElementById('header').style.opacity = 95 + '%'
-        } else {
-            document.getElementById('header').style.top = 0 + 'px'
-            document.getElementById('header').style.opacity = 100 + '%'
-        }
-    })
-    /* ======== END - .header ======================================================================================= */
-
-
-    /* ======== START - anime.js, svg, .circle, #circle ============================================================= */
+    /* ======== START - anime.js, svg, #circle ====================================================================== */
     // #circleLargeWhite
     // #circleLargeBlack
     // #circleMediumWhite
@@ -452,14 +434,63 @@ window.onload = () => {
     startLayers(0).then(layer_1)
     startLayers(700).then(layer_2)
     startLayers(1600).then(layer_3)
-    /* ======== END - anime.js, svg, .circle, #circle =============================================================== */
+    /* ======== END - anime.js, svg, #circle ======================================================================== */
+
+
+    /* ======== START - .title-section ============================================================================== */
+    function setSizeBorderSection() {
+        let k = document.getElementsByClassName('title-section__heading').length
+
+        for (let i = 0; i <= (k - 1); i++) {
+            let headingBaseWidth = document.getElementsByClassName('title-section__heading')[i].offsetWidth
+            let headingBaseHeight = document.getElementsByClassName('title-section__heading')[i].offsetHeight
+
+            if ((headingBaseWidth > 0) && (headingBaseHeight > 0)) {
+                // тк border: 3px, то минус 6
+                document.getElementsByClassName('title-section__border')[i].style.width = headingBaseWidth + 'px'
+                document.getElementsByClassName('title-section__border')[i].style.height = headingBaseHeight + 'px'
+            }
+        }
+    }
+
+    setSizeBorderSection()
+
+    function resizeSizeBorderSection() {
+        addEventListener('resize', event => {
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            if (getSizeBlock.windowInnerW <= 576) {
+                setSizeBorderSection()
+            }
+            if (getSizeBlock.windowInnerW >= 576) {
+                setSizeBorderSection()
+            }
+        })
+    }
+
+    resizeSizeBorderSection()
+    /* ======== END - .title-section ================================================================================ */
 
 
     /* ======== START - .owl-carousel =============================================================================== */
-
-
-
-
-
+    $(document).ready(function () {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            items: 2,
+            dots: true,
+            dotsData: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                1400: {
+                    items: 2
+                }
+            }
+        })
+    })
     /* ======== END - .owl-carousel ================================================================================= */
+
 }

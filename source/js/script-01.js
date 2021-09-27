@@ -500,4 +500,26 @@ window.onload = () => {
     })
     /* ======== END - .owl-carousel ================================================================================= */
 
+
+    /* ======== START - .portfolio-items, isotope.js ================================================================ */
+    let $grid = $('.portfolio-items').isotope({
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows',
+        getSortData: {
+            name: function (element) {
+                return $(element).text();
+            }
+        }
+    });
+
+    $('.filter button').on('click', function () {
+        let value = $(this).attr('data-filter');
+        $grid.isotope({
+            filter: value
+        });
+        // $('.filter button').removeClass('active');
+        // $(this).addClass('active');
+    })
+    /* ======== END - .portfolio-items, isotope.js ================================================================== */
+
 }

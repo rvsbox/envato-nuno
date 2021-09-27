@@ -41,22 +41,29 @@ window.onload = () => {
     /* ======== END - #header ======================================================================================= */
 
 
-    /* ======== START - links, #nav, #navRight ============================================================================ */
+    /* ======== START - links, #nav, #navRight ====================================================================== */
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault()
 
+        // анимация при прокрутке
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top
         }, 1000, 'swing')
 
-        $('#navRight').css('display', 'none')
-        $('#openNavRight').css('display', 'block')
 
+        // прятать боковое меню при нажатии на ссылку. Необходимо знать сайт в свернутом или развернутом состоянии
+        if  ($('#nav').css('display') == 'block') {
+            $('#navRight').css('display', 'none')
+            $('#openNavRight').css('display', 'none')
+        } else {
+            $('#navRight').css('display', 'none')
+            $('#openNavRight').css('display', 'block')
+        }
     })
-    /* ======== END - links, #nav, #navRight ============================================================================ */
+    /* ======== END - links, #nav, #navRight ======================================================================== */
 
 
-    /* ======== START - #navRight =================================================================================== */
+    /* ======== START - open, close, #navRight, #closeNavRight ====================================================== */
     document.getElementById('openNavRight').addEventListener('click', openNavRight)
     document.getElementById('closeNavRight').addEventListener('click', closeNavRight)
 
@@ -104,7 +111,7 @@ window.onload = () => {
     }
 
     setCloseNavRightDefault()
-    /* ======== END - #navRight ===================================================================================== */
+    /* ======== END - open, close, #navRight, #closeNavRight ======================================================== */
 
 
     /* ======== START - #circle ===================================================================================== */

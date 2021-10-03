@@ -111,6 +111,10 @@
     }
 }
 
+.nav__link--active {
+    color: var(--color-6);
+}
+
 .nav-right {
     right: 0;
     width: 280px;
@@ -150,6 +154,10 @@
         color: var(--color-6);
         text-decoration: none;
     }
+}
+
+.nav-right__link--active {
+    color: var(--color-6);
 }
 
 .close-nav-right {

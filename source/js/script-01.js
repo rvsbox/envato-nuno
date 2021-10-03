@@ -26,9 +26,9 @@ window.onload = () => {
     /* ======== END - Get block sizes =============================================================================== */
 
 
-    /* ======== START - #header ===================================================================================== */
-    window.addEventListener('scroll', function () {
-        if (pageYOffset > 1) {
+    /* ======== START - Fixing the header when scrolling. #header =================================================== */
+    function miniHeader() {
+        if (pageYOffset > 100) {
             document.getElementById('header').style.top = -16 + 'px'
             document.getElementById('header').style.opacity = 95 + '%'
             document.getElementById('navRight').style.height = 'calc(100vh + 16px)'
@@ -37,11 +37,48 @@ window.onload = () => {
             document.getElementById('header').style.opacity = 100 + '%'
             document.getElementById('navRight').style.height = 100 + 'vh'
         }
+    }
+
+    miniHeader() // чтобы при перезагрузке страницы правильно работала функция, если уже был скролл
+
+    window.addEventListener('scroll', miniHeader) // срабатывание при скролле
+    /* ======== END - Fixing the header when scrolling. #header ===================================================== */
+
+
+    /* ======== START - Highlighting the active menu item. #nav, #navRight ========================================== */
+    let border = window.innerHeight / 1.8 // установка границы срабатывания скрипта
+    let sectionsLength = document.getElementsByTagName('section').length
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.getElementById('nav').querySelectorAll('li a')
+    let navRightLinks = document.getElementById('navRight').querySelectorAll('li a')
+
+    navLinks[0].classList.add('nav__link--active')
+    navRightLinks[0].classList.add('nav-right__link--active')
+
+    function addRemoveActive(target) {
+        let top = sections[target].getBoundingClientRect().top
+        let bottom = sections[target].getBoundingClientRect().bottom
+
+        if (top < border && bottom > border) {
+            for (let k = 0; k < sectionsLength; k++) {
+                navLinks[k].classList.remove('nav__link--active')
+                navRightLinks[k].classList.remove('nav-right__link--active')
+            }
+
+            navLinks[target].classList.add('nav__link--active')
+            navRightLinks[target].classList.add('nav-right__link--active')
+        }
+    }
+
+    window.addEventListener('scroll', function () {
+        for (let i = 0; i < sectionsLength; i++) {
+            addRemoveActive(i)
+        }
     })
-    /* ======== END - #header ======================================================================================= */
+    /* ======== END - Highlighting the active menu item. #nav, #navRight ============================================ */
 
 
-    /* ======== START - links, #nav, #navRight ====================================================================== */
+    /* ======== START - Scrolling. Links, #nav, #navRight =========================================================== */
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault()
 
@@ -52,7 +89,7 @@ window.onload = () => {
 
 
         // прятать боковое меню при нажатии на ссылку. Необходимо знать сайт в свернутом или развернутом состоянии
-        if  ($('#nav').css('display') == 'block') {
+        if ($('#nav').css('display') === 'block') {
             $('#navRight').css('display', 'none')
             $('#openNavRight').css('display', 'none')
         } else {
@@ -60,10 +97,10 @@ window.onload = () => {
             $('#openNavRight').css('display', 'block')
         }
     })
-    /* ======== END - links, #nav, #navRight ======================================================================== */
+    /* ======== END - Scrolling. Links, #nav, #navRight ============================================================= */
 
 
-    /* ======== START - open, close, #navRight, #closeNavRight ====================================================== */
+    /* ======== START - Open, close right nav. #navRight, #closeNavRight ============================================ */
     document.getElementById('openNavRight').addEventListener('click', openNavRight)
     document.getElementById('closeNavRight').addEventListener('click', closeNavRight)
 
@@ -111,7 +148,7 @@ window.onload = () => {
     }
 
     setCloseNavRightDefault()
-    /* ======== END - open, close, #navRight, #closeNavRight ======================================================== */
+    /* ======== END - Open, close right nav. #navRight, #closeNavRight ============================================== */
 
 
     /* ======== START - #circle ===================================================================================== */
@@ -512,14 +549,14 @@ window.onload = () => {
         }
     });
 
-    $('.filter button').on('click', function () {
+    $('.btn-filter').on('click', function () {
         let value = $(this).attr('data-filter');
         $grid.isotope({
             filter: value
         });
-        // $('.filter button').removeClass('active');
-        // $(this).addClass('active');
+
+        $('.btn-filter').removeClass('btn-filter--active');
+        $(this).addClass('btn-filter--active');
     })
     /* ======== END - .portfolio-items, isotope.js ================================================================== */
-
 }

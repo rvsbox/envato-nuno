@@ -78,7 +78,8 @@ window.onload = () => {
     /* ======== END - Highlighting the active menu item. #nav, #navRight ============================================ */
 
 
-    /* ======== START - Scrolling animation. Links, #nav, #navRight ================================================= */
+    /* ======== START - Scroll animation for nav and 'Order Now' buttons. #nav, #navRight, .btn-arrow =============== */
+    // для навигации
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault()
 
@@ -97,7 +98,17 @@ window.onload = () => {
             $('#openNavRight').css('display', 'block')
         }
     })
-    /* ======== END - Scrolling animation. Links, #nav, #navRight =================================================== */
+
+    // для кнопки 'Order Now'
+    $('button[href*="#"]').on('click', function (e) {
+        e.preventDefault()
+
+        // анимация при прокрутке
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 1000, 'swing')
+    })
+    /* ======== END - Scroll animation for nav and 'Order Now' buttons. #nav, #navRight, .btn-arrow ================= */
 
 
     /* ======== START - Open, close right nav. #navRight, #closeNavRight ============================================ */

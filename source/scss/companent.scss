@@ -212,10 +212,14 @@
     color: var(--color-4);
     background-color: transparent;
     border: none;
+
+    &:hover {
+        color: var(--color-6);
+    }
 }
 
 .btn-filter--active {
-    color: var(--color-5);
+    color: var(--color-6);
     border: none;
     outline: none;
 }

@@ -178,6 +178,7 @@
     display: block;
     margin: 24px 0 0 0;
 }
+
 // ======== END - header ===============================================================================================
 
 
@@ -254,15 +255,21 @@
     position: absolute;
     z-index: 30;
 
-    div {
-        &:first-child {
-            border-radius: 0.5em 0.5em 0 0; // [MAIN.JS]
-            margin: 0 0 1% 0;
-        }
+    div:first-child {
+        border-radius: 0.5em 0.5em 0 0; // [MAIN.JS]
+        margin: 0 0 6px 0;
+    }
 
-        &:last-child {
-            border-radius: 0 0 0.5em 0.5em; // [MAIN.JS]
-            margin: 1.2% 0 0 0;
+    div:last-child {
+        border-radius: 0 0 0.5em 0.5em; // [MAIN.JS]
+        margin: 6px 0 0 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .person-info {
+        div:first-child {
+            margin: 0 0 1% 0;
         }
     }
 }
@@ -329,6 +336,7 @@
         display: none;
     }
 }
+
 // ======== END - section base =========================================================================================
 
 
@@ -769,6 +777,7 @@
         height: 44px;
     }
 }
+
 // ======== END - section about ========================================================================================
 
 
@@ -962,6 +971,7 @@
         line-height: 24px;
     }
 }
+
 // ======== END - section service ======================================================================================
 
 
@@ -1035,12 +1045,15 @@
 }
 
 .art__title {
+    top: 84%;
+    left: 12%;
     display: block;
+    z-index: 10;
     position: absolute;
     opacity: 0;
 
     > h4 {
-        font-family: "Poppins Regular", serif;
+        font-family: "Poppins SemiBold", serif;
         font-size: 14px;
         color: var(--color-1);
     }
@@ -1061,6 +1074,7 @@
     margin: 40px 0 0 0;
     display: block;
 }
+
 // ======== END - section portfolio ====================================================================================
 
 
@@ -1203,6 +1217,7 @@
     line-height: 24px;
     color: var(--color-6);
 }
+
 // ======== END - section client =======================================================================================
 
 
@@ -1405,6 +1420,7 @@
         color: var(--color-6);
     }
 }
+
 // ======== END - section contact ======================================================================================
 
 
@@ -1432,4 +1448,5 @@
 
     }
 }
+
 // ======== END - section footer =======================================================================================

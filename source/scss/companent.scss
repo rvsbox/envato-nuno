@@ -212,15 +212,12 @@
     color: var(--color-4);
     background-color: transparent;
     border: none;
-
-    &:hover {
-        color: var(--color-5);
-        text-decoration: none;
-    }
 }
 
 .btn-filter--active {
     color: var(--color-5);
+    border: none;
+    outline: none;
 }
 // ======== END - .btn-filter ==========================================================================================
 

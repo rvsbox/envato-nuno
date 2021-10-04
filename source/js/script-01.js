@@ -78,7 +78,7 @@ window.onload = () => {
     /* ======== END - Highlighting the active menu item. #nav, #navRight ============================================ */
 
 
-    /* ======== START - Scrolling. Links, #nav, #navRight =========================================================== */
+    /* ======== START - Scrolling animation. Links, #nav, #navRight ================================================= */
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault()
 
@@ -97,7 +97,7 @@ window.onload = () => {
             $('#openNavRight').css('display', 'block')
         }
     })
-    /* ======== END - Scrolling. Links, #nav, #navRight ============================================================= */
+    /* ======== END - Scrolling animation. Links, #nav, #navRight =================================================== */
 
 
     /* ======== START - Open, close right nav. #navRight, #closeNavRight ============================================ */
@@ -371,21 +371,19 @@ window.onload = () => {
             if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH >= 1900)) {
                 defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
             }
-
-            // условие, если у #personInfo ширина, высота меньше 1300px, для #personProfession, #personDescription
-            if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH >= 1300)) {
+            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW >= 1300)) {
+            if ((getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW >= 1200)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+            if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
                 resizePersonInfoMini()
             }
-            if ((getSizeBlock.windowInnerW >= 1300) && (getSizeBlock.windowInnerH >= 1300)) {
+            if ((getSizeBlock.windowInnerW >= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
                 defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
             }
         })
@@ -415,18 +413,17 @@ window.onload = () => {
         if ((getSizeBlock.windowInnerW >= 1900) && (getSizeBlock.windowInnerH >= 1900) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
             resizePersonInfo(getSizeBlock.windowInnerH)
         }
-
         // условия при первой загрузке сайта, для #personProfession, #personDescription
-        if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH >= 1300)) {
+        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH >= 1200)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW >= 1300)) {
+        if ((getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW >= 1200)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
+        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW < getSizeBlock.windowInnerH)) {
             resizePersonInfoMini()
         }
-        if ((getSizeBlock.windowInnerW <= 1300) && (getSizeBlock.windowInnerH <= 1300) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
+        if ((getSizeBlock.windowInnerW <= 1200) && (getSizeBlock.windowInnerH <= 1200) && (getSizeBlock.windowInnerW > getSizeBlock.windowInnerH)) {
             resizePersonInfoMini()
         }
     }

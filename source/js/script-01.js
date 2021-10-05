@@ -1,27 +1,38 @@
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
 
+    let nav = document.getElementById('nav')
+    let navRight = document.getElementById('navRight')
+    let openNavRight = document.getElementById('openNavRight')
+    let closeNavRight = document.getElementById('closeNavRight')
+    let composition = document.getElementById('composition')
+    let circle = document.getElementById('circle')
+    let personImg = document.getElementById('personImg')
+    let personInfo = document.getElementById('personInfo')
+    let personName = document.getElementById('personName')
+    let personProfession = document.getElementById('personProfession')
+    let personDescription = document.getElementById('personDescription')
+
+
     /* ======== START - Get block sizes ============================================================================= */
     function GetSizeBlock() {
-        // #composition
-        this.compositionW = document.getElementById('composition').offsetWidth
-        this.compositionH = document.getElementById('composition').offsetHeight
+        if ((composition !== null) && (circle !== null) && (personImg !== null)) {
+            this.compositionW = composition.offsetWidth
+            this.compositionH = composition.offsetHeight
 
-        // #circle
-        this.circleW = document.getElementById('circle').offsetWidth
-        this.circleH = document.getElementById('circle').offsetHeight
+            this.circleW = circle.offsetWidth
+            this.circleH = circle.offsetHeight
 
-        // #personImg
-        this.personImgW = document.getElementById('personImg').offsetWidth
-        this.personImgH = document.getElementById('personImg').offsetHeight
-
-        // #personHeading1
-        // this.personHeading1W = document.getElementById('personName').offsetWidth
+            this.personImgW = personImg.offsetWidth
+            this.personImgH = personImg.offsetHeight
+        }
 
         // параметры области видимости (viewport)
         this.windowInnerW = window.innerWidth
         this.windowInnerH = window.innerHeight
     }
+
+    // console.log(document.getElementById('composition')) // test
 
     /* ======== END - Get block sizes =============================================================================== */
 
@@ -112,17 +123,17 @@ window.onload = () => {
 
 
     /* ======== START - Open, close right nav. #navRight, #closeNavRight ============================================ */
-    document.getElementById('openNavRight').addEventListener('click', openNavRight)
-    document.getElementById('closeNavRight').addEventListener('click', closeNavRight)
+    openNavRight.addEventListener('click', openNav)
+    closeNavRight.addEventListener('click', closeNav)
 
-    function openNavRight() {
-        document.getElementById('openNavRight').style.display = 'none'
-        document.getElementById('navRight').style.display = 'block'
+    function openNav() {
+        openNavRight.style.display = 'none'
+        navRight.style.display = 'block'
     }
 
-    function closeNavRight() {
-        document.getElementById('openNavRight').style.display = 'block'
-        document.getElementById('navRight').style.display = 'none'
+    function closeNav() {
+        openNavRight.style.display = 'block'
+        navRight.style.display = 'none'
     }
 
     function setCloseNavRight() {
@@ -131,13 +142,13 @@ window.onload = () => {
             let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
             if (getSizeBlock.windowInnerW >= 1200) {
-                document.getElementById('nav').style.display = 'block'
-                document.getElementById('navRight').style.display = 'none'
-                document.getElementById('openNavRight').style.display = 'none'
+                nav.style.display = 'block'
+                navRight.style.display = 'none'
+                openNavRight.style.display = 'none'
             }
             if (getSizeBlock.windowInnerW <= 1200) {
                 document.getElementById('nav').style.display = 'none'
-                document.getElementById('openNavRight').style.display = 'block'
+                openNavRight.style.display = 'block'
             }
         })
     }
@@ -148,13 +159,13 @@ window.onload = () => {
         let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
 
         if (getSizeBlock.windowInnerW >= 1200) {
-            document.getElementById('nav').style.display = 'block'
-            document.getElementById('navRight').style.display = 'none'
-            document.getElementById('openNavRight').style.display = 'none'
+            nav.style.display = 'block'
+            navRight.style.display = 'none'
+            openNavRight.style.display = 'none'
         }
         if (getSizeBlock.windowInnerW <= 1200) {
-            document.getElementById('nav').style.display = 'none'
-            document.getElementById('openNavRight').style.display = 'block'
+            nav.style.display = 'none'
+            openNavRight.style.display = 'block'
         }
     }
 
@@ -171,18 +182,22 @@ window.onload = () => {
     // 1900px  - height блока #composition
 
     function defaultCircle() {
-        document.getElementById('circle').style.width = 1400 + 'px'
-        document.getElementById('circle').style.height = 1400 + 'px'
-        document.getElementById('circle').style.bottom = 314 + 'px'
+        if (circle !== null) {
+            circle.style.width = 1400 + 'px'
+            circle.style.height = 1400 + 'px'
+            circle.style.bottom = 314 + 'px'
+        }
     }
 
     function resizeCircle(windowInnerSize) {
         let change = Math.round((1400 * windowInnerSize) / 1900)
         let changeBottom = Math.round((314 * windowInnerSize) / 1900)
 
-        document.getElementById('circle').style.width = change + 'px'
-        document.getElementById('circle').style.height = change + 'px'
-        document.getElementById('circle').style.bottom = changeBottom + 'px'
+        if (circle !== null) {
+            circle.style.width = change + 'px'
+            circle.style.height = change + 'px'
+            circle.style.bottom = changeBottom + 'px'
+        }
     }
 
 
@@ -241,26 +256,32 @@ window.onload = () => {
     // 1900px  - height блока #composition
 
     function defaultPersonImg() {
-        document.getElementById('personImg').style.width = 1020 + 'px'
-        document.getElementById('personImg').style.height = 1500 + 'px'
+        if (personImg !== null) {
+            personImg.style.width = 1020 + 'px'
+            personImg.style.height = 1500 + 'px'
+        }
     }
 
     // #composition - ширина
-    function resizePersonImgWidth(compositionSize) {
-        let changeW = Math.round((1020 * compositionSize) / 1900)
+    function resizePersonImgWidth(windowInnerSize) {
+        let changeW = Math.round((1020 * windowInnerSize) / 1900)
         let changeH = Math.round((changeW * 1500) / 1020)
 
-        document.getElementById('personImg').style.width = changeW + 'px'
-        document.getElementById('personImg').style.height = changeH + 'px'
+        if (personImg !== null) {
+            personImg.style.width = changeW + 'px'
+            personImg.style.height = changeH + 'px'
+        }
     }
 
     // #composition - высота
-    function resizePersonImgHeight(compositionSize) {
-        let changeH = Math.round((1500 * compositionSize) / 1900)
+    function resizePersonImgHeight(windowInnerSize) {
+        let changeH = Math.round((1500 * windowInnerSize) / 1900)
         let changeW = Math.round((changeH * 1020) / 1500)
 
-        document.getElementById('personImg').style.width = changeW + 'px'
-        document.getElementById('personImg').style.height = changeH + 'px'
+        if (personImg !== null) {
+            personImg.style.width = changeW + 'px'
+            personImg.style.height = changeH + 'px'
+        }
     }
 
     // условия при изменении ширины и, или высоты экрана
@@ -320,47 +341,53 @@ window.onload = () => {
     // 900px  - right, #personInfo
 
     function defaultPersonInfo() {
-        document.getElementById('personInfo').style.width = 770 + 'px'
-        document.getElementById('personName').style.fontSize = 210 + '%'
-        document.getElementById('personProfession').style.fontSize = 160 + '%'
-        document.getElementById('personDescription').style.fontSize = 118 + '%'
-        document.getElementById('personInfo').style.bottom = 300 + 'px'
-        document.getElementById('personInfo').style.right = 900 + 'px'
+        if ((personInfo !== null) && (personName !== null) && (personProfession !== null) && (personDescription !== null)) {
+            personInfo.style.width = 770 + 'px'
+            personInfo.style.bottom = 300 + 'px'
+            personInfo.style.right = 900 + 'px'
+            personName.style.fontSize = 210 + '%'
+            personProfession.style.fontSize = 160 + '%'
+            personDescription.style.fontSize = 118 + '%'
+        }
     }
 
     // #personProfession, #personDescription
     function defaultPersonInfoPlus() {
-        document.getElementById('personProfession').style.display = 'block'
-        document.getElementById('personDescription').style.display = 'block'
-        document.getElementById('personProfession').style.borderBottomRightRadius = 0 + 'px'
-        document.getElementById('personProfession').style.borderBottomLeftRadius = 0 + 'px'
+        if ((personProfession !== null) && (personDescription !== null)) {
+            personProfession.style.display = 'block'
+            personDescription.style.display = 'block'
+            personProfession.style.borderBottomRightRadius = 0 + 'px'
+            personProfession.style.borderBottomLeftRadius = 0 + 'px'
+        }
     }
 
-    // #personProfession, #personDescription
+    // #personInfo, #personProfession, #personDescription
     function resizePersonInfoMini() {
-        // document.getElementById('personProfession').style.display = 'none'
-        document.getElementById('personDescription').style.display = 'none'
-        document.getElementById('personProfession').style.borderBottomRightRadius = 0.5 + 'em'
-        document.getElementById('personProfession').style.borderBottomLeftRadius = 0.5 + 'em'
-        document.getElementById('personInfo').style.right = 0 + 'px' // установить посередине
+        if ((personInfo !== null) && (personProfession !== null) && (personDescription !== null)) {
+            personInfo.style.right = 0 + 'px' // установить посередине
+            personDescription.style.display = 'none'
+            personProfession.style.borderBottomRightRadius = 0.5 + 'em'
+            personProfession.style.borderBottomLeftRadius = 0.5 + 'em'
+        }
     }
 
-    function resizePersonInfo(compositionSize) {
-        let change = Math.round((770 * compositionSize) / 1900)
-        let changePersonName = Math.round((210 * compositionSize) / 1900)
-        let changePersonProfession = Math.round((160 * compositionSize) / 1900)
-        let changePersonDescription = Math.round((118 * compositionSize) / 1900)
-        let changeBottom = Math.round((300 * compositionSize) / 1900)
-        let changeLeft = Math.round((900 * compositionSize) / 1900)
+    function resizePersonInfo(windowInnerSize) {
+        let change = Math.round((770 * windowInnerSize) / 1900)
+        let changePersonName = Math.round((210 * windowInnerSize) / 1900)
+        let changePersonProfession = Math.round((160 * windowInnerSize) / 1900)
+        let changePersonDescription = Math.round((118 * windowInnerSize) / 1900)
+        let changeBottom = Math.round((300 * windowInnerSize) / 1900)
+        let changeLeft = Math.round((900 * windowInnerSize) / 1900)
 
-        document.getElementById('personInfo').style.width = change + 'px'
-        document.getElementById('personName').style.fontSize = changePersonName + '%'
-        document.getElementById('personProfession').style.fontSize = changePersonProfession + '%'
-        document.getElementById('personDescription').style.fontSize = changePersonDescription + '%'
-        document.getElementById('personInfo').style.bottom = changeBottom + 'px'
-        document.getElementById('personInfo').style.right = changeLeft + 'px'
+        if ((personInfo !== null) && (personName !== null) && (personProfession !== null) && (personDescription !== null)) {
+            personInfo.style.width = change + 'px'
+            personInfo.style.bottom = changeBottom + 'px'
+            personInfo.style.right = changeLeft + 'px'
+            personName.style.fontSize = changePersonName + '%'
+            personProfession.style.fontSize = changePersonProfession + '%'
+            personDescription.style.fontSize = changePersonDescription + '%'
+        }
     }
-
 
     function setSizePersonInfo() {
         addEventListener('resize', event => {

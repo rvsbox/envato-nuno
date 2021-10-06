@@ -63,14 +63,17 @@ window.onload = () => {
     let navLinks = document.getElementById('nav').querySelectorAll('li a')
     let navRightLinks = document.getElementById('navRight').querySelectorAll('li a')
 
-    navLinks[0].classList.add('nav__link--active')
-    navRightLinks[0].classList.add('nav-right__link--active')
+    // условие для отдельной страницы portfolio, где всего одна section
+    if (sections > 1) {
+        navLinks[0].classList.add('nav__link--active')
+        navRightLinks[0].classList.add('nav-right__link--active')
+    }
 
     function addRemoveActive(target) {
         let top = sections[target].getBoundingClientRect().top
         let bottom = sections[target].getBoundingClientRect().bottom
 
-        if (top < border && bottom > border) {
+        if ((top < border) && (bottom > border) && (sections > 1)) {
             for (let k = 0; k < sectionsLength; k++) {
                 navLinks[k].classList.remove('nav__link--active')
                 navRightLinks[k].classList.remove('nav-right__link--active')
@@ -90,15 +93,14 @@ window.onload = () => {
 
 
     /* ======== START - Scroll animation for nav and 'Order Now' buttons. #nav, #navRight, .btn-arrow =============== */
-    // для навигации
-    $('a[href*="#"]').on('click', function (e) {
+    // для навигации. #nav, #navRight
+    $('a.nav__link[href*="#"],a.nav-right__link[href*="#"]').on('click', function (e) {
         e.preventDefault()
 
         // анимация при прокрутке
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top
         }, 1000, 'swing')
-
 
         // прятать боковое меню при нажатии на ссылку. Необходимо знать сайт в свернутом или развернутом состоянии
         if ($('#nav').css('display') === 'block') {
@@ -110,8 +112,8 @@ window.onload = () => {
         }
     })
 
-    // для кнопки 'Order Now'
-    $('button[href*="#"]').on('click', function (e) {
+    // для кнопки 'Order Now'. .btn-arrow
+    $('button.btn-arrow[href*="#"]').on('click', function (e) {
         e.preventDefault()
 
         // анимация при прокрутке
@@ -199,7 +201,6 @@ window.onload = () => {
             circle.style.bottom = changeBottom + 'px'
         }
     }
-
 
     // условия при изменении ширины и, или высоты экрана
     function setSizeCircle() {

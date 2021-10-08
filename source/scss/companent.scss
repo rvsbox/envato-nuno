@@ -62,6 +62,10 @@
 .title-section--indent {
     margin: 140px 0 60px 0;
 }
+
+.title-section--indent-2 {
+    margin: 140px 0 24px 0;
+}
 // ======== END - .title-section =======================================================================================
 
 
@@ -288,3 +292,48 @@
     }
 }
 // ======== END - .owl-carousel ========================================================================================
+
+
+// ======== START - .path ==============================================================================================
+hr {
+    border-color: var(--color-4);
+    border-style: solid;
+    width: auto;
+    //border: solid 0.5px var(--color-4);
+    //position: absolute;
+    //margin-left: -50%;
+    //width: 200%;
+    //z-index: 10000;
+
+}
+
+.path__list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style-type: none;
+}
+
+.path__item {
+    > a {
+        font-family: "Poppins SemiBold", serif;
+        font-size: 14px;
+        text-decoration: none;
+        color: var(--color-4);
+    }
+
+    &:last-child {
+        > a {
+            font-family: "Poppins Regular", serif;
+        }
+    }
+
+    &:nth-child(n+2) {
+        margin: 0 4px 0 4px;
+    }
+
+    &:nth-child(n+2):before {
+        content: "/  ";
+    }
+}
+// ======== END - .path ==============================================================================================

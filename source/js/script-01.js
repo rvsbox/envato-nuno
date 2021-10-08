@@ -37,9 +37,32 @@ window.onload = () => {
     /* ======== END - Get block sizes =============================================================================== */
 
 
+    /* ======== START - Setting the length of the header line. .path, .path__border ================================= */
+    // function setLine() {
+    //     let getSizeBlock = new GetSizeBlock()
+    //     let pathBorder = document.querySelector('.path__border')
+    //
+    //
+    //     console.log(getSizeBlock.windowInnerW) // test
+    //     console.log(pathBorder.offsetWidth) // test
+    //
+    //     let coeff = -((getSizeBlock.windowInnerW - pathBorder.offsetWidth) / 2)
+    //     // let coeff2 =
+    //
+    //     pathBorder.style.marginLeft = coeff + 'px'
+    //
+    //
+    //     console.log(coeff) // test
+    //     // pathBorder.style.marginLeft = -1000 + 'px'
+    // }
+
+    // setLine()
+    /* ======== END - Setting the length of the header line. .path, .path__border =================================== */
+
+
     /* ======== START - Fixing the header when scrolling. #header =================================================== */
     function miniHeader() {
-        if (pageYOffset > 100) {
+        if (pageYOffset > 10) {
             document.getElementById('header').style.top = -16 + 'px'
             document.getElementById('header').style.opacity = 95 + '%'
             document.getElementById('navRight').style.height = 'calc(100vh + 16px)'
@@ -64,7 +87,7 @@ window.onload = () => {
     let navRightLinks = document.getElementById('navRight').querySelectorAll('li a')
 
     // условие для отдельной страницы portfolio, где всего одна section
-    if (sections > 1) {
+    if (sectionsLength > 1) {
         navLinks[0].classList.add('nav__link--active')
         navRightLinks[0].classList.add('nav-right__link--active')
     }
@@ -73,7 +96,7 @@ window.onload = () => {
         let top = sections[target].getBoundingClientRect().top
         let bottom = sections[target].getBoundingClientRect().bottom
 
-        if ((top < border) && (bottom > border) && (sections > 1)) {
+        if ((top < border) && (bottom > border) && (sectionsLength > 1)) {
             for (let k = 0; k < sectionsLength; k++) {
                 navLinks[k].classList.remove('nav__link--active')
                 navRightLinks[k].classList.remove('nav-right__link--active')

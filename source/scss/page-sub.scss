@@ -39,8 +39,54 @@
 }
 
 .portfolio-single {
-    min-height: calc(100vh - 349px - 48px - 90px );
+    min-height: calc(100vh - 349px - 48px - 90px - 48px);
+    margin: 48px 0 0 0;
     display: block;
-    background-color: red;
+}
+
+.portfolio-single__title {
+    margin: 0 0 50px 0;
+    display: block;
+
+    > h2 {
+        font-family: "Poppins Bold", serif;
+        font-size: 24px;
+        color: var(--color-5);
+    }
+}
+
+.portfolio-single__description {
+    margin: 0 0 50px 0;
+    display: block;
+
+    > p {
+        font-family: "Poppins Regular", serif;
+        font-size: 14px;
+        line-height: 24px;
+        color: var(--color-6);
+    }
+}
+
+.portfolio-single__img-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portfolio-single__img {
+    width: 600px;
+    height: 450px;
+    margin: 0 auto;
+    display: block;
+
+    &:nth-child(n+2) {
+        margin: 30px auto;
+    }
+
+    > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
 }
 // ======== END - section portfolio ====================================================================================

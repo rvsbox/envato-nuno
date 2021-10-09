@@ -48,7 +48,6 @@
     }
 }
 
-
 // [APP.JS], width
 .title-section__border {
     margin: 0 0 0 12px;
@@ -64,8 +63,17 @@
 }
 
 .title-section--indent-2 {
-    margin: 140px 0 24px 0;
+    margin: 140px 0 30px 0;
 }
+
+.title-hr {
+    margin: 348px 0 0 0;
+    position: absolute;
+    border-color: var(--color-4);
+    border-style: solid;
+    width: 100%;
+}
+
 // ======== END - .title-section =======================================================================================
 
 
@@ -115,6 +123,7 @@
         color: var(--color-6);
     }
 }
+
 // ======== END - .btn-icon (.nav-right) ===============================================================================
 
 
@@ -227,6 +236,7 @@
     border: none;
     outline: none;
 }
+
 // ======== END - .btn-filter ==========================================================================================
 
 
@@ -260,6 +270,7 @@
         margin: 0 0 0 8px;
     }
 }
+
 // ======== END - .copyright, .social-button ===========================================================================
 
 
@@ -291,20 +302,14 @@
         background: var(--color-4);
     }
 }
+
 // ======== END - .owl-carousel ========================================================================================
 
 
 // ======== START - .path ==============================================================================================
-hr {
-    border-color: var(--color-4);
-    border-style: solid;
-    width: auto;
-    //border: solid 0.5px var(--color-4);
-    //position: absolute;
-    //margin-left: -50%;
-    //width: 200%;
-    //z-index: 10000;
-
+.path {
+    display: block;
+    margin: 0 0 48px 0;
 }
 
 .path__list {
@@ -315,25 +320,22 @@ hr {
 }
 
 .path__item {
+    font-family: "Poppins SemiBold", serif;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--color-4);
+
     > a {
-        font-family: "Poppins SemiBold", serif;
-        font-size: 14px;
-        text-decoration: none;
         color: var(--color-4);
     }
 
     &:last-child {
-        > a {
-            font-family: "Poppins Regular", serif;
-        }
-    }
-
-    &:nth-child(n+2) {
-        margin: 0 4px 0 4px;
+        font-family: "Poppins Regular", serif;
     }
 
     &:nth-child(n+2):before {
-        content: "/  ";
+        content: "/";
+        margin: 0 8px 0 8px;
     }
 }
 // ======== END - .path ==============================================================================================

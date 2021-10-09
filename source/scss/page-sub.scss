@@ -1,0 +1,46 @@
+// ======== START - .path ==============================================================================================
+.path {
+    display: block;
+    margin: 0 0 48px 0;
+}
+
+.path__list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style-type: none;
+}
+
+.path__item {
+    font-family: "Poppins Regular", serif;
+    font-size: 14px;
+    color: var(--color-4);
+
+
+    > a {
+        font-family: "Poppins SemiBold", serif;
+        font-size: 14px;
+        text-decoration: none;
+        color: var(--color-4);
+    }
+
+    &:nth-child(n+2):before {
+        content: "/";
+        margin: 0 8px 0 8px;
+    }
+}
+// ======== END - .path ================================================================================================
+
+
+// ======== START - section portfolio ==================================================================================
+.portfolio-items--height {
+    min-height: calc(100vh - 349px - 48px - 90px - 72px );
+    display: block;
+}
+
+.portfolio-single {
+    min-height: calc(100vh - 349px - 48px - 90px );
+    display: block;
+    background-color: red;
+}
+// ======== END - section portfolio ====================================================================================

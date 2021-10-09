@@ -131,7 +131,6 @@
 .btn-full {
     height: 40px;
     padding: 8px 20px;
-    //display: inline-block;
     border-width: 0;
     background-color: var(--color-4);
     border-radius: 10px;
@@ -152,7 +151,6 @@
 .btn-light {
     height: 40px;
     padding: 8px 20px;
-    //display: inline-block;
     border: var(--color-4) solid 2px;
     border-radius: 10px;
     font-family: "Poppins SemiBold", serif;
@@ -302,40 +300,4 @@
         background: var(--color-4);
     }
 }
-
 // ======== END - .owl-carousel ========================================================================================
-
-
-// ======== START - .path ==============================================================================================
-.path {
-    display: block;
-    margin: 0 0 48px 0;
-}
-
-.path__list {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    list-style-type: none;
-}
-
-.path__item {
-    font-family: "Poppins SemiBold", serif;
-    font-size: 14px;
-    text-decoration: none;
-    color: var(--color-4);
-
-    > a {
-        color: var(--color-4);
-    }
-
-    &:last-child {
-        font-family: "Poppins Regular", serif;
-    }
-
-    &:nth-child(n+2):before {
-        content: "/";
-        margin: 0 8px 0 8px;
-    }
-}
-// ======== END - .path ==============================================================================================

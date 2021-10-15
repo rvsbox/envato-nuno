@@ -124,15 +124,35 @@
     display: block;
     text-align: center;
 
+    > img {
+        max-width: 500px;
+        max-height: 270px;
+    }
+
     > button {
         margin: 30px 0 0 0;
     }
 }
+
+@media (max-width: 992px) {
+    .error-wrapper {
+        img{
+            width: 270px;
+        }
+    }
+}
+
 
 .error-title {
     display: block;
     font-family: "Poppins Bold", serif;
     font-size: 38px;
     color: var(--color-4);
+}
+
+@media (max-width: 992px) {
+    .error-title {
+        font-size: 20px;
+    }
 }
 // ======== END - .error ===============================================================================================

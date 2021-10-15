@@ -37,29 +37,6 @@ window.onload = () => {
     /* ======== END - Get block sizes =============================================================================== */
 
 
-    /* ======== START - Setting the length of the header line. .path, .path__border ================================= */
-    // function setLine() {
-    //     let getSizeBlock = new GetSizeBlock()
-    //     let pathBorder = document.querySelector('.path__border')
-    //
-    //
-    //     console.log(getSizeBlock.windowInnerW) // test
-    //     console.log(pathBorder.offsetWidth) // test
-    //
-    //     let coeff = -((getSizeBlock.windowInnerW - pathBorder.offsetWidth) / 2)
-    //     // let coeff2 =
-    //
-    //     pathBorder.style.marginLeft = coeff + 'px'
-    //
-    //
-    //     console.log(coeff) // test
-    //     // pathBorder.style.marginLeft = -1000 + 'px'
-    // }
-
-    // setLine()
-    /* ======== END - Setting the length of the header line. .path, .path__border =================================== */
-
-
     /* ======== START - Fixing the header when scrolling. #header =================================================== */
     function miniHeader() {
         if (pageYOffset > 10) {
@@ -137,6 +114,16 @@ window.onload = () => {
 
     // для кнопки 'Order Now'. .btn-arrow
     $('button.btn-arrow[href*="#"]').on('click', function (e) {
+        e.preventDefault()
+
+        // анимация при прокрутке
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 1000, 'swing')
+    })
+
+    // для кнопки 'Send Message'. #sendMessage
+    $('button#sendMessage[href*="#"]').on('click', function (e) {
         e.preventDefault()
 
         // анимация при прокрутке

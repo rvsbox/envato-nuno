@@ -13,5 +13,7 @@
     "gulp-uglify-es": "^2.0.0",
     "panini": "^1.7.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "nvm": "^0.0.4"
+  }
 }

@@ -71,8 +71,8 @@ function myServer() {
         notify: false,
         online: true,
         port: 8000,
-        // browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome' // windows
-        browser: 'google-chrome-unstable', // linux
+        browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome' // windows
+        // browser: 'google-chrome-unstable', // linux
     })
 }
 

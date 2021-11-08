@@ -335,7 +335,6 @@
         display: none;
     }
 }
-
 // ======== END - section base =========================================================================================
 
 
@@ -1436,14 +1435,15 @@
 
 .footer-bottom {
     height: 48px;
-    margin: 90px 0 0 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    //align-content: center;
+}
 
+.footer-bottom--indent {
+    margin: 90px 0 0 0;
 }
 
 @media (max-width: 576px) {

@@ -81,7 +81,7 @@ function myJs() {
     return src([
         'source/js/script-01.js',
         // 'source/js/script-02.js',
-        'source/js/script-03.js',
+        // 'source/js/script-03.js',
         // 'source/js/script-alpha.js',
     ])
         .pipe(plumber()) // обработка ошибок
@@ -125,7 +125,7 @@ function myJs() {
 
 
 function myCss() {
-    return src('source/scss/main-alpha.scss')
+    return src('source/scss/alpha-main.scss')
         .pipe(plumber())
 
         .pipe(sass.sync().on('error', sass.logError))

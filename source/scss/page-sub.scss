@@ -1,58 +1,4 @@
-// ======== START - .path ==============================================================================================
-.path {
-    display: block;
-    margin: 0 0 48px 0;
-}
-
-.path--indent {
-    margin: 114px 0 0 0;
-}
-
-.path__list {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    list-style-type: none;
-}
-
-.path__item {
-    font-family: "Poppins Regular", serif;
-    font-size: 14px;
-    color: var(--color-4);
-
-
-    > a {
-        font-family: "Poppins SemiBold", serif;
-        font-size: 14px;
-        text-decoration: none;
-        color: var(--color-4);
-    }
-
-    &:nth-child(n+2):before {
-        content: "/";
-        margin: 0 8px 0 8px;
-    }
-}
-
-.path-hr {
-    margin: 348px 0 0 0;
-    position: absolute;
-    border-color: var(--color-4);
-    border-style: solid;
-    width: 100%;
-}
-
-.path-hr-2 {
-    margin: 184px 0 0 0;
-    position: absolute;
-    border-color: var(--color-4);
-    border-style: solid;
-    width: 100%;
-}
-// ======== END - .path ================================================================================================
-
-
-// ======== START - portfolio ==========================================================================================
+/* ======== START - Portfolio Page ================================================================================== */
 .portfolio-items--height {
     min-height: calc(100vh - 559px);
     display: block;
@@ -109,18 +55,19 @@
         border-radius: 10px;
     }
 }
-// ======== END - portfolio ============================================================================================
+/* ======== END - Portfolio Page ==================================================================================== */
 
 
-// ======== START - .error =============================================================================================
+/* ======== START - Error Page ====================================================================================== */
 .error {
-    height: calc(100vh - 138px);
+    height: calc(100vh - 48px);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .error-wrapper {
+    position: relative;
     display: block;
     text-align: center;
 
@@ -142,7 +89,6 @@
     }
 }
 
-
 .error-title {
     display: block;
     font-family: "Poppins Bold", serif;
@@ -155,4 +101,4 @@
         font-size: 20px;
     }
 }
-// ======== END - .error ===============================================================================================
+/* ======== END - Error Page ======================================================================================== */

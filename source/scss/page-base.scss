@@ -1,11 +1,12 @@
-// ======== START - header =============================================================================================
+/* ======== START - Base Page ======================================================================================= */
+/* ======== START - Header ========================================================================================== */
 .header {
     width: 100%;
     height: 64px;
     display: block;
     z-index: 200;
     position: fixed;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
 
     > .capsule {
         margin: 0 65px;
@@ -178,13 +179,13 @@
     display: block;
     margin: 24px 0 0 0;
 }
-// ======== END - header ===============================================================================================
+/* ======== END - Header ============================================================================================ */
 
 
-// ======== START - section base =======================================================================================
+/* ======== START - Section Base ==================================================================================== */
 .base {
     display: block;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
 
     > .capsule {
         margin: 0 65px;
@@ -335,10 +336,10 @@
         display: none;
     }
 }
-// ======== END - section base =========================================================================================
+/* ======== END - Section Base ====================================================================================== */
 
 
-// ======== START - section about ======================================================================================
+/* ======== START - Section About =================================================================================== */
 .about {
     display: block;
 }
@@ -584,7 +585,7 @@
 
 .svg-circle__background {
     fill: none;
-    stroke: var(--color-3);
+    stroke: var(--color-2);
     stroke-width: 4.5;
 }
 
@@ -671,7 +672,7 @@
 
 .svg-progress__background {
     height: 16px;
-    fill: var(--color-3);
+    fill: var(--color-2);
     rx: 7; // закругление краев
 }
 
@@ -687,7 +688,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    border: solid 2px var(--color-3);
+    border: solid 2px var(--color-2);
     border-radius: 10px;
 }
 
@@ -696,7 +697,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
     border-radius: 10px 0 0 10px;
     margin-left: -1px;
     margin-top: -1px;
@@ -747,7 +748,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 2px var(--color-3);
+    border: solid 2px var(--color-2);
     border-radius: 10px;
 
     > h3 {
@@ -775,10 +776,10 @@
         height: 44px;
     }
 }
-// ======== END - section about ========================================================================================
+/* ======== END - Section About ===================================================================================== */
 
 
-// ======== START - section service ====================================================================================
+/* ======== START - Section Service ================================================================================= */
 .service {
     display: block;
 }
@@ -787,7 +788,7 @@
     width: 100%;
     margin: 30px 0 0 0;
     display: block;
-    border: solid 2px var(--color-3);
+    border: solid 2px var(--color-2);
     border-radius: 10px;
     padding: 24px 30px 24px 30px;
 
@@ -830,7 +831,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 2px var(--color-3);
+    border: solid 2px var(--color-2);
     border-radius: 10px;
 }
 
@@ -851,7 +852,7 @@
     align-items: center;
     position: absolute;
     transform: rotate(45deg);
-    border-bottom: 26px solid var(--color-3);
+    border-bottom: 26px solid var(--color-2);
     border-left: 26px solid transparent;
     border-right: 26px solid transparent;
 
@@ -968,11 +969,10 @@
         line-height: 24px;
     }
 }
+/* ======== END - Section Service =================================================================================== */
 
-// ======== END - section service ======================================================================================
 
-
-// ======== START - section portfolio ==================================================================================
+/* ======== START - Section Portfolio =============================================================================== */
 .portfolio {
     display: block;
 }
@@ -1076,10 +1076,10 @@
     margin: 40px 0 0 0;
     display: block;
 }
-// ======== END - section portfolio ====================================================================================
+/* ======== END - Section Portfolio ================================================================================= */
 
 
-// ======== START - section client =====================================================================================
+/* ======== START - Section Clients ================================================================================= */
 .review {
     display: block;
 }
@@ -1098,7 +1098,7 @@
     grid-template-areas:
         "photo info"
         "star star";
-    border: solid 2px var(--color-3);
+    border: solid 2px var(--color-2);
     border-radius: 10px;
 }
 
@@ -1120,7 +1120,7 @@
     display: block;
     grid-area: photo;
     border-radius: 10px;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
 
     > img {
         width: 100.5%;
@@ -1129,7 +1129,7 @@
         object-fit: cover;
         object-position: 0 0;
         border-radius: 8px;
-        border: solid 2px var(--color-3);
+        border: solid 2px var(--color-2);
     }
 }
 
@@ -1156,7 +1156,7 @@
     grid-area: star;
     margin-left: -1px;
     bottom: -0.5px;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
     border-radius: 0 0 8px 8px;
 
     > ul {
@@ -1221,10 +1221,10 @@
     color: var(--color-6);
 }
 
-// ======== END - section client =======================================================================================
+/* ======== END - Section Clients =================================================================================== */
 
 
-// ======== START - section contact ====================================================================================
+/* ======== START - Section Contact ================================================================================= */
 .contact {
     display: block;
 }
@@ -1233,7 +1233,7 @@
     margin: 30px 0 0 0;
     display: block;
     border-radius: 10px;
-    border: solid 3px var(--color-3);
+    border: solid 3px var(--color-2);
 
     > iframe {
         margin: 0 0 -8px 0;
@@ -1275,7 +1275,7 @@
     > li:nth-child(-n+3) input {
         width: 100%;
         height: 50px;
-        border: solid 2px var(--color-3);
+        border: solid 2px var(--color-2);
         border-radius: 10px;
         padding: 2px 16px 0 16px;
         outline: 0;
@@ -1286,13 +1286,13 @@
         }
 
         &::placeholder {
-            color: var(--color-7);
+            color: var(--color-3);
         }
     }
 
     > li:nth-child(4) textarea {
         width: 100%;
-        border: solid 2px var(--color-3);
+        border: solid 2px var(--color-2);
         border-radius: 10px;
         padding: 12px 16px 0 16px;
         color: var(--color-5);
@@ -1303,7 +1303,7 @@
         }
 
         &::placeholder {
-            color: var(--color-7);
+            color: var(--color-3);
         }
     }
 
@@ -1423,11 +1423,10 @@
         color: var(--color-6);
     }
 }
+/* ======== END - Section Contact =================================================================================== */
 
-// ======== END - section contact ======================================================================================
 
-
-// ======== START - section footer =====================================================================================
+/* ======== START - Footer ========================================================================================== */
 .footer {
     display: block;
     background-color: var(--color-4);
@@ -1456,4 +1455,5 @@
 
     }
 }
-// ======== END - section footer =======================================================================================
+/* ======== END - Footer ============================================================================================ */
+/* ======== END - Base Page ========================================================================================= */

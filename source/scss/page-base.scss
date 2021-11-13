@@ -25,6 +25,11 @@
     }
 }
 
+.header--mini {
+    top: -16px;
+}
+
+
 .logo {
     margin: 28px 0 0 0;
     display: block;
@@ -1100,6 +1105,7 @@
         "star star";
     border: solid 2px var(--color-2);
     border-radius: 10px;
+    //background-color: var(--color-2);
 }
 
 @media (max-width: 576px) {
@@ -1154,9 +1160,10 @@
 .client__star {
     display: block;
     grid-area: star;
-    margin-left: -1px;
-    bottom: -0.5px;
+    //margin-left: -1px;
+    //bottom: -0.5px;
     background-color: var(--color-2);
+    //background-color: pink;
     border-radius: 0 0 8px 8px;
 
     > ul {

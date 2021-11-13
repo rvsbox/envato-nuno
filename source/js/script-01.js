@@ -1,6 +1,18 @@
+/* =====================================================================================================================
+    Template Name:    Nuno | Responsive One Page HTML Template
+    Template URI:     https://themeforest.net
+    Author:           rvsbox
+    Author URI:       https://themeforest.net/user/rvsbox
+    Version:          1.0.0
+    Created:          June 2020
+    File Description: Main js file of the template
+===================================================================================================================== */
+
+
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
 
+    let header = document.getElementById('header')
     let nav = document.getElementById('nav')
     let navRight = document.getElementById('navRight')
     let openNavRight = document.getElementById('openNavRight')
@@ -12,7 +24,6 @@ window.onload = () => {
     let personName = document.getElementById('personName')
     let personProfession = document.getElementById('personProfession')
     let personDescription = document.getElementById('personDescription')
-
 
     /* ======== START - Get block sizes ============================================================================= */
     function GetSizeBlock() {
@@ -37,26 +48,31 @@ window.onload = () => {
     /* ======== END - Get block sizes =============================================================================== */
 
 
-    /* ======== START - Fixing the header when scrolling. #header =================================================== */
+    /* ======== START - Fixing the header when scrolling (#header). ================================================= */
     function miniHeader() {
         if (pageYOffset > 10) {
-            document.getElementById('header').style.top = -16 + 'px'
-            document.getElementById('header').style.opacity = 95 + '%'
-            document.getElementById('navRight').style.height = 'calc(100vh + 16px)'
+            header.style.top = -16 + 'px'
+            header.style.opacity = 95 + '%'
+            navRight.height = 'calc(100vh + 16px)'
         } else {
-            document.getElementById('header').style.top = 0 + 'px'
-            document.getElementById('header').style.opacity = 100 + '%'
-            document.getElementById('navRight').style.height = 100 + 'vh'
+            header.style.top = 0 + 'px'
+            header.style.opacity = 100 + '%'
+            navRight.style.height = 100 + 'vh'
         }
     }
 
-    miniHeader() // чтобы при перезагрузке страницы правильно работала функция, если уже был скролл
+    // проверка на существование #header
+    if (header !== null) {
+        miniHeader() // чтобы при перезагрузке страницы правильно работала функция, если уже был скролл
 
-    window.addEventListener('scroll', miniHeader) // срабатывание при скролле
-    /* ======== END - Fixing the header when scrolling. #header ===================================================== */
+        window.addEventListener('scroll', miniHeader) // срабатывание при скролле
+    }
 
 
-    /* ======== START - Highlighting the active menu item. #nav, #navRight ========================================== */
+    /* ======== END - Fixing the header when scrolling (#header). =================================================== */
+
+
+    /* ======== START - Highlighting the active menu item (#nav, #navRight). ======================================== */
     let border = window.innerHeight / 1.8 // установка границы срабатывания скрипта
     let sectionsLength = document.getElementsByTagName('section').length
     let sections = document.querySelectorAll('section');
@@ -89,10 +105,10 @@ window.onload = () => {
             addRemoveActive(i)
         }
     })
-    /* ======== END - Highlighting the active menu item. #nav, #navRight ============================================ */
+    /* ======== END - Highlighting the active menu item (#nav, #navRight). ========================================== */
 
 
-    /* ======== START - Scroll animation for nav and 'Order Now' buttons. #nav, #navRight, .btn-arrow =============== */
+    /* ======== START - Scroll animation for nav and 'Order Now' buttons (#nav, #navRight, .btn-arrow). ============= */
     // для навигации. #nav, #navRight
     $('a.nav__link[href*="#"],a.nav-right__link[href*="#"]').on('click', function (e) {
         e.preventDefault()
@@ -131,10 +147,10 @@ window.onload = () => {
             scrollTop: $($(this).attr('href')).offset().top
         }, 1000, 'swing')
     })
-    /* ======== END - Scroll animation for nav and 'Order Now' buttons. #nav, #navRight, .btn-arrow ================= */
+    /* ======== END - Scroll animation for nav and 'Order Now' buttons (#nav, #navRight, .btn-arrow). =============== */
 
 
-    /* ======== START - Open, close right nav. #navRight, #closeNavRight ============================================ */
+    /* ======== START - Open, close right nav (#navRight, #closeNavRight). ========================================== */
     openNavRight.addEventListener('click', openNav)
     closeNavRight.addEventListener('click', closeNav)
 
@@ -182,17 +198,16 @@ window.onload = () => {
     }
 
     setCloseNavRightDefault()
-    /* ======== END - Open, close right nav. #navRight, #closeNavRight ============================================== */
+    /* ======== END - Open, close right nav (#navRight, #closeNavRight). ============================================ */
 
 
-    /* ======== START - #circle ===================================================================================== */
+    /* ======== START - Three big circles (#circle). ================================================================ */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 314px   - bottom блока #circle
     // 1400px  - width блока #circle
     // 1400px  - height блока #circle
     // 3600px  - width блока #composition 
     // 1900px  - height блока #composition
-
     function defaultCircle() {
         if (circle !== null) {
             circle.style.width = 1400 + 'px'
@@ -256,16 +271,15 @@ window.onload = () => {
     }
 
     setSizeCircleDefault()
-    /* ======== END - #circle ======================================================================================= */
+    /* ======== END - Three big circles (#circle). ================================================================== */
 
 
-    /* ======== START - #personImg ================================================================================== */
+    /* ======== START - Your photo (#personImg). ==================================================================== */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 1020px  - width блока #personImg
     // 1500px  - height блока #personImg
     // 3600px  - width блока #composition
     // 1900px  - height блока #composition
-
     function defaultPersonImg() {
         if (personImg !== null) {
             personImg.style.width = 1020 + 'px'
@@ -339,10 +353,10 @@ window.onload = () => {
     }
 
     setSizePersonImgDefault()
-    /* ======== END - #personImg ==================================================================================== */
+    /* ======== END - Your photo (#personImg). ====================================================================== */
 
 
-    /* ======== START - #personInfo ================================================================================= */
+    /* ======== START - Your information about yourself (#personInfo). ============================================== */
     // размеры блоков установленные в стилях, размеры блоков при 4k разрешении
     // 770px  - width #personInfo
     // 210%   - font-size, #personName
@@ -350,7 +364,6 @@ window.onload = () => {
     // 118%   - font-size, #personDescription
     // 300px  - bottom, #personInfo
     // 900px  - right, #personInfo
-
     function defaultPersonInfo() {
         if ((personInfo !== null) && (personName !== null) && (personProfession !== null) && (personDescription !== null)) {
             personInfo.style.width = 770 + 'px'
@@ -478,17 +491,16 @@ window.onload = () => {
     }
 
     setSizePersonInfoDefault()
-    /* ======== END - #personInfo =================================================================================== */
+    /* ======== END - Your information about yourself (#personInfo). ================================================ */
 
 
-    /* ======== START - anime.js, svg, #circle ====================================================================== */
+    /* ======== START - Anime.js JavaScript animation library (#circle). ============================================ */
     // #circleLargeWhite
     // #circleLargeBlack
     // #circleMediumWhite
     // #circleMediumBlack
     // #circleSmallWhite
     // #circleSmallBlack
-
     let layer_1 = () => {
         // tl - timeLine
         let tl = anime.timeline({
@@ -524,10 +536,10 @@ window.onload = () => {
     startLayers(0).then(layer_1)
     startLayers(700).then(layer_2)
     startLayers(1600).then(layer_3)
-    /* ======== END - anime.js, svg, #circle ======================================================================== */
+    /* ======== END - Anime.js JavaScript animation library (#circle). ============================================== */
 
 
-    /* ======== START - .title-section ============================================================================== */
+    /* ======== START - Section header (.title-section). ============================================================ */
     function setSizeBorderSection() {
         let k = document.getElementsByClassName('title-section__heading').length
 
@@ -559,10 +571,10 @@ window.onload = () => {
     }
 
     resizeSizeBorderSection()
-    /* ======== END - .title-section ================================================================================ */
+    /* ======== END - Section header (.title-section). ============================================================== */
 
 
-    /* ======== START - .owl-carousel =============================================================================== */
+    /* ======== START - Owl Carousel (.owl-carousel). =============================================================== */
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             loop: true,
@@ -581,10 +593,10 @@ window.onload = () => {
             }
         })
     })
-    /* ======== END - .owl-carousel ================================================================================= */
+    /* ======== END - Owl Carousel (.owl-carousel). ================================================================= */
 
 
-    /* ======== START - .portfolio-items, isotope.js ================================================================ */
+    /* ======== START - Isotope - filter & sort magical layouts (.portfolio-items). ================================= */
     let $grid = $('.portfolio-items').isotope({
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows',
@@ -604,5 +616,5 @@ window.onload = () => {
         $('.btn-filter').removeClass('btn-filter--active');
         $(this).addClass('btn-filter--active');
     })
-    /* ======== END - .portfolio-items, isotope.js ================================================================== */
+    /* ======== END - Isotope - filter & sort magical layouts (.portfolio-items). =================================== */
 }

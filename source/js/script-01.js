@@ -539,18 +539,18 @@ window.onload = () => {
     /* ======== END - Anime.js JavaScript animation library (#circle). ============================================== */
 
 
-    /* ======== START - Section header (.title-section). ============================================================ */
+    /* ======== START - Section header (.section-title). ============================================================ */
     function setSizeBorderSection() {
-        let k = document.getElementsByClassName('title-section__heading').length
+        let k = document.getElementsByClassName('section-title__heading').length
 
         for (let i = 0; i <= (k - 1); i++) {
-            let headingBaseWidth = document.getElementsByClassName('title-section__heading')[i].offsetWidth
-            let headingBaseHeight = document.getElementsByClassName('title-section__heading')[i].offsetHeight
+            let headingBaseWidth = document.getElementsByClassName('section-title__heading')[i].offsetWidth
+            let headingBaseHeight = document.getElementsByClassName('section-title__heading')[i].offsetHeight
 
             if ((headingBaseWidth > 0) && (headingBaseHeight > 0)) {
                 // тк border: 3px, то минус 6
-                document.getElementsByClassName('title-section__border')[i].style.width = headingBaseWidth + 'px'
-                document.getElementsByClassName('title-section__border')[i].style.height = headingBaseHeight + 'px'
+                document.getElementsByClassName('section-title__border')[i].style.width = headingBaseWidth + 'px'
+                document.getElementsByClassName('section-title__border')[i].style.height = headingBaseHeight + 'px'
             }
         }
     }
@@ -571,7 +571,7 @@ window.onload = () => {
     }
 
     resizeSizeBorderSection()
-    /* ======== END - Section header (.title-section). ============================================================== */
+    /* ======== END - Section header (.section-title). ============================================================== */
 
 
     /* ======== START - Owl Carousel (.owl-carousel). =============================================================== */

@@ -7,6 +7,7 @@ isotope.js
 Font Awesome
 Google Fonts
 unsplash.com - картинки
+placehold.co - заглушки вместо картинок
 
 
 

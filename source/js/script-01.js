@@ -10,18 +10,18 @@
 
 
 /* =====================================================================================================================
-    1.  Get block sizes
+    1.  Get element sizes
     2.  Fixing the header when scrolling (#header)
     3.  Highlighting the active menu item (#nav, #navRight)
-    4.  Scroll animation for nav and 'Order Now' buttons (#nav, #navRight, .btn-arrow)
-    5.  Open, close right nav (#navRight, #closeNavRight)
+    4.  Scrolling animation (#nav, #navRight, .btn-arrow)
+    5.  Open, close side menu (#navRight, #closeNavRight)
     6.  Three big circles (#circle)
     7.  Your big photo (#personImg)
     8.  Your information about yourself (#personInfo)
-    9.  Anime.js JavaScript animation library (#circle)
-    10. Section header (.section-title)
-    11. Owl Carousel (.owl-carousel)
-    12. Isotope - filter & sort magical layouts (.portfolio-items)
+    9.  Section title (.section-title)
+    10. Anime library (#circle)
+    11. Owl Carousel library (.owl-carousel)
+    12. Isotope library (.portfolio-items)
 ===================================================================================================================== */
 
 
@@ -41,7 +41,7 @@ window.onload = () => {
     let personProfession = document.getElementById('personProfession')
     let personDescription = document.getElementById('personDescription')
 
-    /* ======== START - Get block sizes ============================================================================= */
+    /* ======== START - Get element sizes =========================================================================== */
     function GetSizeBlock() {
         if ((composition !== null) && (circle !== null) && (personImg !== null)) {
             this.compositionW = composition.offsetWidth
@@ -61,7 +61,7 @@ window.onload = () => {
 
     // console.log(document.getElementById('composition')) // test
 
-    /* ======== END - Get block sizes ================================================================================ */
+    /* ======== END - Get element sizes ============================================================================= */
 
 
     /* ======== START - Fixing the header when scrolling (#header) ================================================== */
@@ -123,7 +123,7 @@ window.onload = () => {
     /* ======== END - Highlighting the active menu item (#nav, #navRight) =========================================== */
 
 
-    /* ======== START - Scroll animation for nav and 'Order Now' buttons (#nav, #navRight, .btn-arrow) ============== */
+    /* ======== START - Scrolling animation (#nav, #navRight, .btn-arrow) =========================================== */
     // для навигации. #nav, #navRight
     $('a.nav__link[href*="#"],a.nav-right__link[href*="#"]').on('click', function (e) {
         e.preventDefault()
@@ -162,10 +162,10 @@ window.onload = () => {
             scrollTop: $($(this).attr('href')).offset().top
         }, 1000, 'swing')
     })
-    /* ======== END - Scroll animation for nav and 'Order Now' buttons (#nav, #navRight, .btn-arrow) ================ */
+    /* ======== END - Scrolling animation (#nav, #navRight, .btn-arrow) ============================================= */
 
 
-    /* ======== START - Open, close right nav (#navRight, #closeNavRight) =========================================== */
+    /* ======== START - Open, close side menu (#navRight, #closeNavRight) =========================================== */
     openNavRight.addEventListener('click', openNav)
     closeNavRight.addEventListener('click', closeNav)
 
@@ -213,7 +213,7 @@ window.onload = () => {
     }
 
     setCloseNavRightDefault()
-    /* ======== END - Open, close right nav (#navRight, #closeNavRight) ============================================= */
+    /* ======== END - Open, close side menu (#navRight, #closeNavRight) ============================================= */
 
 
     /* ======== START - Three big circles (#circle) ================================================================= */
@@ -509,7 +509,42 @@ window.onload = () => {
     /* ======== END - Your information about yourself (#personInfo) ================================================= */
 
 
-    /* ======== START - Anime.js JavaScript animation library (#circle) ============================================= */
+    /* ======== START - Section title (.section-title) ============================================================== */
+    function setSizeBorderSection() {
+        let k = document.getElementsByClassName('section-title__heading').length
+
+        for (let i = 0; i <= (k - 1); i++) {
+            let headingBaseWidth = document.getElementsByClassName('section-title__heading')[i].offsetWidth
+            let headingBaseHeight = document.getElementsByClassName('section-title__heading')[i].offsetHeight
+
+            if ((headingBaseWidth > 0) && (headingBaseHeight > 0)) {
+                // тк border: 3px, то минус 6
+                document.getElementsByClassName('section-title__border')[i].style.width = headingBaseWidth + 'px'
+                document.getElementsByClassName('section-title__border')[i].style.height = headingBaseHeight + 'px'
+            }
+        }
+    }
+
+    setSizeBorderSection()
+
+    function resizeSizeBorderSection() {
+        addEventListener('resize', event => {
+            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
+
+            if (getSizeBlock.windowInnerW <= 576) {
+                setSizeBorderSection()
+            }
+            if (getSizeBlock.windowInnerW >= 576) {
+                setSizeBorderSection()
+            }
+        })
+    }
+
+    resizeSizeBorderSection()
+    /* ======== END - Section title (.section-title) ================================================================ */
+
+
+    /* ======== START - Anime library (#circle) ===================================================================== */
     // #circleLargeWhite
     // #circleLargeBlack
     // #circleMediumWhite
@@ -551,45 +586,10 @@ window.onload = () => {
     startLayers(0).then(layer_1)
     startLayers(700).then(layer_2)
     startLayers(1600).then(layer_3)
-    /* ======== END - Anime.js JavaScript animation library (#circle) =============================================== */
+    /* ======== END - Anime library (#circle) ======================================================================= */
 
 
-    /* ======== START - Section header (.section-title) ============================================================= */
-    function setSizeBorderSection() {
-        let k = document.getElementsByClassName('section-title__heading').length
-
-        for (let i = 0; i <= (k - 1); i++) {
-            let headingBaseWidth = document.getElementsByClassName('section-title__heading')[i].offsetWidth
-            let headingBaseHeight = document.getElementsByClassName('section-title__heading')[i].offsetHeight
-
-            if ((headingBaseWidth > 0) && (headingBaseHeight > 0)) {
-                // тк border: 3px, то минус 6
-                document.getElementsByClassName('section-title__border')[i].style.width = headingBaseWidth + 'px'
-                document.getElementsByClassName('section-title__border')[i].style.height = headingBaseHeight + 'px'
-            }
-        }
-    }
-
-    setSizeBorderSection()
-
-    function resizeSizeBorderSection() {
-        addEventListener('resize', event => {
-            let getSizeBlock = new GetSizeBlock() // получить текущие размеры блоков
-
-            if (getSizeBlock.windowInnerW <= 576) {
-                setSizeBorderSection()
-            }
-            if (getSizeBlock.windowInnerW >= 576) {
-                setSizeBorderSection()
-            }
-        })
-    }
-
-    resizeSizeBorderSection()
-    /* ======== END - Section header (.section-title) =============================================================== */
-
-
-    /* ======== START - Owl Carousel (.owl-carousel) ================================================================ */
+    /* ======== START - Owl Carousel library (.owl-carousel) ======================================================== */
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             loop: true,
@@ -608,10 +608,10 @@ window.onload = () => {
             }
         })
     })
-    /* ======== END - Owl Carousel (.owl-carousel) ================================================================== */
+    /* ======== END - Owl Carousel library (.owl-carousel) ========================================================== */
 
 
-    /* ======== START - Isotope - filter & sort magical layouts (.portfolio-items) ================================== */
+    /* ======== START - Isotope library (.portfolio-items) ========================================================== */
     let $grid = $('.portfolio-items').isotope({
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows',
@@ -631,5 +631,5 @@ window.onload = () => {
         $('.btn-filter').removeClass('btn-filter--active');
         $(this).addClass('btn-filter--active');
     })
-    /* ======== END - Isotope - filter & sort magical layouts (.portfolio-items) ==================================== */
+    /* ======== END - Isotope library (.portfolio-items) ============================================================ */
 }

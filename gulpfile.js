@@ -214,6 +214,11 @@ function myImages() {
         'source/img/**/*.svg',
     ])
         .pipe(dest(pathAlpha.build.images))       // alpha
+        .pipe(browserSync.reload({stream: true}))
+}
+
+function myImagesAlphaClear() {
+    return src('source/img/**/*.svg')
         .pipe(dest(pathAlphaClear.build.images))  // alpha-clear
         .pipe(browserSync.reload({stream: true}))
 }
@@ -229,6 +234,7 @@ function myWatch() {
     watch([pathAlpha.watch.scss], myCss)
     watch([pathAlpha.watch.js], myJs)
     watch([pathAlpha.watch.html], myHtml)
+    watch([pathAlpha.watch.html], myHtmlAlphaClear)
     watch([pathAlpha.watch.fonts], myFonts)
     watch([pathAlpha.watch.images], myImages)
 
@@ -239,16 +245,41 @@ function myWatch() {
 /* ======== END - Universal Functions =============================================================================== */
 
 
-exports.myServer = myServer           // > yarn gulp myServer
-exports.myCss = myCss                 // > yarn gulp myCss
-exports.myHtml = myHtml               // > yarn gulp myHtml
-exports.myClear = myClear             // > yarn gulp myClear
-exports.myFonts = myFonts             // > yarn gulp myFonts
-exports.myImages = myImages           // > yarn gulp myImages
-exports.myLibCss = myLibCss           // > yarn gulp myLibCss
-exports.myLibJs = myLibJs             // > yarn gulp myLibJso
-exports.myJs = myJs                   // > yarn gulp myJs
+exports.myServer = myServer                       // > yarn gulp myServer
+exports.myCss = myCss                             // > yarn gulp myCss
+exports.myHtml = myHtml                           // > yarn gulp myHtml
+exports.myHtmlAlphaClear = myHtmlAlphaClear
+exports.myClear = myClear                         // > yarn gulp myClear
+exports.myFonts = myFonts                         // > yarn gulp myFonts
+exports.myImages = myImages                       // > yarn gulp myImages
+exports.myImagesAlphaClear = myImagesAlphaClear
+exports.myLibCss = myLibCss                       // > yarn gulp myLibCss
+exports.myLibJs = myLibJs                         // > yarn gulp myLibJso
+exports.myJs = myJs                               // > yarn gulp myJs
 
-exports.build = series(myClear, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs)
+exports.build = series(
+    myClear,
+    myJs,
+    myCss,
+    myHtml,
+    myHtmlAlphaClear,
+    myFonts,
+    myImages,
+    myImagesAlphaClear,
+    myLibCss,
+    myLibJs
+)
 
-exports.default = parallel(myServer, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs, myWatch)
+exports.default = parallel(
+    myServer,
+    myJs,
+    myCss,
+    myHtml,
+    myHtmlAlphaClear,
+    myFonts,
+    myImages,
+    myImagesAlphaClear,
+    myLibCss,
+    myLibJs,
+    myWatch
+)

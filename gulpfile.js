@@ -12,44 +12,61 @@ const strip = require('gulp-strip-comments') // удалить коммента�
 const panini = require('panini') // html шаблонизатор
 
 
-/* ======== START - установка путей ================================================================================= */
-/* ======== START - верстка alpha =================================================================================== */
-const srcPath = 'source/'
-const buildPath = 'build/alpha/'
+/* ======== START - Настройка сервера =============================================================================== */
+function myServer() {
+    browserSync.init({
+        server: './build/',
+        notify: false,
+        online: true,
+        port: 8000,
+        browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome' // windows
+        // browser: 'google-chrome-unstable', // linux
+    })
+}
+/* ======== END - Настройка сервера ================================================================================= */
 
-const path = {
+
+/* ======== START - Настройка путей ================================================================================= */
+const srcPath = 'source/'
+const buildAlpha = 'build/alpha/'                  // alpha
+const buildAlphaClear = 'build/alpha-clear/'       // alpha-clear
+const buildPathBeta = 'build/beta/'                // beta
+
+const pathAlpha = {
     build: {
-        html: buildPath,
-        js: buildPath + 'assets/js/',
-        css: buildPath + 'assets/css/',
-        images: buildPath + 'assets/images/',
-        fonts: buildPath + 'assets/fonts/',
-        draft: 'build/draft/'
+        html: buildAlpha,
+        js: buildAlpha + 'assets/js/',
+        css: buildAlpha + 'assets/css/',
+        images: buildAlpha + 'assets/images/',
+        fonts: buildAlpha + 'assets/fonts/'
     },
     src: {
         html: srcPath + '*.html',
         js: srcPath + 'js/*.js',
         scss: srcPath + 'scss/main-beta.scss',
         images: srcPath + 'img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}',
-        draft: srcPath + 'draft/**/*.{html,js}'
+        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}'
     },
     watch: {
         html: srcPath + '**/*.html',
         js: srcPath + 'js/**/*.js',
         scss: srcPath + 'scss/**/*.scss',
         images: srcPath + 'img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}',
-        draft: srcPath + 'draft/**/*.{html,js}'
+        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}'
     },
-    clear: './' + buildPath
+    clear: './' + buildAlpha
 }
-/* ======== END - верстка alpha ===================================================================================== */
 
-
-
-/* ======== START - верстка beta ==================================================================================== */
-const buildPathBeta = 'build/beta/'
+const pathAlphaClear = {
+    build: {
+        html: buildAlphaClear,
+        js: buildAlphaClear + 'assets/js/',
+        css: buildAlphaClear + 'assets/css/',
+        images: buildAlphaClear + 'assets/images/',
+        fonts: buildAlphaClear + 'assets/fonts/'
+    },
+    clear: './' + buildAlphaClear
+}
 
 const pathBeta = {
     build: {
@@ -61,22 +78,10 @@ const pathBeta = {
     },
     clear: './' + buildPathBeta
 }
-/* ======== END - верстка beta ====================================================================================== */
-/* ======== END - установка путей =================================================================================== */
+/* ======== END - Настройка путей =================================================================================== */
 
 
-function myServer() {
-    browserSync.init({
-        server: './build/',
-        notify: false,
-        online: true,
-        port: 8000,
-        browser: 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome' // windows
-        // browser: 'google-chrome-unstable', // linux
-    })
-}
-
-
+/* ======== START - JavaScript ====================================================================================== */
 function myJs() {
     return src([
         'source/js/script-01.js',
@@ -87,7 +92,8 @@ function myJs() {
         .pipe(plumber()) // обработка ошибок
         .pipe(concat('main.js'))
         .pipe(strip({ignore: /\/\*[\s\S]*?\*\//g})) // удалить комметарии, но исключить многострочные комментарии
-        .pipe(dest(path.build.js))
+        .pipe(dest(pathAlpha.build.js))             // alpha
+        .pipe(dest(pathAlphaClear.build.js))        // alpha-clear
 
         // получить второй минимизированный файл
         .pipe(sourcemaps.init())
@@ -96,34 +102,24 @@ function myJs() {
             suffix: '.min'
         }))
         .pipe(sourcemaps.write())
-        .pipe(dest(path.build.js))
+        .pipe(dest(pathAlpha.build.js))             // alpha
+        .pipe(dest(pathAlphaClear.build.js))        // alpha-clear
         .pipe(browserSync.stream())
 }
 
-
-// function myJsBeta() {
-//     return src([
-//         'source/assets/js/script-01.js',
-//         'source/assets/js/script-02.js',
-//         'source/assets/js/script-03.js',
-//     ])
-//         .pipe(plumber()) // обработка ошибок
-//         .pipe(concat('main.js'))
-//         .pipe(strip({ignore: /\/\*[\s\S]*?\*\//g})) // удалить комметарии, но исключить многострочные комментарии
-//         .pipe(dest(pathBeta.build.js))
-//
-//         // получить второй минимизированный файл
-//         .pipe(sourcemaps.init())
-//         .pipe(uglify())
-//         .pipe(rename({
-//             suffix: '.min'
-//         }))
-//         .pipe(sourcemaps.write())
-//         .pipe(dest(pathBeta.build.js))
-//         .pipe(browserSync.stream())
-// }
+function myLibJs() {
+    return src([
+        'source/lib-js/*.js',
+        'source/lib-js/*.map'
+    ])
+        .pipe(dest(pathAlpha.build.js))              // alpha
+        .pipe(dest(pathAlphaClear.build.js))         // alpha-clear
+        .pipe(browserSync.reload({stream: true}))
+}
+/* ======== END - JavaScript ======================================================================================== */
 
 
+/* ======== START - CSS ============================================================================================= */
 function myCss() {
     return src('source/scss/alpha-main.scss')
         .pipe(plumber())
@@ -134,7 +130,8 @@ function myCss() {
             overrideBrowserslist: ['last 10 versions'],
             grid: true
         }))
-        .pipe(dest(path.build.css))
+        .pipe(dest(pathAlpha.build.css))            // alpha
+        .pipe(dest(pathAlphaClear.build.css))       // alpha-clear
 
         // получить второй минимизированный файл
         .pipe(sourcemaps.init())
@@ -143,38 +140,27 @@ function myCss() {
             suffix: '.min'
         }))
         .pipe(sourcemaps.write())
-        .pipe(dest(path.build.css))
+        .pipe(dest(pathAlpha.build.css))           // alpha
+        .pipe(dest(pathAlphaClear.build.css))      // alpha-clear
         .pipe(browserSync.stream())
 }
 
-
-// function myCssBeta() {
-//     return src('source/assets/scss/main-beta.scss')
-//         .pipe(plumber())
-//
-//         .pipe(sass.sync().on('error', sass.logError))
-//         .pipe(concat('main.css'))
-//         .pipe(autoprefixer({
-//             overrideBrowserslist: ['last 10 versions'],
-//             grid: true
-//         }))
-//         .pipe(dest(pathBeta.build.css))
-//
-//         // получить второй минимизированный файл
-//         .pipe(sourcemaps.init())
-//         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-//         .pipe(rename({
-//             suffix: '.min'
-//         }))
-//         .pipe(sourcemaps.write())
-//         .pipe(dest(pathBeta.build.css))
-//         .pipe(browserSync.stream())
-// }
+function myLibCss() {
+    return src([
+        'source/lib-css/*.css',
+        'source/lib-css/*.map'
+    ])
+        .pipe(dest(pathAlpha.build.css))           // alpha
+        .pipe(dest(pathAlphaClear.build.css))      // alpha-clear
+        .pipe(browserSync.reload({stream: true}))
+}
+/* ======== END - CSS =============================================================================================== */
 
 
+/* ======== START - HTML ============================================================================================ */
 function myHtml() {
     panini.refresh();
-    return src('source/tpl/pages-alpha/**/*.html')
+    return src('source/tpl/pages--alpha/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',
@@ -183,31 +169,28 @@ function myHtml() {
             helpers: srcPath + 'tpl/helpers/',
             data: srcPath + 'tpl/data/'
         }))
-        .pipe(dest(path.build.html))
+        .pipe(dest(pathAlpha.build.html))           // alpha
         .pipe(browserSync.reload({stream: true}))
 }
 
-// function myHtml () {
-//     console.log('hello')
-// }
+function myHtmlAlphaClear() {
+    panini.refresh();
+    return src('source/tpl/pages--alpha-clear/**/*.html')
+        .pipe(plumber())
+        .pipe(panini({
+            root: srcPath + '/',
+            layouts: srcPath + 'tpl/layouts/',
+            partials: srcPath + 'tpl/partials/',
+            helpers: srcPath + 'tpl/helpers/',
+            data: srcPath + 'tpl/data/'
+        }))
+        .pipe(dest(pathAlphaClear.build.html))      // alpha-clear
+        .pipe(browserSync.reload({stream: true}))
+}
+/* ======== END - HTML ============================================================================================== */
 
 
-// function myHtmlBeta() {
-//     panini.refresh();
-//     return src('source/tpl/pages-beta/**/*.html')
-//         .pipe(plumber())
-//         .pipe(panini({
-//             root: srcPath + '/',
-//             layouts: srcPath + 'tpl/layouts/',
-//             partials: srcPath + 'tpl/partials/',
-//             helpers: srcPath + 'tpl/helpers/',
-//             data: srcPath + 'tpl/data/'
-//         }))
-//         .pipe(dest(pathBeta.build.html))
-//         .pipe(browserSync.reload({stream: true}))
-// }
-
-
+/* ======== START - Fonts =========================================================================================== */
 function myFonts() {
     return src([
         'source/fonts/**/*.ttf',
@@ -216,148 +199,56 @@ function myFonts() {
         'source/fonts/**/*.eot',
         'source/fonts/**/*.svg'
     ])
-        .pipe(dest(path.build.fonts))
+        .pipe(dest(pathAlpha.build.fonts))         // alpha
+        .pipe(dest(pathAlphaClear.build.fonts))    // alpha-clear
         .pipe(browserSync.reload({stream: true}))
 }
+/* ======== END - Fonts ============================================================================================= */
 
 
-// function myFontsBeta() {
-//     return src('source/assets/fonts/**/*.ttf')
-//         .pipe(dest(pathBeta.build.fonts))
-//         .pipe(browserSync.reload({stream: true}))
-// }
-
-
+/* ======== START - Images ========================================================================================== */
 function myImages() {
     return src([
         'source/img/**/*.png',
         'source/img/**/*.jpg',
         'source/img/**/*.svg',
     ])
-        .pipe(dest(path.build.images))
+        .pipe(dest(pathAlpha.build.images))       // alpha
+        .pipe(dest(pathAlphaClear.build.images))  // alpha-clear
         .pipe(browserSync.reload({stream: true}))
 }
+/* ======== END - Images ============================================================================================ */
 
 
-// function myImagesBeta() {
-//     return src([
-//         'source/assets/img/**/*.png',
-//         'source/assets/img/**/*.jpg',
-//         'source/assets/img/**/*.svg',
-//     ])
-//         .pipe(dest(pathBeta.build.images))
-//         .pipe(browserSync.reload({stream: true}))
-// }
-
-
-function myLibCss() {
-    return src([
-        'source/lib-css/*.css',
-        'source/lib-css/*.map'
-    ])
-        .pipe(dest(path.build.css))
-        .pipe(browserSync.reload({stream: true}))
-}
-
-
-// function myLibCssBeta() {
-//     return src([
-//         'source/lib-css/*.css',
-//         'source/lib-css/*.map'
-//     ])
-//         .pipe(dest(pathBeta.build.css))
-//         .pipe(browserSync.reload({stream: true}))
-// }
-
-
-function myLibJs() {
-    return src([
-        'source/lib-js/*.js',
-        'source/lib-js/*.map'
-    ])
-        .pipe(dest(path.build.js))
-        .pipe(browserSync.reload({stream: true}))
-}
-
-
-// function myLibJsBeta() {
-//     return src([
-//         'source/lib-js/*.js',
-//         'source/ib-js/*.map'
-//     ])
-//         .pipe(dest(pathBeta.build.js))
-//         .pipe(browserSync.reload({stream: true}))
-// }
-
-
-function myDraft() {
-    return src(path.src.draft)
-        .pipe(dest(path.build.draft))
-        .pipe(browserSync.reload({stream: true}))
-}
-
-
+/* ======== START - Universal Functions ============================================================================= */
 function myClear() {
-    return del([path.clear, pathBeta.clear], {force: true})
+    return del([pathAlpha.clear, pathAlphaClear.clear], {force: true})
 }
-
 
 function myWatch() {
-    watch([path.watch.scss], myCss)
-    // watch([path.watch.scss], myCssBeta)
-    watch([path.watch.js], myJs)
-    // watch([path.watch.js], myJsBeta)
-    watch([path.watch.html], myHtml)
-    // watch([path.watch.html], myHtmlBeta)
-    watch([path.watch.fonts], myFonts)
-    // watch([path.watch.fonts], myFontsBeta)
-    watch([path.watch.images], myImages)
-    // watch([path.watch.images], myImagesBeta)
-    watch([path.watch.draft], myDraft)
+    watch([pathAlpha.watch.scss], myCss)
+    watch([pathAlpha.watch.js], myJs)
+    watch([pathAlpha.watch.html], myHtml)
+    watch([pathAlpha.watch.fonts], myFonts)
+    watch([pathAlpha.watch.images], myImages)
+
+    // watch([path.watch.draft], myDraft)
     // watch(['source/**/*.js', '!source/**/*.min.js']) // ! - исключение файла для watch
     // watch(['source/_index.html', 'source/**/*.html'], htmlCopy).on('change', browserSync.reload)
 }
+/* ======== END - Universal Functions =============================================================================== */
 
 
 exports.myServer = myServer           // > yarn gulp myServer
-exports.myJs = myJs                   // > yarn gulp myJs
-// exports.myJsBeta = myJsBeta
 exports.myCss = myCss                 // > yarn gulp myCss
-// exports.myCssBeta = myCssBeta
 exports.myHtml = myHtml               // > yarn gulp myHtml
-// exports.myHtmlBeta = myHtmlBeta
 exports.myClear = myClear             // > yarn gulp myClear
 exports.myFonts = myFonts             // > yarn gulp myFonts
-// exports.myFontsBeta = myFontsBeta
 exports.myImages = myImages           // > yarn gulp myImages
-// exports.myImagesBeta = myImagesBeta
 exports.myLibCss = myLibCss           // > yarn gulp myLibCss
-// exports.myLibCssBeta = myLibCssBeta
 exports.myLibJs = myLibJs             // > yarn gulp myLibJso
-// exports.myLibJsBeta = myLibJsBeta
-exports.myDraft = myDraft             // > yarn gulp myDraft
+exports.myJs = myJs                   // > yarn gulp myJs
 
-
-// последовательное выполенение задач
-// > yarn gulp build
-// alpha + beta
-// exports.build = series(
-//     myClear, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myFontsBeta, myImages, myImagesBeta,
-//     myLibCss, myLibCssBeta, myLibJs, myLibJsBeta)
-
-// alpha
 exports.build = series(myClear, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs)
 
-//  параллельное выполнение задач
-//  > yarn gulp
-// alpha + beta
-// exports.default = parallel(
-//     myServer, myJs, myJsBeta, myCss, myCssBeta, myHtml, myHtmlBeta, myFonts, myFontsBeta, myImages,
-//     myImagesBeta, myLibCss, myLibCssBeta, myLibJs, myLibJsBeta, myDraft, myWatch)
-
-// alpha
-exports.default = parallel(myServer, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs, myDraft, myWatch)
-
-
-// exports.default = parallel(
-//     myClear, myServer, myJsBeta, myCssBeta, myHtmlBeta, myFontsBeta, myImagesBeta, myLibCssBeta, myLibJsBeta, myWatch)
+exports.default = parallel(myServer, myJs, myCss, myHtml, myFonts, myImages, myLibCss, myLibJs, myWatch)

@@ -184,6 +184,7 @@
     display: block;
     margin: 24px 0 0 0;
 }
+
 /* ======== END - Header ============================================================================================ */
 
 
@@ -341,6 +342,7 @@
         display: none;
     }
 }
+
 /* ======== END - Section Base ====================================================================================== */
 
 
@@ -693,7 +695,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    border: solid 2px var(--color-2);
     border-radius: 10px;
 }
 
@@ -703,9 +704,9 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color-2);
+    border: solid 2px var(--color-2);
+    border-right: 0;
     border-radius: 10px 0 0 10px;
-    margin-left: -1px;
-    margin-top: -1px;
 
     img {
         width: 66px;
@@ -719,6 +720,8 @@
     width: 100%;
     padding: 20px 30px 20px 30px;
     display: block;
+    border-radius: 0 10px 10px 0;
+    border: solid 2px var(--color-2);
 
     > h3 {
         margin: 0;
@@ -743,6 +746,12 @@
         font-size: 12px;
         line-height: 10px;
         color: var(--color-6);
+    }
+}
+
+@media (max-width: 576px) {
+    .certificate__info {
+        padding: 20px 12px 20px 12px;
     }
 }
 
@@ -781,6 +790,7 @@
         height: 44px;
     }
 }
+
 /* ======== END - Section About ===================================================================================== */
 
 
@@ -851,7 +861,7 @@
     width: 112px;
     height: 0;
     top: 48px;
-    right: -9px;
+    right: -10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -974,6 +984,7 @@
         line-height: 24px;
     }
 }
+
 /* ======== END - Section Service =================================================================================== */
 
 
@@ -1081,6 +1092,7 @@
     margin: 40px 0 0 0;
     display: block;
 }
+
 /* ======== END - Section Portfolio ================================================================================= */
 
 
@@ -1094,6 +1106,12 @@
     padding: 20px 0 0 20px;
     display: block;
     //border: solid 1px black; // test
+}
+
+@media (max-width: 576px) {
+    .client {
+        padding: 20px 0 0 0;
+    }
 }
 
 .client__info {
@@ -1222,10 +1240,11 @@
 }
 
 @media (max-width: 576px) {
-    .client__txt  {
+    .client__txt {
         margin: 28px 24px 0 24px;
     }
 }
+
 /* ======== END - Section Clients =================================================================================== */
 
 
@@ -1428,6 +1447,7 @@
         color: var(--color-6);
     }
 }
+
 /* ======== END - Section Contact =================================================================================== */
 
 
@@ -1460,5 +1480,6 @@
 
     }
 }
+
 /* ======== END - Footer ============================================================================================ */
 /* ======== END - Base Page ========================================================================================= */

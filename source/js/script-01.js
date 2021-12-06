@@ -4,7 +4,7 @@
     Author:           rvsbox
     Author URI:       https://themeforest.net/user/rvsbox
     Version:          1.0.0
-    Created:          June 2020
+    Created:          January 2022
     File Description: Main js file of the template
 ===================================================================================================================== */
 
@@ -41,26 +41,18 @@ let personDescription = document.getElementById('personDescription')
 
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
-
     changeHeaderRun()
-
     addRemoveActiveRun()
-
     сloseNavRight()
     сloseNavRightDefault()
-
     setSizeCircle()
     setSizeCircleDefault()
-
     setSizePersonImg()
     setSizePersonImgDefault()
-
     setSizePersonInfo()
     setSizePersonInfoDefault()
-
     setSizeBorderSection()
     resizeSizeBorderSection()
-
     circleAnimation()
 }
 
@@ -114,8 +106,6 @@ let sectionsLength = document.getElementsByTagName('section').length
 let sections = document.querySelectorAll('section');
 let navLinks = document.getElementById('nav').querySelectorAll('li a')
 let navRightLinks = document.getElementById('navRight').querySelectorAll('li a')
-
-
 
 function addRemoveActive(target) {
     let top = sections[target].getBoundingClientRect().top
@@ -234,6 +224,19 @@ function сloseNavRightDefault() {
         openNavRight.style.display = 'block'
     }
 }
+
+document.addEventListener('click', function (e){
+    const target = e.target
+    const itsNavRight = target == navRight || navRight.contains(target)
+    const itsOpenNavRight = target == openNavRight || openNavRight.contains(target)
+    const navRightActive = navRight.style.display == 'block'
+
+    if (!itsNavRight && navRightActive && !itsOpenNavRight) {
+        nav.style.display = 'none'
+        navRight.style.display = 'none'
+        openNavRight.style.display = 'block'
+    }
+})
 /* ======== END - Open, close side menu (#navRight, #closeNavRight) ================================================= */
 
 

@@ -303,13 +303,13 @@
     color: var(--color-1);
 }
 
-.social-button {
+.social-link {
     margin: 0;
     padding: 0;
     display: block;
 }
 
-.social-button__list {
+.social-link__list {
     margin: 0;
     padding: 0;
     display: flex;
@@ -319,6 +319,11 @@
     > li:nth-child(n+2) {
         margin: 0 0 0 8px;
     }
+}
+
+.social-link__item svg {
+    width: 24px;
+    height: 24px;
 }
 /* ======== END - Copyright ========================================================================================= */
 

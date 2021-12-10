@@ -708,11 +708,10 @@
     border-right: 0;
     border-radius: 10px 0 0 10px;
 
-    img {
+    > svg {
         width: 66px;
         height: 66px;
         margin: 0 20px;
-        display: block;
     }
 }
 
@@ -784,8 +783,7 @@
 .fact__icon {
     display: block;
 
-    img {
-        display: block;
+    > svg {
         width: 44px;
         height: 44px;
     }
@@ -837,6 +835,11 @@
 .type-service__icon {
     margin: 0 12px 0 0;
     display: flex;
+
+    > svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .price {
@@ -932,6 +935,11 @@
 .price__icon {
     margin: 10px 0 0 0;
     display: block;
+
+    > svg {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .price__service {

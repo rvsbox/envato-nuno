@@ -1156,11 +1156,12 @@
         align-items: center;
         list-style-type: none;
     }
+}
 
-    > li {
+.client__star-item {
+    > svg {
         width: 24px;
         height: 24px;
-        display: block;
     }
 }
 
@@ -1226,6 +1227,11 @@
 
 .client__icon {
     display: block;
+
+    > svg {
+        width: 42px;
+        height: 42px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1402,21 +1408,19 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin: 18px 0 0 0;
+    margin: 0 0 18px 0;
     height: 50px;
 }
 
 .contact-info__icon {
     display: flex;
     flex-direction: row;
-    width: 50px;
-    height: 50px;
     justify-content: center;
     align-items: center;
 
-    > i {
-        font-size: 38px;
-        color: var(--color-4);
+    > svg {
+        width: 48px;
+        height: 48px;
     }
 }
 

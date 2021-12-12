@@ -152,6 +152,11 @@
     &:hover {
         cursor: pointer;
     }
+
+    > svg {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 .btn-icon--white {
@@ -169,7 +174,6 @@
         color: var(--color-6);
     }
 }
-
 // ======== END - .btn-icon (.nav-right) ===============================================================================
 
 

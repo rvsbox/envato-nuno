@@ -960,18 +960,15 @@
         font-size: 14px;
         line-height: 24px;
         color: var(--color-6);
+    }
+}
 
-        &::before {
-            width: 14px;
-            height: 14px;
-
-            display: inline-block;
-            position: absolute;
-            margin: 5px 0 0 -22px;
-            content: ' ';
-            background-image: url('../images/icon-check.svg');
-            background-repeat: no-repeat;
-        }
+.price__service-item {
+    > svg {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        margin: 5px 0 0 -22px;
     }
 }
 

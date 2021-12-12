@@ -22,6 +22,7 @@
     10. Anime library (circleAnimation(), #circle)
     11. Owl Carousel library (.owl-carousel)
     12. Isotope library (.portfolio-items)
+    13. Add icons to the list (.price, .price__service-item)
 ===================================================================================================================== */
 
 
@@ -54,6 +55,7 @@ window.onload = () => {
     setSizeBorderSection()
     resizeSizeBorderSection()
     circleAnimation()
+    addIconCheckSvg()
 }
 
 
@@ -642,3 +644,15 @@ $('.btn-filter').on('click', function () {
     $(this).addClass('btn-filter--active');
 })
 /* ======== END - Isotope library (.portfolio-items) ================================================================ */
+
+
+/* ======== START - Add icons to the list (.price, .price__service-item) ============================================ */
+let priceServiceItem = document.querySelectorAll('.price__service-item')
+let iconCheckSvg = '<svg><use xlink:href="assets/images/icon-alpha.svg#num-5" /></svg>'
+
+function addIconCheckSvg() {
+    for (let i = 0; i < priceServiceItem.length; i++) {
+        priceServiceItem[i].insertAdjacentHTML('afterbegin', iconCheckSvg)
+    }
+}
+/* ======== END - Add icons to the list (.price, .price__service-item) ============================================== */

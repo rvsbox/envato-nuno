@@ -218,7 +218,10 @@ function myImages() {
 }
 
 function myImagesAlphaClear() {
-    return src('source/img/**/*.svg')
+    return src([
+        'source/img/**/*.svg',
+        'source/img/404.png'
+    ])
         .pipe(dest(pathAlphaClear.build.images))  // alpha-clear
         .pipe(browserSync.reload({stream: true}))
 }

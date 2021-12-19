@@ -43,7 +43,7 @@ const pathAlpha = {
     src: {
         html: srcPath + '*.html',
         js: srcPath + 'js/*.js',
-        scss: srcPath + 'scss/main-beta.scss',
+        scss: srcPath + 'scss/_alpha-main.scss',
         images: srcPath + 'img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
         fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}'
     },

@@ -52,6 +52,11 @@ p {
     color: #133C55;
 }
 
+.header {
+    margin: 0 0 80px 0;
+    display: block;
+}
+
 .header h1 {
     margin: 50px 0 4px 0;
     font-family: "Poppins Bold";

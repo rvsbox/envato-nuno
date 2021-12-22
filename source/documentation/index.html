@@ -17,14 +17,16 @@
         <div class="logo"><h1>Nuno</h1></div>
         <div class="nav">
             <ul class="nav__list">
-                <li><a href="">Introduction</a></li>
-                <li><a href="">File structure</a></li>
-                <li><a href="">Libraries</a></li>
-                <li><a href="">HTML File Structure</a></li>
-                <li><a href="">CSS File Structure</a></li>
-                <li><a href="">Carousel</a></li>
-                <li><a href="">Filter</a></li>
-                <li><a href="">Credits</a></li>
+                <li><a href="#sec-1">Introduction</a></li>
+                <li><a href="#sec-2">File structure</a></li>
+                <li><a href="#sec-3">Libraries</a></li>
+                <li><a href="#sec-4">HTML File Structure</a></li>
+                <li><a href="#sec-5">CSS File Structure</a></li>
+                <li><a href="#sec-6">JavaScript File Structure</a></li>
+                <li><a href="#sec-7">Owl Carousel Library</a></li>
+                <li><a href="#sec-8">Isotope Library</a></li>
+                <li><a href="#sec-9">Anime Library</a></li>
+                <li><a href="#sec-10">Credits</a></li>
             </ul>
         </div>
     </div>
@@ -35,7 +37,7 @@
             <hr>
         </div>
         <div class="content">
-            <div class="section">
+            <div class="section" id="sec-1">
                 <h1>Introduction</h1>
                 <p>Thank you so much for choosing our theme. We sincerely appreciate and really hope that you will like
                     our theme!</p>
@@ -46,12 +48,12 @@
                 before contacting our support service.</p>
                 <p>For the convenience of working with the template, we have added comments to all file types.</p>
             </div>
-            <div class="section">
+            <div class="section" id="sec-2">
                 <h1>File Structure</h1>
                 <p>The project files are arranged in a classic way. The main files are <b>main.css</b> and <b>main.js</b>.</p>
                 <span><img src="img/pic-01.png" alt="pic-01"></span>
             </div>
-            <div class="section">
+            <div class="section" id="sec-3">
                 <h1>Libraries</h1>
                 <p>List of used libraries and their location.</p>
                 <ul class="list">
@@ -65,7 +67,7 @@
                 </ul>
                 <span><img src="img/pic-02.png" alt="pic-02"></span>
             </div>
-            <div class="section">
+            <div class="section" id="sec-4">
                 <h1>HTML File Structure</h1>
                 <p>For a comfortable orientation in the structure of HTML files, we have added comments.</p>
                 <p>The screenshot shows all the necessary libraries for the correct display of the template in the
@@ -73,7 +75,7 @@
                 <h3>index.html ></h3>
                 <span><img src="img/pic-03.png" alt="pic-03"></span>
             </div>
-            <div class="section">
+            <div class="section" id="sec-5">
                 <h1>CSS File Structure</h1>
                 <p>Comments in the <b>main.css</b> file will help determine which block or element on the web page styles belong to.</p>
                 <h3>main.css ></h3>
@@ -92,7 +94,7 @@
                         <li>3.6 Owl Carousel</li>
                     </ul>
                     <li>4. Base Page<br>
-                        <span class="info">index.html</span></li>
+                        <span class="list-number__info">index.html</span></li>
                     <ul>
                         <li>4.1 Header</li>
                         <li>4.2 Section Base</li>
@@ -104,9 +106,9 @@
                         <li>4.8 Footer</li>
                     </ul>
                     <li>5. Portfolio Page<br>
-                        <span class="info">portfolio.html, portfolio-single.html</span></li>
+                        <span class="list-number__info">portfolio.html, portfolio-single.html</span></li>
                     <li>6. Error Page<br>
-                        <span class="info">error.html</span></li>
+                        <span class="list-number__info">error.html</span></li>
                 </ul>
                 <h3>main.css ></h3>
                 <p>Demo code snippet.</p>
@@ -120,7 +122,7 @@
 /* Here is some code */
 /* ======== END - Colors =========== */</xmp></span>
                 <h3>Block of Elements</h3>
-                <p>The Elements block contains styles of elements that can be reused.
+                <p>The <b>'Elements'</b> block contains styles of elements that can be reused.
                     These include headers, buttons, input field, icons, etc.</p>
                 <span><xmp>/* ======== START - Elements ========= */
 
@@ -134,12 +136,12 @@
 
 /* ======== END - Elements =========== */</xmp></span>
                 <h3>Base Page</h3>
-                <p>The 'BasePage' block contains the main styles of the file elements <b>index.html</b>.</p>
+                <p>The <b>'Base Page'</b> block contains the main styles of the file elements <b>index.html</b>.</p>
                 <span><xmp>/* ======== START - Base  Page ========= */
 /* Here is some code */
 /* ======== End - Base  Page =========== */</xmp></span>
             </div>
-            <div class="section">
+            <div class="section" id="sec-6">
                 <h1>JavaScript File Structure</h1>
                 <p>Each function is marked with a comment for convenient code editing and element search.</p>
                 <h3>main.js ></h3>
@@ -147,52 +149,81 @@
                 <h3>Brief Description of Functions</h3>
                 <ul class="list-number">
                     <li>1. Get element sizes<br>
-                        <span class="info">GetSizeElement()</span></li>
+                        <span class="list-number__info">GetSizeElement()</span></li>
                     <li>2. Fixing the header when scrolling<br>
-                        <span class="info">changeHeaderRun(), #header</span></li>
+                        <span class="list-number__info">changeHeaderRun(), #header</span></li>
                     <li>3. Highlighting the active menu item<br>
-                        <span class="info">addRemoveActiveRun(), #nav, #navRight</span></li>
+                        <span class="list-number__info">addRemoveActiveRun(), #nav, #navRight</span></li>
                     <li>4. Scrolling animation<br>
-                        <span class="info">#nav, #navRight, .btn-arrow</span></li>
+                        <span class="list-number__info">#nav, #navRight, .btn-arrow</span></li>
                     <li>5. Open, close side menu<br>
-                        <span class="info">сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight</span></li>
+                        <span class="list-number__info">сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight</span></li>
                     <li>6. Three big circles<br>
-                        <span class="info">setSizeCircle(), setSizeCircleDefault(), #circle</span></li>
+                        <span class="list-number__info">setSizeCircle(), setSizeCircleDefault(), #circle</span></li>
                     <li>7. Your big photo<br>
-                        <span class="info">setSizePersonImg(), setSizePersonImgDefault(), #personImg</span></li>
+                        <span class="list-number__info">setSizePersonImg(), setSizePersonImgDefault(), #personImg</span></li>
                     <li>8. Your information about yourself<br>
-                        <span class="info">setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo</span></li>
+                        <span class="list-number__info">setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo</span></li>
                     <li>9. Section title<br>
-                        <span class="info">setSizeBorderSection(), resizeSizeBorderSection(), .section-title</span></li>
+                        <span class="list-number__info">setSizeBorderSection(), resizeSizeBorderSection(), .section-title</span></li>
                     <li>10. Anime library<br>
-                        <span class="info">circleAnimation(), #circle</span></li>
+                        <span class="list-number__info">circleAnimation(), #circle</span></li>
                     <li>11. Owl Carousel library<br>
-                        <span class="info">.owl-carousel</span></li>
+                        <span class="list-number__info">.owl-carousel</span></li>
                     <li>12. Isotope library<br>
-                        <span class="info">.portfolio-items</span></li>
+                        <span class="list-number__info">.portfolio-items</span></li>
                     <li>13. Add icons to the list<br>
-                        <span class="info">.price, .price__service-item</span></li>
+                        <span class="list-number__info">.price, .price__service-item</span></li>
                 </ul>
             </div>
-            <div class="section">
+            <div class="section" id="sec-7">
                 <h1>Owl Carousel Library</h1>
+                <p>The carousel is built using the Owl Carousel library in the <b>'Client Say'</b> block. The jQuery library
+                    is required for the carousel to work correctly.</p>
                 <span><img src="img/pic-07.png" alt="pic-07"></span>
+                <p>All the necessary settings of the Owl Carousel library are shown in the screenshot below.</p>
+                <h3>main.js ></h3>
                 <span><img src="img/pic-08.png" alt="pic-08"></span>
             </div>
-            <div class="section">
+            <div class="section" id="sec-8">
                 <h1>Isotope Library</h1>
+                <p>The Isotope library is used on the home page in the <b>'Portfolio'</b> block. The jQuery library is
+                    required for the filter to work correctly.</p>
+                <p>Isotope - filter & sort magical layouts.</p>
                 <span><img src="img/pic-09.png" alt="pic-09"></span>
+                <p>All the necessary settings of the Isotope library are shown in the screenshot below.</p>
+                <h3>main.js ></h3>
                 <span><img src="img/pic-10.png" alt="pic-10"></span>
             </div>
-            <div class="section">
+            <div class="section" id="sec-9">
                 <h1>Anime Library</h1>
-
+                <p>The Anime library (anime.js) is used to animate elements. The screenshot shows three white circles that are
+                    animated using this library.</p>
                 <span><img src="img/pic-11.png" alt="pic-11"></span>
+                <p>All the necessary settings of the Anime library (anime.js) are shown in the screenshot below.</p>
+                <h3>main.js ></h3>
                 <span><img src="img/pic-12.png" alt="pic-12"></span>
             </div>
-            <div class="section">
+            <div class="section" id="sec-10">
                 <h1>Credits</h1>
-
+                <ul class="list">
+                    <li>Bootstrap v4.6.0<br>
+                        <span class="list__info">https://getbootstrap.com/docs/4.6/getting-started/download/</span></li>
+                    <li>Font Awesome v4.7.0<br>
+                        <span class="list__info">https://fontawesome.com/v4.7/</span></li>
+                    <li>Normalize v.8.0.1<br>
+                        <span class="list__info">https://necolas.github.io/normalize.css/</span></li>
+                    <li>Anime v3.2.1<br>
+                        <span class="list__info">https://animejs.com/</span></li>
+                    <li>jQuery v3.6.0<br>
+                        <span class="list__info">https://jquery.com/</span></li>
+                    <li>Owl Carousel v2.3.4<br>
+                        <span class="list__info">https://owlcarousel2.github.io/OwlCarousel2/</span></li>
+                    <li>Isotope v3.0.6<br>
+                        <span class="list__info">https://isotope.metafizzy.co/</span></li>
+                    <li>Images From<br>
+                        <span class="list__info">http://www.unsplash.com</span></li>
+                </ul>
             </div>
         </div>
     </div>

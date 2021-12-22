@@ -94,9 +94,16 @@ xmp {
 }
 
 .list > li {
-    margin: 0 0 6px 0;
+    margin: 10px 0 6px 0;
     font-family: "Poppins Light";
     color: #133C55;
+}
+
+.list__info {
+    margin: 3px 0 0 0;
+    display: block;
+    font-family: "Poppins Light";
+    font-size: 12px;
 }
 
 .list-number li {
@@ -106,7 +113,7 @@ xmp {
     list-style-type: none;
 }
 
-.info {
+.list-number__info {
     margin: 3px 0 0 16px;
     display: block;
     font-family: "Poppins Light";

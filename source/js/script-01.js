@@ -648,7 +648,7 @@ $('.btn-filter').on('click', function () {
 
 /* ======== START - Add icons to the list (.price, .price__service-item) ============================================ */
 let priceServiceItem = document.querySelectorAll('.price__service-item')
-let iconCheckSvg = '<svg><use xlink:href="assets/images/icon-alpha.svg#num-5" /></svg>'
+let iconCheckSvg = '<svg><use xlink:href="assets/images/icons-alpha.svg#num-5" fill="#386FA4"/></svg>'
 
 function addIconCheckSvg() {
     for (let i = 0; i < priceServiceItem.length; i++) {

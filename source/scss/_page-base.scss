@@ -708,10 +708,11 @@
     border-right: 0;
     border-radius: 10px 0 0 10px;
 
-    > svg {
-        width: 66px;
-        height: 66px;
+    > span {
         margin: 0 20px;
+        display: block;
+        font-size: 66px;
+        color: var(--color-4);
     }
 }
 
@@ -783,9 +784,9 @@
 .fact__icon {
     display: block;
 
-    > svg {
-        width: 44px;
-        height: 44px;
+    > span {
+        font-size: 44px;
+        color: var(--color-4);
     }
 }
 
@@ -836,9 +837,9 @@
     margin: 0 12px 0 0;
     display: flex;
 
-    > svg {
-        width: 24px;
-        height: 24px;
+    > span {
+        font-size: 24px;
+        color: var(--color-4);
     }
 }
 

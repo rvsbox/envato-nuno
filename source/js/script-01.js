@@ -1,28 +1,28 @@
 /* =====================================================================================================================
-    Template Name:    Nuno | Responsive One Page HTML Template
-    Template URI:     https://themeforest.net
-    Author:           rvsbox
-    Author URI:       https://themeforest.net/user/rvsbox
-    Version:          1.0.0
-    Created:          January 2022
-    File Description: Main js file of the template
+Template Name:    Nuno | Responsive One Page HTML Template
+Template URI:     https://themeforest.net
+Author:           rvsbox
+Author URI:       https://themeforest.net/user/rvsbox
+Version:          1.0.0
+Created:          January 2022
+File Description: Main js file of the template
 ===================================================================================================================== */
 
 
 /* =====================================================================================================================
-    1.  Get element sizes (GetSizeElement())
-    2.  Fixing the header when scrolling (changeHeaderRun(), #header)
-    3.  Highlighting the active menu item (addRemoveActiveRun(), #nav, #navRight)
-    4.  Scrolling animation (#nav, #navRight, .btn-arrow)
-    5.  Open, close side menu (сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight)
-    6.  Three big circles (setSizeCircle(), setSizeCircleDefault(), #circle)
-    7.  Your big photo (setSizePersonImg(), setSizePersonImgDefault(), #personImg)
-    8.  Your information about yourself (setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo)
-    9.  Section title (setSizeBorderSection(), resizeSizeBorderSection(), .section-title)
-    10. Anime library (circleAnimation(), #circle)
-    11. Owl Carousel library (.owl-carousel)
-    12. Isotope library (.portfolio-items)
-    13. Add icons to the list (.price, .price__service-item)
+1.  Get element sizes                    |  GetSizeElement()
+2.  Fixing the header when scrolling     |  changeHeaderRun(), #header
+3.  Highlighting the active menu item    |  addRemoveActiveRun(), #nav, #navRight
+4.  Scrolling animation                  |  #nav, #navRight, .btn-arrow
+5.  Open, close side menu                |  сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight
+6.  Three big circles                    |  setSizeCircle(), setSizeCircleDefault(), #circle
+7.  Your big photo                       |  setSizePersonImg(), setSizePersonImgDefault(), #personImg
+8.  Your information about yourself      |  setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo
+9.  Section title                        |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
+10. Anime library                        |  circleAnimation(), #circle
+11. Owl Carousel library                 |  .owl-carousel
+12. Isotope library                      |  .portfolio-items
+13. Add icons to the list                |  .price, .price__service-item
 ===================================================================================================================== */
 
 

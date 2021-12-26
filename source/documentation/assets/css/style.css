@@ -93,31 +93,43 @@ pre {
     font-size: 14px;
 }
 
-.list > li {
+.list__item {
     margin: 10px 0 6px 0;
     font-family: "Poppins Light";
     color: #133C55;
 }
 
-.list__info {
+.list__item > span {
     margin: 3px 0 0 0;
     display: block;
     font-family: "Poppins Light";
     font-size: 12px;
 }
 
-.list-number li {
+.list-number__item {
     margin: 10px 0 6px 0;
     font-family: "Poppins Light";
     color: #133C55;
     list-style-type: none;
 }
 
-.list-number__info {
+.list-number__item > span {
     margin: 3px 0 0 16px;
     display: block;
     font-family: "Poppins Light";
     font-size: 12px;
+}
+
+.list-icon {
+    font-family: "Poppins Light";
+}
+
+.list-icon li {
+    list-style-type: none;
+}
+
+.list-icon__item > span {
+    margin: 0 10px 0 0;
 }
 
 span {

@@ -160,9 +160,13 @@
         width: 32px;
         height: 32px;
     }
+
+    > span {
+        font-size: 32px;
+    }
 }
 
-.btn-icon--white {
+.btn-icon--light {
     color: var(--color-1);
 
     &:hover {

@@ -825,21 +825,17 @@
     flex-wrap: nowrap;
     align-items: center;
 
+    > span {
+        margin: 0 12px 0 0;
+        font-size: 24px;
+        color: var(--color-4);
+    }
+
     > h3 {
         margin: 0;
         font-family: "Poppins SemiBold", serif;
         font-size: 18px;
         color: var(--color-5);
-    }
-}
-
-.type-service__icon {
-    margin: 0 12px 0 0;
-    display: flex;
-
-    > span {
-        font-size: 24px;
-        color: var(--color-4);
     }
 }
 
@@ -859,7 +855,6 @@
         width: 98%;
     }
 }
-
 
 .price__mark {
     width: 112px;
@@ -937,9 +932,9 @@
     margin: 10px 0 0 0;
     display: block;
 
-    > svg {
-        width: 40px;
-        height: 40px;
+    > span {
+        font-size: 40px;
+        color: var(--color-4);
     }
 }
 
@@ -962,14 +957,14 @@
         line-height: 24px;
         color: var(--color-6);
     }
-}
 
-.price__service-item {
-    > svg {
-        width: 14px;
-        height: 14px;
-        position: absolute;
-        margin: 5px 0 0 -22px;
+    > li:before {
+        margin: 0 6px 0 0;
+        display: inline-block;
+        content: "\e904";
+        font-family: "icons-nuno";
+        font-size: 13px;
+        color: var(--color-5);
     }
 }
 

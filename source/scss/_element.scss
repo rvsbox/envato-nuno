@@ -241,23 +241,23 @@
     &:hover {
         color: var(--color-6);
         text-decoration: none;
-    }
 
-    > svg {
-        width: 14px;
-        height: 14px;
-        margin-top: -2px;
-    }
-
-    &:hover {
-        svg {
+        > span {
+            color: var(--color-6);
             animation-name: lnord;
             animation-duration: 0.7s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
             animation-timing-function: ease-in-out;
-            fill: var(--color-6);
         }
+    }
+
+    > span {
+        margin: 3px 0 0 2px;
+        position: absolute;
+        display: inline-block;
+        font-size: 15px;
+        color: var(--color-5);
     }
 
     @keyframes lnord {
@@ -269,7 +269,6 @@
         }
     }
 }
-
 // ======== END - .btn-arrow ==========================================================================================
 
 
@@ -292,7 +291,6 @@
     border: none;
     outline: none;
 }
-
 // ======== END - .btn-filter ==========================================================================================
 /* ======== END - Buttons =========================================================================================== */
 

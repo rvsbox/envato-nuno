@@ -124,12 +124,15 @@ pre {
     font-family: "Poppins Light";
 }
 
-.list-icon li {
+.list-icon__item {
     list-style-type: none;
+    color: #133C55;
 }
 
 .list-icon__item > span {
     margin: 0 10px 0 0;
+    color: #386FA4;
+    font-size: 16px;
 }
 
 span {

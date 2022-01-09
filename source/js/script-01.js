@@ -21,7 +21,7 @@ File Description: Main js file of the template
 9.  Section title                        |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
 10. Anime library                        |  circleAnimation(), #circle
 11. Owl Carousel library                 |  .owl-carousel
-12. Isotope library                      |  .portfolio-items
+12. AutoFilter library                   |  .portfolio-items
 ===================================================================================================================== */
 
 
@@ -621,24 +621,8 @@ $(document).ready(function () {
 /* ======== END - Owl Carousel library (.owl-carousel) ============================================================== */
 
 
-/* ======== START - Isotope library (.portfolio-items) ============================================================== */
-let $grid = $('.portfolio-items').isotope({
-    itemSelector: '.portfolio-item',
-    layoutMode: 'fitRows',
-    getSortData: {
-        name: function (element) {
-            return $(element).text();
-        }
-    }
+/* ======== START - AutoFilter library (.portfolio-items) =========================================================== */
+$(function($) {
+    $.autofilter();
 });
-
-$('.btn-filter').on('click', function () {
-    let value = $(this).attr('data-filter');
-    $grid.isotope({
-        filter: value
-    });
-
-    $('.btn-filter').removeClass('btn-filter--active');
-    $(this).addClass('btn-filter--active');
-})
-/* ======== END - Isotope library (.portfolio-items) ================================================================ */
+/* ======== END - AutoFilter library (.portfolio-items) ============================================================= */

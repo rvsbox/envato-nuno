@@ -222,6 +222,12 @@ function myImagesAlphaClear() {
         'source/img/**/*.svg',
         'source/img/404.png',
         'source/img/favicon.png',
+        'source/img/140x140.png',
+        'source/img/350x240.png',
+        'source/img/450x480.png',
+        'source/img/600x450.png',
+        'source/img/1020x1500.png'
+        
     ])
         .pipe(dest(pathAlphaClear.build.images))  // alpha-clear
         .pipe(browserSync.reload({stream: true}))

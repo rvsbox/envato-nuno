@@ -1272,6 +1272,13 @@
     border: solid 3px var(--color-2);
 
     > iframe {
+        width: 100%;
+        //width: calc(100vw - 2px);
+        //position: relative;
+        //display: block;
+    }
+
+    > iframe {
         margin: 0 0 -5px 0;
         border-radius: 10px;
     }

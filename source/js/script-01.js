@@ -138,7 +138,7 @@ function addRemoveActiveRun() {
 /* ======== END - Highlighting the active menu item (#nav, #navRight) =============================================== */
 
 
-/* ======== START - Scrolling animation (#nav, #navRight, .btn-arrow) =============================================== */
+/* ======== START - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) ================================= */
 // для навигации. #nav, #navRight
 $('a.nav__link[href*="#"],a.nav-right__link[href*="#"]').on('click', function (e) {
     e.preventDefault()
@@ -159,25 +159,25 @@ $('a.nav__link[href*="#"],a.nav-right__link[href*="#"]').on('click', function (e
 })
 
 // для кнопки 'Order Now'. .btn-arrow
-$('button.btn-arrow[href*="#"]').on('click', function (e) {
+$('button.btn-arrow').on('click', function (e) {
     e.preventDefault()
 
     // анимация при прокрутке
     $('html, body').animate({
-        scrollTop: $($(this).attr('href')).offset().top
+        scrollTop: $('#message').offset().top
     }, 1000, 'swing')
 })
 
 // для кнопки 'Send Message'. #sendMessage
-$('button#sendMessage[href*="#"]').on('click', function (e) {
+$('button#sendMessage').on('click', function (e) {
     e.preventDefault()
 
     // анимация при прокрутке
     $('html, body').animate({
-        scrollTop: $($(this).attr('href')).offset().top
+        scrollTop: $('#contactplus').offset().top
     }, 1000, 'swing')
 })
-/* ======== END - Scrolling animation (#nav, #navRight, .btn-arrow) ================================================= */
+/* ======== END - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) =================================== */
 
 
 /* ======== START - Open, close side menu (#navRight, #closeNavRight) =============================================== */
@@ -621,8 +621,8 @@ $(document).ready(function () {
 /* ======== END - Owl Carousel library (.owl-carousel) ============================================================== */
 
 
-/* ======== START - AutoFilter library (.portfolio-items) =========================================================== */
+/* ======== START - AutoFilter library (.portfolio-item) ============================================================ */
 $(function($) {
     $.autofilter();
 });
-/* ======== END - AutoFilter library (.portfolio-items) ============================================================= */
+/* ======== END - AutoFilter library (.portfolio-item) ============================================================== */

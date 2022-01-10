@@ -1228,9 +1228,10 @@
 .client__icon {
     display: block;
 
-    > svg {
-        width: 42px;
-        height: 42px;
+    > span {
+        font-size: 46px;
+        display: block;
+        color: var(--color-4);
     }
 }
 

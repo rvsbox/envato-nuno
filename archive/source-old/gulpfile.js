@@ -23,7 +23,7 @@ const path = {
         js: buildPath + 'assets/js/',
         css: buildPath + 'assets/css/',
         images: buildPath + 'assets/images/',
-        fonts: buildPath + 'assets/fonts/',
+        fonts: buildPath + 'assets/font/',
         draft: buildPath + 'draft/'
     },
     src: {
@@ -31,7 +31,7 @@ const path = {
         js: srcPath + 'assets/js/*.js',
         scss: srcPath + 'assets/scss/main-beta.scss',
         images: srcPath + 'assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
+        fonts: srcPath + 'assets/font/**/*.{eot,woff,woff2,ttf,svg}',
         draft: srcPath + 'draft/**/*.{html,js}'
     },
     watch: {
@@ -39,7 +39,7 @@ const path = {
         js: srcPath + 'assets/js/**/*.js',
         scss: srcPath + 'assets/scss/**/*.scss',
         images: srcPath + 'assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
+        fonts: srcPath + 'assets/font/**/*.{eot,woff,woff2,ttf,svg}',
         draft: srcPath + 'draft/**/*.{html,js}'
     },
     clear: './' + buildPath
@@ -57,7 +57,7 @@ const pathBeta = {
         js: buildPathBeta + 'assets/js/',
         css: buildPathBeta + 'assets/css/',
         images: buildPathBeta + 'assets/images/',
-        fonts: buildPathBeta + 'assets/fonts/'
+        fonts: buildPathBeta + 'assets/font/'
     },
     clear: './' + buildPathBeta
 }
@@ -174,14 +174,14 @@ function myCssBeta() {
 
 function myHtml() {
     panini.refresh();
-    return src('source-old/tpl/pages--alpha/**/*.html')
+    return src('source-old/layout/page--alpha/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',
-            layouts: srcPath + 'tpl/layouts/',
-            partials: srcPath + 'tpl/partials/',
-            helpers: srcPath + 'tpl/helpers/',
-            data: srcPath + 'tpl/data/'
+            layouts: srcPath + 'layout/layout/',
+            partials: srcPath + 'layout/partial/',
+            helpers: srcPath + 'layout/helpers/',
+            data: srcPath + 'layout/data/'
         }))
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
@@ -190,14 +190,14 @@ function myHtml() {
 
 function myHtmlBeta() {
     panini.refresh();
-    return src('source-old/tpl/pages-beta/**/*.html')
+    return src('source-old/layout/pages-beta/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',
-            layouts: srcPath + 'tpl/layouts/',
-            partials: srcPath + 'tpl/partials/',
-            helpers: srcPath + 'tpl/helpers/',
-            data: srcPath + 'tpl/data/'
+            layouts: srcPath + 'layout/layout/',
+            partials: srcPath + 'layout/partial/',
+            helpers: srcPath + 'layout/helpers/',
+            data: srcPath + 'layout/data/'
         }))
         .pipe(dest(pathBeta.build.html))
         .pipe(browserSync.reload({stream: true}))
@@ -205,14 +205,14 @@ function myHtmlBeta() {
 
 
 function myFonts() {
-    return src('source-old/assets/fonts/**/*.ttf')
+    return src('source-old/assets/font/**/*.ttf')
         .pipe(dest(path.build.fonts))
         .pipe(browserSync.reload({stream: true}))
 }
 
 
 function myFontsBeta() {
-    return src('source-old/assets/fonts/**/*.ttf')
+    return src('source-old/assets/font/**/*.ttf')
         .pipe(dest(pathBeta.build.fonts))
         .pipe(browserSync.reload({stream: true}))
 }

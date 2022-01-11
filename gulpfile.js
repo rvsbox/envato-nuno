@@ -38,21 +38,21 @@ const pathAlpha = {
         js: buildAlpha + 'assets/js/',
         css: buildAlpha + 'assets/css/',
         images: buildAlpha + 'assets/images/',
-        fonts: buildAlpha + 'assets/fonts/'
+        font: buildAlpha + 'assets/fonts/'
     },
     src: {
         html: srcPath + '*.html',
         js: srcPath + 'js/*.js',
         scss: srcPath + 'scss/_alpha-main.scss',
         images: srcPath + 'img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}'
+        font: srcPath + 'font/**/*.{eot,woff,woff2,ttf,svg}'
     },
     watch: {
         html: srcPath + '**/*.html',
         js: srcPath + 'js/**/*.js',
         scss: srcPath + 'scss/**/*.scss',
         images: srcPath + 'img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
-        fonts: srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}'
+        font: srcPath + 'font/**/*.{eot,woff,woff2,ttf,svg}'
     },
     clear: './' + buildAlpha
 }
@@ -63,7 +63,7 @@ const pathAlphaClear = {
         js: buildAlphaClear + 'assets/js/',
         css: buildAlphaClear + 'assets/css/',
         images: buildAlphaClear + 'assets/images/',
-        fonts: buildAlphaClear + 'assets/fonts/'
+        font: buildAlphaClear + 'assets/fonts/'
     },
     clear: './' + buildAlphaClear
 }
@@ -74,7 +74,7 @@ const pathBeta = {
         js: buildPathBeta + 'js/',
         css: buildPathBeta + 'css/',
         images: buildPathBeta + 'images/',
-        fonts: buildPathBeta + 'fonts/'
+        font: buildPathBeta + 'fonts/'
     },
     clear: './' + buildPathBeta
 }
@@ -109,8 +109,8 @@ function myJs() {
 
 function myLibJs() {
     return src([
-        'source/lib-js/*.js',
-        'source/lib-js/*.map'
+        'source/lib/js/*.js',
+        'source/lib/js/*.map'
     ])
         .pipe(dest(pathAlpha.build.js))              // alpha
         .pipe(dest(pathAlphaClear.build.js))         // alpha-clear
@@ -147,8 +147,8 @@ function myCss() {
 
 function myLibCss() {
     return src([
-        'source/lib-css/*.css',
-        'source/lib-css/*.map'
+        'source/lib/css/*.css',
+        'source/lib/css/*.map'
     ])
         .pipe(dest(pathAlpha.build.css))           // alpha
         .pipe(dest(pathAlphaClear.build.css))      // alpha-clear
@@ -160,14 +160,14 @@ function myLibCss() {
 /* ======== START - HTML ============================================================================================ */
 function myHtml() {
     panini.refresh();
-    return src('source/tpl/pages--alpha/**/*.html')
+    return src('source/layout/page--alpha/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',
-            layouts: srcPath + 'tpl/layouts/',
-            partials: srcPath + 'tpl/partials/',
-            helpers: srcPath + 'tpl/helpers/',
-            data: srcPath + 'tpl/data/'
+            layouts: srcPath + 'layout/layout/',
+            partials: srcPath + 'layout/partial/',
+            helpers: srcPath + 'layout/helpers/',
+            data: srcPath + 'layout/data/'
         }))
         .pipe(dest(pathAlpha.build.html))           // alpha
         .pipe(browserSync.reload({stream: true}))
@@ -175,14 +175,14 @@ function myHtml() {
 
 function myHtmlAlphaClear() {
     panini.refresh();
-    return src('source/tpl/pages--alpha-clear/**/*.html')
+    return src('source/layout/page--alpha-clear/**/*.html')
         .pipe(plumber())
         .pipe(panini({
             root: srcPath + '/',
-            layouts: srcPath + 'tpl/layouts/',
-            partials: srcPath + 'tpl/partials/',
-            helpers: srcPath + 'tpl/helpers/',
-            data: srcPath + 'tpl/data/'
+            layouts: srcPath + 'layout/layout/',
+            partials: srcPath + 'layout/partial/',
+            helpers: srcPath + 'layout/helpers/',
+            data: srcPath + 'layout/data/'
         }))
         .pipe(dest(pathAlphaClear.build.html))      // alpha-clear
         .pipe(browserSync.reload({stream: true}))
@@ -190,20 +190,20 @@ function myHtmlAlphaClear() {
 /* ======== END - HTML ============================================================================================== */
 
 
-/* ======== START - Fonts =========================================================================================== */
-function myFonts() {
+/* ======== START - Font ============================================================================================ */
+function myFont() {
     return src([
-        'source/fonts/**/*.ttf',
-        'source/fonts/**/*.woff',
-        'source/fonts/**/*.woff2',
-        'source/fonts/**/*.eot',
-        'source/fonts/**/*.svg'
+        'source/font/**/*.ttf',
+        'source/font/**/*.woff',
+        'source/font/**/*.woff2',
+        'source/font/**/*.eot',
+        'source/font/**/*.svg'
     ])
-        .pipe(dest(pathAlpha.build.fonts))         // alpha
-        .pipe(dest(pathAlphaClear.build.fonts))    // alpha-clear
+        .pipe(dest(pathAlpha.build.font))         // alpha
+        .pipe(dest(pathAlphaClear.build.font))    // alpha-clear
         .pipe(browserSync.reload({stream: true}))
 }
-/* ======== END - Fonts ============================================================================================= */
+/* ======== END - Font ============================================================================================== */
 
 
 /* ======== START - Images ========================================================================================== */
@@ -245,7 +245,7 @@ function myWatch() {
     watch([pathAlpha.watch.js], myJs)
     watch([pathAlpha.watch.html], myHtml)
     watch([pathAlpha.watch.html], myHtmlAlphaClear)
-    watch([pathAlpha.watch.fonts], myFonts)
+    watch([pathAlpha.watch.font], myFont)
     watch([pathAlpha.watch.images], myImages)
 
     // watch([path.watch.draft], myDraft)
@@ -260,7 +260,7 @@ exports.myCss = myCss                             // > yarn gulp myCss
 exports.myHtml = myHtml                           // > yarn gulp myHtml
 exports.myHtmlAlphaClear = myHtmlAlphaClear
 exports.myClear = myClear                         // > yarn gulp myClear
-exports.myFonts = myFonts                         // > yarn gulp myFonts
+exports.myFont = myFont                           // > yarn gulp myFont
 exports.myImages = myImages                       // > yarn gulp myImages
 exports.myImagesAlphaClear = myImagesAlphaClear
 exports.myLibCss = myLibCss                       // > yarn gulp myLibCss
@@ -273,7 +273,7 @@ exports.build = series(
     myCss,
     myHtml,
     myHtmlAlphaClear,
-    myFonts,
+    myFont,
     myImages,
     myImagesAlphaClear,
     myLibCss,
@@ -286,7 +286,7 @@ exports.default = parallel(
     myCss,
     myHtml,
     myHtmlAlphaClear,
-    myFonts,
+    myFont,
     myImages,
     myImagesAlphaClear,
     myLibCss,

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd build && sudo zip -r build.zip . -x "alpha-clear/*";
+cd build && sudo zip -r build.zip . -x "alpha-clear/*"
 scp build.zip rvsbox@185.119.59.186:/home/rvsbox/www/envato-nuno
 rm -f build.zip
 

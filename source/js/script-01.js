@@ -19,9 +19,10 @@ File Description: Main js file of the template
 7.  Your big photo                       |  setSizePersonImg(), setSizePersonImgDefault(), #personImg
 8.  Your information about yourself      |  setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo
 9.  Section title                        |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
-10. Anime library                        |  circleAnimation(), #circle
+10. Сircle animation                     |  circleAnimation(), #circle
 11. Owl Carousel library                 |  .owl-carousel
-12. AutoFilter library                   |  .portfolio-items
+12. AutoFilter library                   |  .portfolio-items, .portfolio
+13. Art animation                        |  .art, .portfolio
 ===================================================================================================================== */
 
 
@@ -41,14 +42,7 @@ let personDescription = document.getElementById('personDescription')
 
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
-
-    // прелоадер
-    setTimeout(()=>{
-        document.getElementById('preloader').style.display = 'none' // спрятать прелоадер
-        document.body.style.overflow = 'visible' // показать ползунок
-        }, 1000 // после полной загрузки, подождать еще 1сек
-    )
-
+    preloader()
     setSizeCircleDefault()
     setSizePersonImgDefault()
     setSizePersonInfoDefault()
@@ -63,6 +57,18 @@ window.onload = () => {
     resizeSizeBorderSection()
     circleAnimation()
 }
+
+
+/* ======== START - Preloader ======================================================================================= */
+function preloader() {
+    setTimeout(() => {
+            document.getElementById('preloader').style.display = 'none' // спрятать прелоадер
+            document.body.style.overflow = 'visible' // показать ползунок
+        }, 300 // после полной загрузки, подождать еще 0.3сек
+    )
+}
+
+/* ======== END - Preloader ========================================================================================= */
 
 
 /* ======== START - Get element sizes =============================================================================== */
@@ -149,6 +155,7 @@ function addRemoveActiveRun() {
         }
     })
 }
+
 /* ======== END - Highlighting the active menu item (#nav, #navRight) =============================================== */
 
 
@@ -367,6 +374,7 @@ function setSizeCircleDefault() {
     //     resizeCircle(getSizeElement.windowInnerH)
     // }
 }
+
 /* ======== END - Three big circles (#circle) ======================================================================= */
 
 
@@ -492,6 +500,7 @@ function setSizePersonImgDefault() {
     //     resizePersonImgHeight(getSizeElement.windowInnerH)
     // }
 }
+
 /* ======== END - Your photo (#personImg) =========================================================================== */
 
 
@@ -574,7 +583,7 @@ let sizePersonInfo = (screenWidth, screenHeight) => {
     if ((screenHeight <= 1200) && (screenWidth >= 1200)) {
         resizePersonInfoMini()
     }
-    if ((screenWidth<= 1200) && (screenHeight <= 1200) && (screenWidth < screenHeight)) {
+    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth < screenHeight)) {
         resizePersonInfoMini()
     }
     if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth > screenHeight)) {
@@ -707,6 +716,7 @@ function setSizePersonInfoDefault() {
     //     resizePersonInfoMini()
     // }
 }
+
 /* ======== END - Your information about yourself (#personInfo) ===================================================== */
 
 
@@ -742,7 +752,7 @@ function resizeSizeBorderSection() {
 /* ======== END - Section title (.section-title) ==================================================================== */
 
 
-/* ======== START - Anime library (#circle) ========================================================================= */
+/* ======== START - Сircle animation (#circle) ====================================================================== */
 const black3 = document.getElementById('circleSmallBlack');
 const white3 = document.getElementById('circleSmallWhite');
 const black2 = document.getElementById('circleMediumBlack');
@@ -777,8 +787,7 @@ function circleAnimation() {
 
     requestAnimationFrame(circleAnimation);
 }
-
-/* ======== END - Anime library (#circle) =========================================================================== */
+/* ======== END - Сircle animation (#circle) ======================================================================== */
 
 
 /* ======== START - Owl Carousel library (.owl-carousel) ============================================================ */
@@ -803,8 +812,20 @@ $(document).ready(function () {
 /* ======== END - Owl Carousel library (.owl-carousel) ============================================================== */
 
 
-/* ======== START - AutoFilter library (.portfolio-item) ============================================================ */
+/* ======== START - AutoFilter library (.portfolio-item, .portfolio) ================================================ */
 $(function ($) {
     $.autofilter();
 });
-/* ======== END - AutoFilter library (.portfolio-item) ============================================================== */
+/* ======== END - AutoFilter library (.portfolio-item, .portfolio) ================================================== */
+
+
+/* ======== START - Art animation (.art, .portfolio) ================================================================ */
+let art = document.getElementsByClassName('art')
+art[0].addEventListener('mouseover', hello)
+
+function hello() {
+    console.log('hello')
+}
+
+// console.log(art[0])
+/* ======== END - Art animation (.art, .portfolio) ================================================================== */

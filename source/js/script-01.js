@@ -39,21 +39,53 @@ let personProfession = document.getElementById('personProfession')
 let personDescription = document.getElementById('personDescription')
 
 
+// test
+// setTimeout(function (){
+//     setSizeCircleDefault()
+//     setSizePersonImgDefault()
+//     setSizePersonInfoDefault()
+//     console.log('test')
+//     console.log(window.innerWidth)
+//     console.log(window.innerHeight)
+//     console.log(window.screen.width)
+//     console.log(window.screen.height)
+// }, 5000)
+
+
+// необходим загрузить функции масштабирования объектов, чтобы в первую очередь корректно отображался
+
+
+// test
+// console.log('lala');
+
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
+
+    // test
+    // let preloader = document.getElementById('preloader');
+    // preloader.style.display = 'none'
+
+    setSizeCircleDefault()
+    setSizePersonImgDefault()
+    setSizePersonInfoDefault()
+    setSizeCircle()
+    setSizePersonImg()
+    setSizePersonInfo()
+
+
+
+    setSizeBorderSection()
     changeHeaderRun()
     addRemoveActiveRun()
     сloseNavRight()
     сloseNavRightDefault()
-    setSizeCircle()
-    setSizeCircleDefault()
-    setSizePersonImg()
-    setSizePersonImgDefault()
-    setSizePersonInfo()
-    setSizePersonInfoDefault()
-    setSizeBorderSection()
     resizeSizeBorderSection()
     circleAnimation()
+
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+    console.log(window.screen.width)
+    console.log(window.screen.height)
 }
 
 
@@ -70,9 +102,17 @@ function GetSizeElement() {
         this.personImgH = personImg.offsetHeight
     }
 
-    // параметры области видимости (viewport)
+    // внутренний размер окна — это ширина и высота области просмотра (вьюпорта)
     this.windowInnerW = window.innerWidth
     this.windowInnerH = window.innerHeight
+
+    // размер экрана — это ширина и высота всего экрана: монитора или мобильного дисплея
+    this.screenW = window.screen.width
+    this.screenH = window.screen.height
+
+    // test
+    // this.windowInnerW = window.screen.width
+    // this.windowInnerH = window.screen.height
 }
 /* ======== END - Get element sizes ================================================================================= */
 
@@ -553,48 +593,39 @@ function resizeSizeBorderSection() {
 
 
 /* ======== START - Anime library (#circle) ========================================================================= */
-// #circleLargeWhite
-// #circleLargeBlack
-// #circleMediumWhite
-// #circleMediumBlack
-// #circleSmallWhite
-// #circleSmallBlack
-let layer_1 = () => {
-    // tl - timeLine
-    let tl = anime.timeline({
-        easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
-    })
-    tl.add({targets: '#circleSmallWhite', r: 170})
-        .add({targets: '#circleSmallBlack', r: 170}, '-=3000')
-}
+const black3 = document.getElementById('circleSmallBlack');
+const white3 = document.getElementById('circleSmallWhite');
+const black2 = document.getElementById('circleMediumBlack');
+const white2 = document.getElementById('circleMediumWhite');
+const black1 = document.getElementById('circleLargeBlack');
+const white1 = document.getElementById('circleLargeWhite');
+let start3 = 0;
+let start2 = 0;
+let start1 = 0;
+let speed = 0.02;
 
-let layer_2 = () => {
-    let tl = anime.timeline({
-        easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
-    })
-    tl.add({targets: '#circleMediumWhite', r: 270})
-        .add({targets: '#circleMediumBlack', r: 270}, '-=3000')
-}
-
-let layer_3 = () => {
-    let tl = anime.timeline({
-        easing: 'easeInOutQuad', duration: 3000, loop: true, direction: 'alternate'
-    })
-    tl.add({targets: '#circleLargeWhite', r: 370})
-        .add({targets: '#circleLargeBlack', r: 370}, '-=3000')
-}
-
-const startLayers = ms => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(), ms)
-    })
-}
 
 function circleAnimation() {
-    // последовательность запуска слоев
-    startLayers(0).then(layer_1)
-    startLayers(700).then(layer_2)
-    startLayers(1600).then(layer_3)
+    black3.style.r = 25 * Math.sin(start3) + 195 + 'px';
+    white3.style.r = 25 * Math.sin(start3) + 195 + 'px';
+
+    black2.style.r = 25 * Math.sin(start2) + 295 + 'px';
+    white2.style.r = 25 * Math.sin(start2) + 295 + 'px';
+
+    black1.style.r = 30 * Math.sin(start1) + 395 + 'px';
+    white1.style.r = 30 * Math.sin(start1) + 395 + 'px';
+
+    start3 += speed; // скорос
+
+    if (start3 > 0.850) {
+        start2 += speed;
+    }
+
+    if (start3 > 1.5) {
+        start1 += speed;
+    }
+
+    requestAnimationFrame(circleAnimation);
 }
 /* ======== END - Anime library (#circle) =========================================================================== */
 

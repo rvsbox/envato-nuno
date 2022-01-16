@@ -39,31 +39,15 @@ let personProfession = document.getElementById('personProfession')
 let personDescription = document.getElementById('personDescription')
 
 
-// test
-// setTimeout(function (){
-//     setSizeCircleDefault()
-//     setSizePersonImgDefault()
-//     setSizePersonInfoDefault()
-//     console.log('test')
-//     console.log(window.innerWidth)
-//     console.log(window.innerHeight)
-//     console.log(window.screen.width)
-//     console.log(window.screen.height)
-// }, 5000)
-
-
-// необходим загрузить функции масштабирования объектов, чтобы в первую очередь корректно отображался
-
-
-// test
-// console.log('lala');
-
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
 
-    // test
-    // let preloader = document.getElementById('preloader');
-    // preloader.style.display = 'none'
+    // прелоадер
+    setTimeout(()=>{
+        document.getElementById('preloader').style.display = 'none' // спрятать прелоадер
+        document.body.style.overflow = 'visible' // показать ползунок
+        }, 1000 // после полной загрузки, подождать еще 1сек
+    )
 
     setSizeCircleDefault()
     setSizePersonImgDefault()
@@ -71,9 +55,6 @@ window.onload = () => {
     setSizeCircle()
     setSizePersonImg()
     setSizePersonInfo()
-
-
-
     setSizeBorderSection()
     changeHeaderRun()
     addRemoveActiveRun()
@@ -81,11 +62,6 @@ window.onload = () => {
     сloseNavRightDefault()
     resizeSizeBorderSection()
     circleAnimation()
-
-    console.log(window.innerWidth)
-    console.log(window.innerHeight)
-    console.log(window.screen.width)
-    console.log(window.screen.height)
 }
 
 
@@ -109,11 +85,8 @@ function GetSizeElement() {
     // размер экрана — это ширина и высота всего экрана: монитора или мобильного дисплея
     this.screenW = window.screen.width
     this.screenH = window.screen.height
-
-    // test
-    // this.windowInnerW = window.screen.width
-    // this.windowInnerH = window.screen.height
 }
+
 /* ======== END - Get element sizes ================================================================================= */
 
 
@@ -137,6 +110,7 @@ function changeHeaderRun() {
         window.addEventListener('scroll', changeHeader) // срабатывание при скролле
     }
 }
+
 /* ======== END - Fixing the header when scrolling (#header) ======================================================== */
 
 
@@ -265,7 +239,7 @@ function сloseNavRightDefault() {
     }
 }
 
-document.addEventListener('click', function (e){
+document.addEventListener('click', function (e) {
     const target = e.target
     const itsNavRight = target == navRight || navRight.contains(target)
     const itsOpenNavRight = target == openNavRight || openNavRight.contains(target)
@@ -306,26 +280,66 @@ function resizeCircle(windowInnerSize) {
     }
 }
 
+let sizeCircle = (screenWidth, screenHeight) => {
+    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
+        resizeCircle(screenWidth)
+    }
+    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
+        resizeCircle(screenHeight)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
+        resizeCircle(screenWidth)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
+        resizeCircle(screenWidth)
+    }
+    if ((screenWidth >= 1900) && (screenHeight >= 1900)) {
+        defaultCircle()
+    }
+}
+
+let sizeCircleDefault = (screenWidth, screenHeight) => {
+    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
+        resizeCircle(screenWidth)
+    }
+    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
+        resizeCircle(screenHeight)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
+        resizeCircle(screenWidth)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
+        resizeCircle(screenHeight)
+    }
+}
+
 // условия при изменении ширины и, или высоты экрана
 function setSizeCircle() {
     addEventListener('resize', event => {
         let getSizeElement = new GetSizeElement() // получить текущие размеры элементов
 
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-            resizeCircle(getSizeElement.windowInnerW)
+        if (getSizeElement.windowInnerW < getSizeElement.screenW) {
+            sizeCircle(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
+        } else {
+            sizeCircle(getSizeElement.screenW, getSizeElement.screenH)
         }
-        if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
-            resizeCircle(getSizeElement.windowInnerH)
-        }
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-            resizeCircle(getSizeElement.windowInnerW)
-        }
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-            resizeCircle(getSizeElement.windowInnerH)
-        }
-        if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-            defaultCircle()
-        }
+
+        // original
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+        //     resizeCircle(getSizeElement.windowInnerW)
+        // }
+        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
+        //     resizeCircle(getSizeElement.windowInnerH)
+        // }
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+        //     resizeCircle(getSizeElement.windowInnerW)
+        // }
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+        //     resizeCircle(getSizeElement.windowInnerH)
+        // }
+        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+        //     defaultCircle()
+        // }
     })
 }
 
@@ -333,18 +347,25 @@ function setSizeCircle() {
 function setSizeCircleDefault() {
     let getSizeElement = new GetSizeElement() // получить текущие размеры элементов
 
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        resizeCircle(getSizeElement.windowInnerW)
+    if (getSizeElement.windowInnerW < getSizeElement.screenW) {
+        sizeCircleDefault(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
+    } else {
+        sizeCircleDefault(getSizeElement.screenW, getSizeElement.screenH)
     }
-    if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
-        resizeCircle(getSizeElement.windowInnerH)
-    }
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        resizeCircle(getSizeElement.windowInnerW)
-    }
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        resizeCircle(getSizeElement.windowInnerH)
-    }
+
+    // original
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+    //     resizeCircle(getSizeElement.windowInnerW)
+    // }
+    // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
+    //     resizeCircle(getSizeElement.windowInnerH)
+    // }
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+    //     resizeCircle(getSizeElement.windowInnerW)
+    // }
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+    //     resizeCircle(getSizeElement.windowInnerH)
+    // }
 }
 /* ======== END - Three big circles (#circle) ======================================================================= */
 
@@ -384,26 +405,66 @@ function resizePersonImgHeight(windowInnerSize) {
     }
 }
 
+let sizePersonImg = (screenWidth, screenHeight) => {
+    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
+        resizePersonImgWidth(screenWidth)
+    }
+    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
+        resizePersonImgHeight(screenHeight)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
+        resizePersonImgWidth(screenWidth)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
+        resizePersonImgHeight(screenHeight)
+    }
+    if ((screenWidth >= 1900) && (screenHeight >= 1900)) {
+        defaultPersonImg()
+    }
+}
+
+let sizePersonImgDefault = (screenWidth, screenHeight) => {
+    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
+        resizePersonImgWidth(screenWidth)
+    }
+    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
+        resizePersonImgHeight(screenHeight)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
+        resizePersonImgWidth(screenWidth)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
+        resizePersonImgHeight(screenHeight)
+    }
+}
+
 // условия при изменении ширины и, или высоты экрана
 function setSizePersonImg() {
     addEventListener('resize', event => {
         let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
 
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-            resizePersonImgWidth(getSizeElement.windowInnerW)
+        if (getSizeElement.windowInnerW < getSizeElement.screenW) {
+            sizePersonImg(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
+        } else {
+            sizePersonImg(getSizeElement.screenW, getSizeElement.screenH)
         }
-        if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
-            resizePersonImgHeight(getSizeElement.windowInnerH)
-        }
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-            resizePersonImgWidth(getSizeElement.windowInnerW)
-        }
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-            resizePersonImgHeight(getSizeElement.windowInnerH)
-        }
-        if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-            defaultPersonImg()
-        }
+
+        // original
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+        //     resizePersonImgWidth(getSizeElement.windowInnerW)
+        // }
+        // if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
+        //     resizePersonImgHeight(getSizeElement.windowInnerH)
+        // }
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+        //     resizePersonImgWidth(getSizeElement.windowInnerW)
+        // }
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+        //     resizePersonImgHeight(getSizeElement.windowInnerH)
+        // }
+        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+        //     defaultPersonImg()
+        // }
     })
 }
 
@@ -411,18 +472,25 @@ function setSizePersonImg() {
 function setSizePersonImgDefault() {
     let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
 
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        resizePersonImgWidth(getSizeElement.windowInnerW)
+    if (getSizeElement.windowInnerW < getSizeElement.screenW) {
+        sizePersonImgDefault(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
+    } else {
+        sizePersonImgDefault(getSizeElement.screenW, getSizeElement.screenH)
     }
-    if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
-        resizePersonImgHeight(getSizeElement.windowInnerH)
-    }
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        resizePersonImgWidth(getSizeElement.windowInnerW)
-    }
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        resizePersonImgHeight(getSizeElement.windowInnerH)
-    }
+
+    // original
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+    //     resizePersonImgWidth(getSizeElement.windowInnerW)
+    // }
+    // if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
+    //     resizePersonImgHeight(getSizeElement.windowInnerH)
+    // }
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+    //     resizePersonImgWidth(getSizeElement.windowInnerW)
+    // }
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+    //     resizePersonImgHeight(getSizeElement.windowInnerH)
+    // }
 }
 /* ======== END - Your photo (#personImg) =========================================================================== */
 
@@ -484,41 +552,115 @@ function resizePersonInfo(windowInnerSize) {
     }
 }
 
+let sizePersonInfo = (screenWidth, screenHeight) => {
+    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
+        resizePersonInfo(screenWidth)
+    }
+    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
+        resizePersonInfo(screenHeight)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
+        resizePersonInfo(screenWidth)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
+        resizePersonInfo(screenHeight)
+    }
+    if ((screenWidth >= 1900) && (screenHeight >= 1900)) {
+        defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
+    }
+    if ((screenWidth <= 1200) && (screenHeight >= 1200)) {
+        resizePersonInfoMini()
+    }
+    if ((screenHeight <= 1200) && (screenWidth >= 1200)) {
+        resizePersonInfoMini()
+    }
+    if ((screenWidth<= 1200) && (screenHeight <= 1200) && (screenWidth < screenHeight)) {
+        resizePersonInfoMini()
+    }
+    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth > screenHeight)) {
+        resizePersonInfoMini()
+    }
+    if ((screenWidth >= 1200) && (screenHeight >= 1200)) {
+        defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
+    }
+}
+
+let sizePersonInfoDefault = (screenWidth, screenHeight) => {
+    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
+        resizePersonInfo(screenWidth)
+    }
+    if ((screenHeight <= 1900) && (screenWidth >= 1900)) {
+        resizePersonInfo(screenHeight)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
+        resizePersonInfo(screenWidth)
+    }
+    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
+        resizePersonInfo(screenHeight)
+    }
+    if ((screenWidth >= 1900) && (screenHeight >= 1900) && (screenWidth < screenHeight)) {
+        resizePersonInfo(screenWidth)
+    }
+    if ((screenWidth >= 1900) && (screenHeight >= 1900) && (screenWidth > screenHeight)) {
+        resizePersonInfo(screenHeight)
+    }
+    // условия при первой загрузке сайта, для #personProfession, #personDescription
+    if ((screenWidth <= 1200) && (screenHeight >= 1200)) {
+        resizePersonInfoMini()
+    }
+    if ((screenHeight <= 1200) && (screenWidth >= 1200)) {
+        resizePersonInfoMini()
+    }
+    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth < screenHeight)) {
+        resizePersonInfoMini()
+    }
+    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth > screenHeight)) {
+        resizePersonInfoMini()
+    }
+}
+
 function setSizePersonInfo() {
     addEventListener('resize', event => {
 
         let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
 
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-            resizePersonInfo(getSizeElement.windowInnerW)
+        if (getSizeElement.windowInnerW < getSizeElement.screenW) {
+            sizePersonInfo(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
+        } else {
+            sizePersonInfo(getSizeElement.screenW, getSizeElement.screenH)
         }
-        if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
-            resizePersonInfo(getSizeElement.windowInnerH)
-        }
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-            resizePersonInfo(getSizeElement.windowInnerW)
-        }
-        if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-            resizePersonInfo(getSizeElement.windowInnerH)
-        }
-        if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-            defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
-        }
-        if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH >= 1200)) {
-            resizePersonInfoMini()
-        }
-        if ((getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW >= 1200)) {
-            resizePersonInfoMini()
-        }
-        if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-            resizePersonInfoMini()
-        }
-        if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-            resizePersonInfoMini()
-        }
-        if ((getSizeElement.windowInnerW >= 1200) && (getSizeElement.windowInnerH >= 1200)) {
-            defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
-        }
+
+        // original
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+        //     resizePersonInfo(getSizeElement.windowInnerW)
+        // }
+        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
+        //     resizePersonInfo(getSizeElement.windowInnerH)
+        // }
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+        //     resizePersonInfo(getSizeElement.windowInnerW)
+        // }
+        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+        //     resizePersonInfo(getSizeElement.windowInnerH)
+        // }
+        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+        //     defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
+        // }
+        // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH >= 1200)) {
+        //     resizePersonInfoMini()
+        // }
+        // if ((getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW >= 1200)) {
+        //     resizePersonInfoMini()
+        // }
+        // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+        //     resizePersonInfoMini()
+        // }
+        // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+        //     resizePersonInfoMini()
+        // }
+        // if ((getSizeElement.windowInnerW >= 1200) && (getSizeElement.windowInnerH >= 1200)) {
+        //     defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
+        // }
     })
 }
 
@@ -526,37 +668,44 @@ function setSizePersonInfo() {
 function setSizePersonInfoDefault() {
     let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
 
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        resizePersonInfo(getSizeElement.windowInnerW)
+    if (getSizeElement.windowInnerW < getSizeElement.screenW) {
+        sizePersonInfoDefault(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
+    } else {
+        sizePersonInfoDefault(getSizeElement.screenW, getSizeElement.screenH)
     }
-    if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
-        resizePersonInfo(getSizeElement.windowInnerH)
-    }
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        resizePersonInfo(getSizeElement.windowInnerW)
-    }
-    if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        resizePersonInfo(getSizeElement.windowInnerH)
-    }
-    if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        resizePersonInfo(getSizeElement.windowInnerW)
-    }
-    if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        resizePersonInfo(getSizeElement.windowInnerH)
-    }
-    // условия при первой загрузке сайта, для #personProfession, #personDescription
-    if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH >= 1200)) {
-        resizePersonInfoMini()
-    }
-    if ((getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW >= 1200)) {
-        resizePersonInfoMini()
-    }
-    if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        resizePersonInfoMini()
-    }
-    if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        resizePersonInfoMini()
-    }
+
+    // original
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
+    //     resizePersonInfo(getSizeElement.windowInnerW)
+    // }
+    // if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
+    //     resizePersonInfo(getSizeElement.windowInnerH)
+    // }
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+    //     resizePersonInfo(getSizeElement.windowInnerW)
+    // }
+    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+    //     resizePersonInfo(getSizeElement.windowInnerH)
+    // }
+    // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+    //     resizePersonInfo(getSizeElement.windowInnerW)
+    // }
+    // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+    //     resizePersonInfo(getSizeElement.windowInnerH)
+    // }
+    // // условия при первой загрузке сайта, для #personProfession, #personDescription
+    // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH >= 1200)) {
+    //     resizePersonInfoMini()
+    // }
+    // if ((getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW >= 1200)) {
+    //     resizePersonInfoMini()
+    // }
+    // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
+    //     resizePersonInfoMini()
+    // }
+    // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
+    //     resizePersonInfoMini()
+    // }
 }
 /* ======== END - Your information about yourself (#personInfo) ===================================================== */
 
@@ -589,6 +738,7 @@ function resizeSizeBorderSection() {
         }
     })
 }
+
 /* ======== END - Section title (.section-title) ==================================================================== */
 
 
@@ -627,6 +777,7 @@ function circleAnimation() {
 
     requestAnimationFrame(circleAnimation);
 }
+
 /* ======== END - Anime library (#circle) =========================================================================== */
 
 
@@ -653,7 +804,7 @@ $(document).ready(function () {
 
 
 /* ======== START - AutoFilter library (.portfolio-item) ============================================================ */
-$(function($) {
+$(function ($) {
     $.autofilter();
 });
 /* ======== END - AutoFilter library (.portfolio-item) ============================================================== */

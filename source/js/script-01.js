@@ -55,7 +55,7 @@ window.onload = () => {
     сloseNavRight()
     сloseNavRightDefault()
     resizeSizeBorderSection()
-    circleAnimation()
+    circlePlay()
 }
 
 
@@ -765,7 +765,7 @@ let start1 = 0;
 let speed = 0.02;
 
 
-function circleAnimation() {
+function circlePlay() {
     black3.style.r = 25 * Math.sin(start3) + 195 + 'px';
     white3.style.r = 25 * Math.sin(start3) + 195 + 'px';
 
@@ -785,8 +785,9 @@ function circleAnimation() {
         start1 += speed;
     }
 
-    requestAnimationFrame(circleAnimation);
+    requestAnimationFrame(circlePlay);
 }
+
 /* ======== END - Сircle animation (#circle) ======================================================================== */
 
 
@@ -820,12 +821,75 @@ $(function ($) {
 
 
 /* ======== START - Art animation (.art, .portfolio) ================================================================ */
-let art = document.getElementsByClassName('art')
-art[0].addEventListener('mouseover', hello)
+const art = document.getElementsByClassName('art')
+const maskCircle = document.getElementsByClassName('mask-circle')
+let str = 0 // start
+let spd = 1 // speed
+let str2 = 0
+let spd2 = 0.1
+let toggle = true
+let requestId
 
-function hello() {
-    console.log('hello')
+// maskCircle[0].style.r = "220px" // доработать, установить всем это значаение
+
+function getDefault() {
+    for (let i = 0; i < art.length; i++) {
+        maskCircle[i].style.r = "220px"
+    }
 }
 
-// console.log(art[0])
+
+function layerPlay(i, toggle) {
+    if (toggle) {
+        maskCircle[i].style.r = 220 - str + 'px'
+        str += spd
+
+        if (str >= 180) {
+            toggle = false
+        }
+    }
+
+    if (!toggle) {
+        maskCircle[i].style.r = -(10 * Math.sin(str2)) + 40 + 'px'
+        str2 += spd2
+
+        // test
+        // console.log(toggle)
+    }
+
+    // колбэк ()=>{layerPlay(i)} выглядит в таком виде, чтобы передать аргумент
+    requestId = requestAnimationFrame(() => {
+        layerPlay(i, toggle)
+    });
+}
+
+function layerStop(requestId) {
+    str = 0
+    toggle = true
+    getDefault()
+
+    // test
+    console.log(toggle)
+    cancelAnimationFrame(requestId)
+}
+
+
+for (let i = 0; i < art.length; i++) {
+    art[i].addEventListener('mouseover', () => layerPlay(i))
+    art[i].addEventListener('mouseout', () => layerStop(requestId))
+
+    // art[i].addEventListener('mouseover', () => hello(i))
+    // art[i].addEventListener('mouseout', () => helloEnd(i))
+}
+
+// function hello(i) {
+//     // layerPlay1()
+//     console.log('hello ' + i)
+// }
+//
+// function helloEnd(i) {
+//     console.log('helloEnd ' + i)
+// }
+
+
 /* ======== END - Art animation (.art, .portfolio) ================================================================== */

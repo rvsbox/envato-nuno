@@ -827,49 +827,74 @@ let str = 0 // start
 let spd = 1 // speed
 let str2 = 0
 let spd2 = 0.1
-let toggle = true
+let toggle = 0
 let requestId
 
-// maskCircle[0].style.r = "220px" // доработать, установить всем это значаение
-
+// вернуться к начальным размерам маски круга
 function getDefault() {
     for (let i = 0; i < art.length; i++) {
         maskCircle[i].style.r = "220px"
     }
 }
 
+// function layerPlay(i) {
+//     if (toggle) {
+//         maskCircle[i].style.r = 220 - str + 'px'
+//         str += spd
+//
+//         if (str >= 180) {
+//             toggle = false
+//         }
+//     }
+//
+//     if (!toggle) {
+//         maskCircle[i].style.r = -(10 * Math.sin(str2)) + 40 + 'px'
+//         str2 += spd2
+//
+//         // test
+//         // console.log(toggle)
+//     }
+//
+//     // колбэк ()=>{layerPlay(i)} выглядит в таком виде, чтобы передать аргумент
+//     requestId = requestAnimationFrame(() => {
+//         layerPlay(i)
+//     });
+// }
 
-function layerPlay(i, toggle) {
-    if (toggle) {
-        maskCircle[i].style.r = 220 - str + 'px'
-        str += spd
+function layerPlay(i) {
+    switch (toggle) {
+        case 0:
+            maskCircle[i].style.r = 220 - str + 'px'
+            str += spd
 
-        if (str >= 180) {
-            toggle = false
-        }
-    }
+            if (str >= 180) {
+                toggle = 1
+            }
+            // console.log('e')
+            break
 
-    if (!toggle) {
-        maskCircle[i].style.r = -(10 * Math.sin(str2)) + 40 + 'px'
-        str2 += spd2
-
-        // test
-        // console.log(toggle)
+        case 1:
+            maskCircle[i].style.r = -(10 * Math.sin(str2)) + 40 + 'px'
+            str2 += spd2
+            // console.log('q')
+            break
     }
 
     // колбэк ()=>{layerPlay(i)} выглядит в таком виде, чтобы передать аргумент
     requestId = requestAnimationFrame(() => {
-        layerPlay(i, toggle)
+        layerPlay(i)
     });
 }
 
+
 function layerStop(requestId) {
     str = 0
-    toggle = true
+    toggle = 0
     getDefault()
 
     // test
-    console.log(toggle)
+    console.log('stop')
+
     cancelAnimationFrame(requestId)
 }
 

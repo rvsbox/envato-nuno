@@ -827,8 +827,12 @@ let str = 0 // start
 let spd = 1 // speed
 let str2 = 0
 let spd2 = 0.1
+let str3 = 0
+let spd3 = 0.8
 let toggle = 0
 let requestId
+let cur
+
 
 // вернуться к начальным размерам маски круга
 function getDefault() {
@@ -862,6 +866,8 @@ function getDefault() {
 // }
 
 function layerPlay(i) {
+    console.log('play')
+
     switch (toggle) {
         case 0:
             maskCircle[i].style.r = 220 - str + 'px'
@@ -878,6 +884,31 @@ function layerPlay(i) {
             str2 += spd2
             // console.log('q')
             break
+
+        case 2:
+
+            //test
+            // console.log(maskCircle[i].style.r)
+            // console.log(i)
+            // console.log(str3)
+
+            // получить текущее состояние
+            str3 = maskCircle[i].style.r
+
+            maskCircle[i].style.r = str3 + 'px'
+            str3 += spd3
+
+
+
+
+            if (parseFloat(maskCircle[i].style.r) >= 220) {
+                console.log('220')
+                toggle = 3
+                // lala()
+                cancelAnimationFrame(requestId)
+            }
+
+            break
     }
 
     // колбэк ()=>{layerPlay(i)} выглядит в таком виде, чтобы передать аргумент
@@ -886,35 +917,37 @@ function layerPlay(i) {
     });
 }
 
+// function layerPlay2(i){
+//     maskCircle[i].style.r = 220 - str + 'px'
+//     str += spd
+//
+//     re
+// }
+
+
+function lala() {
+    console.log('lala')
+    cancelAnimationFrame(requestId)
+}
 
 function layerStop(requestId) {
-    str = 0
-    toggle = 0
-    getDefault()
+    // str = 0
+    // str2 = 0
+    toggle = 2
+    // getDefault()
 
     // test
     console.log('stop')
 
-    cancelAnimationFrame(requestId)
+    // cancelAnimationFrame(requestId)
 }
 
 
 for (let i = 0; i < art.length; i++) {
     art[i].addEventListener('mouseover', () => layerPlay(i))
     art[i].addEventListener('mouseout', () => layerStop(requestId))
-
-    // art[i].addEventListener('mouseover', () => hello(i))
-    // art[i].addEventListener('mouseout', () => helloEnd(i))
 }
 
-// function hello(i) {
-//     // layerPlay1()
-//     console.log('hello ' + i)
-// }
-//
-// function helloEnd(i) {
-//     console.log('helloEnd ' + i)
-// }
 
 
 /* ======== END - Art animation (.art, .portfolio) ================================================================== */

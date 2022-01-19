@@ -828,10 +828,12 @@ let spd = 1 // speed
 let str2 = 0
 let spd2 = 0.1
 let str3 = 0
-let spd3 = 0.8
+let spd3 = 80
 let toggle = 0
 let requestId
 let cur
+
+let toggle2 = true
 
 
 // вернуться к начальным размерам маски круга
@@ -866,6 +868,8 @@ function getDefault() {
 // }
 
 function layerPlay(i) {
+
+    // проверка остановки анимации
     console.log('play')
 
     switch (toggle) {
@@ -876,38 +880,44 @@ function layerPlay(i) {
             if (str >= 180) {
                 toggle = 1
             }
-            // console.log('e')
+
+            // test
+            // console.log('case-0')
             break
 
         case 1:
             maskCircle[i].style.r = -(10 * Math.sin(str2)) + 40 + 'px'
             str2 += spd2
-            // console.log('q')
+            // str3 = maskCircle[i].style.r
+
+            // test
+            // console.log('case-1')
             break
 
         case 2:
+            // передаем текущее состояние размера объекта. Функция выполняется один раз
+            (() => {
+                if (toggle2) {
+                    str3 = parseFloat(maskCircle[i].style.r)
+                    toggle2 = false
 
-            //test
-            // console.log(maskCircle[i].style.r)
-            // console.log(i)
-            // console.log(str3)
-
-            // получить текущее состояние
-            str3 = maskCircle[i].style.r
+                    // test
+                    // console.log('toggle2')
+                }
+            })()
 
             maskCircle[i].style.r = str3 + 'px'
             str3 += spd3
 
-
-
+            // test
+            // console.log('case-2')
 
             if (parseFloat(maskCircle[i].style.r) >= 220) {
-                console.log('220')
-                toggle = 3
-                // lala()
-                cancelAnimationFrame(requestId)
-            }
+                toggle = 3 // выйти из switch
 
+                // test
+                console.log('exit switch')
+            }
             break
     }
 
@@ -915,37 +925,30 @@ function layerPlay(i) {
     requestId = requestAnimationFrame(() => {
         layerPlay(i)
     });
+
+    // конец анимации
+    if (toggle === 3) {
+        cancelAnimationFrame(requestId)
+
+        // возвращаем настройки по умолчанию
+        toggle = 0
+        toggle2 = true
+        str = 0
+        str2 = 0
+        str3 = 0
+    }
 }
 
-// function layerPlay2(i){
-//     maskCircle[i].style.r = 220 - str + 'px'
-//     str += spd
-//
-//     re
-// }
-
-
-function lala() {
-    console.log('lala')
-    cancelAnimationFrame(requestId)
-}
-
-function layerStop(requestId) {
-    // str = 0
-    // str2 = 0
+function layerPlayChangeState() {
     toggle = 2
-    // getDefault()
-
     // test
-    console.log('stop')
-
-    // cancelAnimationFrame(requestId)
+    console.log('change state')
 }
 
 
 for (let i = 0; i < art.length; i++) {
     art[i].addEventListener('mouseover', () => layerPlay(i))
-    art[i].addEventListener('mouseout', () => layerStop(requestId))
+    art[i].addEventListener('mouseout', () => layerPlayChangeState(requestId))
 }
 
 

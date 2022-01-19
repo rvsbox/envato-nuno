@@ -824,16 +824,13 @@ $(function ($) {
 const art = document.getElementsByClassName('art')
 const maskCircle = document.getElementsByClassName('mask-circle')
 let str = 0 // start
-let spd = 1 // speed
+let spd = 9 // speed
+let str1 = 0
+let spd1 = 0.15
 let str2 = 0
-let spd2 = 0.1
-let str3 = 0
-let spd3 = 80
+let spd2 = 80
 let toggle = 0
 let requestId
-let cur
-
-let toggle2 = true
 
 
 // вернуться к начальным размерам маски круга
@@ -843,35 +840,7 @@ function getDefault() {
     }
 }
 
-// function layerPlay(i) {
-//     if (toggle) {
-//         maskCircle[i].style.r = 220 - str + 'px'
-//         str += spd
-//
-//         if (str >= 180) {
-//             toggle = false
-//         }
-//     }
-//
-//     if (!toggle) {
-//         maskCircle[i].style.r = -(10 * Math.sin(str2)) + 40 + 'px'
-//         str2 += spd2
-//
-//         // test
-//         // console.log(toggle)
-//     }
-//
-//     // колбэк ()=>{layerPlay(i)} выглядит в таком виде, чтобы передать аргумент
-//     requestId = requestAnimationFrame(() => {
-//         layerPlay(i)
-//     });
-// }
-
 function layerPlay(i) {
-
-    // проверка остановки анимации
-    console.log('play')
-
     switch (toggle) {
         case 0:
             maskCircle[i].style.r = 220 - str + 'px'
@@ -886,38 +855,11 @@ function layerPlay(i) {
             break
 
         case 1:
-            maskCircle[i].style.r = -(10 * Math.sin(str2)) + 40 + 'px'
-            str2 += spd2
-            // str3 = maskCircle[i].style.r
+            maskCircle[i].style.r = -(10 * Math.sin(str1)) + 40 + 'px'
+            str1 += spd1
 
             // test
             // console.log('case-1')
-            break
-
-        case 2:
-            // передаем текущее состояние размера объекта. Функция выполняется один раз
-            (() => {
-                if (toggle2) {
-                    str3 = parseFloat(maskCircle[i].style.r)
-                    toggle2 = false
-
-                    // test
-                    // console.log('toggle2')
-                }
-            })()
-
-            maskCircle[i].style.r = str3 + 'px'
-            str3 += spd3
-
-            // test
-            // console.log('case-2')
-
-            if (parseFloat(maskCircle[i].style.r) >= 220) {
-                toggle = 3 // выйти из switch
-
-                // test
-                console.log('exit switch')
-            }
             break
     }
 
@@ -925,32 +867,22 @@ function layerPlay(i) {
     requestId = requestAnimationFrame(() => {
         layerPlay(i)
     });
-
-    // конец анимации
-    if (toggle === 3) {
-        cancelAnimationFrame(requestId)
-
-        // возвращаем настройки по умолчанию
-        toggle = 0
-        toggle2 = true
-        str = 0
-        str2 = 0
-        str3 = 0
-    }
 }
 
-function layerPlayChangeState() {
-    toggle = 2
-    // test
-    console.log('change state')
-}
+function layerPlayChangeState(i) {
+    toggle = 0
+    str = 0
+    str1 = 0
+    str2 = 0
 
+    maskCircle[i].style.r = 220 + 'px'
+
+    // выключаем анимацию
+    cancelAnimationFrame(requestId)
+}
 
 for (let i = 0; i < art.length; i++) {
     art[i].addEventListener('mouseover', () => layerPlay(i))
-    art[i].addEventListener('mouseout', () => layerPlayChangeState(requestId))
+    art[i].addEventListener('mouseout', () => layerPlayChangeState(i))
 }
-
-
-
 /* ======== END - Art animation (.art, .portfolio) ================================================================== */

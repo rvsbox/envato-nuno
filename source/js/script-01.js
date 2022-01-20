@@ -19,7 +19,7 @@ File Description: Main js file of the template
 7.  Three big circles                    |  setSizeCircle(), setSizeCircleDefault(), #circle
 8.  Your big photo                       |  setSizePersonImg(), setSizePersonImgDefault(), #personImg
 9.  Your information about yourself      |  setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo
-10.  Section title                       |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
+10. Section title                        |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
 11. Сircle animation                     |  circleAnimation(), #circle
 12. Owl Carousel library                 |  .owl-carousel
 13. AutoFilter library                   |  .portfolio-items, .portfolio
@@ -96,7 +96,6 @@ function GetSizeElement() {
     this.screenW = window.screen.width
     this.screenH = window.screen.height
 }
-
 /* ======== END - Get element sizes ================================================================================= */
 
 
@@ -105,11 +104,11 @@ function changeHeader() {
     if (pageYOffset > 10) {
         header.style.top = -16 + 'px'
         header.style.opacity = 95 + '%'
-        navRight.height = 'calc(100vh + 16px)'
+        navRight.style.top = 16 + 'px'
     } else {
         header.style.top = 0 + 'px'
         header.style.opacity = 100 + '%'
-        navRight.style.height = 100 + 'vh'
+        navRight.style.top = 0 + 'px'
     }
 }
 
@@ -230,6 +229,9 @@ function сloseNavRight() {
         if (getSizeElement.windowInnerW <= 1200) {
             document.getElementById('nav').style.display = 'none'
             openNavRight.style.display = 'block'
+
+            // test
+            console.log('test')
         }
     })
 }

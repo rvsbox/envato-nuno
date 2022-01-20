@@ -879,10 +879,13 @@ function layerPlayChangeState(i) {
 
     // выключаем анимацию
     cancelAnimationFrame(requestId)
+
+    // test
+    // console.log('mouseover')
 }
 
 for (let i = 0; i < art.length; i++) {
-    art[i].addEventListener('mouseover', () => layerPlay(i))
-    art[i].addEventListener('mouseout', () => layerPlayChangeState(i))
+    art[i].addEventListener('mouseenter', () => layerPlay(i))
+    art[i].addEventListener('mouseleave', () => layerPlayChangeState(i))
 }
 /* ======== END - Art animation (.art, .portfolio) ================================================================== */

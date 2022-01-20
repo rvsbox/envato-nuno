@@ -10,19 +10,20 @@ File Description: Main js file of the template
 
 
 /* =====================================================================================================================
-1.  Get element sizes                    |  GetSizeElement()
-2.  Fixing the header when scrolling     |  changeHeaderRun(), #header
-3.  Highlighting the active menu item    |  addRemoveActiveRun(), #nav, #navRight
-4.  Scrolling animation                  |  #nav, #navRight, .btn-arrow
-5.  Open, close side menu                |  сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight
-6.  Three big circles                    |  setSizeCircle(), setSizeCircleDefault(), #circle
-7.  Your big photo                       |  setSizePersonImg(), setSizePersonImgDefault(), #personImg
-8.  Your information about yourself      |  setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo
-9.  Section title                        |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
-10. Сircle animation                     |  circleAnimation(), #circle
-11. Owl Carousel library                 |  .owl-carousel
-12. AutoFilter library                   |  .portfolio-items, .portfolio
-13. Portfolio animation                  |  .art, .portfolio
+1.  Preloader                            |  #preloader
+2.  Get element sizes                    |  GetSizeElement()
+3.  Fixing the header when scrolling     |  changeHeaderRun(), #header
+4.  Highlighting the active menu item    |  addRemoveActiveRun(), #nav, #navRight
+5.  Scrolling animation                  |  #nav, #navRight, .btn-arrow
+6.  Open, close side menu                |  сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight
+7.  Three big circles                    |  setSizeCircle(), setSizeCircleDefault(), #circle
+8.  Your big photo                       |  setSizePersonImg(), setSizePersonImgDefault(), #personImg
+9.  Your information about yourself      |  setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo
+10.  Section title                       |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
+11. Сircle animation                     |  circleAnimation(), #circle
+12. Owl Carousel library                 |  .owl-carousel
+13. AutoFilter library                   |  .portfolio-items, .portfolio
+14. Portfolio animation                  |  .art, .portfolio
 ===================================================================================================================== */
 
 let header = document.getElementById('header')
@@ -61,11 +62,12 @@ window.onload = () => {
 
 /* ======== START - Preloader ======================================================================================= */
 function preloader() {
-    // с помощью if запускаем preloader только на транице index
+    // с помощью if запускаем preloader только на cтранице index
     if (composition !== null) {
         setTimeout(() => {
                 document.getElementById('preloader').style.display = 'none' // спрятать прелоадер
                 document.body.style.overflow = 'visible' // показать ползунок
+
             }, 200 // после полной загрузки, подождать еще 0.2сек
         )
     }
@@ -499,7 +501,6 @@ function setSizePersonImgDefault() {
     //     resizePersonImgHeight(getSizeElement.windowInnerH)
     // }
 }
-
 /* ======== END - Your photo (#personImg) =========================================================================== */
 
 
@@ -715,7 +716,6 @@ function setSizePersonInfoDefault() {
     //     resizePersonInfoMini()
     // }
 }
-
 /* ======== END - Your information about yourself (#personInfo) ===================================================== */
 
 

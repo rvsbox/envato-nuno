@@ -22,9 +22,8 @@ File Description: Main js file of the template
 10. Сircle animation                     |  circleAnimation(), #circle
 11. Owl Carousel library                 |  .owl-carousel
 12. AutoFilter library                   |  .portfolio-items, .portfolio
-13. Art animation                        |  .art, .portfolio
+13. Portfolio animation                  |  .art, .portfolio
 ===================================================================================================================== */
-
 
 let header = document.getElementById('header')
 let nav = document.getElementById('nav')
@@ -55,19 +54,22 @@ window.onload = () => {
     сloseNavRight()
     сloseNavRightDefault()
     resizeSizeBorderSection()
-    circlePlay()
+    circleAnimation()
+    portfolioAnimation()
 }
 
 
 /* ======== START - Preloader ======================================================================================= */
 function preloader() {
-    setTimeout(() => {
-            document.getElementById('preloader').style.display = 'none' // спрятать прелоадер
-            document.body.style.overflow = 'visible' // показать ползунок
-        }, 300 // после полной загрузки, подождать еще 0.3сек
-    )
+    // с помощью if запускаем preloader только на транице index
+    if (composition !== null) {
+        setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none' // спрятать прелоадер
+                document.body.style.overflow = 'visible' // показать ползунок
+            }, 200 // после полной загрузки, подождать еще 0.2сек
+        )
+    }
 }
-
 /* ======== END - Preloader ========================================================================================= */
 
 
@@ -116,7 +118,6 @@ function changeHeaderRun() {
         window.addEventListener('scroll', changeHeader) // срабатывание при скролле
     }
 }
-
 /* ======== END - Fixing the header when scrolling (#header) ======================================================== */
 
 
@@ -155,7 +156,6 @@ function addRemoveActiveRun() {
         }
     })
 }
-
 /* ======== END - Highlighting the active menu item (#nav, #navRight) =============================================== */
 
 
@@ -374,7 +374,6 @@ function setSizeCircleDefault() {
     //     resizeCircle(getSizeElement.windowInnerH)
     // }
 }
-
 /* ======== END - Three big circles (#circle) ======================================================================= */
 
 
@@ -753,39 +752,42 @@ function resizeSizeBorderSection() {
 
 
 /* ======== START - Сircle animation (#circle) ====================================================================== */
-const black3 = document.getElementById('circleSmallBlack');
-const white3 = document.getElementById('circleSmallWhite');
-const black2 = document.getElementById('circleMediumBlack');
-const white2 = document.getElementById('circleMediumWhite');
-const black1 = document.getElementById('circleLargeBlack');
-const white1 = document.getElementById('circleLargeWhite');
-let start3 = 0;
-let start2 = 0;
-let start1 = 0;
-let speed = 0.02;
+function circleAnimation() {
+    const black3 = document.getElementById('circleSmallBlack');
+    const white3 = document.getElementById('circleSmallWhite');
+    const black2 = document.getElementById('circleMediumBlack');
+    const white2 = document.getElementById('circleMediumWhite');
+    const black1 = document.getElementById('circleLargeBlack');
+    const white1 = document.getElementById('circleLargeWhite');
+    let start3 = 0;
+    let start2 = 0;
+    let start1 = 0;
+    let speed = 0.02;
 
+    if ((white1 !== null) && (black1 !== null)) {
+        (function layerPlay() {
+            black3.style.r = 25 * Math.sin(start3) + 195 + 'px';
+            white3.style.r = 25 * Math.sin(start3) + 195 + 'px';
 
-function circlePlay() {
-    black3.style.r = 25 * Math.sin(start3) + 195 + 'px';
-    white3.style.r = 25 * Math.sin(start3) + 195 + 'px';
+            black2.style.r = 25 * Math.sin(start2) + 295 + 'px';
+            white2.style.r = 25 * Math.sin(start2) + 295 + 'px';
 
-    black2.style.r = 25 * Math.sin(start2) + 295 + 'px';
-    white2.style.r = 25 * Math.sin(start2) + 295 + 'px';
+            black1.style.r = 30 * Math.sin(start1) + 395 + 'px';
+            white1.style.r = 30 * Math.sin(start1) + 395 + 'px';
 
-    black1.style.r = 30 * Math.sin(start1) + 395 + 'px';
-    white1.style.r = 30 * Math.sin(start1) + 395 + 'px';
+            start3 += speed; // скорос
 
-    start3 += speed; // скорос
+            if (start3 > 0.850) {
+                start2 += speed;
+            }
 
-    if (start3 > 0.850) {
-        start2 += speed;
+            if (start3 > 1.5) {
+                start1 += speed;
+            }
+
+            requestAnimationFrame(layerPlay);
+        })()
     }
-
-    if (start3 > 1.5) {
-        start1 += speed;
-    }
-
-    requestAnimationFrame(circlePlay);
 }
 
 /* ======== END - Сircle animation (#circle) ======================================================================== */
@@ -820,72 +822,57 @@ $(function ($) {
 /* ======== END - AutoFilter library (.portfolio-item, .portfolio) ================================================== */
 
 
-/* ======== START - Art animation (.art, .portfolio) ================================================================ */
-const art = document.getElementsByClassName('art')
-const maskCircle = document.getElementsByClassName('mask-circle')
-let str = 0 // start
-let spd = 9 // speed
-let str1 = 0
-let spd1 = 0.15
-let str2 = 0
-let spd2 = 80
-let toggle = 0
-let requestId
+/* ======== START - Portfolio animation (.art, .portfolio) ========================================================== */
+function portfolioAnimation() {
+    const art = document.getElementsByClassName('art')
+    const maskCircle = document.getElementsByClassName('mask-circle')
+    let start = 0
+    let speed = 8
+    let start1 = 0
+    let speed1 = 0.08
+    let toggle = 0
+    let requestId
 
+    function layerPlay(i) {
+        switch (toggle) {
+            case 0:
+                maskCircle[i].style.r = 220 - start + 'px'
+                start += speed
 
-// вернуться к начальным размерам маски круга
-function getDefault() {
+                if (start >= 180) {
+                    toggle = 1
+                }
+
+                // test
+                // console.log('case-0')
+                break
+
+            case 1:
+                maskCircle[i].style.r = -(10 * Math.sin(start1)) + 40 + 'px'
+                start1 += speed1
+
+                // test
+                // console.log('case-1')
+                break
+        }
+
+        // колбэк ()=>{layerPlay(i)} выглядит в таком виде, чтобы передать аргумент
+        requestId = requestAnimationFrame(() => {
+            layerPlay(i)
+        });
+    }
+
+    function layerPlayChangeState(i) {
+        toggle = 0
+        start = 0
+        start1 = 0
+        maskCircle[i].style.r = 220 + 'px'
+        cancelAnimationFrame(requestId) // выключаем анимацию
+    }
+
     for (let i = 0; i < art.length; i++) {
-        maskCircle[i].style.r = "220px"
+        art[i].addEventListener('mouseenter', () => layerPlay(i))
+        art[i].addEventListener('mouseleave', () => layerPlayChangeState(i))
     }
 }
-
-function layerPlay(i) {
-    switch (toggle) {
-        case 0:
-            maskCircle[i].style.r = 220 - str + 'px'
-            str += spd
-
-            if (str >= 180) {
-                toggle = 1
-            }
-
-            // test
-            // console.log('case-0')
-            break
-
-        case 1:
-            maskCircle[i].style.r = -(10 * Math.sin(str1)) + 40 + 'px'
-            str1 += spd1
-
-            // test
-            // console.log('case-1')
-            break
-    }
-
-    // колбэк ()=>{layerPlay(i)} выглядит в таком виде, чтобы передать аргумент
-    requestId = requestAnimationFrame(() => {
-        layerPlay(i)
-    });
-}
-
-function layerPlayChangeState(i) {
-    toggle = 0
-    str = 0
-    str1 = 0
-    str2 = 0
-
-    maskCircle[i].style.r = 220 + 'px'
-
-    // выключаем анимацию
-    cancelAnimationFrame(requestId)
-
-    // test
-    // console.log('mouseover')
-}
-
-for (let i = 0; i < art.length; i++) {
-    art[i].addEventListener('mouseenter', () => layerPlay(i))
-    art[i].addEventListener('mouseleave', () => layerPlayChangeState(i))
-}
-/* ======== END - Art animation (.art, .portfolio) ================================================================== */
+/* ======== END - Portfolio animation (.art, .portfolio) ============================================================ */

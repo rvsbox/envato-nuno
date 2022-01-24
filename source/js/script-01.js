@@ -36,7 +36,6 @@ let compositionCapsule = document.getElementById('compositionCapsule')
 let circle = document.getElementById('circle')
 
 
-
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
     preloader()
@@ -51,7 +50,6 @@ window.onload = () => {
 }
 
 
-
 /* ======== START - Preloader ======================================================================================= */
 function preloader() {
     // с помощью if запускаем preloader только на cтранице index
@@ -64,8 +62,8 @@ function preloader() {
         )
     }
 }
-/* ======== END - Preloader ========================================================================================= */
 
+/* ======== END - Preloader ========================================================================================= */
 
 
 /* ======== START - Get element sizes =============================================================================== */
@@ -78,23 +76,23 @@ function GetSizeElement() {
     this.screenW = window.screen.width
     this.screenH = window.screen.height
 }
-/* ======== END - Get element sizes ================================================================================= */
 
+/* ======== END - Get element sizes ================================================================================= */
 
 
 /* ======== START - Composition scale =============================================================================== */
 let windowInnerW, windowInnerH, compositionH, compositionW, screenH, screenW, scl
-let startScaling = 1399
-let minSizeScreen = 320
+let startScaling = 1399 // максимальный размер экрана до которого масштабируется композиция
+let minSizeScreen = 320 // минимальный размер экрана до которого масштабируется композиция
 
 
 function getPositionComposition() {
     windowInnerW = window.innerWidth
     windowInnerH = window.innerHeight
-    screenH = window.screen.height
     screenW = window.screen.width
-    compositionH = compositionCapsule.clientHeight
+    screenH = window.screen.height
     compositionW = compositionCapsule.clientWidth
+    compositionH = compositionCapsule.clientHeight
 }
 
 getPositionComposition()
@@ -102,6 +100,7 @@ getPositionComposition()
 addEventListener('resize', () => {
     if ((screenW > startScaling) && (screenH > startScaling)) {
         getPositionComposition()
+
         compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(1)`
     }
 
@@ -110,15 +109,18 @@ addEventListener('resize', () => {
 
         if (screenW < screenH) {
             // от 1 до 0,6 изменение масштаба по горезонтали
-            scl = 1-((((startScaling - screenW)*100)/(startScaling - minSizeScreen))*(1-0.2)/100)
+            scl = 1 - ((((startScaling - screenW) * 100) / (startScaling - minSizeScreen)) * (1 - 0.2) / 100)
             compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
         } else {
             // от 1 до 0,24 изменение масштаба по вертикали
-            scl = 1-((((startScaling - screenH)*100)/(startScaling - minSizeScreen))*(1-0.18)/100)
+            scl = 1 - ((((startScaling - screenH) * 100) / (startScaling - minSizeScreen)) * (1 - 0.18) / 100)
             compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
         }
-
     }
+
+    // test
+    // console.log('screen' + screenW)
+    // console.log(windowInnerW)
 })
 
 function setPositionComposition() {
@@ -128,10 +130,10 @@ function setPositionComposition() {
         compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
 
         if (screenW < screenH) {
-            scl = 1-((((startScaling - screenW)*100)/(startScaling - minSizeScreen))*(1-0.2)/100)
+            scl = 1 - ((((startScaling - screenW) * 100) / (startScaling - minSizeScreen)) * (1 - 0.2) / 100)
             compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
         } else {
-            scl = 1-((((startScaling - screenH)*100)/(startScaling - minSizeScreen))*(1-0.18)/100)
+            scl = 1 - ((((startScaling - screenH) * 100) / (startScaling - minSizeScreen)) * (1 - 0.18) / 100)
             compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
         }
     }
@@ -139,7 +141,6 @@ function setPositionComposition() {
 
 setPositionComposition()
 /* ======== END - Composition scale ================================================================================= */
-
 
 
 /* ======== START - Fixing the header when scrolling (#header) ====================================================== */
@@ -162,8 +163,8 @@ function changeHeaderRun() {
         window.addEventListener('scroll', changeHeader) // срабатывание при скролле
     }
 }
-/* ======== END - Fixing the header when scrolling (#header) ======================================================== */
 
+/* ======== END - Fixing the header when scrolling (#header) ======================================================== */
 
 
 /* ======== START - Highlighting the active menu item (#nav, #navRight) ============================================= */
@@ -201,8 +202,8 @@ function addRemoveActiveRun() {
         }
     })
 }
-/* ======== END - Highlighting the active menu item (#nav, #navRight) =============================================== */
 
+/* ======== END - Highlighting the active menu item (#nav, #navRight) =============================================== */
 
 
 /* ======== START - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) ================================= */
@@ -247,7 +248,6 @@ $('button#sendMessage').on('click', function (e) {
 /* ======== END - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) =================================== */
 
 
-
 /* ======== START - Open, close side menu (#navRight, #closeNavRight) =============================================== */
 openNavRight.addEventListener('click', openNav)
 closeNavRight.addEventListener('click', closeNav)
@@ -275,9 +275,6 @@ function сloseNavRight() {
         if (getSizeElement.windowInnerW <= 1200) {
             document.getElementById('nav').style.display = 'none'
             openNavRight.style.display = 'block'
-
-            // test
-            console.log('test')
         }
     })
 }
@@ -311,7 +308,6 @@ document.addEventListener('click', function (e) {
 /* ======== END - Open, close side menu (#navRight, #closeNavRight) ================================================= */
 
 
-
 /* ======== START - Section title (.section-title) ================================================================== */
 function setSizeBorderSection() {
     let k = document.getElementsByClassName('section-title__heading').length
@@ -342,7 +338,6 @@ function resizeSizeBorderSection() {
 }
 
 /* ======== END - Section title (.section-title) ==================================================================== */
-
 
 
 /* ======== START - Сircle animation (#circle) ====================================================================== */
@@ -385,7 +380,6 @@ function circleAnimation() {
 }
 
 /* ======== END - Сircle animation (#circle) ======================================================================== */
-
 
 
 /* ======== START - Owl Carousel library (.owl-carousel) ============================================================ */
@@ -438,16 +432,12 @@ function portfolioAnimation() {
                     toggle = 1
                 }
 
-                // test
-                // console.log('case-0')
                 break
 
             case 1:
                 maskCircle[i].style.r = -(10 * Math.sin(start1)) + 40 + 'px'
                 start1 += speed1
 
-                // test
-                // console.log('case-1')
                 break
         }
 
@@ -470,4 +460,5 @@ function portfolioAnimation() {
         art[i].addEventListener('mouseleave', () => layerPlayChangeState(i))
     }
 }
+
 /* ======== END - Portfolio animation (.art, .portfolio) ============================================================ */

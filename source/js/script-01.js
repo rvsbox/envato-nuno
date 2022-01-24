@@ -32,33 +32,24 @@ let navRight = document.getElementById('navRight')
 let openNavRight = document.getElementById('openNavRight')
 let closeNavRight = document.getElementById('closeNavRight')
 let composition = document.getElementById('composition')
+let compositionCapsule = document.getElementById('compositionCapsule')
 let circle = document.getElementById('circle')
-let personImg = document.getElementById('personImg')
-let personInfo = document.getElementById('personInfo')
-let personName = document.getElementById('personName')
-let personProfession = document.getElementById('personProfession')
-let personDescription = document.getElementById('personDescription')
+
 
 
 // скрипт будет выполнен, когда вся страница, со всеми подключениями будут загружены
 window.onload = () => {
     preloader()
-    // setSizeCircleDefault()
-    // setSizeCircle()
-    // setSizePersonImgDefault()
-    // setSizePersonImg()
-    // setSizePersonInfoDefault()
-    // setSizePersonInfo()
     setSizeBorderSection()
     resizeSizeBorderSection()
     changeHeaderRun()
     addRemoveActiveRun()
     сloseNavRight()
     сloseNavRightDefault()
-
     circleAnimation()
     portfolioAnimation()
 }
+
 
 
 /* ======== START - Preloader ======================================================================================= */
@@ -76,19 +67,9 @@ function preloader() {
 /* ======== END - Preloader ========================================================================================= */
 
 
+
 /* ======== START - Get element sizes =============================================================================== */
 function GetSizeElement() {
-    if ((composition !== null) && (circle !== null) && (personImg !== null)) {
-        this.compositionW = composition.offsetWidth
-        this.compositionH = composition.offsetHeight
-
-        this.circleW = circle.offsetWidth
-        this.circleH = circle.offsetHeight
-
-        this.personImgW = personImg.offsetWidth
-        this.personImgH = personImg.offsetHeight
-    }
-
     // внутренний размер окна — это ширина и высота области просмотра (вьюпорта)
     this.windowInnerW = window.innerWidth
     this.windowInnerH = window.innerHeight
@@ -98,6 +79,67 @@ function GetSizeElement() {
     this.screenH = window.screen.height
 }
 /* ======== END - Get element sizes ================================================================================= */
+
+
+
+/* ======== START - Composition scale =============================================================================== */
+let windowInnerW, windowInnerH, compositionH, compositionW, screenH, screenW, scl
+let startScaling = 1399
+let minSizeScreen = 320
+
+
+function getPositionComposition() {
+    windowInnerW = window.innerWidth
+    windowInnerH = window.innerHeight
+    screenH = window.screen.height
+    screenW = window.screen.width
+    compositionH = compositionCapsule.clientHeight
+    compositionW = compositionCapsule.clientWidth
+}
+
+getPositionComposition()
+
+addEventListener('resize', () => {
+    if ((screenW > startScaling) && (screenH > startScaling)) {
+        getPositionComposition()
+        compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(1)`
+    }
+
+    if ((screenW <= startScaling) || (screenH <= startScaling)) {
+        getPositionComposition()
+
+        if (screenW < screenH) {
+            // от 1 до 0,6 изменение масштаба по горезонтали
+            scl = 1-((((startScaling - screenW)*100)/(startScaling - minSizeScreen))*(1-0.2)/100)
+            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
+        } else {
+            // от 1 до 0,24 изменение масштаба по вертикали
+            scl = 1-((((startScaling - screenH)*100)/(startScaling - minSizeScreen))*(1-0.18)/100)
+            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
+        }
+
+    }
+})
+
+function setPositionComposition() {
+    if ((screenW <= startScaling) || (screenH <= startScaling)) {
+        getPositionComposition()
+
+        compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
+
+        if (screenW < screenH) {
+            scl = 1-((((startScaling - screenW)*100)/(startScaling - minSizeScreen))*(1-0.2)/100)
+            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
+        } else {
+            scl = 1-((((startScaling - screenH)*100)/(startScaling - minSizeScreen))*(1-0.18)/100)
+            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
+        }
+    }
+}
+
+setPositionComposition()
+/* ======== END - Composition scale ================================================================================= */
+
 
 
 /* ======== START - Fixing the header when scrolling (#header) ====================================================== */
@@ -121,6 +163,7 @@ function changeHeaderRun() {
     }
 }
 /* ======== END - Fixing the header when scrolling (#header) ======================================================== */
+
 
 
 /* ======== START - Highlighting the active menu item (#nav, #navRight) ============================================= */
@@ -159,6 +202,7 @@ function addRemoveActiveRun() {
     })
 }
 /* ======== END - Highlighting the active menu item (#nav, #navRight) =============================================== */
+
 
 
 /* ======== START - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) ================================= */
@@ -201,6 +245,7 @@ $('button#sendMessage').on('click', function (e) {
     }, 1000, 'swing')
 })
 /* ======== END - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) =================================== */
+
 
 
 /* ======== START - Open, close side menu (#navRight, #closeNavRight) =============================================== */
@@ -266,461 +311,6 @@ document.addEventListener('click', function (e) {
 /* ======== END - Open, close side menu (#navRight, #closeNavRight) ================================================= */
 
 
-/* ======== START - Three big circles (#circle) ===================================================================== */
-// размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-// 314px   - bottom блока #circle
-// 1400px  - width блока #circle
-// 1400px  - height блока #circle
-// 3600px  - width блока #composition
-// 1900px  - height блока #composition
-function defaultCircle() {
-    if (circle !== null) {
-        circle.style.width = 1400 + 'px'
-        circle.style.height = 1400 + 'px'
-        circle.style.bottom = 314 + 'px'
-    }
-}
-
-function resizeCircle(windowInnerSize) {
-    let change = Math.round((1400 * windowInnerSize) / 1900)
-    let changeBottom = Math.round((314 * windowInnerSize) / 1900)
-
-    if (circle !== null) {
-        circle.style.width = change + 'px'
-        circle.style.height = change + 'px'
-        circle.style.bottom = changeBottom + 'px'
-    }
-}
-
-let sizeCircle = (screenWidth, screenHeight) => {
-    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
-        resizeCircle(screenWidth)
-    }
-    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
-        resizeCircle(screenHeight)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
-        resizeCircle(screenWidth)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
-        resizeCircle(screenWidth)
-    }
-    if ((screenWidth >= 1900) && (screenHeight >= 1900)) {
-        defaultCircle()
-    }
-}
-
-let sizeCircleDefault = (screenWidth, screenHeight) => {
-    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
-        resizeCircle(screenWidth)
-    }
-    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
-        resizeCircle(screenHeight)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
-        resizeCircle(screenWidth)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
-        resizeCircle(screenHeight)
-    }
-}
-
-// условия при изменении ширины и, или высоты экрана
-function setSizeCircle() {
-    addEventListener('resize', event => {
-        let getSizeElement = new GetSizeElement() // получить текущие размеры элементов
-
-        if (getSizeElement.windowInnerW < getSizeElement.screenW) {
-            sizeCircle(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
-        } else {
-            sizeCircle(getSizeElement.screenW, getSizeElement.screenH)
-        }
-
-        // original
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        //     resizeCircle(getSizeElement.windowInnerW)
-        // }
-        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
-        //     resizeCircle(getSizeElement.windowInnerH)
-        // }
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        //     resizeCircle(getSizeElement.windowInnerW)
-        // }
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        //     resizeCircle(getSizeElement.windowInnerH)
-        // }
-        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        //     defaultCircle()
-        // }
-    })
-}
-
-// условия при первой загрузке сайта
-function setSizeCircleDefault() {
-    let getSizeElement = new GetSizeElement() // получить текущие размеры элементов
-
-    if (getSizeElement.windowInnerW < getSizeElement.screenW) {
-        sizeCircleDefault(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
-    } else {
-        sizeCircleDefault(getSizeElement.screenW, getSizeElement.screenH)
-    }
-
-    // original
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-    //     resizeCircle(getSizeElement.windowInnerW)
-    // }
-    // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
-    //     resizeCircle(getSizeElement.windowInnerH)
-    // }
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-    //     resizeCircle(getSizeElement.windowInnerW)
-    // }
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-    //     resizeCircle(getSizeElement.windowInnerH)
-    // }
-}
-/* ======== END - Three big circles (#circle) ======================================================================= */
-
-
-/* ======== START - Your photo (#personImg) ========================================================================= */
-// размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-// 1020px  - width блока #personImg
-// 1500px  - height блока #personImg
-// 3600px  - width блока #composition
-// 1900px  - height блока #composition
-function defaultPersonImg() {
-    if (personImg !== null) {
-        personImg.style.width = 1020 + 'px'
-        personImg.style.height = 1500 + 'px'
-    }
-}
-
-// #composition - ширина
-function resizePersonImgWidth(windowInnerSize) {
-    let changeW = Math.round((1020 * windowInnerSize) / 1900)
-    let changeH = Math.round((changeW * 1500) / 1020)
-
-    if (personImg !== null) {
-        personImg.style.width = changeW + 'px'
-        personImg.style.height = changeH + 'px'
-    }
-}
-
-// #composition - высота
-function resizePersonImgHeight(windowInnerSize) {
-    let changeH = Math.round((1500 * windowInnerSize) / 1900)
-    let changeW = Math.round((changeH * 1020) / 1500)
-
-    if (personImg !== null) {
-        personImg.style.width = changeW + 'px'
-        personImg.style.height = changeH + 'px'
-    }
-}
-
-let sizePersonImg = (screenWidth, screenHeight) => {
-    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
-        resizePersonImgWidth(screenWidth)
-    }
-    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
-        resizePersonImgHeight(screenHeight)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
-        resizePersonImgWidth(screenWidth)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
-        resizePersonImgHeight(screenHeight)
-    }
-    if ((screenWidth >= 1900) && (screenHeight >= 1900)) {
-        defaultPersonImg()
-    }
-}
-
-let sizePersonImgDefault = (screenWidth, screenHeight) => {
-    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
-        resizePersonImgWidth(screenWidth)
-    }
-    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
-        resizePersonImgHeight(screenHeight)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
-        resizePersonImgWidth(screenWidth)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
-        resizePersonImgHeight(screenHeight)
-    }
-}
-
-// условия при изменении ширины и, или высоты экрана
-function setSizePersonImg() {
-    addEventListener('resize', event => {
-        let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
-
-        if (getSizeElement.windowInnerW < getSizeElement.screenW) {
-            sizePersonImg(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
-        } else {
-            sizePersonImg(getSizeElement.screenW, getSizeElement.screenH)
-        }
-
-        // original
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        //     resizePersonImgWidth(getSizeElement.windowInnerW)
-        // }
-        // if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
-        //     resizePersonImgHeight(getSizeElement.windowInnerH)
-        // }
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        //     resizePersonImgWidth(getSizeElement.windowInnerW)
-        // }
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        //     resizePersonImgHeight(getSizeElement.windowInnerH)
-        // }
-        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        //     defaultPersonImg()
-        // }
-    })
-}
-
-// условия при первой загрузке сайта
-function setSizePersonImgDefault() {
-    let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
-
-    if (getSizeElement.windowInnerW < getSizeElement.screenW) {
-        sizePersonImgDefault(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
-    } else {
-        sizePersonImgDefault(getSizeElement.screenW, getSizeElement.screenH)
-    }
-
-    // original
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-    //     resizePersonImgWidth(getSizeElement.windowInnerW)
-    // }
-    // if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
-    //     resizePersonImgHeight(getSizeElement.windowInnerH)
-    // }
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-    //     resizePersonImgWidth(getSizeElement.windowInnerW)
-    // }
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-    //     resizePersonImgHeight(getSizeElement.windowInnerH)
-    // }
-}
-/* ======== END - Your photo (#personImg) =========================================================================== */
-
-
-/* ======== START - Your information about yourself (#personInfo) =================================================== */
-// размеры блоков установленные в стилях, размеры блоков при 4k разрешении
-// 770px  - width #personInfo
-// 210%   - font-size, #personName
-// 160%   - font-size, #personProfession
-// 118%   - font-size, #personDescription
-// 300px  - bottom, #personInfo
-// 900px  - right, #personInfo
-function defaultPersonInfo() {
-    if ((personInfo !== null) && (personName !== null) && (personProfession !== null) && (personDescription !== null)) {
-        personInfo.style.width = 770 + 'px'
-        personInfo.style.bottom = 300 + 'px'
-        personInfo.style.right = 900 + 'px'
-        personName.style.fontSize = 210 + '%'
-        personProfession.style.fontSize = 160 + '%'
-        personDescription.style.fontSize = 118 + '%'
-    }
-}
-
-// #personProfession, #personDescription
-function defaultPersonInfoPlus() {
-    if ((personProfession !== null) && (personDescription !== null)) {
-        personProfession.style.display = 'block'
-        personDescription.style.display = 'block'
-        personProfession.style.borderBottomRightRadius = 0 + 'px'
-        personProfession.style.borderBottomLeftRadius = 0 + 'px'
-    }
-}
-
-// #personInfo, #personProfession, #personDescription
-function resizePersonInfoMini() {
-    if ((personInfo !== null) && (personProfession !== null) && (personDescription !== null)) {
-        personInfo.style.right = 0 + 'px' // установить посередине
-        personDescription.style.display = 'none'
-        personProfession.style.borderBottomRightRadius = 0.5 + 'em'
-        personProfession.style.borderBottomLeftRadius = 0.5 + 'em'
-    }
-}
-
-function resizePersonInfo(windowInnerSize) {
-    let change = Math.round((770 * windowInnerSize) / 1900)
-    let changePersonName = Math.round((210 * windowInnerSize) / 1900)
-    let changePersonProfession = Math.round((160 * windowInnerSize) / 1900)
-    let changePersonDescription = Math.round((118 * windowInnerSize) / 1900)
-    let changeBottom = Math.round((300 * windowInnerSize) / 1900)
-    let changeLeft = Math.round((900 * windowInnerSize) / 1900)
-
-    if ((personInfo !== null) && (personName !== null) && (personProfession !== null) && (personDescription !== null)) {
-        personInfo.style.width = change + 'px'
-        personInfo.style.bottom = changeBottom + 'px'
-        personInfo.style.right = changeLeft + 'px'
-        personName.style.fontSize = changePersonName + '%'
-        personProfession.style.fontSize = changePersonProfession + '%'
-        personDescription.style.fontSize = changePersonDescription + '%'
-    }
-}
-
-let sizePersonInfo = (screenWidth, screenHeight) => {
-    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
-        resizePersonInfo(screenWidth)
-    }
-    if ((screenWidth >= 1900) && (screenHeight <= 1900)) {
-        resizePersonInfo(screenHeight)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
-        resizePersonInfo(screenWidth)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
-        resizePersonInfo(screenHeight)
-    }
-    if ((screenWidth >= 1900) && (screenHeight >= 1900)) {
-        defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
-    }
-    if ((screenWidth <= 1200) && (screenHeight >= 1200)) {
-        resizePersonInfoMini()
-    }
-    if ((screenHeight <= 1200) && (screenWidth >= 1200)) {
-        resizePersonInfoMini()
-    }
-    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth < screenHeight)) {
-        resizePersonInfoMini()
-    }
-    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth > screenHeight)) {
-        resizePersonInfoMini()
-    }
-    if ((screenWidth >= 1200) && (screenHeight >= 1200)) {
-        defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
-    }
-}
-
-let sizePersonInfoDefault = (screenWidth, screenHeight) => {
-    if ((screenWidth <= 1900) && (screenHeight >= 1900)) {
-        resizePersonInfo(screenWidth)
-    }
-    if ((screenHeight <= 1900) && (screenWidth >= 1900)) {
-        resizePersonInfo(screenHeight)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth < screenHeight)) {
-        resizePersonInfo(screenWidth)
-    }
-    if ((screenWidth <= 1900) && (screenHeight <= 1900) && (screenWidth > screenHeight)) {
-        resizePersonInfo(screenHeight)
-    }
-    if ((screenWidth >= 1900) && (screenHeight >= 1900) && (screenWidth < screenHeight)) {
-        resizePersonInfo(screenWidth)
-    }
-    if ((screenWidth >= 1900) && (screenHeight >= 1900) && (screenWidth > screenHeight)) {
-        resizePersonInfo(screenHeight)
-    }
-    // условия при первой загрузке сайта, для #personProfession, #personDescription
-    if ((screenWidth <= 1200) && (screenHeight >= 1200)) {
-        resizePersonInfoMini()
-    }
-    if ((screenHeight <= 1200) && (screenWidth >= 1200)) {
-        resizePersonInfoMini()
-    }
-    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth < screenHeight)) {
-        resizePersonInfoMini()
-    }
-    if ((screenWidth <= 1200) && (screenHeight <= 1200) && (screenWidth > screenHeight)) {
-        resizePersonInfoMini()
-    }
-}
-
-function setSizePersonInfo() {
-    addEventListener('resize', event => {
-
-        let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
-
-        if (getSizeElement.windowInnerW < getSizeElement.screenW) {
-            sizePersonInfo(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
-        } else {
-            sizePersonInfo(getSizeElement.screenW, getSizeElement.screenH)
-        }
-
-        // original
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        //     resizePersonInfo(getSizeElement.windowInnerW)
-        // }
-        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH <= 1900)) {
-        //     resizePersonInfo(getSizeElement.windowInnerH)
-        // }
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        //     resizePersonInfo(getSizeElement.windowInnerW)
-        // }
-        // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        //     resizePersonInfo(getSizeElement.windowInnerH)
-        // }
-        // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-        //     defaultPersonInfo() // вернуться к настройкам стилей, установленным в style.css
-        // }
-        // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH >= 1200)) {
-        //     resizePersonInfoMini()
-        // }
-        // if ((getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW >= 1200)) {
-        //     resizePersonInfoMini()
-        // }
-        // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-        //     resizePersonInfoMini()
-        // }
-        // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-        //     resizePersonInfoMini()
-        // }
-        // if ((getSizeElement.windowInnerW >= 1200) && (getSizeElement.windowInnerH >= 1200)) {
-        //     defaultPersonInfoPlus() // вернуться к настройкам стилей, установленным в style.css, для #personProfession, #personDescription
-        // }
-    })
-}
-
-// условия при первой загрузке сайта
-function setSizePersonInfoDefault() {
-    let getSizeElement = new GetSizeElement() // получить текущие размеры блоков
-
-    if (getSizeElement.windowInnerW < getSizeElement.screenW) {
-        sizePersonInfoDefault(getSizeElement.windowInnerW, getSizeElement.windowInnerH)
-    } else {
-        sizePersonInfoDefault(getSizeElement.screenW, getSizeElement.screenH)
-    }
-
-    // original
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH >= 1900)) {
-    //     resizePersonInfo(getSizeElement.windowInnerW)
-    // }
-    // if ((getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW >= 1900)) {
-    //     resizePersonInfo(getSizeElement.windowInnerH)
-    // }
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-    //     resizePersonInfo(getSizeElement.windowInnerW)
-    // }
-    // if ((getSizeElement.windowInnerW <= 1900) && (getSizeElement.windowInnerH <= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-    //     resizePersonInfo(getSizeElement.windowInnerH)
-    // }
-    // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-    //     resizePersonInfo(getSizeElement.windowInnerW)
-    // }
-    // if ((getSizeElement.windowInnerW >= 1900) && (getSizeElement.windowInnerH >= 1900) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-    //     resizePersonInfo(getSizeElement.windowInnerH)
-    // }
-    // // условия при первой загрузке сайта, для #personProfession, #personDescription
-    // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH >= 1200)) {
-    //     resizePersonInfoMini()
-    // }
-    // if ((getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW >= 1200)) {
-    //     resizePersonInfoMini()
-    // }
-    // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW < getSizeElement.windowInnerH)) {
-    //     resizePersonInfoMini()
-    // }
-    // if ((getSizeElement.windowInnerW <= 1200) && (getSizeElement.windowInnerH <= 1200) && (getSizeElement.windowInnerW > getSizeElement.windowInnerH)) {
-    //     resizePersonInfoMini()
-    // }
-}
-/* ======== END - Your information about yourself (#personInfo) ===================================================== */
-
 
 /* ======== START - Section title (.section-title) ================================================================== */
 function setSizeBorderSection() {
@@ -752,6 +342,7 @@ function resizeSizeBorderSection() {
 }
 
 /* ======== END - Section title (.section-title) ==================================================================== */
+
 
 
 /* ======== START - Сircle animation (#circle) ====================================================================== */
@@ -794,6 +385,7 @@ function circleAnimation() {
 }
 
 /* ======== END - Сircle animation (#circle) ======================================================================== */
+
 
 
 /* ======== START - Owl Carousel library (.owl-carousel) ============================================================ */

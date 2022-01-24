@@ -192,47 +192,47 @@
 .base {
     display: block;
     background-color: var(--color-2);
-
-    > .capsule {
-        margin: 0 65px;
-        padding: 0 15px;
-        display: block;
-    }
 }
 
-@media (max-width: 1300px) {
-    .base {
-        > .capsule {
-            margin: 0 30px;
-        }
-    }
-}
-
-.composition {
-    min-height: calc(100vh - 64px); // footer-top: 64px
+.base__capsule {
+    margin: 0 65px;
+    padding: 0 15px;
     display: block;
 }
 
-@media (max-width: 1300px) {
-    .composition {
-        min-height: 100vh;
-    }
+.composition {
+    //min-height: calc(100vh - 64px); // footer-top: 64px
+    min-height: 100vh;
+    position: relative;
+    display: block;
+}
+
+.composition__capsule {
+    width: 1400px;
+    height: 1400px;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -100%);
+    transform-origin: center bottom;
+    position: absolute;
+    display: block;
+    background-color: pink;
 }
 
 .circle {
-    width: 1400px; // [MAIN.JS]
-    height: 1400px; // [MAIN.JS]
+    width: 1380px;
+    height: 1380px;
     left: 0;
     right: 0;
-    bottom: 314px;
+    bottom: 0;
     margin: auto;
     display: block;
     position: absolute;
 }
 
 .person-img {
-    width: 1020px; // [MAIN.JS]
-    height: 1500px; // [MAIN.JS]
+    width: 960px;
+    height: 1220px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -249,10 +249,10 @@
 }
 
 .person-info {
-    width: 770px; // [MAIN.JS]
+    width: 560px;
     left: 0;
-    right: 900px; // [MAIN.JS]
-    bottom: 300px;
+    right: 590px;
+    bottom: 150px;
     margin: auto;
     display: flex;
     overflow: hidden;
@@ -262,36 +262,28 @@
     z-index: 30;
 
     div:first-child {
-        border-radius: 0.5em 0.5em 0 0; // [MAIN.JS]
+        border-radius: 10px 10px 0 0;
         margin: 0 0 6px 0;
     }
 
     div:last-child {
-        border-radius: 0 0 0.5em 0.5em; // [MAIN.JS]
+        border-radius: 0 0 10px 10px;
         margin: 6px 0 0 0;
     }
 }
 
-@media (max-width: 1200px) {
-    .person-info {
-        div:first-child {
-            margin: 0 0 1% 0;
-        }
-    }
-}
-
 .person-info__name {
-    padding: 2.5% 3.6%;
+    padding: 10px 22px;
     margin: 0;
     display: block;
-    white-space: nowrap;
+    //white-space: nowrap;
     background-color: var(--color-4);
 
     > h1 {
         margin: 0;
         padding: 0;
         font-family: "Poppins Bold", serif;
-        font-size: 210%; // [MAIN.JS]
+        font-size: 52px;
         text-transform: uppercase;
         line-height: 1;
         color: var(--color-1);
@@ -299,8 +291,8 @@
 }
 
 .person-info__profession {
-    padding: 1.8% 3.6%;
-    display: block; // [MAIN.JS]
+    padding: 10px 22px;
+    display: block;
     //white-space: nowrap;
     background-color: var(--color-1);
 
@@ -308,29 +300,31 @@
         margin: 0;
         padding: 0;
         font-family: "Poppins Bold", serif;
-        font-size: 160%; // [MAIN.JS]
+        font-size: 26px;
         line-height: 1.3;
         color: var(--color-5);
     }
 }
 
 .person-info__description {
-    padding: 2.5% 3.6%;
-    display: block; // [MAIN.JS]
+    padding: 10px 22px;
+    display: block;
     background-color: var(--color-1);
 
     > p {
         margin: 0;
         padding: 0;
         font-family: "Poppins Regular", serif;
-        font-size: 118%; // [MAIN.JS]
+        font-size: 16px;
         line-height: 1.6;
         color: var(--color-6);
     }
 }
 
 .footer-top {
+    margin-top: -64px;
     height: 64px;
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -342,7 +336,6 @@
         display: none;
     }
 }
-
 /* ======== END - Section Base ====================================================================================== */
 
 

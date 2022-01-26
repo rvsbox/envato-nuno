@@ -7,21 +7,19 @@
     z-index: 200;
     position: fixed;
     background-color: var(--color-2);
+}
 
-    > .capsule {
-        margin: 0 65px;
-        padding: 0 15px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+.header__capsule {
+    margin: 0 65px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 @media (max-width: 1300px) {
-    .header {
-        > .capsule {
-            margin: 0 30px;
-        }
+    .header__capsule {
+        margin: 0 30px;
     }
 }
 
@@ -336,6 +334,7 @@
         display: none;
     }
 }
+
 /* ======== END - Section Base ====================================================================================== */
 
 
@@ -1041,6 +1040,7 @@
     margin: 40px 0 0 0;
     display: block;
 }
+
 /* ======== END - Section Portfolio ================================================================================= */
 
 
@@ -1444,5 +1444,6 @@
 
     }
 }
+
 /* ======== END - Footer ============================================================================================ */
 /* ======== END - Base Page ========================================================================================= */

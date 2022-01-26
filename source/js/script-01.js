@@ -62,7 +62,6 @@ function preloader() {
         )
     }
 }
-
 /* ======== END - Preloader ========================================================================================= */
 
 
@@ -75,67 +74,73 @@ function GetSizeElement() {
     // размер экрана — это ширина и высота всего экрана: монитора или мобильного дисплея
     this.screenW = window.screen.width
     this.screenH = window.screen.height
-}
 
+    this.compositionCapsuleW = compositionCapsule.clientWidth
+    this.compositionCapsuleH = compositionCapsule.clientHeight
+}
 /* ======== END - Get element sizes ================================================================================= */
 
 
 /* ======== START - Composition scale =============================================================================== */
-let windowInnerW, windowInnerH, compositionH, compositionW, screenH, screenW, scl
-let startScaling = 1399 // максимальный размер экрана до которого масштабируется композиция
+let scl
+let maxSizeScaling = 1399 // максимальный размер экрана до которого масштабируется композиция
 let minSizeScreen = 320 // минимальный размер экрана до которого масштабируется композиция
 
+function conditionsForScreen() {
+    let getSizeElement = new GetSizeElement()
 
-function getPositionComposition() {
-    windowInnerW = window.innerWidth
-    windowInnerH = window.innerHeight
-    screenW = window.screen.width
-    screenH = window.screen.height
-    compositionW = compositionCapsule.clientWidth
-    compositionH = compositionCapsule.clientHeight
-}
+    if ((getSizeElement.screenW <= maxSizeScaling) || (getSizeElement.screenH <= maxSizeScaling)) {
 
-getPositionComposition()
-
-addEventListener('resize', () => {
-    if ((screenW > startScaling) && (screenH > startScaling)) {
-        getPositionComposition()
-
-        compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(1)`
-    }
-
-    if ((screenW <= startScaling) || (screenH <= startScaling)) {
-        getPositionComposition()
-
-        if (screenW < screenH) {
+        if (getSizeElement.screenW < getSizeElement.screenH) {
             // от 1 до 0,6 изменение масштаба по горезонтали
-            scl = 1 - ((((startScaling - screenW) * 100) / (startScaling - minSizeScreen)) * (1 - 0.2) / 100)
+            scl = 1 - ((((maxSizeScaling - getSizeElement.screenW) * 100) / (maxSizeScaling - minSizeScreen)) * (1 - 0.2) / 100)
             compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
         } else {
             // от 1 до 0,24 изменение масштаба по вертикали
-            scl = 1 - ((((startScaling - screenH) * 100) / (startScaling - minSizeScreen)) * (1 - 0.18) / 100)
+            scl = 1 - ((((maxSizeScaling - getSizeElement.screenH) * 100) / (maxSizeScaling - minSizeScreen)) * (1 - 0.18) / 100)
             compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
         }
     }
+}
 
-    // test
-    // console.log('screen' + screenW)
-    // console.log(windowInnerW)
+function conditionsForWindowInner() {
+    let getSizeElement = new GetSizeElement()
+
+    if ((getSizeElement.windowInnerW <= maxSizeScaling) || (getSizeElement.windowInnerH <= maxSizeScaling)) {
+
+        if (getSizeElement.windowInnerW < getSizeElement.windowInnerH) {
+            // от 1 до 0,6 изменение масштаба по горезонтали
+            scl = 1 - ((((maxSizeScaling - getSizeElement.windowInnerW) * 100) / (maxSizeScaling - minSizeScreen)) * (1 - 0.2) / 100)
+            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
+        } else {
+            // от 1 до 0,24 изменение масштаба по вертикали
+            scl = 1 - ((((maxSizeScaling - getSizeElement.windowInnerH) * 100) / (maxSizeScaling - minSizeScreen)) * (1 - 0.18) / 100)
+            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
+        }
+    }
+}
+
+addEventListener('resize', () => {
+    let getSizeElement = new GetSizeElement()
+
+    if ((getSizeElement.screenW > maxSizeScaling) && (getSizeElement.screenH > maxSizeScaling)) {
+        compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(1)`
+    }
+
+    if ((getSizeElement.screenW < getSizeElement.windowInnerW) || (getSizeElement.screenH < getSizeElement.windowInnerH)) {
+        conditionsForScreen()
+    } else {
+        conditionsForWindowInner()
+    }
 })
 
 function setPositionComposition() {
-    if ((screenW <= startScaling) || (screenH <= startScaling)) {
-        getPositionComposition()
+    let getSizeElement = new GetSizeElement()
 
-        compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
-
-        if (screenW < screenH) {
-            scl = 1 - ((((startScaling - screenW) * 100) / (startScaling - minSizeScreen)) * (1 - 0.2) / 100)
-            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
-        } else {
-            scl = 1 - ((((startScaling - screenH) * 100) / (startScaling - minSizeScreen)) * (1 - 0.18) / 100)
-            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(${scl})`
-        }
+    if ((getSizeElement.screenW < getSizeElement.windowInnerW) || (getSizeElement.screenH < getSizeElement.windowInnerH)) {
+        conditionsForScreen()
+    } else {
+        conditionsForWindowInner()
     }
 }
 
@@ -163,7 +168,6 @@ function changeHeaderRun() {
         window.addEventListener('scroll', changeHeader) // срабатывание при скролле
     }
 }
-
 /* ======== END - Fixing the header when scrolling (#header) ======================================================== */
 
 
@@ -336,7 +340,6 @@ function resizeSizeBorderSection() {
         }
     })
 }
-
 /* ======== END - Section title (.section-title) ==================================================================== */
 
 

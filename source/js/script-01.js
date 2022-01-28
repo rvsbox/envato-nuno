@@ -12,18 +12,16 @@ File Description: Main js file of the template
 /* =====================================================================================================================
 1.  Preloader                            |  #preloader
 2.  Get element sizes                    |  GetSizeElement()
-3.  Fixing the header when scrolling     |  changeHeaderRun(), #header
-4.  Highlighting the active menu item    |  addRemoveActiveRun(), #nav, #navRight
-5.  Scrolling animation                  |  #nav, #navRight, .btn-arrow
-6.  Open, close side menu                |  сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight
-7.  Three big circles                    |  setSizeCircle(), setSizeCircleDefault(), #circle
-8.  Your big photo                       |  setSizePersonImg(), setSizePersonImgDefault(), #personImg
-9.  Your information about yourself      |  setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo
-10. Section title                        |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
-11. Сircle animation                     |  circleAnimation(), #circle
-12. Owl Carousel library                 |  .owl-carousel
-13. AutoFilter library                   |  .portfolio-items, .portfolio
-14. Portfolio animation                  |  .art, .portfolio
+3.  Composition scale                    |  #composition
+4.  Fixing the header when scrolling     |  changeHeaderRun(), #header
+5.  Highlighting the active menu item    |  addRemoveActiveRun(), #nav, #navRight
+6.  Scrolling animation                  |  #nav, #navRight, .btn-arrow
+7.  Open, close side menu                |  сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight
+8.  Section title                        |  setSizeBorderSection(), resizeSizeBorderSection(), .section-title
+9.  Сircle animation                     |  circleAnimation(), #circle
+10. Owl Carousel library                 |  .owl-carousel
+11. AutoFilter library                   |  autofilter.js, .portfolio-items, .portfolio
+12. Portfolio animation                  |  .art, .portfolio
 ===================================================================================================================== */
 
 let header = document.getElementById('header')
@@ -50,7 +48,7 @@ window.onload = () => {
 }
 
 
-/* ======== START - Preloader ======================================================================================= */
+/* ======== START - 1. Preloader ==================================================================================== */
 function preloader() {
     // с помощью if запускаем preloader только на cтранице index
     if (composition !== null) {
@@ -63,10 +61,10 @@ function preloader() {
     }
 }
 
-/* ======== END - Preloader ========================================================================================= */
+/* ======== END - 1. Preloader ====================================================================================== */
 
 
-/* ======== START - Get element sizes =============================================================================== */
+/* ======== START - 2. Get element sizes ============================================================================ */
 function GetSizeElement() {
     // внутренний размер окна — это ширина и высота области просмотра (вьюпорта)
     this.windowInnerW = window.innerWidth
@@ -80,10 +78,10 @@ function GetSizeElement() {
     // this.compositionCapsuleH = compositionCapsule.clientHeight
 }
 
-/* ======== END - Get element sizes ================================================================================= */
+/* ======== END - 2. Get element sizes ============================================================================== */
 
 
-/* ======== START - Composition scale =============================================================================== */
+/* ======== START - 3. Composition scale ============================================================================ */
 let scl
 let maxSizeScaling = 1399 // максимальный размер экрана до которого масштабируется композиция
 let minSizeScreen = 320 // минимальный размер экрана до которого масштабируется композиция
@@ -154,10 +152,10 @@ if (composition !== null) {
     setPositionComposition()
     setPositionCompositionEvent()
 }
-/* ======== END - Composition scale ================================================================================= */
+/* ======== END - 3. Composition scale ============================================================================== */
 
 
-/* ======== START - Fixing the header when scrolling (#header) ====================================================== */
+/* ======== START - 4. Fixing the header when scrolling (#header) =================================================== */
 function changeHeader() {
     if (pageYOffset > 10) {
         header.style.top = -16 + 'px'
@@ -178,10 +176,10 @@ function changeHeaderRun() {
     }
 }
 
-/* ======== END - Fixing the header when scrolling (#header) ======================================================== */
+/* ======== END - 4. Fixing the header when scrolling (#header) ===================================================== */
 
 
-/* ======== START - Highlighting the active menu item (#nav, #navRight) ============================================= */
+/* ======== START - 5. Highlighting the active menu item (#nav, #navRight) ========================================== */
 let border = window.innerHeight / 1.8 // установка границы срабатывания скрипта
 let sectionsLength = document.getElementsByTagName('section').length
 let sections = document.querySelectorAll('section');
@@ -217,10 +215,10 @@ function addRemoveActiveRun() {
     })
 }
 
-/* ======== END - Highlighting the active menu item (#nav, #navRight) =============================================== */
+/* ======== END - 5. Highlighting the active menu item (#nav, #navRight) ============================================ */
 
 
-/* ======== START - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) ================================= */
+/* ======== START - 6. Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) ============================== */
 // для навигации. #nav, #navRight
 $('a.nav__link[href*="#"],a.nav-right__link[href*="#"]').on('click', function (e) {
     e.preventDefault()
@@ -259,10 +257,10 @@ $('button#sendMessage').on('click', function (e) {
         scrollTop: $('#contactplus').offset().top
     }, 1000, 'swing')
 })
-/* ======== END - Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) =================================== */
+/* ======== END - 6. Scrolling animation (#nav, #navRight, .btn-arrow, #sendMessage) ================================ */
 
 
-/* ======== START - Open, close side menu (#navRight, #closeNavRight) =============================================== */
+/* ======== START - 7. Open, close side menu (#navRight, #closeNavRight) ============================================ */
 openNavRight.addEventListener('click', openNav)
 closeNavRight.addEventListener('click', closeNav)
 
@@ -319,10 +317,10 @@ document.addEventListener('click', function (e) {
         openNavRight.style.display = 'block'
     }
 })
-/* ======== END - Open, close side menu (#navRight, #closeNavRight) ================================================= */
+/* ======== END - 7. Open, close side menu (#navRight, #closeNavRight) ============================================== */
 
 
-/* ======== START - Section title (.section-title) ================================================================== */
+/* ======== START - 8. Section title (.section-title) =============================================================== */
 function setSizeBorderSection() {
     let k = document.getElementsByClassName('section-title__heading').length
 
@@ -351,10 +349,10 @@ function resizeSizeBorderSection() {
     })
 }
 
-/* ======== END - Section title (.section-title) ==================================================================== */
+/* ======== END - 8. Section title (.section-title) ================================================================= */
 
 
-/* ======== START - Сircle animation (#circle) ====================================================================== */
+/* ======== START - 9. Сircle animation (#circle) =================================================================== */
 function circleAnimation() {
     const black3 = document.getElementById('circleSmallBlack');
     const white3 = document.getElementById('circleSmallWhite');
@@ -393,10 +391,10 @@ function circleAnimation() {
     }
 }
 
-/* ======== END - Сircle animation (#circle) ======================================================================== */
+/* ======== END - 9. Сircle animation (#circle) ===================================================================== */
 
 
-/* ======== START - Owl Carousel library (.owl-carousel) ============================================================ */
+/* ======== START - 10. Owl Carousel library (.owl-carousel) ======================================================== */
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
         loop: true,
@@ -415,17 +413,17 @@ $(document).ready(function () {
         }
     })
 })
-/* ======== END - Owl Carousel library (.owl-carousel) ============================================================== */
+/* ======== END - 10. Owl Carousel library (.owl-carousel) ========================================================== */
 
 
-/* ======== START - AutoFilter library (.portfolio-item, .portfolio) ================================================ */
+/* ======== START - 11. AutoFilter library (.portfolio-item, .portfolio) ============================================ */
 $(function ($) {
     $.autofilter();
 });
-/* ======== END - AutoFilter library (.portfolio-item, .portfolio) ================================================== */
+/* ======== END - 11. AutoFilter library (.portfolio-item, .portfolio) ============================================== */
 
 
-/* ======== START - Portfolio animation (.art, .portfolio) ========================================================== */
+/* ======== START - 12. Portfolio animation (.art, .portfolio) ====================================================== */
 function portfolioAnimation() {
     const art = document.getElementsByClassName('art')
     const maskCircle = document.getElementsByClassName('mask-circle')
@@ -475,4 +473,4 @@ function portfolioAnimation() {
     }
 }
 
-/* ======== END - Portfolio animation (.art, .portfolio) ============================================================ */
+/* ======== END - 12. Portfolio animation (.art, .portfolio) ======================================================== */

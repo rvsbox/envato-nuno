@@ -26,10 +26,9 @@
                 <li><a href="#sec-5">CSS File Structure</a></li>
                 <li><a href="#sec-6">JavaScript File Structure</a></li>
                 <li><a href="#sec-7">Owl Carousel Library</a></li>
-                <li><a href="#sec-8">Isotope Library</a></li>
-                <li><a href="#sec-9">Anime Library</a></li>
-                <li><a href="#sec-10">Icons</a></li>
-                <li><a href="#sec-11">Credits</a></li>
+                <li><a href="#sec-8">Autofilter Library</a></li>
+                <li><a href="#sec-9">Icons</a></li>
+                <li><a href="#sec-10">Credits</a></li>
             </ul>
         </div>
     </div>
@@ -68,7 +67,7 @@
                     <li class="list__item">Anime v3.2.1</li>
                     <li class="list__item">Bootstrap v4.6.0</li>
                     <li class="list__item">Font Awesome v4.7.0</li>
-                    <li class="list__item">Isotope v3.0.6</li>
+                    <li class="list__item">Autofilter v0.3</li>
                     <li class="list__item">Normalize.css v.8.0.1</li>
                     <li class="list__item">Owl Carousel v2.3.4</li>
                     <li class="list__item">jQuery v3.6.0</li>
@@ -127,13 +126,13 @@
                 <h3>main.css ></h3>
                 <span class="screenshot"><img src="assets/img/pic-05.png" alt="pic-05"></span>
                 <h3>Connecting Fonts</h3>
-<pre>
+                <pre>
 /* ======== START - Fonts ========= */
 /* Here is some code */
 /* ======== END - Fonts =========== */
 </pre>
                 <h3>Color Settings</h3>
-<pre>
+                <pre>
 /* ======== START - Colors ========= */
 /* Here is some code */
 /* ======== END - Colors =========== */
@@ -141,7 +140,7 @@
                 <h3>Block of Elements</h3>
                 <p>The <b>'Elements'</b> block contains styles of elements that can be reused.
                     These include headers, buttons, input field, icons, etc.</p>
-<pre>
+                <pre>
 /* ======== START - Elements ========= */
 
     /* ======== START - Title ========= */
@@ -156,7 +155,7 @@
 </pre>
                 <h3>Base Page</h3>
                 <p>The <b>'Base Page'</b> block contains the main styles of the file elements <b>index.html</b>.</p>
-<pre>
+                <pre>
 /* ======== START - Base  Page ========= */
 /* Here is some code */
 /* ======== End - Base  Page =========== */
@@ -170,32 +169,18 @@
                 <span class="screenshot"><img src="assets/img/pic-06.png" alt="pic-06"></span>
                 <h3>Brief Description of Functions</h3>
                 <ul class="list-number">
-                    <li class="list-number__item">1. Get element sizes<br>
-                        <span>GetSizeElement()</span></li>
-                    <li class="list-number__item">2. Fixing the header when scrolling<br>
-                        <span>changeHeaderRun(), #header</span></li>
-                    <li class="list-number__item">3. Highlighting the active menu item<br>
-                        <span>addRemoveActiveRun(), #nav, #navRight</span></li>
-                    <li class="list-number__item">4. Scrolling animation<br>
-                        <span>#nav, #navRight, .btn-arrow</span></li>
-                    <li class="list-number__item">5. Open, close side menu<br>
-                        <span>сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight</span></li>
-                    <li class="list-number__item">6. Three big circles<br>
-                        <span>setSizeCircle(), setSizeCircleDefault(), #circle</span></li>
-                    <li class="list-number__item">7. Your big photo<br>
-                        <span>setSizePersonImg(), setSizePersonImgDefault(), #personImg</span></li>
-                    <li class="list-number__item">8. Your information about yourself<br>
-                        <span>setSizePersonInfo(), setSizePersonInfoDefault(), #personInfo</span></li>
-                    <li class="list-number__item">9. Section title<br>
-                        <span>setSizeBorderSection(), resizeSizeBorderSection(), .section-title</span></li>
-                    <li class="list-number__item">10. Anime library<br>
-                        <span>circleAnimation(), #circle</span></li>
-                    <li class="list-number__item">11. Owl Carousel library<br>
-                        <span>.owl-carousel</span></li>
-                    <li class="list-number__item">12. Isotope library<br>
-                        <span>.portfolio-items</span></li>
-                    <li class="list-number__item">13. Add icons to the list<br>
-                        <span>.price, .price__service-item</span></li>
+                    <li class="list-number__item">1.  Preloader<br><span>#preloader</span></li>
+                    <li class="list-number__item">2.  Get element sizes<br><span>GetSizeElement()</span></li>
+                    <li class="list-number__item">3.  Composition scale<br><span>#composition</span></li>
+                    <li class="list-number__item">4.  Fixing the header when scrolling<br><span>changeHeaderRun(), #header</span></li>
+                    <li class="list-number__item">5.  Highlighting the active menu item<br><span>addRemoveActiveRun(), #nav, #navRight</span></li>
+                    <li class="list-number__item">6.  Scrolling animation<br><span>#nav, #navRight, .btn-arrow</span></li>
+                    <li class="list-number__item">7.  Open, close side menu<br><span>сloseNavRight(), сloseNavRightDefault(), #navRight, #closeNavRight</span></li>
+                    <li class="list-number__item">8.  Section title<br><span>setSizeBorderSection(), resizeSizeBorderSection(), .section-title</span></li>
+                    <li class="list-number__item">9.  Сircle animation<br><span>circleAnimation(), #circle</span></li>
+                    <li class="list-number__item">10. Owl Carousel library<br><span>.owl-carousel</span></li>
+                    <li class="list-number__item">11. AutoFilter library<br><span>autofilter.js, .portfolio-items, .portfolio</span></li>
+                    <li class="list-number__item">12. Portfolio animation<br><span>.art, .portfolio</span></li>
                 </ul>
             </div>
 
@@ -211,28 +196,17 @@
             </div>
 
             <div class="section" id="sec-8">
-                <h1>Isotope Library</h1>
-                <p>The Isotope library is used on the home page in the <b>'Portfolio'</b> block. The jQuery library is
+                <h1>Autofilter Library</h1>
+                <p>The Autofilter library is used on the home page in the <b>'Portfolio'</b> block. The jQuery library is
                     required for the filter to work correctly.</p>
-                <p>Isotope - filter & sort magical layouts.</p>
+                <p>Autofilter - filter & sort magical layouts.</p>
                 <span class="screenshot"><img src="assets/img/pic-09.png" alt="pic-09"></span>
-                <p>All the necessary settings of the Isotope library are shown in the screenshot below.</p>
+                <p>All the necessary settings of the Autofilter library are shown in the screenshot below.</p>
                 <h3>main.js ></h3>
                 <span class="screenshot"><img src="assets/img/pic-10.png" alt="pic-10"></span>
             </div>
 
             <div class="section" id="sec-9">
-                <h1>Anime Library</h1>
-                <p>The Anime library (anime.js) is used to animate elements. The screenshot shows three white circles
-                    that are
-                    animated using this library.</p>
-                <span class="screenshot"><img src="assets/img/pic-11.png" alt="pic-11"></span>
-                <p>All the necessary settings of the Anime library (anime.js) are shown in the screenshot below.</p>
-                <h3>main.js ></h3>
-                <span class="screenshot"><img src="assets/img/pic-12.png" alt="pic-12"></span>
-            </div>
-
-            <div class="section" id="sec-10">
                 <h1>Icons</h1>
                 <p>Required files for using icons:</p>
                 <ul class="list">
@@ -300,21 +274,19 @@
                 </ul>
             </div>
 
-            <div class="section" id="sec-11">
+            <div class="section" id="sec-10">
                 <h1>Credits</h1>
                 <ul class="list">
                     <li class="list__item">Bootstrap v4.6.0<br>
                         <span>https://getbootstrap.com/docs/4.6/getting-started/download/</span></li>
                     <li class="list__item">Normalize v.8.0.1<br>
                         <span>https://necolas.github.io/normalize.css/</span></li>
-                    <li class="list__item">Anime v3.2.1<br>
-                        <span>https://animejs.com/</span></li>
                     <li class="list__item">jQuery v3.6.0<br>
                         <span>https://jquery.com/</span></li>
                     <li class="list__item">Owl Carousel v2.3.4<br>
                         <span>https://owlcarousel2.github.io/OwlCarousel2/</span></li>
-                    <li class="list__item">Isotope v3.0.6<br>
-                        <span>https://isotope.metafizzy.co/</span></li>
+                    <li class="list__item">Autofilter v0.3<br>
+                        <span>https://github.com/GianlucaChiarani/AutoFilter/</span></li>
                     <li class="list__item">Images From<br>
                         <span>http://www.unsplash.com</span></li>
                     <li class="list__item">Google Fonts<br>

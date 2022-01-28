@@ -62,6 +62,7 @@ function preloader() {
         )
     }
 }
+
 /* ======== END - Preloader ========================================================================================= */
 
 
@@ -75,9 +76,10 @@ function GetSizeElement() {
     this.screenW = window.screen.width
     this.screenH = window.screen.height
 
-    this.compositionCapsuleW = compositionCapsule.clientWidth
-    this.compositionCapsuleH = compositionCapsule.clientHeight
+    // this.compositionCapsuleW = compositionCapsule.clientWidth
+    // this.compositionCapsuleH = compositionCapsule.clientHeight
 }
+
 /* ======== END - Get element sizes ================================================================================= */
 
 
@@ -120,19 +122,22 @@ function conditionsForWindowInner() {
     }
 }
 
-addEventListener('resize', () => {
-    let getSizeElement = new GetSizeElement()
+function setPositionCompositionEvent() {
+    addEventListener('resize', () => {
+        let getSizeElement = new GetSizeElement()
 
-    if ((getSizeElement.screenW > maxSizeScaling) && (getSizeElement.screenH > maxSizeScaling)) {
-        compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(1)`
-    }
+        if ((getSizeElement.screenW > maxSizeScaling) && (getSizeElement.screenH > maxSizeScaling)) {
+            compositionCapsule.style.transform = `translate(-50%, -100%)` + `scale(1)`
+        }
 
-    if ((getSizeElement.screenW < getSizeElement.windowInnerW) || (getSizeElement.screenH < getSizeElement.windowInnerH)) {
-        conditionsForScreen()
-    } else {
-        conditionsForWindowInner()
-    }
-})
+        if ((getSizeElement.screenW < getSizeElement.windowInnerW) || (getSizeElement.screenH < getSizeElement.windowInnerH)) {
+            conditionsForScreen()
+        } else {
+            conditionsForWindowInner()
+        }
+    })
+}
+
 
 function setPositionComposition() {
     let getSizeElement = new GetSizeElement()
@@ -144,7 +149,11 @@ function setPositionComposition() {
     }
 }
 
-setPositionComposition()
+
+if (composition !== null) {
+    setPositionComposition()
+    setPositionCompositionEvent()
+}
 /* ======== END - Composition scale ================================================================================= */
 
 
@@ -168,6 +177,7 @@ function changeHeaderRun() {
         window.addEventListener('scroll', changeHeader) // срабатывание при скролле
     }
 }
+
 /* ======== END - Fixing the header when scrolling (#header) ======================================================== */
 
 
@@ -340,6 +350,7 @@ function resizeSizeBorderSection() {
         }
     })
 }
+
 /* ======== END - Section title (.section-title) ==================================================================== */
 
 

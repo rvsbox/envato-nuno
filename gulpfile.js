@@ -145,6 +145,20 @@ function myCss() {
         .pipe(browserSync.stream())
 }
 
+// для сборки scss файла. Файл чисто для клиента
+function myScss() {
+    return src([
+        'source/scss/_description.scss',
+        'source/scss/_font.scss',
+        'source/scss/_alpha-color.scss',
+        'source/scss/_element.scss',
+        'source/scss/_page-base.scss',
+        'source/scss/_page-sub.scss'
+    ])
+        .pipe(concat('main.scss'))
+        .pipe(dest(pathAlphaClear.build.css))       // alpha-clear
+}
+
 function myLibCss() {
     return src([
         'source/lib/css/*.css',
@@ -242,6 +256,7 @@ function myClear() {
 
 function myWatch() {
     watch([pathAlpha.watch.scss], myCss)
+    // watch([pathAlpha.watch.scss], myScss)
     watch([pathAlpha.watch.js], myJs)
     watch([pathAlpha.watch.html], myHtml)
     watch([pathAlpha.watch.html], myHtmlAlphaClear)
@@ -257,6 +272,7 @@ function myWatch() {
 
 exports.myServer = myServer                       // > yarn gulp myServer
 exports.myCss = myCss                             // > yarn gulp myCss
+exports.myScss = myScss                           // > yarn gulp myScss
 exports.myHtml = myHtml                           // > yarn gulp myHtml
 exports.myHtmlAlphaClear = myHtmlAlphaClear
 exports.myClear = myClear                         // > yarn gulp myClear
@@ -271,6 +287,7 @@ exports.build = series(
     myClear,
     myJs,
     myCss,
+    myScss,
     myHtml,
     myHtmlAlphaClear,
     myFont,
@@ -284,6 +301,7 @@ exports.default = parallel(
     myServer,
     myJs,
     myCss,
+    myScss,
     myHtml,
     myHtmlAlphaClear,
     myFont,

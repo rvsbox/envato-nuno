@@ -1,10 +1,10 @@
 /* =====================================================================================================================
-Template Name:    Nuno | Responsive One Page HTML Template
+Template Name:    Nuno - Responsive One Page HTML Template
 Template URI:     https://themeforest.net
 Author:           rvsbox
 Author URI:       https://themeforest.net/user/rvsbox
 Version:          1.0.0
-Created:          January 2022
+Created:          February 2022
 File Description: Main js file of the template
 ===================================================================================================================== */
 
@@ -390,7 +390,6 @@ function circleAnimation() {
         })()
     }
 }
-
 /* ======== END - 9. Сircle animation (#circle) ===================================================================== */
 
 
@@ -472,5 +471,4 @@ function portfolioAnimation() {
         art[i].addEventListener('mouseleave', () => layerPlayChangeState(i))
     }
 }
-
 /* ======== END - 12. Portfolio animation (.art, .portfolio) ======================================================== */

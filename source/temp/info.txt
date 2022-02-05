@@ -1,14 +1,29 @@
-jquery.js
-bootstrap v4.0
-owl.carousel 2
-anime.js
-isotope.js
+Nuno - Personal Portfolio HTML Template
 
-Font Awesome
+Features:
+Valid HTML5
+Cross browser
+Fully Responsive to all devices
+Developer Friendly Coding
+Very Well Documented
+SCSS File Extension
+Unique Design
+
+
+Credits:
+Bootstrap 4
+jQuery
+Autofilter
+Owl Carousel
+Normalize
 Google Fonts
-unsplash.com - картинки
-placehold.co - заглушки вместо картинок
+Google Maps
+IcoMoon
 
+
+Images:
+Placehold
+Unsplash
 
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -27,8 +42,8 @@ Features:
     Parallax Scrolling
 
 ------------------------------------------------------------------------------------------------------------------------
-
 @media (max-width: 1200px) {}
 @media (max-width: 992px) {}
 @media (max-width: 768px) {}
 @media (max-width: 576px) {}
+------------------------------------------------------------------------------------------------------------------------

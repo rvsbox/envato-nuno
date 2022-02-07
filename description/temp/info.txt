@@ -1,0 +1,65 @@
+Nuno - Personal Portfolio Website Template
+
+Nuno is a simple minimalistic portfolio theme suitable for many who want to promote themselves and their business.
+This is one page to post information about yourself, your experience, services and portfolio. The template will be helpful
+designers, photographers, programmers, teachers and other professionals who offer their services.
+The template is fully customizable, very flexible and well documented.
+
+
+
+Features:
+Valid HTML5
+Modern And Creative Design
+Cross browser
+Fully Responsive to all devices
+Fully Customizable
+Developer Friendly Coding
+Very Well Documented
+SCSS File Included
+SVG Icons
+Unique Design
+Regular Updates
+
+
+Credits:
+Bootstrap 4
+jQuery
+Autofilter
+Owl Carousel
+Normalize
+Google Fonts
+Google Maps
+IcoMoon
+
+
+Images:
+Placehold
+Unsplash
+
+
+Changelog:
+Version 1.1 - Initial 15 February, 2020
+
+Tunis – Personal Portfolio React Template can be used for many purposes. It’s a creative, minimal and clean design.It’s suitable for Designer, Developer, Specialist, Content Writer, Instructor, Photographer, Freelancer, Software Engineer, Teacher or others expert who Show their professional projects and services in digital way. It’s 100% responsive and Ultra Super Fast beacause it’s made with React v17+.
+
+Tokyo – Personal Portfolio HTML Template is for many purpose. It’s creative, minimal and clean design. It has all of the features of the business website. It’s suitable for any startup business, companies, agencies, and freelancers which need a professional way to showcase their projects and services with 100% super responsive experience.
+
+Aron is a Creative & Modern MultiPurpose Template is a perfect template for creative agencies and business startup. Multiple templates are included in this template with lots of CSS and jQuery animations, a perfect template for business startups, web studio, and digital agencies. Responsive based on Bootstrap. This is one page for placing your information. All files and code has been well organized and nicely commented for easy to customize.
+
+Personal Portfolio Template – Noisee is fully customizable and very flexible, 6 colors schemes, 3 background styles, blog pages, one page mode. This template is perfect to promote yourself and your business, focused for: designers, freelancers, developers, programmers, coders or any other digital professions.
+
+
+
+
+Nuno — это простая минималистичная тема для портфолио, подходящая для многих, кто хочет продвигать себя и свой бизнес.
+Это одна страница для размещения информации о себе, о вашем опыте, услугах и портфолио. Шаблон будет полезен
+дизайнерам, фотографам, программистам, учителям и другим специалистам которые предлагают свои услуги.
+Шаблон полностью настраиваемый, очень гибкий и хорошо документированный.
+
+
+
+https://www.youtube.com/watch?v=BDTf2X2ADIM
+https://www.youtube.com/watch?v=NeD4HLUrK70
+
+
+https://www.youtube.com/results?search_query=how+add+template+to+themeforest

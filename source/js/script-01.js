@@ -60,7 +60,6 @@ function preloader() {
         )
     }
 }
-
 /* ======== END - 1. Preloader ====================================================================================== */
 
 
@@ -77,7 +76,6 @@ function GetSizeElement() {
     // this.compositionCapsuleW = compositionCapsule.clientWidth
     // this.compositionCapsuleH = compositionCapsule.clientHeight
 }
-
 /* ======== END - 2. Get element sizes ============================================================================== */
 
 

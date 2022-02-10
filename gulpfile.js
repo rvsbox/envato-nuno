@@ -30,7 +30,7 @@ function myServer() {
 const srcPath = 'source/'
 const buildAlpha = 'build/alpha/'                  // alpha
 const buildAlphaClear = 'build/alpha-clear/'       // alpha-clear
-const buildPathBeta = 'build/beta/'                // beta
+const buildBeta = 'build/beta/'                    // beta
 
 const pathAlpha = {
     build: {
@@ -70,13 +70,13 @@ const pathAlphaClear = {
 
 const pathBeta = {
     build: {
-        html: buildPathBeta,
-        js: buildPathBeta + 'js/',
-        css: buildPathBeta + 'css/',
-        images: buildPathBeta + 'images/',
-        font: buildPathBeta + 'fonts/'
+        html: buildBeta,
+        js: buildBeta + 'assets/js/',
+        css: buildBeta + 'assets/css/',
+        images: buildBeta + 'assets/images/',
+        font: buildBeta + 'assets/fonts/'
     },
-    clear: './' + buildPathBeta
+    clear: './' + buildBeta
 }
 /* ======== END - Настройка путей =================================================================================== */
 
@@ -94,6 +94,7 @@ function myJs() {
         .pipe(strip({ignore: /\/\*[\s\S]*?\*\//g})) // удалить комметарии, но исключить многострочные комментарии
         .pipe(dest(pathAlpha.build.js))             // alpha
         .pipe(dest(pathAlphaClear.build.js))        // alpha-clear
+        .pipe(dest(pathBeta.build.js))              // beta
 
         // получить второй минимизированный файл
         .pipe(sourcemaps.init())
@@ -104,6 +105,7 @@ function myJs() {
         .pipe(sourcemaps.write())
         .pipe(dest(pathAlpha.build.js))             // alpha
         .pipe(dest(pathAlphaClear.build.js))        // alpha-clear
+        .pipe(dest(pathBeta.build.js))              // beta
         .pipe(browserSync.stream())
 }
 
@@ -114,13 +116,14 @@ function myLibJs() {
     ])
         .pipe(dest(pathAlpha.build.js))              // alpha
         .pipe(dest(pathAlphaClear.build.js))         // alpha-clear
+        .pipe(dest(pathBeta.build.js))               // beta
         .pipe(browserSync.reload({stream: true}))
 }
 /* ======== END - JavaScript ======================================================================================== */
 
 
 /* ======== START - CSS ============================================================================================= */
-function myCss() {
+function myCssAlpha() {
     return src('source/scss/alpha-main.scss')
         .pipe(plumber())
 
@@ -145,6 +148,31 @@ function myCss() {
         .pipe(browserSync.stream())
 }
 
+function myCssBeta() {
+    return src('source/scss/beta-main.scss')
+        .pipe(plumber())
+
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(concat('main.css'))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 10 versions'],
+            grid: true
+        }))
+        .pipe(dest(pathBeta.build.css))            // beta
+        // .pipe(dest(pathBetaClear.build.css))    // beta-clear
+
+        // получить второй минимизированный файл
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(dest(pathBeta.build.css))           // beta
+        // .pipe(dest(pathBetaClear.build.css))   // beta-clear
+        .pipe(browserSync.stream())
+}
+
 // для сборки scss файла. Файл чисто для клиента
 function myScss() {
     return src([
@@ -166,6 +194,7 @@ function myLibCss() {
     ])
         .pipe(dest(pathAlpha.build.css))           // alpha
         .pipe(dest(pathAlphaClear.build.css))      // alpha-clear
+        .pipe(dest(pathBeta.build.css))            // beta
         .pipe(browserSync.reload({stream: true}))
 }
 /* ======== END - CSS =============================================================================================== */
@@ -201,6 +230,21 @@ function myHtmlAlphaClear() {
         .pipe(dest(pathAlphaClear.build.html))      // alpha-clear
         .pipe(browserSync.reload({stream: true}))
 }
+
+function myHtmlBeta() {
+    panini.refresh();
+    return src('source/layout/page--beta/**/*.html')
+        .pipe(plumber())
+        .pipe(panini({
+            root: srcPath + '/',
+            layouts: srcPath + 'layout/layout/',
+            partials: srcPath + 'layout/partial/',
+            helpers: srcPath + 'layout/helpers/',
+            data: srcPath + 'layout/data/'
+        }))
+        .pipe(dest(pathBeta.build.html))             // beta
+        .pipe(browserSync.reload({stream: true}))
+}
 /* ======== END - HTML ============================================================================================== */
 
 
@@ -215,6 +259,7 @@ function myFont() {
     ])
         .pipe(dest(pathAlpha.build.font))         // alpha
         .pipe(dest(pathAlphaClear.build.font))    // alpha-clear
+        .pipe(dest(pathBeta.build.font))          // beta
         .pipe(browserSync.reload({stream: true}))
 }
 /* ======== END - Font ============================================================================================== */
@@ -228,6 +273,7 @@ function myImages() {
         'source/img/**/*.svg',
     ])
         .pipe(dest(pathAlpha.build.images))       // alpha
+        .pipe(dest(pathBeta.build.images))        // beta
         .pipe(browserSync.reload({stream: true}))
 }
 
@@ -255,10 +301,12 @@ function myClear() {
 }
 
 function myWatch() {
-    watch([pathAlpha.watch.scss], myCss)
+    watch([pathAlpha.watch.scss], myCssAlpha)
+    watch([pathAlpha.watch.scss], myCssBeta)
     // watch([pathAlpha.watch.scss], myScss)
     watch([pathAlpha.watch.js], myJs)
     watch([pathAlpha.watch.html], myHtml)
+    watch([pathAlpha.watch.html], myHtmlBeta)
     watch([pathAlpha.watch.html], myHtmlAlphaClear)
     watch([pathAlpha.watch.font], myFont)
     watch([pathAlpha.watch.images], myImages)
@@ -270,25 +318,29 @@ function myWatch() {
 /* ======== END - Universal Functions =============================================================================== */
 
 
-exports.myServer = myServer                       // > yarn gulp myServer
-exports.myCss = myCss                             // > yarn gulp myCss
-exports.myScss = myScss                           // > yarn gulp myScss
-exports.myHtml = myHtml                           // > yarn gulp myHtml
+exports.myServer = myServer                           // > yarn gulp myServer
+exports.myCssAlpha = myCssAlpha                       // > yarn gulp myCssAlpha
+exports.myCssBeta = myCssBeta
+exports.myScss = myScss                               // > yarn gulp myScss
+exports.myHtml = myHtml                               // > yarn gulp myHtml
+exports.myHtmlBeta = myHtmlBeta
 exports.myHtmlAlphaClear = myHtmlAlphaClear
-exports.myClear = myClear                         // > yarn gulp myClear
-exports.myFont = myFont                           // > yarn gulp myFont
-exports.myImages = myImages                       // > yarn gulp myImages
+exports.myClear = myClear                             // > yarn gulp myClear
+exports.myFont = myFont                               // > yarn gulp myFont
+exports.myImages = myImages                           // > yarn gulp myImages
 exports.myImagesAlphaClear = myImagesAlphaClear
-exports.myLibCss = myLibCss                       // > yarn gulp myLibCss
-exports.myLibJs = myLibJs                         // > yarn gulp myLibJso
-exports.myJs = myJs                               // > yarn gulp myJs
+exports.myLibCss = myLibCss                           // > yarn gulp myLibCss
+exports.myLibJs = myLibJs                             // > yarn gulp myLibJso
+exports.myJs = myJs                                   // > yarn gulp myJs
 
 exports.build = series(
     myClear,
     myJs,
-    myCss,
+    myCssAlpha,
+    myCssBeta,
     myScss,
     myHtml,
+    myHtmlBeta,
     myHtmlAlphaClear,
     myFont,
     myImages,
@@ -300,9 +352,11 @@ exports.build = series(
 exports.default = parallel(
     myServer,
     myJs,
-    myCss,
+    myCssAlpha,
+    myCssBeta,
     myScss,
     myHtml,
+    myHtmlBeta,
     myHtmlAlphaClear,
     myFont,
     myImages,

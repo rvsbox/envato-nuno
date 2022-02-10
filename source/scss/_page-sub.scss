@@ -16,7 +16,7 @@
     > h2 {
         font-family: "Poppins Bold", serif;
         font-size: 24px;
-        color: var(--color-5);
+        color: var(--fn-4);
     }
 }
 
@@ -28,7 +28,7 @@
         font-family: "Poppins Regular", serif;
         font-size: 14px;
         line-height: 24px;
-        color: var(--color-6);
+        color: var(--fn-2);
     }
 }
 
@@ -99,7 +99,7 @@
     display: block;
     font-family: "Poppins Bold", serif;
     font-size: 38px;
-    color: var(--color-4);
+    color: var(--fn-1);
 }
 
 @media (max-width: 992px) {

@@ -10,7 +10,7 @@
     margin: 0 0 6px 18px;
     padding: 0;
     display: block;
-    color: var(--color-4);
+    color: var(--fn-1);
 
     > p {
         margin: 0;
@@ -29,8 +29,8 @@
     z-index: 20;
     border-radius: 10px;
     padding: 12px 22px 10px 22px;
-    background-color: var(--color-4);
-    color: var(--color-1);
+    background-color: var(--bg-2);
+    color: var(--fn-3);
 
     > h1 {
         margin: 0;
@@ -56,7 +56,7 @@
     position: absolute;
     z-index: 10;
     border-radius: 10px;
-    border: solid 3px var(--color-3);
+    border: solid 3px var(--br-4);
 }
 
 .section-title--indent {
@@ -76,7 +76,7 @@
         display: block;
         font-family: "Poppins Bold", serif;
         font-size: 24px;
-        color: var(--color-5);
+        color: var(--fn-4);
     }
 }
 
@@ -106,14 +106,14 @@
 .path__item {
     font-family: "Poppins Regular", serif;
     font-size: 14px;
-    color: var(--color-4);
+    color: var(--fn-1);
 
 
     > a {
         font-family: "Poppins SemiBold", serif;
         font-size: 14px;
         text-decoration: none;
-        color: var(--color-4);
+        color: var(--fn-1);
     }
 
     &:nth-child(n+2):before {
@@ -125,7 +125,7 @@
 .path-hr {
     margin: 348px 0 0 0;
     position: absolute;
-    border-color: var(--color-4);
+    border-color: var(--br-1);
     border-style: solid;
     width: 100%;
 }
@@ -133,7 +133,7 @@
 .path-hr-2 {
     margin: 184px 0 0 0;
     position: absolute;
-    border-color: var(--color-4);
+    border-color: var(--br-1);
     border-style: solid;
     width: 100%;
 }
@@ -164,18 +164,18 @@
 }
 
 .btn-icon--light {
-    color: var(--color-1);
+    color: var(--fn-3);
 
     &:hover {
-        color: var(--color-6);
+        color: var(--fn-2);
     }
 }
 
 .btn-icon--dark {
-    color: var(--color-4);
+    color: var(--fn-1);
 
     &:hover {
-        color: var(--color-6);
+        color: var(--fn-2);
     }
 }
 // ======== END - .btn-icon (.nav-right) ===============================================================================
@@ -185,15 +185,15 @@
 .btn-full {
     padding: 10px 20px;
     border-width: 0;
-    background-color: var(--color-4);
+    background-color: var(--bg-2);
     border-radius: 10px;
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
-    color: var(--color-1);
+    color: var(--fn-3);
     transition: background-color 0.3s linear;
 
     &:hover {
-        background-color: var(--color-5);
+        background-color: var(--bg-4);
     }
 }
 // ======== END - .btn-full ============================================================================================
@@ -202,21 +202,21 @@
 // ======== START - .btn-light =========================================================================================
 .btn-light {
     padding: 8px 20px;
-    border: var(--color-4) solid 2px;
+    border: var(--br-1) solid 2px;
     border-radius: 10px;
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
-    color: var(--color-4);
+    color: var(--fn-1);
     transition: color 0.3s linear, border-color 0.3s linear;
 
     &:hover {
-        color: var(--color-5);
-        border-color: var(--color-5);
+        color: var(--fn-4);
+        border-color: var(--br-5);
     }
 
     &:active {
-        color: var(--color-4);
-        border-color: var(--color-4);
+        color: var(--fn-1);
+        border-color: var(--br-1);
     }
 }
 // ======== END - .btn-light ===========================================================================================
@@ -230,16 +230,16 @@
     font-family: "Poppins Bold", serif;
     font-size: 14px;
     transition: color 0.3s linear;
-    color: var(--color-5);
+    color: var(--fn-4);
     background-color: transparent;
     border: none;
 
     &:hover {
-        color: var(--color-6);
+        color: var(--fn-2);
         text-decoration: none;
 
         > span {
-            color: var(--color-6);
+            color: var(--fn-2);
             animation-name: lnord;
             animation-duration: 0.7s;
             animation-iteration-count: infinite;
@@ -253,7 +253,7 @@
         position: absolute;
         display: inline-block;
         font-size: 15px;
-        color: var(--color-5);
+        color: var(--fn-4);
     }
 
     @keyframes lnord {
@@ -273,17 +273,17 @@
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
     transition: color 0.3s linear;
-    color: var(--color-4);
+    color: var(--fn-1);
     background-color: transparent;
     border: none;
 
     &:hover {
-        color: var(--color-6);
+        color: var(--fn-2);
     }
 }
 
 .btn-filter--active {
-    color: var(--color-6);
+    color: var(--fn-2);
     border: none;
     outline: none;
 }
@@ -297,11 +297,11 @@
     display: block;
     font-family: "Poppins SemiBold", serif;
     font-size: 14px;
-    color: var(--color-4);
+    color: var(--fn-1);
 }
 
 .copyright--white {
-    color: var(--color-1);
+    color: var(--fn-3);
 }
 
 .social-link {
@@ -326,7 +326,7 @@
     > span {
         margin: 0;
         padding: 0;
-        color: var(--color-4);
+        color: var(--fn-1);
         font-size: 24px;
     }
 
@@ -334,7 +334,7 @@
         text-decoration: none;
 
         > span {
-            color: var(--color-5);
+            color: var(--fn-4);
         }
     }
 }
@@ -343,7 +343,7 @@
     > span {
         margin: 0;
         padding: 0;
-        color: var(--color-1);
+        color: var(--fn-3);
         font-size: 24px;
     }
 }
@@ -363,8 +363,8 @@
         width: 50px;
         height: 12px;
         display: block;
-        border: solid 2px var(--color-4);
-        background: var(--color-1);
+        border: solid 2px var(--br-1);
+        background: var(--bg-3);
         border-radius: 6px;
     }
 
@@ -375,7 +375,7 @@
 
 .active {
     > button {
-        background: var(--color-4);
+        background: var(--bg-2);
     }
 }
 /* ======== END - Owl Carousel ====================================================================================== */
@@ -388,7 +388,7 @@
     width: 100%;
     position: fixed;
     display: flex;
-    background-color: var(--color-2);
+    background-color: var(--bg-1);
     z-index: 300;
 }
 
@@ -462,12 +462,12 @@
     border-radius:50%
 }
 .mk-spinner-ripple:before{
-    background:var(--color-4);
+    background:var(--bg-2);
     -webkit-animation:a 1s infinite .5s;
     animation:a 1s infinite .5s
 }
 .mk-spinner-ripple:after{
-    background:var(--color-1);
+    background:var(--bg-3);
     z-index:0;
     -webkit-transform:scale(3);
     transform:scale(3);

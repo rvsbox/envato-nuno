@@ -145,7 +145,6 @@ function setPositionComposition() {
     }
 }
 
-
 if (composition !== null) {
     setPositionComposition()
     setPositionCompositionEvent()
@@ -173,7 +172,6 @@ function changeHeaderRun() {
         window.addEventListener('scroll', changeHeader) // срабатывание при скролле
     }
 }
-
 /* ======== END - 4. Fixing the header when scrolling (#header) ===================================================== */
 
 

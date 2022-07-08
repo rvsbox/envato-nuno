@@ -7,13 +7,14 @@
         "gulp-concat": "^2.6.1",
         "gulp-plumber": "^1.2.1",
         "gulp-rename": "^2.0.0",
-        "gulp-sass": "^4.1.0",
+        "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "3.0.0",
         "gulp-strip-comments": "^2.5.2",
         "gulp-uglify-es": "^2.0.0",
         "panini": "^1.7.1"
     },
     "dependencies": {
-        "nvm": "^0.0.4"
+        "nvm": "^0.0.4",
+        "sass": "^1.53.0"
     }
 }
